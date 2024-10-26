@@ -5,18 +5,20 @@ main {
     @include flex;
     flex-direction: column;
     gap: 2em;
-    animation: 5s lightBg ease-out forwards;
     padding-bottom: 3em;
 }
 
-@keyframes lightBg {
-    $base-color1: hsl(41, 66%, 21%);
+nav,
+footer {
+    background-color: var(--color-primary1);
+}
 
-    0% {
-        background-color: #{lighten($base-color1, 30%)};
-    }
+main {
+    background-color: var(--color-secondary1);
 
-    100% {
-        background-color: #{lighten($base-color1, 5%)};
+    h1 {
+        font-size: 40px;
+        margin: 1em 0;
+        animation: 1500ms slideDown ease-out forwards;
     }
 }

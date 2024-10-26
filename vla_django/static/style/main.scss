@@ -12,12 +12,17 @@
     scroll-behavior: smooth;
 }
 
+html {
+    @include flexcolumn;
+    gap: 0;
+}
+
 #app {
     min-height: 100vh;
 }
 
 body {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary1);
     @include flex;
     flex-direction: column;
 
@@ -27,7 +32,7 @@ body {
 }
 
 main {
-    min-height: calc(100vh - 2 * var(--height) + 4px);
+    min-height: calc(100vh - 2 * var(--height) - 2.75em);
 
     h1 {
         text-align: center;
@@ -66,7 +71,7 @@ main {
 nav,
 footer {
     z-index: 10;
-    background-color: var(--color-primary);
+    background-color: var(--color-primary1);
     position: sticky;
     color: white;
     height: var(--height);
@@ -120,20 +125,25 @@ nav {
 }
 
 #mainLogo {
-    width: auto;
+    text-decoration: none;
+    width: 150px;
     z-index: 12;
-    position: fixed;
+    @include flex;
+    justify-content: center;
+    gap: 1em;
     $side: 1em;
-    top: $side;
+    position: fixed;
     left: $side;
+    top: $side;
 
-    @media (width<768px) {
+    @media (width<=768px) {
         display: none;
     }
 
     img {
-        width: 7em;
+        width: 70%;
     }
+
 }
 
 #menuBtn {
@@ -161,7 +171,7 @@ nav {
     @include flex;
     justify-content: space-between;
     height: var(--height);
-    background-color: var(--color-primary);
+    background-color: var(--color-primary1);
 
     @media (width>768px) {
         display: none;
@@ -538,6 +548,21 @@ footer {
     }
 }
 
+.slideDown {
+    animation: slideDown 800ms;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-6vw);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .white-neon {
     @include white-neon;
 }
@@ -594,11 +619,11 @@ footer {
             box-shadow: 4px 4px 5px grey;
 
             &:nth-child(even) {
-                background-color: var(--color-tertiary);
+                background-color: var(--color-tertiary1);
             }
 
             &:nth-child(odd) {
-                background-color: var(--color-senary);
+                background-color: var(--color-senary1);
             }
         }
     }
@@ -733,7 +758,7 @@ footer {
     text-align: center;
     margin: 2em 0;
     font-size: 50px;
-    color: var(--color-primary);
+    color: var(--color-primary1);
     @include little-white-neon;
     transition: 300ms all ease;
 

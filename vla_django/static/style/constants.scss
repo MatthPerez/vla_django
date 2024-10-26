@@ -22,21 +22,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
-$base-color1: hsl(41, 66%, 21%);
-$base-color2: hsl(130, 66%, 21%);
-$base-color3: hsl(236, 37%, 45%);
+$base-color1: #1D2D44;
+$base-color2: #7D1128;
+$base-color3: #05668D;
 $responsive: 768px;
 
 :root {
     --height: 4em;
     --padding: 1em;
 
-    --color-primary: #{lighten($base-color1, 0%)};
-    --color-secondary: #{lighten($base-color1, 15%)};
-    --color-tertiary:#{lighten($base-color1, 30%)};
-    --color-quaternary:#{lighten($base-color1, 45%)};
-    --color-quinary:#{lighten($base-color1, 60%)};
-    --color-senary: #800000;
+    --color-primary1: #{lighten($base-color1, 0%)};
+    --color-secondary1: #{lighten($base-color1, 15%)};
+    --color-tertiary1:#{lighten($base-color1, 30%)};
+    --color-quaternary1:#{lighten($base-color1, 45%)};
+    --color-quinary1:#{lighten($base-color1, 60%)};
+    --color-senary1: #800000;
 
     --color-primary2: #{lighten($base-color2, 0%)};
     --color-secondary2: #{lighten($base-color2, 15%)};

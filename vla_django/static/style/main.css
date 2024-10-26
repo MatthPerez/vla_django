@@ -24,22 +24,22 @@
 :root {
   --height: 4em;
   --padding: 1em;
-  --color-primary: #594312;
-  --color-secondary: #98721f;
-  --color-tertiary:#d5a030;
-  --color-quaternary:#e2bd6f;
-  --color-quinary:#efdaaf;
-  --color-senary: #800000;
-  --color-primary2: #12591e;
-  --color-secondary2: #1f9833;
-  --color-tertiary2:#30d54b;
-  --color-quaternary2:#6fe282;
-  --color-quinary2:#afefb9;
-  --color-primary3: #484e9d;
-  --color-secondary3: #7378bf;
-  --color-tertiary3:#a8abd7;
-  --color-quaternary3:#dcddef;
-  --color-quinary3:white;
+  --color-primary1: #1d2d44;
+  --color-secondary1: #34507a;
+  --color-tertiary1:#4b74af;
+  --color-quaternary1:#7e9dc8;
+  --color-quinary1:#b4c6df;
+  --color-senary1: #800000;
+  --color-primary2: #7d1128;
+  --color-secondary2: #c01a3e;
+  --color-tertiary2:#e54265;
+  --color-quaternary2:#ee859c;
+  --color-quinary2:#f8c8d2;
+  --color-primary3: #05668d;
+  --color-secondary3: #089bd7;
+  --color-tertiary3:#33bff8;
+  --color-quaternary3:#7dd6fa;
+  --color-quinary3:#c7eefd;
   --hover: #ffcc7e;
   --active: #fca626;
   --smallActive: red;
@@ -76,12 +76,19 @@
   scroll-behavior: smooth;
 }
 
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
 #app {
   min-height: 100vh;
 }
 
 body {
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary1);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -94,7 +101,7 @@ body {
 }
 
 main {
-  min-height: calc(100vh - 2 * var(--height) + 4px);
+  min-height: calc(100vh - 2 * var(--height) - 2.75em);
 }
 main h1 {
   text-align: center;
@@ -131,7 +138,7 @@ main section p {
 nav,
 footer {
   z-index: 10;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary1);
   position: sticky;
   color: white;
   height: var(--height);
@@ -185,19 +192,25 @@ nav a:hover {
 }
 
 #mainLogo {
-  width: auto;
+  text-decoration: none;
+  width: 150px;
   z-index: 12;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
   position: fixed;
-  top: 1em;
   left: 1em;
+  top: 1em;
 }
-@media (width < 768px) {
+@media (width <= 768px) {
   #mainLogo {
     display: none;
   }
 }
 #mainLogo img {
-  width: 7em;
+  width: 70%;
 }
 
 #menuBtn {
@@ -225,7 +238,7 @@ nav a:hover {
   align-items: center;
   justify-content: space-between;
   height: var(--height);
-  background-color: var(--color-primary);
+  background-color: var(--color-primary1);
 }
 @media (width > 768px) {
   #logo {
@@ -6168,6 +6181,19 @@ footer a {
     opacity: 1;
   }
 }
+.slideDown {
+  animation: slideDown 800ms;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6vw);
+  }
+  to {
+    opacity: 1;
+  }
+}
 .white-neon {
   text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
 }
@@ -6228,10 +6254,10 @@ footer a {
   box-shadow: 4px 4px 5px grey;
 }
 .marquee__content a:nth-child(even) {
-  background-color: var(--color-tertiary);
+  background-color: var(--color-tertiary1);
 }
 .marquee__content a:nth-child(odd) {
-  background-color: var(--color-senary);
+  background-color: var(--color-senary1);
 }
 
 @keyframes marquee {
@@ -6341,7 +6367,7 @@ footer a {
   text-align: center;
   margin: 2em 0;
   font-size: 50px;
-  color: var(--color-primary);
+  color: var(--color-primary1);
   text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 30px white;
   transition: 300ms all ease;
 }
