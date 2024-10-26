@@ -1,0 +1,15 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+nav,
+footer {
+    background-color: var(--color-primary2);
+}
+
+main {
+    background-color: var(--color-secondary2);
+    @include flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-bottom: 3em;
+}

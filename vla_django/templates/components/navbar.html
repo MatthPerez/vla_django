@@ -5,7 +5,7 @@
 </a>
 
 <nav>
-    {% comment %} <a href="/web/" class="{% if '/web/' in request.path %}active{% endif %}">Web</a> {% endcomment %}
+    <a href="/vcm/" class="{% if '/vcm/' in request.path %}active{% endif %}">VCM</a>
 </nav>
 
 <div id="logo">
@@ -22,4 +22,5 @@
 
 <div id="menu">
     <a href="/" class="{% if request.path == "/" %}smallActive{% endif %}">ACCUEIL</a>
+    <a href="/vcm/" class="{% if '/vcm/' in request.path %}smallActive{% endif %}">VCM</a>
 </div>
