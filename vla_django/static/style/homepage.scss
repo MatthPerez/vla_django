@@ -1,0 +1,22 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+main {
+    @include flex;
+    flex-direction: column;
+    gap: 2em;
+    animation: 5s lightBg ease-out forwards;
+    padding-bottom: 3em;
+}
+
+@keyframes lightBg {
+    $base-color1: hsl(41, 66%, 21%);
+
+    0% {
+        background-color: #{lighten($base-color1, 30%)};
+    }
+
+    100% {
+        background-color: #{lighten($base-color1, 5%)};
+    }
+}

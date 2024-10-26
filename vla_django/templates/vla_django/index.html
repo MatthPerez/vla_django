@@ -1,0 +1,20 @@
+{% extends 'vla_django/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/homepage.css' %}">
+{% endblock %}
+
+{% block script_js %}
+<script src="{% static 'js/homepage.js' %}"></script>
+{% endblock %}  
+
+{% block title %}VLA | Accueil{% endblock %}
+
+{% block content %}
+<main>
+  <section>
+    <h1>VLA</h1>
+</main>
+{% endblock %}

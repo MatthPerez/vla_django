@@ -1,0 +1,25 @@
+{% load static %}
+
+<a href="/" id="mainLogo">
+    <img src="{% static 'icons/favicon.ico' %}" alt="logo">
+</a>
+
+<nav>
+    {% comment %} <a href="/web/" class="{% if '/web/' in request.path %}active{% endif %}">Web</a> {% endcomment %}
+</nav>
+
+<div id="logo">
+    <div>
+        <a href="/">VLA</a>
+        <img src="{% static 'icons/favicon.ico' %}" alt="logo">
+    </div>
+    <div>
+        <img src="{% static 'icons/line.png' %}" alt="line1">
+        <img src="{% static 'icons/line.png' %}" alt="line2">
+        <img src="{% static 'icons/line.png' %}" alt="line3">
+    </div>
+</div>
+
+<div id="menu">
+    <a href="/" class="{% if request.path == "/" %}smallActive{% endif %}">ACCUEIL</a>
+</div>
