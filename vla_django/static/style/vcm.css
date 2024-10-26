@@ -100,6 +100,7 @@ main > section article {
   align-items: center;
   gap: 0.5em;
   font-family: var(--poppins);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .meeting div {
@@ -116,9 +117,16 @@ main > section article {
   text-align: right;
 }
 .meeting h2 {
-  font-size: 20px;
+  width: 90%;
+  font-size: 25px;
+  text-transform: uppercase;
   margin-top: 2em;
   color: var(--color-primary1);
+  border: 1px solid black;
+  padding: 1em 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 .meeting h3 {
   font-size: 18px;

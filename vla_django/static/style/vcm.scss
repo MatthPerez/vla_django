@@ -27,6 +27,7 @@ main {
             @include flexcolumn;
             gap: .5em;
             font-family: var(--poppins);
+            box-shadow: 4px 4px 5px rgba(black, .5);
         }
     }
 }
@@ -49,9 +50,16 @@ main {
     }
 
     h2 {
-        font-size: 20px;
+        width: 90%;
+        font-size: 25px;
+        text-transform: uppercase;
         margin-top: 2em;
         color: var(--color-primary1);
+        @include border;
+        padding: 1em 0;
+        text-align: center;
+        background-color: rgba(white, .2);
+        box-shadow: 4px 4px 5px rgba(black, .5);
     }
 
     h3 {
