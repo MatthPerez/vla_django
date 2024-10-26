@@ -1,6 +1,10 @@
 @import 'mixins.scss';
 @import 'constants.scss';
 
+:root {
+    --space: 3em;
+}
+
 nav,
 footer {
     background-color: var(--color-primary2);
@@ -12,4 +16,93 @@ main {
     flex-direction: column;
     gap: 2em;
     padding-bottom: 3em;
+
+    >section {
+        @include flexcolumn;
+        gap: 1em;
+
+        article {
+            background-color: var(--color-tertiary2);
+            padding: 1em;
+            @include flexcolumn;
+            gap: .5em;
+            font-family: var(--poppins);
+        }
+    }
+}
+
+.meeting {
+    div {
+        @include flex;
+        justify-content: space-between;
+        text-align: center;
+
+        span {
+            &:first-child {
+                text-align: left;
+            }
+
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-top: 2em;
+        color: var(--color-primary1);
+    }
+
+    h3 {
+        font-size: 18px;
+        margin: .5em 0;
+        color: var(--color-primary2);
+        text-indent: 1em;
+    }
+
+    h2,
+    h3 {
+        letter-spacing: 3px;
+    }
+}
+
+.president {
+    span {
+        &:first-child {
+            font-weight: bold;
+            font-size: 22px;
+        }
+    }
+}
+
+.prayer {
+    font-weight: 600;
+}
+
+.song {
+    color: #7d1d7d;
+    margin: 1em 0;
+}
+
+.jewels {
+    margin-top: var(--space);
+}
+
+.vcm {
+    width: 100%;
+    @include flexcolumn;
+    gap: .5em;
+}
+
+.allocution,
+.vcm div,
+.eba {
+    width: clamp(250px, 80%, 700px);
+
+    span {
+        &:last-child {
+            white-space: nowrap;
+        }
+    }
 }

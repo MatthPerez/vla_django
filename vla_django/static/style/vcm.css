@@ -30,11 +30,11 @@
   --color-quaternary1:#7e9dc8;
   --color-quinary1:#b4c6df;
   --color-senary1: #800000;
-  --color-primary2: #7d1128;
-  --color-secondary2: #c01a3e;
-  --color-tertiary2:#e54265;
-  --color-quaternary2:#ee859c;
-  --color-quinary2:#f8c8d2;
+  --color-primary2: #935c25;
+  --color-secondary2: #cd8238;
+  --color-tertiary2:#dca975;
+  --color-quaternary2:#eccfb2;
+  --color-quinary2:#fbf5ef;
   --color-primary3: #05668d;
   --color-secondary3: #089bd7;
   --color-tertiary3:#33bff8;
@@ -68,6 +68,10 @@
   --sacramento: "Sacramento", cursive;
 }
 
+:root {
+  --space: 3em;
+}
+
 nav,
 footer {
   background-color: var(--color-primary2);
@@ -81,4 +85,85 @@ main {
   flex-direction: column;
   gap: 2em;
   padding-bottom: 3em;
+}
+main > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+main > section article {
+  background-color: var(--color-tertiary2);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--poppins);
+}
+
+.meeting div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+.meeting div span:first-child {
+  text-align: left;
+}
+.meeting div span:last-child {
+  text-align: right;
+}
+.meeting h2 {
+  font-size: 20px;
+  margin-top: 2em;
+  color: var(--color-primary1);
+}
+.meeting h3 {
+  font-size: 18px;
+  margin: 0.5em 0;
+  color: var(--color-primary2);
+  text-indent: 1em;
+}
+.meeting h2,
+.meeting h3 {
+  letter-spacing: 3px;
+}
+
+.president span:first-child {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.prayer {
+  font-weight: 600;
+}
+
+.song {
+  color: #7d1d7d;
+  margin: 1em 0;
+}
+
+.jewels {
+  margin-top: var(--space);
+}
+
+.vcm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.allocution,
+.vcm div,
+.eba {
+  width: clamp(250px, 80%, 700px);
+}
+.allocution span:last-child,
+.vcm div span:last-child,
+.eba span:last-child {
+  white-space: nowrap;
 }/*# sourceMappingURL=vcm.css.map */
