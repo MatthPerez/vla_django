@@ -19,7 +19,7 @@ main {
 
     >section {
         @include flexcolumn;
-        gap: 1em;
+        gap: 2em;
 
         h1 {
             @include white-neon;
@@ -99,6 +99,17 @@ main {
 
 .jewels {
     margin-top: var(--space);
+
+    span {
+        &:first-child {
+            white-space: nowrap;
+        }
+    }
+}
+
+.jewels,
+.pearls {
+    width: clamp(250px, 80%, 700px);
 }
 
 .vcm {
@@ -115,6 +126,32 @@ main {
     span {
         &:last-child {
             white-space: nowrap;
+        }
+    }
+}
+
+.welcome,
+.sono {
+    width: 80%;
+    padding: 2em 0;
+    @include flexcolumn;
+    gap: 1em;
+
+    h3 {
+        font-size: 24px;
+        text-indent: 5em;
+    }
+
+    div {
+        width: clamp(250px, 80%, 700px);
+        @include flex;
+        justify-content: flex-start;
+        gap: 3em;
+
+        span {
+            &:first-child {
+                width: 100px;
+            }
         }
     }
 }
