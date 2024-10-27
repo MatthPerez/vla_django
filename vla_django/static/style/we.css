@@ -68,7 +68,17 @@
   --sacramento: "Sacramento", cursive;
 }
 
+:root {
+  --space: 3em;
+}
+
+nav,
+footer {
+  background-color: var(--color-primary3);
+}
+
 main {
+  background-color: var(--color-secondary3);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,15 +86,22 @@ main {
   gap: 2em;
   padding-bottom: 3em;
 }
-
-nav,
-footer {
-  background-color: var(--color-primary1);
-}
-
-main {
-  background-color: var(--color-secondary1);
-}
-main section h1 {
+main h1 {
   text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
-}/*# sourceMappingURL=homepage.css.map */
+}
+main > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+main > section article {
+  background-color: var(--color-tertiary3);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--poppins);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+}/*# sourceMappingURL=we.css.map */

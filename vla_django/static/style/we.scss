@@ -1,0 +1,37 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+:root {
+    --space: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary3);
+}
+
+main {
+    background-color: var(--color-secondary3);
+    @include flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-bottom: 3em;
+
+    h1 {
+        @include white-neon;
+    }
+
+    >section {
+        @include flexcolumn;
+        gap: 1em;
+
+        article {
+            background-color: var(--color-tertiary3);
+            padding: 1em;
+            @include flexcolumn;
+            gap: .5em;
+            font-family: var(--poppins);
+            box-shadow: 4px 4px 5px rgba(black, .5);
+        }
+    }
+}

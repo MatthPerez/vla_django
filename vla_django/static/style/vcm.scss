@@ -21,6 +21,10 @@ main {
         @include flexcolumn;
         gap: 1em;
 
+        h1 {
+            @include white-neon;
+        }
+
         article {
             background-color: var(--color-tertiary2);
             padding: 1em;

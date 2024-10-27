@@ -9,5 +9,6 @@ urlpatterns = [
     path("", index, name="index"),
     path("infos/", include("infos.urls")),
     path("vcm/", include("vcm.urls")),
+    path("we/", include("we.urls")),
     # path("vcm/<str:slug>/", vcm, name="vcm"),
 ]

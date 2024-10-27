@@ -15,4 +15,10 @@ footer {
 
 main {
     background-color: var(--color-secondary1);
+
+    section {
+        h1 {
+            @include white-neon;
+        }
+    }
 }
