@@ -17,10 +17,6 @@ main {
     gap: 2em;
     padding-bottom: 3em;
 
-    h1 {
-        @include white-neon;
-    }
-
     >section {
         @include flexcolumn;
         gap: 1em;

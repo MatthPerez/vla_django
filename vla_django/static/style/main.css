@@ -108,6 +108,7 @@ main h1 {
   font-size: 40px;
   margin: 1em 0;
   animation: 1500ms slideDown ease-out forwards;
+  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
 }
 main section {
   width: clamp(300px, 90%, 800px);
@@ -241,7 +242,7 @@ nav a:hover {
   align-items: center;
   justify-content: space-between;
   height: var(--height);
-  background-color: var(--color-primary1);
+  background-color: black;
 }
 @media (width > 768px) {
   #logo {
