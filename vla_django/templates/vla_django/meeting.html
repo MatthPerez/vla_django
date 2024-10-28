@@ -3,21 +3,21 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/vcm.css' %}">
+<link rel="stylesheet" href="{% static 'style/vcm.css' %}" />
 {% endblock %}
 
 {% block script_js %}
 <script src="{% static 'js/vcm.js' %}"></script>
 {% endblock %}
 
-{% block title %}VLA | VCM{% endblock %}
+{% block title %}VLA | Réunions{% endblock %}
 
 {% block content %}
 <main>
-  <section>
+  <section id="week_meeting">
     <h1>Vie chrétienne et Ministère</h1>
 
-    {% for metting in WEK_MEETINGS %}
+    {% for meeting in MEETINGS %}
     <article class="meeting">
       <div class="president">
         <span>{{meeting.date}} | {{meeting.portion}}</span>
@@ -44,17 +44,21 @@
 
       <div class="allocution reading1">
         <span>3. Lecture (3 min)</span>
-        <span>{{meeting.reading1}}</span>  
+        <span>{{meeting.reading1}}</span>
       </div>
 
       <div class="allocution allocution1">
-        <span>4. {{meeting.alloc1_type}} ({{meeting.alloc1_duration]]}} min)</span>
-        <span>{{meeting.alloc1pupil_hall1}} | {{alloc1inter_hall1}}</span>  
+        <span
+          >4. {{meeting.alloc1_type}} ({{meeting.alloc1_duration]]}} min)</span
+        >
+        <span>{{meeting.alloc1pupil_hall1}} | {{alloc1inter_hall1}}</span>
       </div>
 
       <div class="allocution allocution2">
-        <span>5. {{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
-        <span>{{meeting.alloc2pupil_hall1}} | {{alloc2inter_hall1}}</span>  
+        <span
+          >5. {{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span
+        >
+        <span>{{meeting.alloc2pupil_hall1}} | {{alloc2inter_hall1}}</span>
       </div>
 
       <div class="allocution allocution3">
@@ -68,17 +72,21 @@
 
       <div class="allocution reading2">
         <span>3. Lecture (3 min)</span>
-        <span>{{meeting.reading2}}</span>  
+        <span>{{meeting.reading2}}</span>
       </div>
 
       <div class="allocution allocution1">
-        <span>4. {{meeting.alloc1_type}} ({{meeting.alloc1_duration]]}} min)</span>
-        <span>{{meeting.alloc1pupil_hall2}} | {{alloc1inter_hall2}}</span>  
+        <span
+          >4. {{meeting.alloc1_type}} ({{meeting.alloc1_duration]]}} min)</span
+        >
+        <span>{{meeting.alloc1pupil_hall2}} | {{alloc1inter_hall2}}</span>
       </div>
 
       <div class="allocution allocution2">
-        <span>5. {{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
-        <span>{{meeting.alloc2pupil_hall2}} | {{alloc2inter_hall2}}</span>  
+        <span
+          >5. {{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span
+        >
+        <span>{{meeting.alloc2pupil_hall2}} | {{alloc2inter_hall2}}</span>
       </div>
 
       <div class="allocution allocution3">
@@ -92,17 +100,21 @@
 
       <div class="allocution reading2">
         <span>3. Lecture (3 min)</span>
-        <span>{{meeting.reading3}}</span>  
+        <span>{{meeting.reading3}}</span>
       </div>
 
       <div class="allocution allocution1">
-        <span>4. {{meeting.alloc1_type}} ({{meeting.alloc1_duration]]}} min)</span>
-        <span>{{meeting.alloc1pupil_hall3}} | {{alloc1inter_hall3}}</span>  
+        <span
+          >4. {{meeting.alloc1_type}} ({{meeting.alloc1_duration]]}} min)</span
+        >
+        <span>{{meeting.alloc1pupil_hall3}} | {{alloc1inter_hall3}}</span>
       </div>
 
       <div class="allocution allocution2">
-        <span>5. {{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
-        <span>{{meeting.alloc2pupil_hall3}} | {{alloc2inter_hall3}}</span>  
+        <span
+          >5. {{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span
+        >
+        <span>{{meeting.alloc2pupil_hall3}} | {{alloc2inter_hall3}}</span>
       </div>
 
       <div class="allocution allocution3">
@@ -116,17 +128,26 @@
 
       <section class="vcm">
         <div>
-          <span>7. Vie chrétienne ({{meeting.vcm1_duration}} min) : {{meeting.vcm1}}</span>
+          <span
+            >7. Vie chrétienne ({{meeting.vcm1_duration}} min) :
+            {{meeting.vcm1}}</span
+          >
           <span>{{meeting.vcm1_title}}</span>
         </div>
 
         <div>
-          <span>7. Vie chrétienne ({{meeting.vcm2_duration}} min) : {{meeting.vcm2}}</span>
+          <span
+            >7. Vie chrétienne ({{meeting.vcm2_duration}} min) :
+            {{meeting.vcm2}}</span
+          >
           <span>{{meeting.vcm2_title}}</span>
         </div>
 
         <div>
-          <span>7. Vie chrétienne ({{meeting.vcm3_duration}} min) : {{meeting.vcm3}}</span>
+          <span
+            >7. Vie chrétienne ({{meeting.vcm3_duration}} min) :
+            {{meeting.vcm3}}</span
+          >
           <span>{{meeting.vcm3_title}}</span>
         </div>
 
@@ -140,7 +161,7 @@
           <span>{{meeting.eba_reader}}</span>
         </div>
       </section>
-        
+
       <div class="song">Cantique N°{{meeting.song3}}</div>
 
       <div class="prayer">Prière finale : {{meeting.prayer2}}</div>
@@ -152,17 +173,17 @@
 
       <div class="parking">
         <span>Parking</span>
-        <span>Eric NOWAK</span>
+        <span>{{meeting.parking}}</span>
       </div>
 
       <div class="door">
         <span>Entrée</span>
-        <span>José PEREZ</span>
+        <span>{{meeting.entrance}}</span>
       </div>
 
       <div class="inside">
         <span>Auditorium</span>
-        <span>Yann DELMAS</span>
+        <span>{{meeting.inside}}</span>
       </div>
     </article>
 
@@ -171,28 +192,37 @@
 
       <div>
         <span>Estrade</span>
-        <span>Serge BOUTET</span>
+        <span>{{meeting.podium}}</span>
       </div>
 
       <div>
         <span>Audio</span>
-        <span>Olivier FRISSON</span>
+        <span>{{meeting.sono1}}</span>
       </div>
 
       <div>
         <span>Vidéo</span>
-        <span>Valentin THELIER</span>
+        <span>{{meeting.sono2}}</span>
       </div>
 
       <div>
         <span>Perche 1</span>
-        <span>José MARTINEZ</span>
+        <span>{{meeting.mic1}}</span>
       </div>
 
       <div>
         <span>Perche 2</span>
-        <span>Cédric VEYSSIERE</span>
+        <span>{{meeting.mic1}}</span>
       </div>
     </article>
+  </section>
+
+  <section id="weekend_meeting">
+    <h1>Réunion du week-end</h1>
+
+    {% for meeting in MEETINGS %}
+
+    {%endfor%}
+  </section>
 </main>
 {% endblock %}

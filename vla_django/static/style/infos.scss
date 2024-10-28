@@ -1,0 +1,19 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+:root {
+    --space: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary3);
+}
+
+main {
+    background-color: var(--color-secondary3);
+    @include flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-bottom: 3em;
+}

@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import index
+from .views import VcmView
 
 urlpatterns = [
-    path("", index, name="vcm-index"),
+    path("", VcmView, name="vcm-index"),
 ]

@@ -103,6 +103,11 @@ body {
 main {
   min-height: calc(100vh - 2 * var(--height) - 2.75em);
 }
+@media (width <= 768px) {
+  main {
+    min-height: calc(100vh - 7em) !important;
+  }
+}
 main h1 {
   text-align: center;
   font-size: 40px;
@@ -6347,7 +6352,7 @@ footer a {
   animation: 3s extend ease-out forwards;
 }
 
-@media screen and (max-width: 768px) {
+@media (width <= 768px) {
   nav,
   footer {
     display: none;

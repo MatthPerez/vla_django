@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import index
+from .views import InfosView
 
 urlpatterns = [
-    path("", index, name="infos-index"),
+    path("", InfosView, name="infos-index"),
 ]

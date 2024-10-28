@@ -34,6 +34,10 @@ body {
 main {
     min-height: calc(100vh - 2 * var(--height) - 2.75em);
 
+    @media (width<=768px) {
+        min-height: calc(100vh - 7em) !important;
+    }
+
     h1 {
         text-align: center;
         font-size: 40px;
@@ -733,7 +737,7 @@ footer {
 
 // Responsive
 
-@media screen and (max-width: 768px) {
+@media (width<=768px) {
 
     nav,
     footer {

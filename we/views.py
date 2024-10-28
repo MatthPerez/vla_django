@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from django.views import View
 
 
-def index(request):
-    return render(
-        request,
-        "we/index.html",
-    )
+class WeView(View):
+    def get(self, request):
+        return render(
+            request,
+            "we/index.html",
+        )
