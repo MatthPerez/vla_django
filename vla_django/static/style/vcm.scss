@@ -12,24 +12,23 @@ footer {
 
 main {
     background-color: var(--color-secondary2);
-    @include flex;
-    flex-direction: column;
+    @include flexcolumn;
     gap: 2em;
     padding-bottom: 3em;
 
-    >section {
+    article {
+        background-color: var(--color-tertiary2);
+        padding: 1em;
         @include flexcolumn;
-        gap: 2em;
-
-        article {
-            background-color: var(--color-tertiary2);
-            padding: 1em;
-            @include flexcolumn;
-            gap: .5em;
-            font-family: var(--poppins);
-            box-shadow: 4px 4px 5px rgba(black, .5);
-        }
+        gap: .5em;
+        font-family: var(--poppins);
+        box-shadow: 4px 4px 5px rgba(black, .5);
     }
+}
+
+section {
+    @include flexcolumn;
+    gap: 2em;
 }
 
 .meeting {
@@ -63,10 +62,26 @@ main {
     }
 
     h3 {
-        font-size: 18px;
-        margin: .5em 0;
+        @include flex;
+        justify-content: flex-start;
+        gap: 10px;
         color: var(--color-primary2);
+        margin: .5em 0;
         text-indent: 1em;
+
+        span {
+            width: auto;
+
+            &:first-child {
+                font-size: 18px;
+            }
+
+            &:nth-child(2) {
+                font-size: 15px;
+                letter-spacing: 0;
+                font-weight: normal;
+            }
+        }
     }
 
     h2,
@@ -79,7 +94,7 @@ main {
     span {
         &:first-child {
             font-weight: bold;
-            font-size: 22px;
+            font-size: 20px;
         }
     }
 }

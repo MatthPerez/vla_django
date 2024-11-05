@@ -1,0 +1,76 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+:root {
+    --space: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary2);
+}
+
+main {
+    background-color: var(--color-secondary2);
+    @include flexcolumn;
+    gap: 2em;
+    padding-bottom: 3em;
+
+    article {
+        background-color: var(--color-tertiary2);
+        padding: 1em;
+        @include flexcolumn;
+        gap: .5em;
+        font-family: var(--poppins);
+        box-shadow: 4px 4px 5px rgba(black, .5);
+    }
+}
+
+.meeting {
+    @include flexcolumn;
+    gap: 1em;
+}
+
+.president {
+    span {
+        &:first-child {
+            font-weight: bold;
+            font-size: 22px;
+        }
+    }
+}
+
+.prayer {
+    font-weight: 600;
+}
+
+.song {
+    color: #7d1d7d;
+    margin: 1em 0;
+}
+
+.welcome,
+.sono {
+    width: 80%;
+    padding: 2em 0;
+    @include flexcolumn;
+    gap: 1em;
+
+    h3 {
+        font-size: 24px;
+        text-indent: 5em;
+    }
+
+    div {
+        width: clamp(250px, 80%, 700px);
+        @include flex;
+        justify-content: flex-start;
+        gap: 3em;
+
+        span {
+            &:first-child {
+                width: 100px;
+            }
+        }
+    }
+}

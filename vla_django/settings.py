@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     "we",
     "groups",
     "infos",
-    # "week_meetings",
+    "persons",
 ]
 
 MIDDLEWARE = [

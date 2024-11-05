@@ -1,4 +1,4 @@
-MEETINGS = [
+WEEK_MEETINGS = [
     {
         "date": "2024-10-24",
         "president": "Jacques DUMITRAN",
@@ -44,7 +44,7 @@ MEETINGS = [
         "alloc2inter_hall3": "Serge ROCHE",
         "alloc3pupil_hall3": "",
         "alloc3inter_hall3": "",
-        "alloc4pupil_hall3": "",
+        "alloc4pupilalloc1pupil_hall1_hall3": "",
         "alloc4inter_hall3": "",
         "vcm1": "Salvatore MOSCATIELLO",
         "vcm2": "",
@@ -140,3 +140,4 @@ MEETINGS = [
         "mic2": "xxxxxxxxxxxx",
     },
 ]
+

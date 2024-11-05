@@ -96,67 +96,16 @@ main article {
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
-section {
+.meeting {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em;
-}
-
-.meeting div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-}
-.meeting div span:first-child {
-  text-align: left;
-}
-.meeting div span:last-child {
-  text-align: right;
-}
-.meeting h2 {
-  width: 90%;
-  font-size: 25px;
-  text-transform: uppercase;
-  margin-top: 2em;
-  color: var(--color-primary1);
-  border: 1px solid black;
-  padding: 1em 0;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
-}
-.meeting h3 {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  color: var(--color-primary2);
-  margin: 0.5em 0;
-  text-indent: 1em;
-}
-.meeting h3 span {
-  width: auto;
-}
-.meeting h3 span:first-child {
-  font-size: 18px;
-}
-.meeting h3 span:nth-child(2) {
-  font-size: 15px;
-  letter-spacing: 0;
-  font-weight: normal;
-}
-.meeting h2,
-.meeting h3 {
-  letter-spacing: 3px;
+  gap: 1em;
 }
 
 .president span:first-child {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .prayer {
@@ -166,37 +115,6 @@ section {
 .song {
   color: #7d1d7d;
   margin: 1em 0;
-}
-
-.jewels {
-  margin-top: var(--space);
-}
-.jewels span:first-child {
-  white-space: nowrap;
-}
-
-.jewels,
-.pearls {
-  width: clamp(250px, 80%, 700px);
-}
-
-.vcm {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.allocution,
-.vcm div,
-.eba {
-  width: clamp(250px, 80%, 700px);
-}
-.allocution span:last-child,
-.vcm div span:last-child,
-.eba span:last-child {
-  white-space: nowrap;
 }
 
 .welcome,
@@ -225,4 +143,4 @@ section {
 .welcome div span:first-child,
 .sono div span:first-child {
   width: 100px;
-}/*# sourceMappingURL=vcm.css.map */
+}/*# sourceMappingURL=weekend.css.map */
