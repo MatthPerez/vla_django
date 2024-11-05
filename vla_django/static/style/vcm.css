@@ -120,7 +120,6 @@ section {
   width: 90%;
   font-size: 25px;
   text-transform: uppercase;
-  margin-top: 2em;
   color: var(--color-primary1);
   border: 1px solid black;
   padding: 1em 0;
@@ -180,6 +179,10 @@ section {
   width: clamp(250px, 80%, 700px);
 }
 
+.pearls {
+  margin-bottom: 1em;
+}
+
 .vcm {
   width: 100%;
   display: flex;
@@ -211,7 +214,8 @@ section {
 .welcome h3,
 .sono h3 {
   font-size: 24px;
-  text-indent: 5em;
+  text-align: center;
+  margin-bottom: 1em;
 }
 .welcome div,
 .sono div {
@@ -224,5 +228,19 @@ section {
 }
 .welcome div span:first-child,
 .sono div span:first-child {
-  width: 100px;
+  width: 120px;
+  font-weight: bold;
+}
+.welcome div span:nth-child(2),
+.sono div span:nth-child(2) {
+  color: var(--color-primary1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.welcome div span:nth-child(2) div,
+.sono div span:nth-child(2) div {
+  width: auto;
 }/*# sourceMappingURL=vcm.css.map */

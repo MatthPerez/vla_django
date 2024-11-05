@@ -18,6 +18,7 @@
     <h1>Vie chrétienne et Ministère</h1>
 
     {% for meeting in meetings %}
+    {% if meeting.date >= now|date:'Y-m-d' %}
     <article class="meeting">
       <div class="president">
         <span>Semaine du {{meeting.date}} | {{meeting.portion}}</span>
@@ -92,7 +93,7 @@
         <span class="advisor2">(Conseiller : {{meeting.advisor3.fullname}})</span>
       </h3>
 
-<div class="allocution reading3">
+      <div class="allocution reading3">
         <span>Lecture (3 min)</span>
         <span>{{meeting.reading2.fullname}}</span>  
       </div>
@@ -186,25 +187,22 @@
       </div>
 
       <div>
-        <span>Audio</span>
-        <span>{{meeting.sono1.fullname}}</span>
+        <span>Sono</span>
+        <span>
+          <div>{{meeting.sono1.fullname}}</div>
+          <div>|</div>
+          <div>{{meeting.sono2.fullname}}</div>
       </div>
 
       <div>
-        <span>Vidéo</span>
-        <span>{{meeting.sono2.fullname}}</span>
-      </div>
-
-      <div>
-        <span>Perche 1</span>
-        <span>{{meeting.mic1.fullname}}</span>
-      </div>
-
-      <div>
-        <span>Perche 2</span>
-        <span>{{meeting.mic2.fullname}}</span>
+        <span>Perches</span>
+        <span>
+          <div>{{meeting.mic1.fullname}}</div>
+          <div>|</div>
+          <div>{{meeting.mic2.fullname}}</div>
       </div>
     </article>
+    {% endif %}
     {% endfor %}
 </main>
 {% endblock %}
