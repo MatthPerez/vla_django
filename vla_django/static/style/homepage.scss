@@ -10,15 +10,208 @@ main {
 
 nav,
 footer {
-    background-color: var(--color-primary1);
+    background-color: var(--color-secondary1);
 }
 
 main {
-    background-color: var(--color-secondary1);
+    background-color: var(--color-tertiary1);
+    @include flexcolumn;
+    gap: 3em;
+
+    h1 {
+        @include white-neon;
+    }
 
     section {
-        h1 {
-            @include white-neon;
+        width: clamp(300px, 90%, 1000px) !important;
+        @include flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        @media (width<=768px) {
+            flex-direction: column;
+        }
+    }
+}
+
+#visit {
+    position: fixed;
+    z-index: 10;
+    $side: 2em;
+    bottom: calc(var(--height) + $side);
+    right: $side;
+    width: 100px;
+    aspect-ratio: 1;
+    @include flex;
+    justify-content: center;
+
+    @media (width<=768px) {
+        bottom: $side;
+        width: 80px;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        $padding: 4px;
+        $k: 50;
+        box-shadow: $padding $padding 5px rgb($k, $k, $k);
+        transition: 300ms all ease;
+
+        &:hover {
+            transition: 150ms all ease;
+            box-shadow: none;
+            transform: translateY($padding);
+        }
+    }
+}
+
+.pic-link {
+    position: relative;
+    @include flex;
+    justify-content: center;
+    width: 250px;
+    aspect-ratio: 3/2;
+    overflow: hidden;
+
+    * {
+        position: absolute;
+    }
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+
+    span {
+        text-align: center;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+        // @include cyan-neon;
+        background-color: rgba(white, .7);
+        padding: .2em 1.5em;
+        animation: 1.5s slideRight forwards;
+        transition: 300ms all ease;
+
+        &:hover {
+            transition: 150ms all ease;
+            background-color: white;
+        }
+    }
+}
+
+.datas {
+    width: 90vw !important;
+    @include flex;
+    align-items: flex-start;
+    gap: 2em;
+
+    @media (width<=768px) {
+        flex-direction: column;
+    }
+
+    div,
+    >ul {
+        width: clamp(300px, 30%, 600px);
+    }
+}
+
+#schedules {
+    width: 40%;
+    @include flexcolumn;
+
+    * {
+        text-align: right;
+
+        @media (width<=768px) {
+            text-align: center;
+        }
+    }
+
+    h4 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        list-style: none;
+        @include flexcolumn;
+        gap: 5px;
+
+        li {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+#details {
+    width: 50%;
+    list-style: none;
+    @include flexcolumn;
+    align-items: flex-start;
+    gap: 5px;
+
+    li {
+        width: auto;
+        @include flex;
+        justify-content: flex-start;
+        gap: 10px;
+
+        * {
+            width: auto;
+            font-size: 1.1rem;
+        }
+
+        span {
+            white-space: nowrap;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-quinary1);
+            transition: 300ms all ease;
+
+            &:hover {
+                transition: 150ms all ease;
+                color: var(--hover);
+            }
+        }
+    }
+}
+
+#schedules,
+#details {
+    @media (width<=768px) {
+        width: 80%;
+    }
+}
+
+#communication {
+    @include flexcolumn;
+    gap: 2em;
+    margin-top: 2em;
+
+    h2 {
+        @include big-title;
+    }
+}
+
+#com-content {
+    width: clamp(300px, 70vw, 900px);
+    min-height: 10em;
+    background-color: rgba(white, .3);
+    padding: 1em;
+    @include flexcolumn;
+    gap: 2em;
+
+    article {
+        @include flexcolumn;
+        gap: .5em;
+
+        h3 {
+            font-size: 25px;
         }
     }
 }

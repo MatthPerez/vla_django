@@ -1,0 +1,5 @@
+MYSQL_DB_NAME=vla_django
+MYSQL_USER=matthieu
+MYSQL_PASSWORD=mirelda2024
+MYSQL_HOST=localhost
+MYSQL_PORT=3306

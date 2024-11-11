@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "vcm",
+    "new_vcm_meeting",
     "we",
     "groups",
     "infos",

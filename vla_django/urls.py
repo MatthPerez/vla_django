@@ -5,6 +5,7 @@ from groups.views import GroupsView
 from infos.views import InfosView
 from vcm.views import VcmMeetingView
 from we.views import WeView
+from new_vcm_meeting.views import NewVcmView
 
 
 urlpatterns = [
@@ -12,6 +13,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("infos/", InfosView.as_view(), name="infos"),
     path("vcm/", VcmMeetingView.as_view(), name="vcm"),
+    path("vcm/ajouter/", NewVcmView.as_view(), name="new_vcm_meeting"),
     # path("vcm/<str:slug>/", VcmMeetingView, name="vcm"),
     path("we/", WeView.as_view(), name="we"),
     path("groups/", GroupsView.as_view(), name="groups"),

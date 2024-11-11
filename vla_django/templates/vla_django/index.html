@@ -1,20 +1,110 @@
-{% extends 'vla_django/base.html' %}
-
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/homepage.css' %}">
-{% endblock %}
-
-{% block script_js %}
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/homepage.css' %}" />
+{% endblock %} {% block script_js %}
 <script src="{% static 'js/homepage.js' %}"></script>
-{% endblock %}  
-
-{% block title %}VLA | Accueil{% endblock %}
-
-{% block content %}
+{% endblock %} {% block title %}VLA | Accueil{% endblock %} {% block content %}
 <main>
+  <h1>Assemblée de Villeneuve-lès-Avignon</h1>
+
+  <a id="visit" href="https://hub.jw.org/request-visit/fr/request" target="_blank">
+    <img src="{% static 'icons/bible_study.jpg' %}" alt="Demander une visite">
+  </a>
+
+  <section class="datas">
+    <div id="schedules">
+      <h4>Horaires de réunion</h4>
+
+      <ul>
+        <li>Tous les mardis à 19h30</li>
+        <li>Tous les samedis à 15h00</li>
+      </ul>
+    </div>
+
+    <ul id="details">
+      <li>
+        <span>Adresse :</span>
+        <a
+          href="https://www.google.com/maps/place/220 Rue d'Aramon 30133 Les Angles"
+          target="_blank"
+          >220 Rue d'Aramon, 30133 Les Angles</a
+        >
+      </li>
+      <li>
+        <span>Téléphone :</span>
+        <a href="tel:0490258939">04 90 25 89 39</a>
+      </li>
+      <li>
+        <span>Distanciel via Zoom :</span>
+        <a href="#">30133 30133 | code : 30133</a>
+      </li>
+      <li>
+        <span>Lien Zoom direct :</span>
+        <a
+          href="https://us06web.zoom.us/j/3013330133?pwd=bWttYm5zbmY4U1MyTjRjSC9aY2pvdz09"
+          target="_blank"
+          >cliquez ici</a
+        >
+      </li>
+      <li>
+        <span>Distanciel via téléphone :</span>
+        <a href="tel:+33170950103">01 70 95 01 03 | Code : *30133#</a>
+      </li>
+    </ul>
+  </section>
+
   <section>
-    <h1>Assemblée de Villeneuve-lès-Avignon</h1>
+    <a href="{% url 'vcm' %}" class="pic-link">
+      <img
+        src="{% static 'icons/conference (01).png' %}"
+        alt="Réunion de semaine"
+      />
+      <span>Réunions de semaine</span>
+    </a>
+
+    <a href="{% url 'we' %}" class="pic-link">
+      <img
+        src="{% static 'icons/conference (02).png' %}"
+        alt="Réunion de week-end"
+      />
+      <span>Réunions de<br />week-end</span>
+    </a>
+
+    <a href="{% url 'groups' %}" class="pic-link">
+      <img src="{% static 'icons/drawing_team (02).png' %}" alt="Groupes" />
+      <span>Groupes de<br />prédication</span>
+    </a>
+  </section>
+
+  <section id="communication">
+    <h2>Communications</h2>
+
+    <div id="com-content">
+      <article>
+        <h3>Communication 1</h3>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores sint
+          ipsum, non necessitatibus soluta animi reiciendis ad qui, consequuntur
+          iste officia magnam minima provident quisquam velit voluptates
+          obcaecati esse dolorum doloremque fugit in totam labore? Id, fugit? A
+          fugiat nesciunt, quibusdam dolorem dicta rerum ipsam vitae vero atque
+          quidem perferendis.
+        </p>
+      </article>
+
+      <article>
+        <h3>Communication 2</h3>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores sint
+          ipsum, non necessitatibus soluta animi reiciendis ad qui, consequuntur
+          iste officia magnam minima provident quisquam velit voluptates
+          obcaecati esse dolorum doloremque fugit in totam labore? Id, fugit? A
+          fugiat nesciunt, quibusdam dolorem dicta rerum ipsam vitae vero atque
+          quidem perferendis.
+        </p>
+      </article>
+    </div>
+  </section>
 </main>
 {% endblock %}

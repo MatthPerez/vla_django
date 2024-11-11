@@ -29,6 +29,28 @@ main {
 section {
     @include flexcolumn;
     gap: 2em;
+
+    >a {
+        width: auto;
+        text-decoration: none;
+        text-align: center;
+        @include border;
+        padding: .5em 1.5em;
+        color: black;
+        font-size: 20px;
+        background-color: rgba(white, .5);
+        $padding: 4px;
+        $k: 50;
+        box-shadow: $padding $padding 5px rgba($k, $k, $k, .8);
+        transition: 300ms all ease;
+
+        &:hover {
+            transition: 150ms all ease;
+            background-color: rgba(white, .7);
+            box-shadow: none;
+            transform: translateY($padding);
+        }
+    }
 }
 
 .meeting {

@@ -17,192 +17,194 @@
   <section>
     <h1>Vie chrétienne et Ministère</h1>
 
+    <a href="{% url 'new_vcm_meeting' %}">Créer une nouvelle réunion</a>
+
     {% for meeting in meetings %}
-    {% if meeting.date >= now|date:'Y-m-d' %}
-    <article class="meeting">
-      <div class="president">
-        <span>Semaine du {{meeting.date}} | {{meeting.portion}}</span>
-        <span>Président : {{meeting.president.fullname}}</span>
-      </div>
+      {% if meeting.date >= now|date:'Y-m-d' %}
+      <article class="meeting">
+        <div class="president">
+          <span>Semaine du {{meeting.date}} | {{meeting.portion}}</span>
+          <span>Président : {{meeting.president.fullname}}</span>
+        </div>
 
-      <div class="song">Cantique N°{{meeting.song1}}</div>
+        <div class="song">Cantique N°{{meeting.song1}}</div>
 
-      <div class="prayer">Prière initiale : {{meeting.prayer1.fullname}}</div>
+        <div class="prayer">Prière initiale : {{meeting.prayer1.fullname}}</div>
 
-      <div class="jewels">
-        <span>Joyaux (10 min) : {{meeting.jewels_title}}</span>
-        <span>{{meeting.jewels.fullname}}</span>
-      </div>
+        <div class="jewels">
+          <span>Joyaux (10 min) : {{meeting.jewels_title}}</span>
+          <span>{{meeting.jewels.fullname}}</span>
+        </div>
 
-      <div class="pearls">
-        <span>Perles spirituelles (10 min)</span>
-        <span>{{meeting.pearls.fullname}}</span>
-      </div>
+        <div class="pearls">
+          <span>Perles spirituelles (10 min)</span>
+          <span>{{meeting.pearls.fullname}}</span>
+        </div>
 
-      <h2>Ecole du Ministère Théocratique</h2>
+        <h2>Ecole du Ministère Théocratique</h2>
 
-      <h3>Salle principale</h3>
+        <h3>Salle principale</h3>
 
-      <div class="allocution reading1">
-        <span>Lecture (3 min)</span>
-        <span>{{meeting.reading1.fullname}}</span>  
-      </div>
+        <div class="allocution reading1">
+          <span>Lecture (3 min)</span>
+          <span>{{meeting.reading1.fullname}}</span>  
+        </div>
 
-      <div class="allocution allocution1">
-        <span>{{meeting.alloc1_type}} ({{meeting.alloc1_duration}} min)</span>
-        <span>{{meeting.alloc1pupil_hall1.fullname}}{% if meeting.alloc1inter_hall1 %} | {{meeting.alloc1inter_hall1.fullname}}{% endif %}</span>  
-      </div>
+        <div class="allocution allocution1">
+          <span>{{meeting.alloc1_type}} ({{meeting.alloc1_duration}} min)</span>
+          <span>{{meeting.alloc1pupil_hall1.fullname}}{% if meeting.alloc1inter_hall1 %} | {{meeting.alloc1inter_hall1.fullname}}{% endif %}</span>  
+        </div>
 
-      <div class="allocution allocution2">
-        <span>{{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
-        <span>{{meeting.alloc2pupil_hall1.fullname}}{% if meeting.alloc2inter_hall1 %} | {{meeting.alloc2inter_hall1.fullname}}{% endif %}</span>  
-      </div>
+        <div class="allocution allocution2">
+          <span>{{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
+          <span>{{meeting.alloc2pupil_hall1.fullname}}{% if meeting.alloc2inter_hall1 %} | {{meeting.alloc2inter_hall1.fullname}}{% endif %}</span>  
+        </div>
 
-      <div class="allocution allocution3">
-        <span>Discours ({{meeting.alloc3_duration}} min)</span>
-        <span>{{meeting.alloc3pupil_hall1.fullname}}{% if meeting.alloc3inter_hall1 %} | {{meeting.alloc3inter_hall1.fullname}}{% endif %}</span>
-      </div>
+        <div class="allocution allocution3">
+          <span>Discours ({{meeting.alloc3_duration}} min)</span>
+          <span>{{meeting.alloc3pupil_hall1.fullname}}{% if meeting.alloc3inter_hall1 %} | {{meeting.alloc3inter_hall1.fullname}}{% endif %}</span>
+        </div>
 
-      <h3>
-        <span>Salle complémentaire</span>
-        <span class="advisor2">(Conseiller : {{meeting.advisor2.fullname}})</span>
-      </h3>
+        <h3>
+          <span>Salle complémentaire</span>
+          <span class="advisor2">(Conseiller : {{meeting.advisor2.fullname}})</span>
+        </h3>
 
-      <div class="allocution reading2">
-        <span>Lecture (3 min)</span>
-        <span>{{meeting.reading2.fullname}}</span>  
-      </div>
+        <div class="allocution reading2">
+          <span>Lecture (3 min)</span>
+          <span>{{meeting.reading2.fullname}}</span>  
+        </div>
 
-      <div class="allocution allocution1">
-        <span>{{meeting.alloc1_type}} ({{meeting.alloc1_duration}} min)</span>
-        <span>{{meeting.alloc1pupil_hall2.fullname}}{% if meeting.alloc1inter_hall2 %} | {{meeting.alloc1inter_hall2.fullname}}{% endif %}</span>  
-      </div>
+        <div class="allocution allocution1">
+          <span>{{meeting.alloc1_type}} ({{meeting.alloc1_duration}} min)</span>
+          <span>{{meeting.alloc1pupil_hall2.fullname}}{% if meeting.alloc1inter_hall2 %} | {{meeting.alloc1inter_hall2.fullname}}{% endif %}</span>  
+        </div>
 
-      <div class="allocution allocution2">
-        <span>{{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
-        <span>{{meeting.alloc2pupil_hall2.fullname}}{% if meeting.alloc2inter_hall2 %} | {{meeting.alloc2inter_hall2.fullname}}{% endif %}</span>  
-      </div>
+        <div class="allocution allocution2">
+          <span>{{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
+          <span>{{meeting.alloc2pupil_hall2.fullname}}{% if meeting.alloc2inter_hall2 %} | {{meeting.alloc2inter_hall2.fullname}}{% endif %}</span>  
+        </div>
 
-      <div class="allocution allocution3">
-        <span>Discours ({{meeting.alloc3_duration}} min)</span>
-        <span>{{meeting.alloc3pupil_hall2.fullname}}{% if meeting.alloc3inter_hall2 %} | {{meeting.alloc3inter_hall2.fullname}}{% endif %}</span>
-      </div>
+        <div class="allocution allocution3">
+          <span>Discours ({{meeting.alloc3_duration}} min)</span>
+          <span>{{meeting.alloc3pupil_hall2.fullname}}{% if meeting.alloc3inter_hall2 %} | {{meeting.alloc3inter_hall2.fullname}}{% endif %}</span>
+        </div>
 
-      <h3>
-        <span>Salle C</span>
-        <span class="advisor2">(Conseiller : {{meeting.advisor3.fullname}})</span>
-      </h3>
+        <h3>
+          <span>Salle C</span>
+          <span class="advisor2">(Conseiller : {{meeting.advisor3.fullname}})</span>
+        </h3>
 
-      <div class="allocution reading3">
-        <span>Lecture (3 min)</span>
-        <span>{{meeting.reading2.fullname}}</span>  
-      </div>
+        <div class="allocution reading3">
+          <span>Lecture (3 min)</span>
+          <span>{{meeting.reading2.fullname}}</span>  
+        </div>
 
-      <div class="allocution allocution1">
-        <span>{{meeting.alloc1_type}} ({{meeting.alloc1_duration}} min)</span>
-        <span>{{meeting.alloc1pupil_hall3.fullname}}{% if meeting.alloc1inter_hall3 %} | {{meeting.alloc1inter_hall3.fullname}}{% endif %}</span>  
-      </div>
+        <div class="allocution allocution1">
+          <span>{{meeting.alloc1_type}} ({{meeting.alloc1_duration}} min)</span>
+          <span>{{meeting.alloc1pupil_hall3.fullname}}{% if meeting.alloc1inter_hall3 %} | {{meeting.alloc1inter_hall3.fullname}}{% endif %}</span>  
+        </div>
 
-      <div class="allocution allocution2">
-        <span>{{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
-        <span>{{meeting.alloc2pupil_hall3.fullname}}{% if meeting.alloc2inter_hall3 %} | {{meeting.alloc2inter_hall3.fullname}}{% endif %}</span>  
-      </div>
+        <div class="allocution allocution2">
+          <span>{{meeting.alloc2_type}} ({{meeting.alloc2_duration}} min)</span>
+          <span>{{meeting.alloc2pupil_hall3.fullname}}{% if meeting.alloc2inter_hall3 %} | {{meeting.alloc2inter_hall3.fullname}}{% endif %}</span>  
+        </div>
 
-      <div class="allocution allocution3">
-        <span>Discours ({{meeting.alloc3_duration}} min)</span>
-        <span>{{meeting.alloc3pupil_hall3.fullname}}{% if meeting.alloc3inter_hall3 %} | {{meeting.alloc3inter_hall3.fullname}}{% endif %}</span>
-      </div>
+        <div class="allocution allocution3">
+          <span>Discours ({{meeting.alloc3_duration}} min)</span>
+          <span>{{meeting.alloc3pupil_hall3.fullname}}{% if meeting.alloc3inter_hall3 %} | {{meeting.alloc3inter_hall3.fullname}}{% endif %}</span>
+        </div>
 
-      <div class="song">Cantique N°{{meeting.song2}}</div>
+        <div class="song">Cantique N°{{meeting.song2}}</div>
 
-      <h2 class="mb1em">Vie Chrétienne</h2>
+        <h2 class="mb1em">Vie Chrétienne</h2>
 
-      <section class="vcm">
+        <section class="vcm">
+          <div>
+            <span>Sujet {% if meeting.vcm2 %}1 {% else %}unique {% endif %}({{meeting.vcm1_duration}} min) : {{meeting.vcm1.fullname}}</span>
+            <span>{{meeting.vcm1_title}}</span>
+          </div>
+
+          {% if meeting.vcm2 %}
+          <div>
+            <span>Sujet 2 ({{meeting.vcm2_duration}} min) : {{meeting.vcm2.fullname}}</span>
+            <span>{{meeting.vcm2_title}}</span>
+          </div>
+          {% endif %}
+
+          {% if meeting.vcm3 %}
+          <div>
+            <span>Sujet 3 ({{meeting.vcm3_duration}} min) : {{meeting.vcm3.fullname}}</span>
+            <span>{{meeting.vcm3_title}}</span>
+          </div>
+          {% endif %}
+
+          <div class="eba">
+            <span>Etude biblique de l'assemblée (30 min)</span>
+            <span>{{meeting.eba.fullname}}</span>
+          </div>
+
+          <div>
+            <span>Lecteur</span>
+            <span>{{meeting.eba_reader.fullname}}</span>
+          </div>
+
+          <div>
+            <span>Discours spécial</span>
+            <span>{{meeting.supervisor.fullname}}</span>
+            <span>{{meeting.special_speech.fullname}}</span>
+          </div>
+        </section>
+          
+        <div class="song">Cantique N°{{meeting.song3}}</div>
+
+        <div class="prayer">Prière finale : {{meeting.prayer2.fullname}}</div>
+      </article>
+
+      <article class="welcome">
+        <h3>ACCUEIL</h3>
+
+        <div class="parking">
+          <span>Parking</span>
+          <span>{{meeting.parking.fullname}}</span>
+        </div>
+
+        <div class="door">
+          <span>Entrée</span>
+          <span>{{meeting.entrance.fullname}}</span>
+        </div>
+
+        <div class="inside">
+          <span>Auditorium</span>
+          <span>{{meeting.inside.fullname}}</span>
+        </div>
+      </article>
+
+      <article class="sono">
+        <h3>SONORISATION</h3>
+
         <div>
-          <span>Sujet {% if meeting.vcm2 %}1 {% else %}unique {% endif %}({{meeting.vcm1_duration}} min) : {{meeting.vcm1.fullname}}</span>
-          <span>{{meeting.vcm1_title}}</span>
-        </div>
-
-        {% if meeting.vcm2 %}
-        <div>
-          <span>Sujet 2 ({{meeting.vcm2_duration}} min) : {{meeting.vcm2.fullname}}</span>
-          <span>{{meeting.vcm2_title}}</span>
-        </div>
-        {% endif %}
-
-        {% if meeting.vcm3 %}
-        <div>
-          <span>Sujet 3 ({{meeting.vcm3_duration}} min) : {{meeting.vcm3.fullname}}</span>
-          <span>{{meeting.vcm3_title}}</span>
-        </div>
-        {% endif %}
-
-        <div class="eba">
-          <span>Etude biblique de l'assemblée (30 min)</span>
-          <span>{{meeting.eba.fullname}}</span>
+          <span>Estrade</span>
+          <span>{{meeting.podium.fullname}}</span>
         </div>
 
         <div>
-          <span>Lecteur</span>
-          <span>{{meeting.eba_reader.fullname}}</span>
+          <span>Sono</span>
+          <span>
+            <div>{{meeting.sono1.fullname}}</div>
+            <div>|</div>
+            <div>{{meeting.sono2.fullname}}</div>
         </div>
 
         <div>
-          <span>Discours spécial</span>
-          <span>{{meeting.supervisor.fullname}}</span>
-          <span>{{meeting.special_speech.fullname}}</span>
+          <span>Perches</span>
+          <span>
+            <div>{{meeting.mic1.fullname}}</div>
+            <div>|</div>
+            <div>{{meeting.mic2.fullname}}</div>
         </div>
-      </section>
-        
-      <div class="song">Cantique N°{{meeting.song3}}</div>
-
-      <div class="prayer">Prière finale : {{meeting.prayer2.fullname}}</div>
-    </article>
-
-    <article class="welcome">
-      <h3>ACCUEIL</h3>
-
-      <div class="parking">
-        <span>Parking</span>
-        <span>{{meeting.parking.fullname}}</span>
-      </div>
-
-      <div class="door">
-        <span>Entrée</span>
-        <span>{{meeting.entrance.fullname}}</span>
-      </div>
-
-      <div class="inside">
-        <span>Auditorium</span>
-        <span>{{meeting.inside.fullname}}</span>
-      </div>
-    </article>
-
-    <article class="sono">
-      <h3>SONORISATION</h3>
-
-      <div>
-        <span>Estrade</span>
-        <span>{{meeting.podium.fullname}}</span>
-      </div>
-
-      <div>
-        <span>Sono</span>
-        <span>
-          <div>{{meeting.sono1.fullname}}</div>
-          <div>|</div>
-          <div>{{meeting.sono2.fullname}}</div>
-      </div>
-
-      <div>
-        <span>Perches</span>
-        <span>
-          <div>{{meeting.mic1.fullname}}</div>
-          <div>|</div>
-          <div>{{meeting.mic2.fullname}}</div>
-      </div>
-    </article>
-    {% endif %}
+      </article>
+      {% endif %}
     {% endfor %}
 </main>
 {% endblock %}

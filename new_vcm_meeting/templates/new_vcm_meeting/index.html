@@ -1,0 +1,435 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/new_vcm.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/new_vcm.js' %}"></script>
+{% endblock %} {% block title %}VLA | Nouvelle réunion VCM{% endblock %} {% block content %}
+<main>
+  <h1>
+    <a href="{% url 'vcm' %}"><img src="{% static 'icons/left_arrow.png' %}" alt="Retour VCM"></a>
+    <span>Créer une nouvelle réunion VCM</span>
+    <span>Nouvelle réunion VCM</span>
+  </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <section>
+      <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" autofocus />
+      </div>
+
+      <div>
+        <label for="president">Président</label>
+        <input type="text" id="president" name="president" min="1" />
+      </div>
+
+      <div>
+        <label for="prayer1">Prière initiale</label>
+        <input type="text" id="prayer1" name="prayer1" min="1" />
+      </div>
+
+      <div>
+        <label for="prayer2">Prière finale</label>
+        <input type="text" id="prayer2" name="prayer2" min="1" />
+      </div>
+
+      <div>
+        <label for="song1">Cantique initial</label>
+        <input type="number" id="song1" name="song1" min="1" />
+      </div>
+
+      <div>
+        <label for="song2">Cantique intermédiaire</label>
+        <input type="number" id="song2" name="song2" min="1" />
+      </div>
+
+      <div>
+        <label for="song3">Cantique final</label>
+        <input type="number" id="song3" name="song3" min="1" />
+      </div>
+
+      <div>
+        <label for="portion">Portion à lire</label>
+        <input type="text" id="portion" name="portion" />
+      </div>
+
+      <div>
+        <label for="jewels">Joyaux (conducteur)</label>
+        <input type="text" id="jewels" name="jewels" />
+      </div>
+
+      <div>
+        <label for="jewels_title">Joyaux (titre)</label>
+        <input type="text" id="jewels_title" name="jewels_title" />
+      </div>
+
+      <div>
+        <label for="pearls">Perles</label>
+        <input type="text" id="pearls" name="pearls" />
+      </div>
+    </section>
+
+    <h2>Applique-toi au ministère</h2>
+
+    <section class="datas">
+      <article>
+        <h4>Sujet 1</h4>
+
+        <div>
+          <label for="alloc1_type">Type sujet</label>
+          <input type="text" id="alloc1_type" name="alloc1_type" />
+        </div>
+
+        <div>
+          <label for="alloc1_duration">Durée</label>
+          <input
+            type="number"
+            id="alloc1_duration"
+            name="alloc1_duration"
+            min="1"
+          />
+        </div>
+      </article>
+
+      <article>
+        <h4>Sujet 2</h4>
+
+        <div>
+          <label for="alloc2_type">Type sujet</label>
+          <input type="text" id="alloc2_type" name="alloc2_type" />
+        </div>
+
+        <div>
+          <label for="alloc2_duration">Durée</label>
+          <input
+            type="number"
+            id="alloc2_duration"
+            name="alloc2_duration"
+            min="1"
+          />
+        </div>
+      </article>
+
+      <article>
+        <h4>Sujet 3</h4>
+
+        <div>
+          <label for="alloc3_type">Type sujet</label>
+          <input type="text" id="alloc3_type" name="alloc3_type" />
+        </div>
+
+        <div>
+          <label for="alloc3_duration">Durée</label>
+          <input
+            type="number"
+            id="alloc3_duration"
+            name="alloc3_duration"
+            min="1"
+          />
+        </div>
+      </article>
+
+      <article>
+        <h4>Sujet 4</h4>
+
+        <div>
+          <label for="alloc4_type">Type sujet</label>
+          <input type="text" id="alloc4_type" name="alloc4_type" />
+        </div>
+
+        <div>
+          <label for="alloc4_duration">Durée</label>
+          <input
+            type="number"
+            id="alloc4_duration"
+            name="alloc4_duration"
+            min="1"
+          />
+        </div>
+
+        {% comment %} <div>
+          <label for="alloc4_lesson">Leçon</label>
+          <input type="number" id="alloc4_lesson" name="alloc4_lesson" />
+        </div>
+
+        <div>
+          <label for="alloc4_idea">Idée</label>
+          <input type="text" id="alloc4_idea" name="alloc4_idea" />
+        </div> {% endcomment %}
+      </article>
+    </section>
+
+    <section class="ministry">
+      <h3>Salle principale</h3>
+
+      <div class="school">
+        <div>
+          <label for="reading1">Lecture</label>
+          <input type="text" id="reading1" name="reading1" />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="alloc4_pupil_hall1">Elève</label>
+          <input
+            type="text"
+            id="alloc4_pupil_hall1"
+            name="alloc4_pupil_hall1"
+          />
+        </div>
+
+        <div>
+          <label for="alloc1_inter_hall1">Interlocuteur</label>
+          <input
+            type="text"
+            id="alloc1_inter_hall1"
+            name="alloc1_inter_hall1"
+          />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="alloc2_pupil_hall1">Elève</label>
+          <input
+            type="text"
+            id="alloc2_pupil_hall1"
+            name="alloc2_pupil_hall1"
+          />
+        </div>
+
+        <div>
+          <label for="alloc2_inter_hall1">Interlocuteur</label>
+          <input
+            type="text"
+            id="alloc2_inter_hall1"
+            name="alloc2_inter_hall1"
+          />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="alloc3_pupil_hall1">Elève</label>
+          <input
+            type="text"
+            id="alloc3_pupil_hall1"
+            name="alloc3_pupil_hall1"
+          />
+        </div>
+
+        <div>
+          <label for="alloc3_inter_hall1">Interlocuteur</label>
+          <input
+            type="text"
+            id="alloc3_inter_hall1"
+            name="alloc3_inter_hall1"
+          />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="alloc4_pupil_hall1">Elève</label>
+          <input
+            type="text"
+            id="alloc4_pupil_hall1"
+            name="vcm_alloc4_pupil_hall1"
+          />
+        </div>
+
+        <div>
+          <label for="vcm_alloc4_inter_hall1">Interlocuteur</label>
+          <input
+            type="text"
+            id="vcm_alloc4_inter_hall1"
+            name="vcm_alloc4_inter_hall1"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="ministry">
+      <h3>Salle complémentaire</h3>
+
+      <div class="school">
+        <div>
+          <label for="reading2">Lecture</label>
+          <input type="text" id="reading2" name="reading2" />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="vcm_alloc1_pupil_hall2">Elève</label>
+          <input
+            type="text"
+            id="vcm_alloc1_pupil_hall2"
+            name="vcm_alloc1_pupil_hall2"
+          />
+        </div>
+
+        <div>
+          <label for="vcm_alloc1_inter_hall2">Interlocuteur</label>
+          <input
+            type="text"
+            id="vcm_alloc1_inter_hall2"
+            name="vcm_alloc1_inter_hall2"
+          />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="vcm_alloc2_pupil_hall2">Elève</label>
+          <input
+            type="text"
+            id="vcm_alloc2_pupil_hall2"
+            name="vcm_alloc2_pupil_hall2"
+          />
+        </div>
+
+        <div>
+          <label for="vcm_alloc2_inter_hall2">Interlocuteur</label>
+          <input
+            type="text"
+            id="vcm_alloc2_inter_hall2"
+            name="vcm_alloc2_inter_hall2"
+          />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="vcm_alloc2_pupil_hall2">Elève</label>
+          <input
+            type="text"
+            id="vcm_alloc2_pupil_hall2"
+            name="vcm_alloc2_pupil_hall2"
+          />
+        </div>
+
+        <div>
+          <label for="vcm_alloc2_inter_hall2">Interlocuteur</label>
+          <input
+            type="text"
+            id="vcm_alloc2_inter_hall2"
+            name="vcm_alloc2_inter_hall2"
+          />
+        </div>
+      </div>
+
+      <div class="school">
+        <div>
+          <label for="vcm_alloc4_pupil_hall2">Elève</label>
+          <input
+            type="text"
+            id="vcm_alloc4_pupil_hall2"
+            name="vcm_alloc4_pupil_hall2"
+          />
+        </div>
+
+        <div>
+          <label for="vcm_alloc4_inter_hall2">Interlocuteur</label>
+          <input
+            type="text"
+            id="vcm_alloc4_inter_hall2"
+            name="vcm_alloc4_inter_hall2"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="ministry">
+      <h3>Salle C</h3>
+
+      <div class="school">
+        <div>
+          <label for="reading3">Lecture</label>
+          <input type="text" id="reading3" name="reading3" />
+        </div>
+
+        <div>
+          <label for="vcm_alloc4_pupil_hall3">Discours</label>
+          <input
+            type="text"
+            id="vcm_alloc4_pupil_hall3"
+            name="vcm_alloc4_pupil_hall3"
+          />
+        </div>
+      </div>
+    </section>
+
+    <h2>Vie Chrétienne</h2>
+
+    <section class="vcm">
+      <article>
+        <h4>Sujet 1</h4>
+
+        <div>
+          <label for="vcm1_duration">Durée</label>
+          <input type="number" id="vcm1_duration" name="vcm1_duration" />
+        </div>
+
+        <div>
+          <label for="vcm1">Orateur</label>
+          <input type="text" id="vcm1" name="vcm1" />
+        </div>
+
+        <div>
+          <label for="vcm1_title">Titre</label>
+          <input type="text" id="vcm1_title" name="vcm1_title" />
+        </div>
+      </article>
+
+      <article>
+        <h4>Sujet 2</h4>
+
+        <div>
+          <label for="vcm2_duration">Durée</label>
+          <input type="number" id="vcm2_duration" name="vcm2_duration" />
+        </div>
+
+        <div>
+          <label for="vcm2">Orateur</label>
+          <input type="text" id="vcm2" name="vcm2" />
+        </div>
+
+        <div>
+          <label for="vcm2_title">Titre</label>
+          <input type="text" id="vcm2_title" name="vcm2_title" />
+        </div>
+      </article>
+    </section>
+
+    <section class="eba">
+      <article>
+        <div>
+          <label for="eba">Etude biblique de l'assemblée</label>
+          <input type="text" id="eba" name="eba" />
+        </div>
+
+        <div>
+          <label for="eba_reader">Lecteur</label>
+          <input type="text" id="eba_reader" name="eba_reader" />
+        </div>
+      </article>
+
+      <article>
+        <div>
+            <label for="supervisor">Responsable de circonscription</label>
+            <input type="text" id="supervisor" name="supervisor">
+        </div>
+
+        <div>
+            <label for="special_speech">Discours spécial</label>
+            <input type="text" id="special_speech" name="special_speech">
+        </div>
+      </article>
+    </section>
+
+    <button type="submit">Ajouter la réunion</button>
+  </form>
+</main>
+{% endblock %}
