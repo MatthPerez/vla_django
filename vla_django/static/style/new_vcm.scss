@@ -111,7 +111,8 @@ form {
             text-indent: 3em;
         }
 
-        input {
+        input,
+        select {
             width: calc(90% - 20px);
             padding: 10px;
             @include no-border;
@@ -207,7 +208,8 @@ form {
                     text-align: center;
                 }
 
-                input {
+                input,
+                select {
                     width: 150px;
                 }
             }
@@ -222,5 +224,28 @@ form {
     article {
         @include flexcolumn;
         gap: 1em;
+    }
+}
+
+.native-form {
+    p {
+        @include flexcolumn;
+        gap: 10px;
+
+        * {
+            width: clamp(300px, 60%, 600px);
+        }
+
+        input,
+        select {
+            padding: 10px;
+            @include no-border;
+            transition: 300ms all ease;
+
+            &:focus {
+                transition: 150ms all ease;
+                box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
+            }
+        }
     }
 }

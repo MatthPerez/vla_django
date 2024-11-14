@@ -788,3 +788,11 @@ footer {
         @include big-white-neon;
     }
 }
+
+#cursor {
+    position: absolute;
+    width: 200px;
+    aspect-ratio: 1;
+    @include border;
+    border-radius: 50%;
+}

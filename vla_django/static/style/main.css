@@ -6396,4 +6396,12 @@ footer a {
 .contactUs:focus {
   transition: 150ms all ease;
   text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 50px white, 0 0 60px white;
+}
+
+#cursor {
+  position: absolute;
+  width: 200px;
+  aspect-ratio: 1;
+  border: 1px solid black;
+  border-radius: 50%;
 }/*# sourceMappingURL=main.css.map */

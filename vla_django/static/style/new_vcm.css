@@ -172,14 +172,16 @@ form section div {
 form section label {
   text-indent: 3em;
 }
-form section input {
+form section input,
+form section select {
   width: calc(90% - 20px);
   padding: 10px;
   outline: none;
   border: none;
   transition: 300ms all ease;
 }
-form section input:focus {
+form section input:focus,
+form section select:focus {
   transition: 150ms all ease;
   box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
 }
@@ -274,7 +276,8 @@ form button:focus {
   text-indent: 0;
   text-align: center;
 }
-.vcm article div:nth-child(2) input {
+.vcm article div:nth-child(2) input,
+.vcm article div:nth-child(2) select {
   width: 150px;
 }
 
@@ -289,4 +292,26 @@ form button:focus {
   flex-direction: column;
   align-items: center;
   gap: 1em;
+}
+
+.native-form p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.native-form p * {
+  width: clamp(300px, 60%, 600px);
+}
+.native-form p input,
+.native-form p select {
+  padding: 10px;
+  outline: none;
+  border: none;
+  transition: 300ms all ease;
+}
+.native-form p input:focus,
+.native-form p select:focus {
+  transition: 150ms all ease;
+  box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
 }/*# sourceMappingURL=new_vcm.css.map */

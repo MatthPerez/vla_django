@@ -211,52 +211,10 @@ class Meeting(models.Model):
         blank=True,
         null=True,
     )
-    alloc1inter_hall3 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_a1i_h3",
-        blank=True,
-        null=True,
-    )
     alloc2pupil_hall3 = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
-        related_name="meetings_as_a2p_h3",
-        blank=True,
-        null=True,
-    )
-    alloc2inter_hall3 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_a2i_h3",
-        blank=True,
-        null=True,
-    )
-    alloc3pupil_hall3 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_a3p_h3",
-        blank=True,
-        null=True,
-    )
-    alloc3inter_hall3 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_a3i_h3",
-        blank=True,
-        null=True,
-    )
-    alloc4pupil_hall3 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_a4p_h3",
-        blank=True,
-        null=True,
-    )
-    alloc4inter_hall3 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_a4i_h3",
+        related_name="meetings_as_a1i_h3",
         blank=True,
         null=True,
     )

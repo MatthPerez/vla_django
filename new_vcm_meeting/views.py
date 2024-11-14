@@ -3,19 +3,28 @@ from django.views import View
 from new_vcm_meeting.forms import AddMeeting
 
 
-# class NewVcmView(View):
-#     def weekMeetingForm(request):
-#         form = AddMeeting()
-
-#         return render(
-#             request,
-#             "new_vcm_meeting/index.html",
-#             {"form": form},
-#         )
-
 class NewVcmView(View):
     def get(self, request):
-        return render(
-            request,
-            "new_vcm_meeting/index.html",
-        )
+        form = AddMeeting()
+
+        return render(request, "new_vcm_meeting/index.html", {"form": form})
+
+    def post(self, request):
+        form = AddMeeting(request.POST)
+        print(form.errors)
+
+        if form.is_valid():
+            form.save()
+
+            return render(
+                request,
+                "new_vcm_meeting/index.html",
+                {"form": form},
+            )
+
+        else:
+            return render(
+                request,
+                "new_vcm_meeting/index.html",
+                {"form": form, "errors": form.errors},
+            )

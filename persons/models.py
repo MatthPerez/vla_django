@@ -2,8 +2,14 @@ from django.db import models
 
 
 class Person(models.Model):
+    GENDERS = [
+        ("MALE", "homme"),
+        ("FEMALE", "femme"),
+    ]
+
     firstname = models.TextField(max_length=50)
     lastname = models.TextField(max_length=50)
+    gender = models.CharField(max_length=6, choices=GENDERS, default="MALE")
     cong_functions = models.TextField(
         max_length=20,
         blank=True,
@@ -26,8 +32,3 @@ class Person(models.Model):
     @property
     def fullname(self):
         return f"{self.firstname} {self.lastname.upper()}"
-
-
-
-
-
