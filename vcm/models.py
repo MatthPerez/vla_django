@@ -1,5 +1,6 @@
 from django.db import models
 from persons.models import Person
+from django.utils.timezone import now
 
 
 class Meeting(models.Model):
@@ -12,7 +13,9 @@ class Meeting(models.Model):
         ("VIDEO", "Vidéo"),
     ]
 
-    date = models.DateField()
+    date = models.DateField(
+        default=now,
+    )
     president = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
@@ -32,7 +35,7 @@ class Meeting(models.Model):
     song2 = models.IntegerField()
     song3 = models.IntegerField()
     portion = models.CharField(
-        max_length=100,
+        max_length=150,
     )
     jewels = models.ForeignKey(
         Person,
@@ -40,7 +43,7 @@ class Meeting(models.Model):
         related_name="meetings_as_jewels",
     )
     jewels_title = models.CharField(
-        max_length=200,
+        max_length=150,
     )
     pearls = models.ForeignKey(
         Person,
@@ -218,17 +221,10 @@ class Meeting(models.Model):
         blank=True,
         null=True,
     )
-    alloc1pupil_hall3 = models.ForeignKey(
+    pupil_hall3 = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
         related_name="meetings_as_a1p_h3",
-        blank=True,
-        null=True,
-    )
-    alloc2pupil_hall3 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_a1i_h3",
         blank=True,
         null=True,
     )

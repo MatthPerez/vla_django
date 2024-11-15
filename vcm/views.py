@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView
+from new_vcm_meeting.forms import AddMeeting
 from vcm.models import Meeting
 
 

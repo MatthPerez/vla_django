@@ -22,9 +22,12 @@ class AddMeeting(forms.Form):
     date = forms.DateField(
         required=True,
         label="Date",
-        input_formats=["%d-%m-%Y"],
+        input_formats=["%Y-%m-%d"],
         widget=forms.DateInput(
-            format="%d-%m-%Y", attrs={"type": "date", "autofocus": "autofocus"}
+            attrs={
+                "type": "date",
+                "autofocus": "autofocus",
+            },
         ),
     )
     president = forms.ModelChoiceField(
@@ -138,25 +141,21 @@ class AddMeeting(forms.Form):
         label="Type sujet 4",
         choices=ALLOC_TYPES,
     )
-    alloc1_duration = forms.CharField(
+    alloc1_duration = forms.IntegerField(
         required=True,
         label="Durée sujet 1",
-        max_length=100,
     )
-    alloc2_duration = forms.CharField(
+    alloc2_duration = forms.IntegerField(
         required=True,
         label="Durée sujet 2",
-        max_length=100,
     )
-    alloc3_duration = forms.CharField(
+    alloc3_duration = forms.IntegerField(
         required=False,
         label="Durée sujet 3",
-        max_length=100,
     )
-    alloc4_duration = forms.CharField(
+    alloc4_duration = forms.IntegerField(
         required=False,
         label="Durée sujet 4",
-        max_length=100,
     )
     alloc1pupil_hall1 = forms.ModelChoiceField(
         required=False,
@@ -270,18 +269,11 @@ class AddMeeting(forms.Form):
         label="Sujet 4 interlocuteur",
         to_field_name="id",
     )
-    alloc1pupil_hall3 = forms.ModelChoiceField(
+    pupil_hall3 = forms.ModelChoiceField(
         required=False,
         queryset=Person.objects.all(),
         widget=forms.Select,
-        label="Sujet 1 élève",
-        to_field_name="id",
-    )
-    alloc2pupil_hall3 = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.all(),
-        widget=forms.Select,
-        label="Sujet 2 élève",
+        label="Discours",
         to_field_name="id",
     )
     vcm1 = forms.ModelChoiceField(
@@ -305,20 +297,17 @@ class AddMeeting(forms.Form):
         label="Sujet VCM 3",
         to_field_name="id",
     )
-    vcm1_duration = forms.CharField(
+    vcm1_duration = forms.IntegerField(
         required=True,
         label="Durée sujet VCM 1",
-        max_length=100,
     )
-    vcm2_duration = forms.CharField(
+    vcm2_duration = forms.IntegerField(
         required=False,
         label="Durée sujet VCM 2",
-        max_length=100,
     )
-    vcm3_duration = forms.CharField(
+    vcm3_duration = forms.IntegerField(
         required=False,
         label="Durée sujet VCM 3",
-        max_length=100,
     )
     vcm1_title = forms.CharField(
         required=True,
@@ -463,8 +452,7 @@ class AddMeeting(forms.Form):
             "alloc3inter_hall2",
             "alloc4pupil_hall2",
             "alloc4inter_hall2",
-            "alloc1pupil_hall3",
-            "alloc2pupil_hall3",
+            "pupil_hall3",
             "vcm1",
             "vcm2",
             "vcm3",
@@ -490,6 +478,11 @@ class WeekMeetingForm(forms.ModelForm):
     class Meta:
         model = Meeting
         fields = "__all__"
+        widgets = {
+            "date": forms.DateInput(
+                attrs={"type": "date", "placeholder": "AAAA-MM-JJ"}
+            ),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -505,8 +498,7 @@ class WeekMeetingForm(forms.ModelForm):
             "alloc3inter_hall2",
             "alloc4pupil_hall2",
             "alloc4inter_hall2",
-            "alloc1pupil_hall3",
-            "alloc2pupil_hall3",
+            "pupil_hall3",
             "advisor2",
             "advisor3",
             "vcm2",
@@ -528,3 +520,7 @@ class WeekMeetingForm(forms.ModelForm):
         for field in optional_fields:
             self.fields[field].required = False
             self.fields[field].widget.attrs.update({"required": False})
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["date"].input_formats = ["%Y-%m-%d"]
