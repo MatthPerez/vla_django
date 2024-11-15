@@ -14,6 +14,7 @@ class NewVcmView(View):
         print(form.errors)
 
         if form.is_valid():
+            print(form)
             form.save()
 
             return render(

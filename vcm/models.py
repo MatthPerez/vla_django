@@ -31,13 +31,17 @@ class Meeting(models.Model):
     song1 = models.IntegerField()
     song2 = models.IntegerField()
     song3 = models.IntegerField()
-    portion = models.CharField(max_length=100)
+    portion = models.CharField(
+        max_length=100,
+    )
     jewels = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
         related_name="meetings_as_jewels",
     )
-    jewels_title = models.CharField(max_length=200)
+    jewels_title = models.CharField(
+        max_length=200,
+    )
     pearls = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,
@@ -76,8 +80,14 @@ class Meeting(models.Model):
         blank=True,
         null=True,
     )
-    alloc1_type = models.CharField(max_length=20, choices=ALLOCATION_TYPES)
-    alloc2_type = models.CharField(max_length=20, choices=ALLOCATION_TYPES)
+    alloc1_type = models.CharField(
+        max_length=20,
+        choices=ALLOCATION_TYPES,
+    )
+    alloc2_type = models.CharField(
+        max_length=20,
+        choices=ALLOCATION_TYPES,
+    )
     alloc3_type = models.CharField(
         max_length=20,
         choices=ALLOCATION_TYPES,
@@ -109,6 +119,8 @@ class Meeting(models.Model):
         Person,
         on_delete=models.CASCADE,
         related_name="meetings_as_a1i_h1",
+        blank=True,
+        null=True,
     )
     alloc2pupil_hall1 = models.ForeignKey(
         Person,
@@ -119,6 +131,8 @@ class Meeting(models.Model):
         Person,
         on_delete=models.CASCADE,
         related_name="meetings_as_a2i_h1",
+        blank=True,
+        null=True,
     )
     alloc3pupil_hall1 = models.ForeignKey(
         Person,

@@ -1,18 +1,8 @@
-{% extends 'vla_django/base.html' %}
-
-{% load static %}
-
-{% block extra_css %}
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'style/new_vcm.css' %}" />
-{% endblock %}
-
-{% block script_js %}
-<script src="{% static 'js/new_vcm.js' %}"></script>
-{% endblock %}
-
-{% block title %}VLA | Nouvelle réunion VCM{% endblock %}
-
-{% block content %}
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/new_vcm.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Nouvelle réunion VCM{% endblock %} {% block content %}
 <main>
   <div id="cursor"></div>
 
@@ -35,11 +25,15 @@
 
       <div>{{form.prayer2.label_tag}} {{form.prayer2}}</div>
 
-      <div>{{form.song1.label_tag}} {{form.song1}}</div>
+      <div class="songs">
+        <h4>Cantiques</h4>
 
-      <div>{{form.song2.label_tag}} {{form.song2}}</div>
-
-      <div>{{form.song3.label_tag}} {{form.song3}}</div>
+        <div>
+          <span>{{form.song1}}</span>
+          <span>{{form.song2}}</span>
+          <span>{{form.song3}}</span>
+        </div>
+      </div>
 
       <div>{{form.portion.label_tag}} {{form.portion}}</div>
 
@@ -193,8 +187,7 @@
         <div>{{form.reading3}}</div>
 
         <div>
-          {{form.alloc2pupil_hall3.label_tag}}
-          {{form.alloc2pupil_hall3}}
+          {{form.alloc2pupil_hall3.label_tag}} {{form.alloc2pupil_hall3}}
         </div>
       </div>
     </section>
@@ -205,65 +198,35 @@
       <article>
         <h4>Sujet 1</h4>
 
-        <div>
-          {{form.vcm1_duration.label_tag}}
-          {{form.vcm1_duration}}
-        </div>
+        <div>{{form.vcm1_duration.label_tag}} {{form.vcm1_duration}}</div>
 
-        <div>
-          {{form.vcm1.label_tag}}
-          {{form.vcm1}}
-        </div>
+        <div>{{form.vcm1.label_tag}} {{form.vcm1}}</div>
 
-        <div>
-          {{form.vcm1_title.label_tag}}
-          {{form.vcm1_title}}
-        </div>
+        <div>{{form.vcm1_title.label_tag}} {{form.vcm1_title}}</div>
       </article>
 
       <article>
         <h4>Sujet 2</h4>
 
-        <div>
-          {{form.vcm2_duration.label_tag}}
-          {{form.vcm2_duration}}
-        </div>
+        <div>{{form.vcm2_duration.label_tag}} {{form.vcm2_duration}}</div>
 
-        <div>
-          {{form.vcm2.label_tag}}
-          {{form.vcm2}}
-        </div>
+        <div>{{form.vcm2.label_tag}} {{form.vcm2}}</div>
 
-        <div>
-          {{form.vcm2_title.label_tag}}
-          {{form.vcm2_title}}
-        </div>
+        <div>{{form.vcm2_title.label_tag}} {{form.vcm2_title}}</div>
       </article>
     </section>
 
     <section class="eba">
       <article>
-        <div>
-          {{form.eba.label_tag}}
-          {{form.eba}}
-        </div>
+        <div>{{form.eba.label_tag}} {{form.eba}}</div>
 
-        <div>
-          {{form.eba_reader.label_tag}}
-          {{form.eba_reader}}
-        </div>
+        <div>{{form.eba_reader.label_tag}} {{form.eba_reader}}</div>
       </article>
 
       <article>
-        <div>
-          {{form.supervisor.label_tag}}
-          {{form.supervisor}}
-        </div>
+        <div>{{form.supervisor.label_tag}} {{form.supervisor}}</div>
 
-        <div>
-          {{form.special_speech.label_tag}}
-          {{form.special_speech}}
-        </div>
+        <div>{{form.special_speech.label_tag}} {{form.special_speech}}</div>
       </article>
     </section>
 

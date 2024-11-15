@@ -790,9 +790,10 @@ footer {
 }
 
 #cursor {
-    position: absolute;
+    position: fixed;
     width: 200px;
     aspect-ratio: 1;
-    @include border;
     border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(white, .2);
 }

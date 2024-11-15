@@ -249,3 +249,23 @@ form {
         }
     }
 }
+
+.songs {
+    @include flexcolumn;
+
+    h4 {
+        width: 100%;
+        text-align: center;
+        letter-spacing: 4px;
+    }
+
+    div {
+        @include flex;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    span {
+        @include flexcolumn;
+    }
+}

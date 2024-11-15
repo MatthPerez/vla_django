@@ -314,4 +314,27 @@ form button:focus {
 .native-form p select:focus {
   transition: 150ms all ease;
   box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
+}
+
+.songs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.songs h4 {
+  width: 100%;
+  text-align: center;
+  letter-spacing: 4px;
+}
+.songs div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+.songs span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }/*# sourceMappingURL=new_vcm.css.map */

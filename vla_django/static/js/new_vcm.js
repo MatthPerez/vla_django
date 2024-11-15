@@ -1,4 +1,6 @@
-function main_new_vcm () {
+function main_new_vcm () {}
+
+function cursor () {
   const cursor = document.getElementById('cursor')
 
   document.addEventListener('mousemove', event => {
