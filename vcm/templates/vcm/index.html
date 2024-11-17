@@ -21,7 +21,7 @@
     {% for meeting in meetings %}
       <article class="meeting">
         <div class="president">
-          <span>Semaine du {{meeting.date}}<br>{{meeting.portion}}</span>
+          <a href="#">Semaine du {{meeting.date}}<br>{{meeting.portion}}</a>
           <span>Président : {{meeting.president.fullname}}</span>
         </div>
 
@@ -169,50 +169,6 @@
         <div class="song">Cantique N°{{meeting.song3}}</div>
 
         <div class="prayer">Prière finale : {{meeting.prayer2.fullname}}</div>
-      </article>
-
-      <article class="welcome">
-        <h3>ACCUEIL</h3>
-
-        <div class="parking">
-          <span>Parking</span>
-          <span>{{meeting.parking.fullname}}</span>
-        </div>
-
-        <div class="door">
-          <span>Entrée</span>
-          <span>{{meeting.entrance.fullname}}</span>
-        </div>
-
-        <div class="inside">
-          <span>Auditorium</span>
-          <span>{{meeting.inside.fullname}}</span>
-        </div>
-      </article>
-
-      <article class="sono">
-        <h3>SONORISATION</h3>
-
-        <div>
-          <span>Estrade</span>
-          <span>{{meeting.podium.fullname}}</span>
-        </div>
-
-        <div>
-          <span>Sono</span>
-          <span>
-            <div>{{meeting.sono1.fullname}}</div>
-            <div>|</div>
-            <div>{{meeting.sono2.fullname}}</div>
-        </div>
-
-        <div>
-          <span>Perches</span>
-          <span>
-            <div>{{meeting.mic1.fullname}}</div>
-            <div>|</div>
-            <div>{{meeting.mic2.fullname}}</div>
-        </div>
       </article>
     {% endfor %}
 </main>

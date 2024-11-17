@@ -10,11 +10,11 @@ main {
 
 nav,
 footer {
-    background-color: var(--color-secondary1);
+    background-color: var(--color-secondary-gray);
 }
 
 main {
-    background-color: var(--color-tertiary1);
+    background-color: var(--color-tertiary-gray);
     @include flexcolumn;
     gap: 3em;
 
@@ -170,7 +170,7 @@ main {
 
         a {
             text-decoration: none;
-            color: var(--color-quinary1);
+            color: var(--color-quinary-gray);
             transition: 300ms all ease;
 
             &:hover {

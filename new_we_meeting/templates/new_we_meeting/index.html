@@ -1,0 +1,48 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/weekend.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/weekend.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Nouvelle réunion VCM{% endblock %} {% block content %}
+<main>
+  <h1>
+    <a href="{% url 'we' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour réunion"
+    /></a>
+    <span>Créer une nouvelle réunion de week-end</span>
+    <span>Nouvelle réunion de week-end</span>
+  </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <section class="generals">
+      <div>{{ form.date.label_tag }} {{ form.date }}</div>
+      <div>{{form.president.label_tag}} {{form.president}}</div>
+      <div>{{form.prayer1.label_tag}} {{form.prayer1}}</div>
+      <div>{{form.prayer2.label_tag}} {{form.prayer2}}</div>
+    </section>
+
+    <section class="song">
+      <h4>Cantiques</h4>
+
+      <div>
+        <span>{{form.song1}}</span>
+        <span>{{form.song2}}</span>
+        <span>{{form.song3}}</span>
+      </div>
+    </section>
+
+    <section class="parts">
+      <div>{{form.speaker.label_tag}} {{form.speaker}}</div>
+      <div>{{form.watchtower.label_tag}} {{form.watchtower}}</div>
+
+      {% if form.watchtower_reader %}
+      <div>{{form.watchtower_reader.label_tag}} {{form.watchtower_reader}}</div>
+      {% endif %}
+
+      <div>{{form.pearls.label_tag}} {{form.pearls}}</div>
+    </section>
+
+    <button type="submit">Ajouter la réunion</button>
+  </form>
+</main>
+{% endblock %}

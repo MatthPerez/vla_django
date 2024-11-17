@@ -7,27 +7,31 @@
 
 nav,
 footer {
-    background-color: var(--color-primary3);
+    background-color: var(--color-primary1);
 }
 
 main {
-    background-color: var(--color-secondary3);
-    @include flex;
-    flex-direction: column;
+    background-color: var(--color-tertiary1);
+    @include flexcolumn;
     gap: 2em;
     padding-bottom: 3em;
 
-    >section {
-        @include flexcolumn;
-        gap: 1em;
+    >a {
+        @include button;
+    }
+}
 
-        article {
-            background-color: var(--color-tertiary3);
-            padding: 1em;
-            @include flexcolumn;
-            gap: .5em;
-            font-family: var(--poppins);
-            box-shadow: 4px 4px 5px rgba(black, .5);
-        }
+.meeting {
+    min-height: 5em;
+    width: clamp(300px, 75vw, 800px);
+    background-color: var(--color-quaternary1);
+    padding: 1em;
+    @include flexcolumn;
+    gap: .5em;
+    font-family: var(--poppins);
+    box-shadow: 4px 4px 5px rgba(black, .5);
+
+    @media (width<=768px) {
+        width: 80vw;
     }
 }

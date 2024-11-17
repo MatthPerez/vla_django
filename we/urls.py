@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import index
+from .views import WeMeetingView
 
 urlpatterns = [
-    path("", index, name="we-index"),
+    path("", WeMeetingView, name="we-index"),
 ]

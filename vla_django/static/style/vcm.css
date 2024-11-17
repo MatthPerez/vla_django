@@ -26,20 +26,25 @@
   --padding: 1em;
   --color-primary1: #1d2d44;
   --color-secondary1: #34507a;
-  --color-tertiary1:#4b74af;
-  --color-quaternary1:#7e9dc8;
-  --color-quinary1:#b4c6df;
+  --color-tertiary1: #4b74af;
+  --color-quaternary1: #7e9dc8;
+  --color-quinary1: #b4c6df;
   --color-senary1: #800000;
   --color-primary2: #935c25;
   --color-secondary2: #cd8238;
-  --color-tertiary2:#dca975;
-  --color-quaternary2:#eccfb2;
-  --color-quinary2:#fbf5ef;
+  --color-tertiary2: #dca975;
+  --color-quaternary2: #eccfb2;
+  --color-quinary2: #fbf5ef;
   --color-primary3: #2a6a1e;
   --color-secondary3: #42a62f;
-  --color-tertiary3:#66ce53;
-  --color-quaternary3:#9bdf8e;
-  --color-quinary3:#d0f0ca;
+  --color-tertiary3: #66ce53;
+  --color-quaternary3: #9bdf8e;
+  --color-quinary3: #d0f0ca;
+  --color-primary-gray: #646464;
+  --color-secondary-gray: #8a8a8a;
+  --color-tertiary-gray: #b1b1b1;
+  --color-quaternary-gray: #d7d7d7;
+  --color-quinary-gray: #fdfdfd;
   --hover: #ffcc7e;
   --active: #fca626;
   --smallActive: red;
@@ -171,9 +176,12 @@ section > a:hover {
   letter-spacing: 3px;
 }
 
-.president span:first-child {
+.president a {
   font-weight: bold;
   font-size: 20px;
+  color: var(--color-primary2);
+  text-align: left;
+  text-decoration: none;
 }
 
 .prayer {
@@ -218,47 +226,4 @@ section > a:hover {
 .vcm div span:last-child,
 .eba span:last-child {
   white-space: nowrap;
-}
-
-.welcome,
-.sono {
-  width: 80%;
-  padding: 2em 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-.welcome h3,
-.sono h3 {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 1em;
-}
-.welcome div,
-.sono div {
-  width: clamp(250px, 80%, 700px);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 3em;
-}
-.welcome div span:first-child,
-.sono div span:first-child {
-  width: 120px;
-  font-weight: bold;
-}
-.welcome div span:nth-child(2),
-.sono div span:nth-child(2) {
-  color: var(--color-primary1);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 5px;
-}
-.welcome div span:nth-child(2) div,
-.sono div span:nth-child(2) div {
-  width: auto;
 }/*# sourceMappingURL=vcm.css.map */

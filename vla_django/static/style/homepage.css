@@ -26,20 +26,25 @@
   --padding: 1em;
   --color-primary1: #1d2d44;
   --color-secondary1: #34507a;
-  --color-tertiary1:#4b74af;
-  --color-quaternary1:#7e9dc8;
-  --color-quinary1:#b4c6df;
+  --color-tertiary1: #4b74af;
+  --color-quaternary1: #7e9dc8;
+  --color-quinary1: #b4c6df;
   --color-senary1: #800000;
   --color-primary2: #935c25;
   --color-secondary2: #cd8238;
-  --color-tertiary2:#dca975;
-  --color-quaternary2:#eccfb2;
-  --color-quinary2:#fbf5ef;
+  --color-tertiary2: #dca975;
+  --color-quaternary2: #eccfb2;
+  --color-quinary2: #fbf5ef;
   --color-primary3: #2a6a1e;
   --color-secondary3: #42a62f;
-  --color-tertiary3:#66ce53;
-  --color-quaternary3:#9bdf8e;
-  --color-quinary3:#d0f0ca;
+  --color-tertiary3: #66ce53;
+  --color-quaternary3: #9bdf8e;
+  --color-quinary3: #d0f0ca;
+  --color-primary-gray: #646464;
+  --color-secondary-gray: #8a8a8a;
+  --color-tertiary-gray: #b1b1b1;
+  --color-quaternary-gray: #d7d7d7;
+  --color-quinary-gray: #fdfdfd;
   --hover: #ffcc7e;
   --active: #fca626;
   --smallActive: red;
@@ -79,11 +84,11 @@ main {
 
 nav,
 footer {
-  background-color: var(--color-secondary1);
+  background-color: var(--color-secondary-gray);
 }
 
 main {
-  background-color: var(--color-tertiary1);
+  background-color: var(--color-tertiary-gray);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,7 +247,7 @@ main section {
 }
 #details li a {
   text-decoration: none;
-  color: var(--color-quinary1);
+  color: var(--color-quinary-gray);
   transition: 300ms all ease;
 }
 #details li a:hover {

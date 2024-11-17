@@ -1,10 +1,14 @@
-from django.shortcuts import render
-from django.views import View
+from django.views.generic import ListView
+from we.models import WeekendMeeting
+from django.utils import timezone
 
 
-class WeView(View):
-    def get(self, request):
-        return render(
-            request,
-            "we/index.html",
-        )
+class WeMeetingView(ListView):
+    model = WeekendMeeting
+    template_name = "we/index.html"
+    context_object_name = "meetings"
+
+    def get_queryset(self):
+        now = timezone.now()
+
+        return WeekendMeeting.objects.filter(date__gte=now)

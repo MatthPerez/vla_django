@@ -26,20 +26,25 @@
   --padding: 1em;
   --color-primary1: #1d2d44;
   --color-secondary1: #34507a;
-  --color-tertiary1:#4b74af;
-  --color-quaternary1:#7e9dc8;
-  --color-quinary1:#b4c6df;
+  --color-tertiary1: #4b74af;
+  --color-quaternary1: #7e9dc8;
+  --color-quinary1: #b4c6df;
   --color-senary1: #800000;
   --color-primary2: #935c25;
   --color-secondary2: #cd8238;
-  --color-tertiary2:#dca975;
-  --color-quaternary2:#eccfb2;
-  --color-quinary2:#fbf5ef;
+  --color-tertiary2: #dca975;
+  --color-quaternary2: #eccfb2;
+  --color-quinary2: #fbf5ef;
   --color-primary3: #2a6a1e;
   --color-secondary3: #42a62f;
-  --color-tertiary3:#66ce53;
-  --color-quaternary3:#9bdf8e;
-  --color-quinary3:#d0f0ca;
+  --color-tertiary3: #66ce53;
+  --color-quaternary3: #9bdf8e;
+  --color-quinary3: #d0f0ca;
+  --color-primary-gray: #646464;
+  --color-secondary-gray: #8a8a8a;
+  --color-tertiary-gray: #b1b1b1;
+  --color-quaternary-gray: #d7d7d7;
+  --color-quinary-gray: #fdfdfd;
   --hover: #ffcc7e;
   --active: #fca626;
   --smallActive: red;
@@ -74,73 +79,142 @@
 
 nav,
 footer {
-  background-color: var(--color-primary2);
+  background-color: var(--color-primary1);
 }
 
 main {
-  background-color: var(--color-secondary2);
+  background-color: var(--color-tertiary1);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2em;
   padding-bottom: 3em;
 }
-main article {
-  background-color: var(--color-tertiary2);
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5em;
-  font-family: var(--poppins);
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
-}
-
-.meeting {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-
-.president span:first-child {
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.prayer {
-  font-weight: 600;
-}
-
-.song {
-  color: #7d1d7d;
-  margin: 1em 0;
-}
-
-.welcome,
-.sono {
-  width: 80%;
-  padding: 2em 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1em;
-}
-.welcome h3,
-.sono h3 {
-  font-size: 24px;
-  text-indent: 5em;
-}
-.welcome div,
-.sono div {
-  width: clamp(250px, 80%, 700px);
+main h1 {
+  width: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  gap: 3em;
+  justify-content: center;
+  gap: 1em;
 }
-.welcome div span:first-child,
-.sono div span:first-child {
-  width: 100px;
+main h1 span:nth-child(2) {
+  display: block;
+}
+main h1 span:nth-child(3) {
+  display: none;
+}
+@media (width <= 768px) {
+  main h1 {
+    width: minmax(250px, 500px);
+  }
+  main h1 a img {
+    width: 30px;
+    aspect-ratio: 1;
+  }
+  main h1 span {
+    font-size: 30px;
+  }
+  main h1 span:nth-child(2) {
+    display: none;
+  }
+  main h1 span:nth-child(3) {
+    display: block;
+  }
+}
+main h1 * {
+  width: auto;
+}
+main h1 a {
+  text-decoration: none;
+  width: auto;
+}
+main h1 a img {
+  height: 0.7em;
+}
+main form {
+  width: clamp(300px, 70%, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+main form section {
+  border: 1px solid black;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+main form section div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+main form section div label {
+  width: auto;
+}
+main form section div input,
+main form section div select {
+  padding: 10px;
+  outline: none;
+  border: none;
+  transition: 300ms all ease;
+}
+main form section div input:focus,
+main form section div select:focus {
+  transition: 150ms all ease;
+  box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
+}
+main form section h4 {
+  width: auto;
+  padding: 0.5em 2em;
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 20px;
+}
+@media (width <= 768px) {
+  main form section {
+    width: 80vw;
+  }
+}
+main form button {
+  width: auto;
+  padding: 10px 30px;
+  font-size: 18px;
+  box-shadow: 4px 4px 5px grey;
+  transition: 300ms all ease;
+}
+main form button:focus {
+  transition: 150ms all ease;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+.song div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.song div span {
+  width: auto;
+}
+.song div span input {
+  width: auto;
+  text-align: center;
+}
+
+.generals,
+.parts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.generals input,
+.generals select,
+.parts input,
+.parts select {
+  width: 75%;
 }/*# sourceMappingURL=weekend.css.map */

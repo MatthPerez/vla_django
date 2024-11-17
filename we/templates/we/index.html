@@ -1,19 +1,40 @@
-{% extends 'vla_django/base.html' %}
-
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/we.css' %}">
-{% endblock %}
-
-{% block script_js %}
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/we.css' %}" />
+{% endblock %} {% block script_js %}
 <script src="{% static 'js/we.js' %}"></script>
-{% endblock %}
-
-{% block title %}VLA | Week-end{% endblock %}
-
-{% block content %}
+{% endblock %} {% block title %}VLA | Week-end{% endblock %} {% block content %}
 <main>
-    <h1>Réunion du week-end</h1>
+  <h1>Réunion de week-end</h1>
+
+  <a href="{% url 'new_we_meeting' %}">Créer une nouvelle réunion</a>
+
+  <article class="meeting"></article>
+
+  {% for meeting in meetings %}
+  <article class="meeting">
+    <div>
+      <div>{{meeting.date}}</div>
+      <div>{{meeting.president}}</div>
+    </div>
+
+    <div>Cantique n°{{meeting.song1}}</div>
+    <div>Prière : {{meeting.prayer1}}</div>
+
+    <div>
+      <div>Allocuteur : {{meeting.speaker}}</div>
+      <div>Discours : {{meeting.speech_title}}</div>
+    </div>
+
+    <div>Cantique n°{{meeting.song2}}</div>
+
+    <div>
+      <div>Tour de Garde : {{meeting.watchtower}}</div>
+      <div>Lecteur : {{meeting.watchtower_reader}}</div>
+    </div>
+
+    <div>Cantique n°{{meeting.song3}}</div>
+    <div>Prière : {{meeting.prayer2}}</div>
+  </article>
+  {% endfor %}
 </main>
 {% endblock %}

@@ -291,59 +291,6 @@ class Meeting(models.Model):
         blank=True,
         null=True,
     )
-    parking = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_parking",
-        blank=True,
-        null=True,
-    )
-    entrance = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_entrance",
-        blank=True,
-        null=True,
-    )
-    inside = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_inside",
-        blank=True,
-        null=True,
-    )
-    podium = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_podium",
-        blank=True,
-        null=True,
-    )
-    sono1 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_sono1",
-        blank=True,
-        null=True,
-    )
-    sono2 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_sono2",
-        blank=True,
-        null=True,
-    )
-    mic1 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_mic1",
-        blank=True,
-        null=True,
-    )
-    mic2 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_mic2",
-        blank=True,
-        null=True,
-    )
+
+    def __str__(self):
+        return self.date

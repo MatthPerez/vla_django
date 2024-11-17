@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "vcm",
     "new_vcm_meeting",
     "we",
+    "new_we_meeting",
     "groups",
     "infos",
     "persons",

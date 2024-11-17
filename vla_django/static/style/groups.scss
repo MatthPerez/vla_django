@@ -7,11 +7,11 @@
 
 nav,
 footer {
-    background-color: var(--color-primary1);
+    background-color: var(--color-primary3);
 }
 
 main {
-    background-color: var(--color-secondary1);
+    background-color: var(--color-tertiary3);
     @include flex;
     flex-direction: column;
     gap: 2em;

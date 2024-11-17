@@ -31,25 +31,7 @@ section {
     gap: 2em;
 
     >a {
-        width: auto;
-        text-decoration: none;
-        text-align: center;
-        @include border;
-        padding: .5em 1.5em;
-        color: black;
-        font-size: 20px;
-        background-color: rgba(white, .5);
-        $padding: 4px;
-        $k: 50;
-        box-shadow: $padding $padding 5px rgba($k, $k, $k, .8);
-        transition: 300ms all ease;
-
-        &:hover {
-            transition: 150ms all ease;
-            background-color: rgba(white, .7);
-            box-shadow: none;
-            transform: translateY($padding);
-        }
+        @include button;
     }
 }
 
@@ -112,11 +94,12 @@ section {
 }
 
 .president {
-    span {
-        &:first-child {
-            font-weight: bold;
-            font-size: 20px;
-        }
+    a {
+        font-weight: bold;
+        font-size: 20px;
+        color: var(--color-primary2);
+        text-align: left;
+        text-decoration: none;
     }
 }
 
@@ -162,45 +145,6 @@ section {
     span {
         &:last-child {
             white-space: nowrap;
-        }
-    }
-}
-
-.welcome,
-.sono {
-    width: 80%;
-    padding: 2em 0;
-    @include flexcolumn;
-    gap: 1em;
-
-    h3 {
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 1em;
-    }
-
-    div {
-        width: clamp(250px, 80%, 700px);
-        @include flex;
-        justify-content: flex-start;
-        gap: 3em;
-
-        span {
-            &:first-child {
-                width: 120px;
-                font-weight: bold;
-            }
-
-            &:nth-child(2) {
-                color: var(--color-primary1);
-                @include flex;
-                justify-content: flex-start;
-                gap: 5px;
-
-                div {
-                    width: auto;
-                }
-            }
         }
     }
 }

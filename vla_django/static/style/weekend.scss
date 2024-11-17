@@ -7,70 +7,142 @@
 
 nav,
 footer {
-    background-color: var(--color-primary2);
+    background-color: var(--color-primary1);
 }
 
 main {
-    background-color: var(--color-secondary2);
+    background-color: var(--color-tertiary1);
     @include flexcolumn;
     gap: 2em;
     padding-bottom: 3em;
 
-    article {
-        background-color: var(--color-tertiary2);
-        padding: 1em;
-        @include flexcolumn;
-        gap: .5em;
-        font-family: var(--poppins);
-        box-shadow: 4px 4px 5px rgba(black, .5);
-    }
-}
+    h1 {
+        width: auto;
+        @include flex;
+        justify-content: center;
+        gap: 1em;
 
-.meeting {
-    @include flexcolumn;
-    gap: 1em;
-}
+        span {
+            &:nth-child(2) {
+                display: block;
+            }
 
-.president {
-    span {
-        &:first-child {
-            font-weight: bold;
-            font-size: 22px;
+            &:nth-child(3) {
+                display: none;
+            }
+        }
+
+        @media (width<=768px) {
+            width: minmax(250px, 500px);
+
+            a {
+                img {
+                    width: 30px;
+                    aspect-ratio: 1;
+                }
+            }
+
+            span {
+                font-size: 30px;
+
+                &:nth-child(2) {
+                    display: none;
+                }
+
+                &:nth-child(3) {
+                    display: block;
+                }
+            }
+        }
+
+        * {
+            width: auto;
+        }
+
+        a {
+            text-decoration: none;
+            width: auto;
+
+            img {
+                height: .7em;
+            }
         }
     }
-}
 
-.prayer {
-    font-weight: 600;
+    form {
+        width: clamp(300px, 70%, 700px);
+        @include flexcolumn;
+        gap: 1em;
+
+        section {
+            @include border;
+            padding: 1em;
+            background-color: rgba(white, .2);
+
+            div {
+                @include flex;
+                justify-content: space-between;
+                gap: 1em;
+
+                label {
+                    width: auto;
+                }
+
+                input,
+                select {
+                    padding: 10px;
+                    @include no-border;
+                    transition: 300ms all ease;
+
+                    &:focus {
+                        transition: 150ms all ease;
+                        box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
+                    }
+                }
+            }
+
+            h4 {
+                width: auto;
+                padding: .5em 2em;
+                text-align: center;
+                margin-bottom: .5em;
+                font-size: 20px;
+            }
+
+            @media (width<=768px) {
+                width: 80vw;
+            }
+        }
+
+        button {
+            @include btn_click;
+        }
+    }
 }
 
 .song {
-    color: #7d1d7d;
-    margin: 1em 0;
-}
-
-.welcome,
-.sono {
-    width: 80%;
-    padding: 2em 0;
-    @include flexcolumn;
-    gap: 1em;
-
-    h3 {
-        font-size: 24px;
-        text-indent: 5em;
-    }
-
     div {
-        width: clamp(250px, 80%, 700px);
         @include flex;
-        justify-content: flex-start;
-        gap: 3em;
+        justify-content: space-evenly;
 
         span {
-            &:first-child {
-                width: 100px;
+            width: auto;
+
+            input {
+                width: auto;
+                text-align: center;
             }
         }
+    }
+}
+
+.generals,
+.parts {
+    @include flexcolumn;
+    gap: 10px;
+
+    input,
+    select {
+        width: 75%;
     }
 }
