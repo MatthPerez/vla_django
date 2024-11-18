@@ -40,11 +40,11 @@
   --color-tertiary3: #66ce53;
   --color-quaternary3: #9bdf8e;
   --color-quinary3: #d0f0ca;
-  --color-primary-gray: #646464;
-  --color-secondary-gray: #8a8a8a;
-  --color-tertiary-gray: #b1b1b1;
-  --color-quaternary-gray: #d7d7d7;
-  --color-quinary-gray: #fdfdfd;
+  --color-primary-gray: #5a5a5a;
+  --color-secondary-gray: gray;
+  --color-tertiary-gray: #a7a7a7;
+  --color-quaternary-gray: #cdcdcd;
+  --color-quinary-gray: #f3f3f3;
   --hover: #ffcc7e;
   --active: #fca626;
   --smallActive: red;
@@ -84,11 +84,11 @@ main {
 
 nav,
 footer {
-  background-color: var(--color-secondary-gray);
+  background-color: var(--color-primary-gray);
 }
 
 main {
-  background-color: var(--color-tertiary-gray);
+  background-color: var(--color-quaternary-gray);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -247,12 +247,13 @@ main section {
 }
 #details li a {
   text-decoration: none;
-  color: var(--color-quinary-gray);
+  color: var(--color-primary-gray);
   transition: 300ms all ease;
 }
 #details li a:hover {
   transition: 150ms all ease;
   color: var(--hover);
+  color: var(--color-secondary-gray);
 }
 
 @media (width <= 768px) {

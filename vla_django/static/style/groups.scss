@@ -11,10 +11,68 @@ footer {
 }
 
 main {
-    background-color: var(--color-tertiary3);
+    background-color: var(--color-quaternary3);
     @include flex;
     flex-direction: column;
     gap: 2em;
     padding-bottom: 3em;
 
+}
+
+.groupNames {
+    width: clamp(300px, 70%, 900px);
+    list-style: none;
+    @include flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+
+    li {
+        width: auto;
+        @include border;
+        padding: 10px 30px;
+        background-color: rgba(white, .2);
+        $padding: 2px;
+        $k: 150;
+        box-shadow: $padding $padding 5px rgb($k, $k, $k);
+        transition: 300ms all ease;
+
+        &:hover {
+            transition: 150ms all ease;
+            box-shadow: none;
+            transform: translateY($padding);
+            background-color: rgba(white, .5);
+        }
+    }
+}
+
+.names {
+    width: clamp(200px, 50%, 400px);
+    min-height: 5em;
+    list-style: none;
+    @include flexcolumn;
+    gap: 10px;
+
+    li {
+        @include flex;
+        justify-content: flex-start;
+        gap: 5px;
+
+        span {
+            width: auto;
+        }
+    }
+}
+
+.responsable {
+    color: red;
+}
+
+.adjoint {
+    color: blue;
+}
+
+.active-group {
+    color: rgb(155, 24, 24) !important;
+    background-color: rgba(white, .7) !important;
 }

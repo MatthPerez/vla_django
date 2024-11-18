@@ -1,19 +1,27 @@
-{% extends 'vla_django/base.html' %}
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/groups.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/groups.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Groupes{% endblock %} {% block content %}
 
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/groups.css' %}">
-{% endblock %}
-
-{% block script_js %}
-<script src="{% static 'js/groups.js' %}"></script>
-{% endblock %}
-
-{% block title %}VLA | Groupes{% endblock %}
-
-{% block content %}
 <main>
-    <h1>Groupes</h1>
+  <h1>Groupes</h1>
+
+  <ul class="groupNames">
+    {% for group in groups %}
+    <li>{{ group }}</li>
+    {% empty %}
+    <span>Aucun groupe trouvé</span>
+    {% endfor %}
+  </ul>
+
+  <ul class="names">
+    {% for person in persons %}
+    <li name="{{person.group}}" class="{{person.short_role}}">
+        <span>{{person.fullname}}{% if person.cong_status %} - {{person.cong_status}}{% endif %}</span>
+        <span>{% if person.cong_functions %}({{person.cong_functions}}){% endif %}</span>
+    </li>
+    {% endfor %}
+  </ul>
 </main>
 {% endblock %}
