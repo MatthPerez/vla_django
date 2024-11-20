@@ -7,19 +7,29 @@
 <main>
   <h1>Groupes</h1>
 
+  <a href="{% url 'new_group' %}">Créer un nouveau groupe</a>
+
   <ul class="groupNames">
     {% for group in groups %}
-    <li>{{ group }}</li>
+    <li>
+      <span>{{ group.name }}</span>
+      <span>✏️ ❌</span>
+    </li>
     {% empty %}
-    <span>Aucun groupe trouvé</span>
+    <li>Aucun groupe trouvé.</li>
     {% endfor %}
   </ul>
 
   <ul class="names">
     {% for person in persons %}
     <li name="{{person.group}}" class="{{person.short_role}}">
-        <span>{{person.fullname}}{% if person.cong_status %} - {{person.cong_status}}{% endif %}</span>
-        <span>{% if person.cong_functions %}({{person.cong_functions}}){% endif %}</span>
+      <span
+        >{{person.fullname}}{% if person.cong_status %} -
+        {{person.cong_status}}{% endif %}</span
+      >
+      <span
+        >{% if person.cong_function %}({{person.cong_function}}){% endif %}</span
+      >
     </li>
     {% endfor %}
   </ul>

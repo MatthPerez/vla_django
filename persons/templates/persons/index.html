@@ -1,0 +1,20 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/persons.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/persons.js' %}"></script>
+{% endblock %} {% block title %}VLA | Membres{% endblock %} {% block content %}
+<main>
+  <h1>Membres</h1>
+
+  <a href="{% url 'new-person' %}">Créer un nouveau membre</a>
+
+  {% for person in persons %}
+  <div>
+    <span>{{person.fullname}}</span>
+    <span>✏️ ❌</span>
+  </div>
+  {% empty %}
+  <div>Aucun membre trouvé.</div>
+  {% endfor %}
+</main>
+{% endblock %}

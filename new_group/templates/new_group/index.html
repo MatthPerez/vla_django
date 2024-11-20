@@ -1,0 +1,27 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/new_group.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/new_group.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Nouvelle réunion VCM{% endblock %} {% block content %}
+<main>
+  <h1>
+    <a href="{% url 'groups' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
+    /></a>
+    <span>Créer un nouveau groupe</span>
+  </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <section>
+      <div>{{ form.name.label_tag }} {{ form.name }}</div>
+    </section>
+
+    {% if form.non_field_errors %}
+    <div class="error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <button type="submit">Ajouter la réunion</button>
+  </form>
+</main>
+{% endblock %}

@@ -17,7 +17,7 @@ class AddWeekendMeeting(forms.Form):
     )
     president = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.filter(cong_functions__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ancien"),
         widget=forms.Select,
         label="Président",
         to_field_name="id",
@@ -50,7 +50,7 @@ class AddWeekendMeeting(forms.Form):
     )
     speaker = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.exclude(cong_functions=""),
+        queryset=Person.objects.exclude(cong_function=""),
         widget=forms.Select,
         label="Allocuteur",
         to_field_name="id",
@@ -61,7 +61,7 @@ class AddWeekendMeeting(forms.Form):
     )
     watchtower = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.filter(cong_functions__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ancien"),
         widget=forms.Select,
         label="Tour de Garde",
         to_field_name="id",

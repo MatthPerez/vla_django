@@ -32,7 +32,7 @@ class AddMeeting(forms.Form):
     )
     president = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.filter(cong_functions__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ancien"),
         widget=forms.Select,
         label="Président",
         to_field_name="id",
@@ -70,7 +70,7 @@ class AddMeeting(forms.Form):
     )
     jewels = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.exclude(cong_functions=""),
+        queryset=Person.objects.exclude(cong_function=""),
         widget=forms.Select,
         label="Joyaux (orateur)",
     )
@@ -81,7 +81,7 @@ class AddMeeting(forms.Form):
     )
     pearls = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.exclude(cong_functions=""),
+        queryset=Person.objects.exclude(cong_function=""),
         widget=forms.Select,
         label="Perles",
         to_field_name="id",
@@ -109,14 +109,14 @@ class AddMeeting(forms.Form):
     )
     advisor2 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_functions__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ancien"),
         widget=forms.Select,
         label="Conseiller",
         to_field_name="id",
     )
     advisor3 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_functions__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ancien"),
         widget=forms.Select,
         label="Conseiller",
         to_field_name="id",
@@ -278,21 +278,21 @@ class AddMeeting(forms.Form):
     )
     vcm1 = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.exclude(cong_functions=""),
+        queryset=Person.objects.exclude(cong_function=""),
         widget=forms.Select,
         label="Sujet VCM 1",
         to_field_name="id",
     )
     vcm2 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.exclude(cong_functions=""),
+        queryset=Person.objects.exclude(cong_function=""),
         widget=forms.Select,
         label="Sujet VCM 2",
         to_field_name="id",
     )
     vcm3 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_functions__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ancien"),
         widget=forms.Select,
         label="Sujet VCM 3",
         to_field_name="id",
@@ -326,7 +326,7 @@ class AddMeeting(forms.Form):
     )
     eba = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_functions__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ancien"),
         widget=forms.Select,
         label="Etude biblique de l'assemblée",
         to_field_name="id",
@@ -346,63 +346,6 @@ class AddMeeting(forms.Form):
         required=False,
         label="Titre du discours spécial",
         max_length=100,
-    )
-
-    parking = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Parking",
-        to_field_name="id",
-    )
-    entrance = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Entrée",
-        to_field_name="id",
-    )
-    inside = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Auditorium",
-        to_field_name="id",
-    )
-    podium = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Estrade",
-        to_field_name="id",
-    )
-    sono1 = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Sono 1",
-        to_field_name="id",
-    )
-    sono2 = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Sono 2",
-        to_field_name="id",
-    )
-    mic1 = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Perche 1",
-        to_field_name="id",
-    )
-    mic2 = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Perche 2",
-        to_field_name="id",
     )
 
     def special_week(self):
@@ -458,14 +401,6 @@ class AddMeeting(forms.Form):
             "vcm3",
             "eba",
             "eba_reader",
-            "parking",
-            "entrance",
-            "inside",
-            "podium",
-            "sono1",
-            "sono2",
-            "mic1",
-            "mic2",
         ]
 
         for field in fields_with_fullname:
@@ -508,14 +443,6 @@ class WeekMeetingForm(forms.ModelForm):
             "eba",
             "eba_reader",
             "supervisor",
-            "parking",
-            "entrance",
-            "inside",
-            "podium",
-            "sono1",
-            "sono2",
-            "mic1",
-            "mic2",
         ]
         for field in optional_fields:
             self.fields[field].required = False

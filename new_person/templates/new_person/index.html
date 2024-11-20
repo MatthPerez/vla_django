@@ -1,0 +1,31 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/new_person.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/new_person.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Nouveau membre{% endblock %} {% block content %}
+<main>
+  <h1>
+    <a href="{% url 'persons' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
+    /></a>
+    <span>Créer un nouveau membre</span>
+  </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <section>
+      <div>{{ form.firstname.label_tag }} {{ form.firstname }}</div>
+      <div>{{ form.lastname.label_tag }} {{ form.lastname }}</div>
+      <div>{{ form.gender.label_tag }} {{ form.gender }}</div>
+      <div>{{ form.cong_function.label_tag }} {{ form.cong_function }}</div>
+      <div>{{ form.cong_status.label_tag }} {{ form.cong_status }}</div>
+    </section>
+
+    {% if form.non_field_errors %}
+    <div class="error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <button type="submit">Ajouter le membre</button>
+  </form>
+</main>
+{% endblock %}

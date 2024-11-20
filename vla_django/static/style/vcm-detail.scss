@@ -1,0 +1,29 @@
+@import 'vcm.scss';
+
+h1 {
+    @include flex;
+    justify-content: center;
+    gap: 1em;
+
+    span,
+    a {
+        width: auto;
+    }
+
+    a {
+        text-decoration: none;
+
+        img {
+            width: 50px;
+        }
+    }
+}
+
+.president {
+    span {
+        &:first-child {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    }
+}

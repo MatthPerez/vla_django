@@ -1,150 +1,151 @@
-id,firstname,lastname,cong_functions,cong_roles,cong_status,group,gender
-3,M√©lanie,Aurelio,,[],PROCL,Pujaut,FEMALE
-4,Ma√´lys,Aurelio,,[],,Pujaut,FEMALE
-5,Giuliana,Aurelio,,[],,Pujaut,FEMALE
-6,Priscille,Baggetto,,[],PROCL,Saze,FEMALE
-8,Marie-Paule,Bernier,,[],PP,Les Angles est,FEMALE
-9,S√©verine,Blondeau,,[],PROCL,Rochefort,FEMALE
-10,Louiselle,Bonnez,,[],PROCL,Saze,FEMALE
-11,Richard,Bonnez,,[],PROCL,Saze,MALE
-12,Antoinette,Bossenmeyer,,[],PROCL,Villeneuve,FEMALE
-13,Daniel,Bossenmeyer,,"[""Responsable aux territoires""]",PROCL,La B√©gude,MALE
-14,Emma,Bossenmeyer,,[],PROCL,La B√©gude,FEMALE
-15,Julie,Bossenmeyer,,[],PROCL,La B√©gude,FEMALE
-16,Sylvie,Bossenmeyer,,[],PROCL,La B√©gude,FEMALE
-17,Diana,Boucardey,,[],PROCL,Pujaut,FEMALE
-18,Jonathan,Boucardey,,[],PROCL,Pujaut,MALE
-19,Tom,Boucardey,,[],,,MALE
-20,Hasna,Boulahcen,,[],PROCL,Villeneuve,FEMALE
-21,Serge,Boutet,,[],PROCL,Les Angles est,MALE
-22,Hadja,Bouzahouene,,[],PP,Pujaut,FEMALE
-23,Jessica,Brion,,[],PROCL,Les Angles est,FEMALE
-24,Kenny,Brion,,[],PROCL,Les Angles est,MALE
-25,Isabelle,Cannaert,,[],PROCL,Les Angles sud,FEMALE
-26,Biagio,Catania,,[],,La B√©gude,MALE
-27,Joseph,Catania,Assistant,[],PROCL,La B√©gude,MALE
-28,Kelly,Catania,,[],PROCL,La B√©gude,FEMALE
-29,Corinne,Catania,,[],PROCL,Les Angles sud,FEMALE
-30,Luigi,Catania,,[],PROCL,Les Angles sud,MALE
-31,Jacqueline,Chapin,,[],PP,Saze,FEMALE
-32,Christiane,Constant,,[],PROCL,Les Angles sud,FEMALE
-33,Isabelle,Coupigny,,[],PROCL,Pujaut,FEMALE
-34,Thibault,Coupigny,,[],,Pujaut,MALE
-35,Jean-Pierre,Danve,,[],PROCL,Les Angles est,MALE
-36,L√©na,Debu,,[],PROCL,Les Angles est,FEMALE
-37,Nadia,Delmas,,[],PROCL,Rochefort,FEMALE
-38,Yann,Delmas,Assistant,"[""Responsable aux territoires"", ""Pr√©pos√© au groupe""]",PROCL,Rochefort,MALE
-40,Bruno,Di Rico,Ancien,"[""CLH"", ""Responsable de groupe""]",PP,Les Angles nord,MALE
-41,Naomi,Di Rico,,[],PP,Les Angles nord,FEMALE
-42,Adrien,Drouode,Assistant,"[""Adjoint au secr\u00e9taire""]",PP,Rochefort,MALE
-43,Patricia,Ducroux,,[],PROCL,Rochefort,FEMALE
-44,Jacques,Dumitran,Ancien,"[""Responsable du CG, conseiller adjoint, responsable de la tour de Garde""]",PP,Les Angles est,MALE
-45,Murielle,Dumitran,,[],PROCL,Les Angles est,FEMALE
-46,Ginette,Esp√©ron,,[],PROCL,Villeneuve,FEMALE
-47,Cl√©mence,Fabry,,[],PP,Villeneuve,FEMALE
-48,Quentin,Fabry,Assistant,[],PROCL,Villeneuve,MALE
-49,Nicole,Farr√©,,[],PP,Les Angles sud,FEMALE
-50,Robert,Farr√©,Ancien,"[""Coordinateur"", ""Responsable de groupe""]",PP,Les Angles sud,MALE
-51,Mathieu,Fernandes,,[],PROCL,Villeneuve,MALE
-52,No√©mie,Fernandes,,[],PROCL,Villeneuve,FEMALE
-53,Alejandra,Fernandez,,[],PROCL,Villeneuve,FEMALE
-54,Val√©rie,Fournier,,[],PP,Pujaut,FEMALE
-55,Aurore,Frisson,,[],PROCL,Les Angles nord,FEMALE
-56,Olivier,Frisson,,[],PROCL,Les Angles nord,MALE
-57,Florence,Frisson,,[],PROCL,Les Angles nord,FEMALE
-58,Carole,Galindo,,[],PROCL,Saze,FEMALE
-59,Ana,Garcia,,[],PROCL,Rochefort,FEMALE
-60,Jos√©,Garcia,,[],PROCL,Rochefort,MALE
-61,Micka√´l,Ghiringhelli,,[],PROCL,Les Angles est,MALE
-62,Christiane,Gitzhoffer,,[],PROCL,Les Angles sud,FEMALE
-63,Michel,Gitzhoffer,,[],PROCL,Les Angles sud,MALE
-64,Delphine,Graff,,[],PROC,Saze,FEMALE
-65,Enzo,Graff,,[],PP,Les Angles est,MALE
-66,Florian,Graff,,[],PROCL,Les Angles est,MALE
-67,H√©l√®ne,Graff,,[],PROCL,Saze,FEMALE
-68,Jade,Graff,,[],PROCL,Saze,FEMALE
-69,Jo√´l,Graff,,[],PROCL,Rochefort,MALE
-70,Sylvie,Graff,,[],PROCL,Rochefort,FEMALE
-71,Rudy,Graff,,[],PROCL,Saze,MALE
-72,B√©atrice,H√©noch,,[],PP,Les Angles nord,FEMALE
-73,El√©a,H√©noch,,[],PROCL,Les Angles nord,FEMALE
-74,Gauthier,H√©noch,,[],PROCL,Les Angles nord,MALE
-75,Herv√©,H√©noch,,[],PROCL,Les Angles nord,MALE
-76,Hugo,H√©noch,Assistant,"[""Responsable \u00e0 la sonorisation""]",PP,Pujaut,MALE
-77,Martin,Humbrecht,,[],PROCL,Les Angles sud,MALE
-78,Olfa,Humbrecht,,[],PP,Les Angles sud,FEMALE
-79,Jonathan,Ignatowicz,,[],PROCL,Les Angles sud,MALE
-80,Mathieu,Ignatowicz,,[],PROCL,Les Angles sud,MALE
-81,Agn√®s,Iwanczuk,,[],PROCL,Les Angles sud,FEMALE
-82,Jeanine,Kurtz,,[],PROCL,Pujaut,FEMALE
-83,Jacqueline,Laguin,,[],PROCL,Saze,FEMALE
-84,Jean,Leroy,,[],PROCL,Saze,MALE
-85,Jean-Philippe,Leroy,,[],,Rochefort,MALE
-86,Oksana,Leroy,,[],PROCL,Rochefort,FEMALE
-87,Polina,Leroy,,[],PROCL,Rochefort,FEMALE
-88,Trinit√©,Llobel,,[],PROCL,La B√©gude,MALE
-89,H√©l√®ne,Lopez,,[],PROCL,Les Angles nord,FEMALE
-90,Marie,Marielouise,,[],PROCL,Les Angles sud,FEMALE
-91,Owena,Marielouise,,[],,Les Angles sud,FEMALE
-92,Elisabeth,Martinez,,[],PROCL,Pujaut,FEMALE
-93,Jos√©,Martinez,,[],PROCL,Pujaut,MALE
-94,Lucette,Mermet-Lyaudoz,,[],PROCL,Les Angles est,FeMALE
-95,Dani√®le,Moscatiello,,[],PROCL,La B√©gude,FEMALE
-96,Salvatore,Moscatiello,Ancien,"[""Responsable de la pr\u00e9dication"", ""Responsable de groupe""]",PP,La B√©gude,MALE
-97,Brian,N Guyen,,[],PROCL,La B√©gude,MALE
-98,D√©borah,N Guyen,,[],PROCL,La B√©gude,FEMALE
-99,Kenny,N Guyen,,[],,La B√©gude,MALE
-100,Sara,N Guyen,,[],,La B√©gude,FEMALE
-101,Kenny,N Guyen,,[],,La B√©gude,MALE
-102,Eric,Nowak,Assistant,"[""Responsable aux publications""]",PROCL,Les Angles est,MALE
-103,Mich√®le,Nowak,,[],PROCL,Les Angles est,FEMALE
-104,Sandra,Paganeli,,[],PROCL,Saze,FEMALE
-105,Monique,Pag√®s,,[],PROCL,Villeneuve,FEMALE
-106,Franck,Patoux,,[],PROCL,Saze,MALE
-107,Jos√©,Perez,Ancien,"[""Responsable de groupe""]",PROCL,Villeneuve,MALE
-108,Monique,Perez,,[],PROCL,Villeneuve,FEMALE
-109,Manuel,Perez,,[],PROCL,Villeneuve,MALE
-110,Marie-Jos√©,Perez,,[],PROCL,Villeneuve,FEMALE
-111,Micka√´l,Perez,,[],,,MALE
-112,Pierre,Perez,Ancien,"[""Secr\u00e9taire"", ""CLH"", ""Responsable de groupe""]",PROCL,Saze,MALE
-113,Ysabelle,Perez,,[],PP,Saze,FEMALE
-114,Jacques,Petit,Ancien,"[""Responsable des discours publics""]",PROCL,Les Angles est,MALE
-115,Mich√®le,Petit,,[],PROCL,Les Angles est,FEMALE
-116,Elisabeth,Piguet,,[],PROCL,Rochefort,FEMALE
-117,Joseph,Porrazzo,,[],PROCL,Les Angles sud,MALE
-118,Marie,Porrazzo,,[],PROCL,Les Angles sud,FEMALE
-119,Colette,Pradier,,[],,Villeneuve,FEMALE
-120,Alain,Raboin,,[],PROCL,Pujaut,MALE
-121,Lysiane,Raboin,,[],PROCL,Pujaut,FEMALE
-122,Mehdi,R√©mal,Assistant,"[""Responsable aux territoires""]",PP,Les Angles sud,MALE
-123,H√©l√®ne,R√©ra,,[],PROCL,Pujaut,FEMALE
-124,Serge,R√©ra,Ancien,"[""Responsable de groupe"", ""Responsable \u00e0 la VCM""]",PP,Pujaut,MALE
-125,Nicole,Rivayrol,,[],PP,Les Angles nord,FEMALE
-126,Cynthia,Rivet,,[],PP,Saze,FEMALE
-127,Olivier,Rivet,Assistant,[],PROCL,Saze,MALE
-128,Amandine,Roche,,[],PROCL,Pujaut,FEMALE
-129,Christiane,Roche,,[],PROCL,Les Angles nord,FEMALE
-130,Serge,Roche,,[],PROCL,Les Angles nord,MALE
-131,Dylan,Roche,,[],,Les angles nord,MALE
-132,Patrick,Roche,,[],PROCL,Les angles nord,MALE
-133,Maryse,Roche,,[],PROCL,Les angles nord,FEMALE
-134,G√©raldine,Roualet,,[],PROCL,La B√©gude,FEMALE
-135,Michel,Roualet,,[],PROCL,La B√©gude,MALE
-136,Muriel,Santamaria,,[],PROCL,Les Angles nord,FEMALE
-137,Marie-Claire,Starck,,[],PROCL,Saze,FEMALE
-138,Maryline,Taillefer,,[],PROCL,Pujaut,FEMALE
-139,Mandy,Th√©lier,,[],PROCL,Villeneuve,FEMALE
-140,Valentin,Th√©lier,,[],PROCL,Villeneuve,MALE
-141,Am√©lie,Thillerot,,[],PNB,Villeneuve,FEMALE
-142,Armelle,Thillerot,,[],PROCL,Rochefort,FEMALE
-143,Franck,Thillerot,,[],PROCL,Rochefort,MALE
-144,Beno√Æt,Thillerot,,[],PROCL,Les Angles est,MALE
-145,C√©drick,Veyssi√®re,,[],PROCL,Rochefort,MALE
-146,Lydia,Veyssi√®re,,[],PROCL,Rochefort,FEMALE
-147,Tim√©o,Veyssi√®re,,[],PNB,Rochefort,MALE
-148,Lionel,Viala,,[],PROCL,La B√©gude,MALE
-149,Vanessa,Viala,,[],PROCL,La B√©gude,FEMALE
-150,Jean-Marie,Vicente,,[],PROCL,Villeneuve,MALE
-151,Mirelda,Perez,,[],PROCL,La B√©gude,FEMALE
-152,Matthieu,Perez,Assistant,"[""Adjoint \u00e0 la VCM"", ""Adjoint au groupe""]",PROCL,La B√©gude,MALE
-153,Sonia,Augustin,[],[],PP,Les Angles est,FEMALE
+id;firstname;lastname;cong_function;cong_roles;cong_status;group;gender
+1;Sonia;Augustin;;[];PP;Les Angles est;FEMALE
+2;Emmanuel;Aurelio;;[];PROCL;Pujaut;MALE
+3;MÈlanie;Aurelio;;[];PROCL;Pujaut;FEMALE
+4;MaÎlys;Aurelio;;[];PNB;Pujaut;FEMALE
+5;Giuliana;Aurelio;;[];;Pujaut;FEMALE
+6;Priscille;Baggetto;;[];PROCL;Saze;FEMALE
+8;Marie-Paule;Bernier;;[];PP;Les Angles est;FEMALE
+9;SÈverine;Blondeau;;[];PROCL;Rochefort;FEMALE
+10;Louiselle;Bonnez;;[];PROCL;Saze;FEMALE
+11;Richard;Bonnez;;[];PROCL;Saze;MALE
+12;Antoinette;Bossenmeyer;;[];PROCL;Villeneuve;FEMALE
+13;Daniel;Bossenmeyer;;[Responsable aux territoires];PROCL;La Begude;MALE
+14;Emma;Bossenmeyer;;[];PROCL;La Begude;FEMALE
+15;Julie;Bossenmeyer;;[];PROCL;La Begude;FEMALE
+16;Sylvie;Bossenmeyer;;[];PROCL;La Begude;FEMALE
+17;Diana;Boucardey;;[];PROCL;Pujaut;FEMALE
+18;Jonathan;Boucardey;;[];PROCL;Pujaut;MALE
+19;Tom;Boucardey;;[];;;MALE
+20;Hasna;Boulahcen;;[];PROCL;Villeneuve;FEMALE
+21;Serge;Boutet;;[];PROCL;Les Angles est;MALE
+22;Hadja;Bouzahouene;;[];PP;Pujaut;FEMALE
+23;Jessica;Brion;;[];PROCL;Les Angles est;FEMALE
+24;Kenny;Brion;;[];PROCL;Les Angles est;MALE
+25;Isabelle;Cannaert;;[];PROCL;Les Angles sud;FEMALE
+26;Biagio;Catania;;[];;La Begude;MALE
+27;Joseph;Catania;Assistant;[];PROCL;La Begude;MALE
+28;Kelly;Catania;;[];PROCL;La Begude;FEMALE
+29;Corinne;Catania;;[];PROCL;Les Angles sud;FEMALE
+30;Luigi;Catania;;[];PROCL;Les Angles sud;MALE
+31;Jacqueline;Chapin;;[];PP;Saze;FEMALE
+32;Christiane;Constant;;[];PROCL;Les Angles sud;FEMALE
+33;Isabelle;Coupigny;;[];PROCL;Pujaut;FEMALE
+34;Thibault;Coupigny;;[];;Pujaut;MALE
+35;Jean-Pierre;Danve;;[];PROCL;Les Angles est;MALE
+36;LÈna;Debu;;[];PROCL;Les Angles est;FEMALE
+37;Nadia;Delmas;;[];PROCL;Rochefort;FEMALE
+38;Yann;Delmas;Assistant;[Responsable aux territoires, Préposé au groupe, Responsable de groupe];PROCL;Rochefort;MALE
+40;Bruno;Di Rico;Ancien;[CLH, Responsable de groupe];PP;Les Angles nord;MALE
+41;Naomi;Di Rico;;[];PP;Les Angles nord;FEMALE
+42;Adrien;Drouode;Assistant;[Adjoint au secretaire, Adjoint de groupe, Comité de gestion];PP;Rochefort;MALE
+43;Patricia;Ducroux;;[];PROCL;Rochefort;FEMALE
+44;Jacques;Dumitran;Ancien;[Responsable du CG, Conseiller adjoint, Responsable de la tour de Garde, Responsable de groupe];PP;Les Angles est;MALE
+45;Murielle;Dumitran;;[];PROCL;Les Angles est;FEMALE
+46;Ginette;EspÈron;;[];PROCL;Villeneuve;FEMALE
+47;ClÈmence;Fabry;;[];PP;Villeneuve;FEMALE
+48;Quentin;Fabry;Assistant;[Adjoint de groupe];PROCL;Villeneuve;MALE
+49;Nicole;FarrÈ;;[];PP;Les Angles sud;FEMALE
+50;Robert;FarrÈ;Ancien;[Coordinateur, Responsable de groupe];PP;Les Angles sud;MALE
+51;Mathieu;Fernandes;;[];PROCL;Villeneuve;MALE
+52;NoÈmie;Fernandes;;[];PROCL;Villeneuve;FEMALE
+53;Alejandra;Fernandez;;[];PROCL;Villeneuve;FEMALE
+54;ValÈrie;Fournier;;[];PP;Pujaut;FEMALE
+55;Aurore;Frisson;;[];PROCL;Les Angles nord;FEMALE
+56;Olivier;Frisson;;[];PROCL;Les Angles nord;MALE
+57;Florence;Frisson;;[];PROCL;Les Angles nord;FEMALE
+58;Carole;Galindo;;[];PROCL;Saze;FEMALE
+59;Ana;Garcia;;[];PROCL;Rochefort;FEMALE
+60;JosÈ;Garcia;;[];PROCL;Rochefort;MALE
+61;MickaÎl;Ghiringhelli;;[];PROCL;Les Angles est;MALE
+62;Christiane;Gitzhoffer;;[];PROCL;Les Angles sud;FEMALE
+63;Michel;Gitzhoffer;;[];PROCL;Les Angles sud;MALE
+64;Delphine;Graff;;[];PROC;Saze;FEMALE
+65;Enzo;Graff;;[];PP;Les Angles est;MALE
+66;Florian;Graff;;[];PROCL;Les Angles est;MALE
+67;HÈlËne;Graff;;[];PROCL;Saze;FEMALE
+68;Jade;Graff;;[];PROCL;Saze;FEMALE
+69;JoÎl;Graff;;[];PROCL;Rochefort;MALE
+70;Sylvie;Graff;;[];PROCL;Rochefort;FEMALE
+71;Rudy;Graff;;[];PROCL;Saze;MALE
+72;Béatrice;Henoch;;[];PP;Les Angles nord;FEMALE
+73;ElÈa;Henoch;;[];PROCL;Les Angles nord;FEMALE
+74;Gauthier;Henoch;;[];PROCL;Les Angles nord;MALE
+75;HervÈ;Henoch;;[];PROCL;Les Angles nord;MALE
+76;Hugo;Henoch;Assistant;[Responsable à la sonorisation, Adjoint de groupe];PP;Pujaut;MALE
+77;Martin;Humbrecht;;[];PROCL;Les Angles sud;MALE
+78;Olfa;Humbrecht;;[];PP;Les Angles sud;FEMALE
+79;Jonathan;Ignatowicz;;[];PROCL;Les Angles sud;MALE
+80;Mathieu;Ignatowicz;;[];PROCL;Les Angles sud;MALE
+81;AgnèËs;Iwanczuk;;[];PROCL;Les Angles sud;FEMALE
+82;Jeanine;Kurtz;;[];PROCL;Pujaut;FEMALE
+83;Jacqueline;Laguin;;[];PROCL;Saze;FEMALE
+84;Jean;Leroy;;[];PROCL;Saze;MALE
+85;Jean-Philippe;Leroy;;[];;Rochefort;MALE
+86;Oksana;Leroy;;[];PROCL;Rochefort;FEMALE
+87;Polina;Leroy;;[];PROCL;Rochefort;FEMALE
+88;TrinitÈ;Llobel;;[];PROCL;La Begude;MALE
+89;HÈlËne;Lopez;;[];PROCL;Les Angles nord;FEMALE
+90;Marie;Marielouise;;[];PROCL;Les Angles sud;FEMALE
+91;Owena;Marielouise;;[];;Les Angles sud;FEMALE
+92;Elisabeth;Martinez;;[];PROCL;Pujaut;FEMALE
+93;JosÈ;Martinez;;[];PROCL;Pujaut;MALE
+94;Lucette;Mermet-Lyaudoz;;[];PROCL;Les Angles est;FEMALE
+95;Danièle;Moscatiello;;[];PROCL;La Begude;FEMALE
+96;Salvatore;Moscatiello;Ancien;[Responsable de la predication, Responsable de groupe];PP;La Begude;MALE
+97;Brian;N Guyen;;[];PROCL;La Begude;MALE
+98;Deborah;N Guyen;;[];PROCL;La Begude;FEMALE
+99;Kenny;N Guyen;;[];;La Begude;MALE
+100;Sara;N Guyen;;[];;La Begude;FEMALE
+101;Kenny;N Guyen;;[];;La Begude;MALE
+102;Eric;Nowak;Assistant;[Responsable aux publications, Adjoint de groupe];PROCL;Les Angles est;MALE
+103;Michèle;Nowak;;[];PROCL;Les Angles est;FEMALE
+104;Sandra;Paganeli;;[];PROCL;Saze;FEMALE
+105;Monique;Pages;;[];PROCL;Villeneuve;FEMALE
+106;Franck;Patoux;;[];PROCL;Saze;MALE
+107;JosÈ;Perez;Ancien;[Responsable de groupe];PROCL;Villeneuve;MALE
+108;Monique;Perez;;[];PROCL;Villeneuve;FEMALE
+109;Manuel;Perez;;[];PROCL;Villeneuve;MALE
+110;Marie-JosÈ;Perez;;[];PROCL;Villeneuve;FEMALE
+111;MickaÎl;Perez;;[];;;MALE
+112;Pierre;Perez;Ancien;[Secretaire, CLH, Responsable de groupe];PROCL;Saze;MALE
+113;Ysabelle;Perez;;[];PP;Saze;FEMALE
+114;Jacques;Petit;Ancien;[Responsable des discours publics];PROCL;Les Angles est;MALE
+115;Michèle;Petit;;[];PROCL;Les Angles est;FEMALE
+116;Elisabeth;Piguet;;[];PROCL;Rochefort;FEMALE
+117;Joseph;Porrazzo;;[];PROCL;Les Angles sud;MALE
+118;Marie;Porrazzo;;[];PROCL;Les Angles sud;FEMALE
+119;Colette;Pradier;;[];;Villeneuve;FEMALE
+120;Alain;Raboin;;[];PROCL;Pujaut;MALE
+121;Lysiane;Raboin;;[];PROCL;Pujaut;FEMALE
+122;Mehdi;RÈmal;Assistant;[Responsable aux territoires, Adjoint de groupe];PP;Les Angles sud;MALE
+123;HÈlËne;RÈra;;[];PROCL;Pujaut;FEMALE
+124;Serge;RÈra;Ancien;[Responsable de groupe, Responsable à la VCM];PP;Pujaut;MALE
+125;Nicole;Rivayrol;;[];PP;Les Angles nord;FEMALE
+126;Cynthia;Rivet;;[];PP;Saze;FEMALE
+127;Olivier;Rivet;Assistant;[Adjoint de groupe];PROCL;Saze;MALE
+128;Amandine;Roche;;[];PROCL;Pujaut;FEMALE
+129;Christiane;Roche;;[];PROCL;Les Angles nord;FEMALE
+130;Serge;Roche;;[];PROCL;Les Angles nord;MALE
+131;Dylan;Roche;;[];;Les Angles nord;MALE
+132;Patrick;Roche;;[];PROCL;Les Angles nord;MALE
+133;Maryse;Roche;;[];PROCL;Les Angles nord;FEMALE
+134;GÈraldine;Roualet;;[];PROCL;La Begude;FEMALE
+135;Michel;Roualet;;[];PROCL;La Begude;MALE
+136;Muriel;Santamaria;;[];PROCL;Les Angles nord;FEMALE
+137;Marie-Claire;Starck;;[];PROCL;Saze;FEMALE
+138;Maryline;Taillefer;;[];PROCL;Pujaut;FEMALE
+139;Mandy;Theier;;[];PROCL;Villeneuve;FEMALE
+140;Valentin;Theier;;[];PROCL;Villeneuve;MALE
+141;AmÈlie;Thillerot;;[];PNB;Villeneuve;FEMALE
+142;Armelle;Thillerot;;[];PROCL;Rochefort;FEMALE
+143;Franck;Thillerot;;[];PROCL;Rochefort;MALE
+144;Benoit;Thillerot;;[];PROCL;Les Angles est;MALE
+145;Cédrick;Veyssière;;[];PROCL;Rochefort;MALE
+146;Lydia;Veyssière;;[];PROCL;Rochefort;FEMALE
+147;TimÈo;Veyssière;;[];PNB;Rochefort;MALE
+148;Lionel;Viala;;[];PROCL;La Begude;MALE
+149;Vanessa;Viala;;[];PROCL;La Begude;FEMALE
+150;Jean-Marie;Vicente;;[];PROCL;Villeneuve;MALE
+151;Mirelda;Perez;;[];PROCL;La Begude;FEMALE
+152;Matthieu;Perez;Assistant;[Adjoint à la VCM, Adjoint de groupe];PROCL;La Begude;MALE

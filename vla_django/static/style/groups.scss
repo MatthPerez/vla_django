@@ -17,31 +17,54 @@ main {
     gap: 2em;
     padding-bottom: 3em;
 
+    >a {
+        @include button;
+    }
 }
 
 .groupNames {
-    width: clamp(300px, 70%, 900px);
+    width: clamp(300px, 80%, 1000px);
     list-style: none;
     @include flex;
     justify-content: center;
     gap: 1em;
     flex-wrap: wrap;
 
+    @media (width<=830px) {
+        width: 90vw;
+    }
+
     li {
-        width: auto;
-        @include border;
+        width: clamp(150px, 25%, 200px);
+        background-color: rgba(white, .3);
         padding: 10px 30px;
-        background-color: rgba(white, .2);
-        $padding: 2px;
-        $k: 150;
+        text-align: left;
+        $k: 100;
+        $padding: 4px;
         box-shadow: $padding $padding 5px rgb($k, $k, $k);
         transition: 300ms all ease;
+        @include flex;
+        justify-content: space-between;
+
+        @media (width<=830px) {
+            width: 30vw;
+            height: 2em;
+        }
+
+        span {
+            width: auto;
+
+            &:nth-child(2) {
+                width: 50px;
+                white-space: nowrap;
+            }
+        }
 
         &:hover {
             transition: 150ms all ease;
             box-shadow: none;
             transform: translateY($padding);
-            background-color: rgba(white, .5);
+            background-color: rgba(white, .4);
         }
     }
 }
@@ -55,7 +78,7 @@ main {
 
     li {
         @include flex;
-        justify-content: flex-start;
+        justify-content: center;
         gap: 5px;
 
         span {

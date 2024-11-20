@@ -12,7 +12,7 @@ class Meeting(models.Model):
         ("SPEECH", "Discours"),
         ("VIDEO", "Vidéo"),
     ]
-
+    id = models.BigAutoField(primary_key=True)
     date = models.DateField(
         default=now,
     )

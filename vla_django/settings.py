@@ -22,8 +22,10 @@ INSTALLED_APPS = [
     "we",
     "new_we_meeting",
     "groups",
-    "infos",
+    "new_group",
     "persons",
+    "new_person",
+    "infos",
 ]
 
 MIDDLEWARE = [
@@ -91,5 +93,6 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "vla_django" / "static",
-    BASE_DIR / "vla_django" / "static" / "datas",
 ]
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

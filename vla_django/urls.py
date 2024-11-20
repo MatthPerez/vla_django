@@ -1,8 +1,13 @@
 from django.contrib import admin
 from django.urls import path
 from .views import HomeView
-from groups.views import GroupsView
 from infos.views import InfosView
+
+from groups.views import GroupsView
+from new_group.views import NewGroupView
+
+from persons.views import PersonsView, PersonsDetail
+from new_person.views import NewPersonView
 
 from vcm.views import VcmMeetingView, VcmMeetingDetail
 from new_vcm_meeting.views import NewVcmView
@@ -17,10 +22,13 @@ urlpatterns = [
     path("infos/", InfosView.as_view(), name="infos"),
     path("vcm/", VcmMeetingView.as_view(), name="vcm"),
     path("vcm/ajouter/", NewVcmView.as_view(), name="new_vcm_meeting"),
-    path("vcm/<str:date>/", VcmMeetingDetail.as_view, name="vcm-detail"),
+    path("vcm/<pk>/", VcmMeetingDetail.as_view(), name="vcm-detail"),
     path("we/", WeMeetingView.as_view(), name="we"),
     path("we/ajouter/", NewWeView.as_view(), name="new_we_meeting"),
-    path("groups/", GroupsView.as_view(), name="groups"),
+    path("groupes/", GroupsView.as_view(), name="groups"),
+    path("groupes/ajouter/", NewGroupView.as_view(), name="new_group"),
+    # path("groupes/<pk>", GroupsDetail.as_view(), name="group-detail"),
+    path("personnes/", PersonsView.as_view(), name="persons"),
+    path("personnes/ajouter/", NewPersonView.as_view(), name="new-person"),
+    path("personnes/<pk>", PersonsDetail.as_view(), name="person-detail"),
 ]
-
-# path("infos/", include("infos.urls")),

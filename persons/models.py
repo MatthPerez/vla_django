@@ -7,10 +7,11 @@ class Person(models.Model):
         ("FEMALE", "femme"),
     ]
 
+    id = models.BigAutoField(primary_key=True)
     firstname = models.TextField(max_length=50)
     lastname = models.TextField(max_length=50)
     gender = models.CharField(max_length=6, choices=GENDERS, default="MALE")
-    cong_functions = models.TextField(
+    cong_function = models.TextField(
         max_length=20,
         blank=True,
         null=True,

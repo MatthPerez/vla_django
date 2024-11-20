@@ -70,14 +70,6 @@ class NewVcmView(View):
                 eba_reader=meeting_data.get("eba_reader"),
                 supervisor=meeting_data.get("supervisor"),
                 special_speech=meeting_data.get("special_speech"),
-                parking=meeting_data.get("parking"),
-                entrance=meeting_data.get("entrance"),
-                inside=meeting_data.get("inside"),
-                podium=meeting_data.get("podium"),
-                sono1=meeting_data.get("sono1"),
-                sono2=meeting_data.get("sono2"),
-                mic1=meeting_data.get("mic1"),
-                mic2=meeting_data.get("mic2"),
             )
 
             meeting.save()
@@ -85,7 +77,7 @@ class NewVcmView(View):
             return render(
                 request,
                 "new_vcm_meeting/index.html",
-                {"form": form, "success": "Réunion ajoutée avec succès!"},
+                {"form": form, "success": "Réunion ajoutée avec succès !"},
             )
 
         else:
