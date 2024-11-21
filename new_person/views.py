@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from persons.models import Person
-from new_person.models import AddPerson
+from new_person.forms import AddPerson
 
 
 class NewPersonView(View):
@@ -13,14 +13,16 @@ class NewPersonView(View):
         form = AddPerson(request.POST)
 
         if form.is_valid():
-            person = form.cleaned_data
+            person_data = form.cleaned_data
 
             person = Person(
-                firstname=person["firstname"],
-                lastname=person["lastname"],
-                gender=person["gender"],
-                cong_function=person["cong_function"],
-                cong_status=person["cong_status"],
+                firstname=person_data["firstname"],
+                lastname=person_data["lastname"],
+                gender=person_data["gender"],
+                cong_function=person_data["cong_function"],
+                cong_status=person_data["cong_status"],
+                cong_roles=",".join(person_data["cong_roles"]),
+                group=person_data["group"],
             )
 
             person.save()

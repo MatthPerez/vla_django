@@ -341,6 +341,7 @@ class AddMeeting(forms.Form):
     supervisor = forms.CharField(
         required=False,
         label="Responsable de circonscription",
+        max_length=100,
     )
     special_speech = forms.CharField(
         required=False,

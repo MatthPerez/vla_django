@@ -4,17 +4,19 @@
 <script src="{% static 'js/persons.js' %}"></script>
 {% endblock %} {% block title %}VLA | Membres{% endblock %} {% block content %}
 <main>
-  <h1>Membres</h1>
-
+  <h1>{{count}} membre{% if count > 1 %}s{% endif %}</h1>
+  
   <a href="{% url 'new-person' %}">Créer un nouveau membre</a>
-
-  {% for person in persons %}
-  <div>
-    <span>{{person.fullname}}</span>
-    <span>✏️ ❌</span>
-  </div>
-  {% empty %}
-  <div>Aucun membre trouvé.</div>
-  {% endfor %}
+  
+  <section>
+    {% for person in persons %}
+    <div>
+      <span>{{person.fullname}}</span>
+      <span>✏️ ❌</span>
+    </div>
+    {% empty %}
+    <div>Aucun membre trouvé.</div>
+    {% endfor %}
+  </section>
 </main>
 {% endblock %}

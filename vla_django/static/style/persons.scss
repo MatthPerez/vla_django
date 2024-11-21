@@ -14,30 +14,42 @@ main {
     background-color: var(--color-tertiary2);
     @include flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 3em;
     padding-bottom: 3em;
 
     >a {
         @include button;
     }
+    
+    section {
+        width: 100%;
+        @include flexcolumn;
+        gap: 10px;
 
-    >div {
-        width: clamp(300px, 50%, 600px);
-        text-align: left;
-        padding: 5px;
-        background-color: rgba(white, .3);
-        padding: 5px;
-        text-align: left;
-        $k: 100;
-        $padding: 4px;
-        box-shadow: $padding $padding 5px rgb($k, $k, $k);
-        transition: 300ms all ease;
+        >div {
+            width: clamp(300px, 50%, 600px);
+            @include flex;
+            justify-content: space-between;
+            text-align: left;
+            padding: 5px;
+            background-color: rgba(white, .2);
+            padding: 5px;
+            text-align: left;
+            $k: 100;
+            $padding: 2px;
+            box-shadow: $padding $padding 5px rgb($k, $k, $k);
+            transition: 300ms all ease;
 
-        &:hover {
-            transition: 150ms all ease;
-            box-shadow: none;
-            transform: translateY($padding);
-            background-color: rgba(white, .4);
+            &:hover {
+                transition: 80ms all ease;
+                box-shadow: none;
+                transform: translateY($padding);
+                background-color: rgba(white, .6);
+            }
+
+            span {
+                width: auto;
+            }
         }
     }
 }
