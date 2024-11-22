@@ -477,6 +477,10 @@ footer a {
   color: #d1d111 !important;
 }
 
+.f-orange {
+  color: rgb(87, 65, 26) !important;
+}
+
 .underline {
   border-bottom: 1px solid black;
   padding-bottom: 1em;

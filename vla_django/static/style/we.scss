@@ -27,11 +27,50 @@ main {
     background-color: var(--color-quaternary1);
     padding: 1em;
     @include flexcolumn;
-    gap: .5em;
+    gap: 1.5em;
     font-family: var(--poppins);
     box-shadow: 4px 4px 5px rgba(black, .5);
 
     @media (width<=768px) {
         width: 80vw;
     }
+
+    section {
+        width: 100%;
+        @include flexcolumn;
+        align-items: flex-start;
+        gap: 10px;
+        text-align: left;
+
+        h3 {
+            $padding: .5em;
+            width: calc(100% - 2 * $padding);
+            font-size: 26px;
+            text-align: center;
+            @include border;
+            padding: $padding;
+            background-color: rgba(white, .2);
+            margin-bottom: 1em;
+        }
+
+        div {
+            @include flex;
+            justify-content: flex-start;
+            gap: 5px;
+
+            span {
+                width: auto;
+
+                &:nth-child(2) {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
 }
+
+.song {
+    color: var(--color-primary1);
+    text-indent: 2em;
+}
+

@@ -18,23 +18,11 @@ class AddWeekendMeeting(forms.Form):
     )
     president = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.filter(cong_function__icontains="ELDER"),
+        queryset=Person.objects.filter(
+            Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")
+        ),
         widget=forms.Select,
         label="Président",
-        to_field_name="id",
-    )
-    prayer1 = forms.ModelChoiceField(
-        required=True,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Prière initiale",
-        to_field_name="id",
-    )
-    prayer2 = forms.ModelChoiceField(
-        required=True,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Prière finale",
         to_field_name="id",
     )
     song1 = forms.IntegerField(
@@ -64,7 +52,7 @@ class AddWeekendMeeting(forms.Form):
     )
     speech_title = forms.CharField(
         required=False,
-        label="titre du discours",
+        label="Titre du discours",
     )
     watchtower = forms.ModelChoiceField(
         required=True,
@@ -95,8 +83,6 @@ class AddWeekendMeeting(forms.Form):
 
         fields_with_fullname = [
             "president",
-            "prayer1",
-            "prayer2",
             "speaker",
             "watchtower",
             "watchtower_reader",
@@ -121,6 +107,8 @@ class WeekMeetingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         optional_fields = [
+            "speaker",
+            "foreign_speaker",
             "watchtower_reader",
             "supervisor",
             "special_speech",

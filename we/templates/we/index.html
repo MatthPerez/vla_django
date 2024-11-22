@@ -10,29 +10,48 @@
 
   {% for meeting in meetings %}
   <article class="meeting">
-    <div>
-      <div>{{meeting.date}}</div>
-      <div>{{meeting.president}}</div>
-    </div>
+    <section>
+      <h3>{{meeting.date}}</h3>
 
-    <div>Cantique n°{{meeting.song1}}</div>
-    <div>Prière : {{meeting.prayer1}}</div>
+      <div>
+        <span>Président :</span>
+        <span>{{meeting.president.fullname}}</span>
+      </div>
+    </section>
 
-    <div>
-      <div>Allocuteur : {{meeting.speaker}}</div>
-      <div>Allocuteur extérieur : {{meeting.foreign_speaker}}</div>
-      <div>Discours : {{meeting.speech_title}}</div>
-    </div>
+    <section class="song">Cantique n°{{meeting.song1}}</section>
 
-    <div>Cantique n°{{meeting.song2}}</div>
+    <section>
+      <div>
+        {% if meeting.speaker %}
+        <span>Allocuteur</span>
+        <span>{{meeting.speaker.fullname}}</span>
+        {% endif %}
+      </div>
+      {% if meeting.foreign_speaker %}
+      <div>Allocuteur extérieur : {{meeting.foreign_speaker.fullname}}</div>
+      {% endif %}
+      <div>
+        <span>Discours :</span>
+        <span class="f-orange">{{meeting.speech_title}}</span>
+      </div>
+    </section>
 
-    <div>
-      <div>Tour de Garde : {{meeting.watchtower}}</div>
-      <div>Lecteur : {{meeting.watchtower_reader}}</div>
-    </div>
+    <section class="song">Cantique n°{{meeting.song2}}</section>
 
-    <div>Cantique n°{{meeting.song3}}</div>
-    <div>Prière : {{meeting.prayer2}}</div>
+    <section>
+      <div>
+        <span>Tour de Garde :</span>
+        <span>{{meeting.watchtower.fullname}}</span>
+      </div>
+
+      <div>
+        <span>Lecteur :</span>
+        <span>{{meeting.watchtower_reader.fullname}}</span>
+      </div>
+    </section>
+
+    <section class="song">Cantique n°{{meeting.song3}}</section>
   </article>
   {% endfor %}
 </main>

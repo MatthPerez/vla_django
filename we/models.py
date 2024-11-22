@@ -12,16 +12,6 @@ class WeekendMeeting(models.Model):
         on_delete=models.CASCADE,
         related_name="meetings_as_we_president",
     )
-    prayer1 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_we_prayer1",
-    )
-    prayer2 = models.ForeignKey(
-        Person,
-        on_delete=models.CASCADE,
-        related_name="meetings_as_we_prayer2",
-    )
     song1 = models.IntegerField()
     song2 = models.IntegerField()
     song3 = models.IntegerField()

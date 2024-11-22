@@ -117,7 +117,7 @@ main > a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5em;
+  gap: 1.5em;
   font-family: var(--poppins);
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
@@ -125,4 +125,40 @@ main > a:hover {
   .meeting {
     width: 80vw;
   }
+}
+.meeting section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+.meeting section h3 {
+  width: calc(100% - 1em);
+  font-size: 26px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 0.5em;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 1em;
+}
+.meeting section div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+.meeting section div span {
+  width: auto;
+}
+.meeting section div span:nth-child(2) {
+  font-weight: bold;
+}
+
+.song {
+  color: var(--color-primary1);
+  text-indent: 2em;
 }/*# sourceMappingURL=we.css.map */
