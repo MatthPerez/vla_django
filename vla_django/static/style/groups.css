@@ -88,7 +88,7 @@ main {
   flex-direction: row;
   align-items: center;
   flex-direction: column;
-  gap: 2em;
+  gap: 3em;
   padding-bottom: 3em;
 }
 main > a {
@@ -110,7 +110,7 @@ main > a:hover {
   transform: translateY(4px);
 }
 
-.groupNames {
+#group_names {
   width: clamp(300px, 80%, 1000px);
   list-style: none;
   display: flex;
@@ -121,11 +121,11 @@ main > a:hover {
   flex-wrap: wrap;
 }
 @media (width <= 830px) {
-  .groupNames {
+  #group_names {
     width: 90vw;
   }
 }
-.groupNames li {
+#group_names li {
   width: clamp(150px, 25%, 200px);
   background-color: rgba(255, 255, 255, 0.3);
   padding: 10px 30px;
@@ -138,19 +138,12 @@ main > a:hover {
   justify-content: space-between;
 }
 @media (width <= 830px) {
-  .groupNames li {
+  #group_names li {
     width: 30vw;
     height: 2em;
   }
 }
-.groupNames li span {
-  width: auto;
-}
-.groupNames li span:nth-child(2) {
-  width: 50px;
-  white-space: nowrap;
-}
-.groupNames li:hover {
+#group_names li:hover {
   transition: 150ms all ease;
   box-shadow: none;
   transform: translateY(4px);
@@ -164,14 +157,21 @@ main > a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
 }
 .names li {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 5px;
+  padding: 5px;
+  transition: 300ms all ease;
+}
+.names li:hover {
+  transition: 150ms all ease;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px rgb(100, 100, 100);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 .names li span {
   width: auto;

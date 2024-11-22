@@ -116,7 +116,8 @@ main section {
   gap: 2em;
 }
 main section > a {
-  width: auto;
+  width: clamp(200px, 40%, 700px);
+  text-align: center;
   text-decoration: none;
   border: 1px solid black;
   padding: 10px 30px;

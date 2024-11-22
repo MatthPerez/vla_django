@@ -1,6 +1,7 @@
 from django import forms
 from vcm.models import Meeting
 from persons.models import Person
+from django.db.models import Q
 
 
 ALLOC_TYPES = (
@@ -32,7 +33,7 @@ class AddMeeting(forms.Form):
     )
     president = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.filter(cong_function__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function="ELDER"),
         widget=forms.Select,
         label="Président",
         to_field_name="id",
@@ -70,7 +71,7 @@ class AddMeeting(forms.Form):
     )
     jewels = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.exclude(cong_function=""),
+        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
         widget=forms.Select,
         label="Joyaux (orateur)",
     )
@@ -81,7 +82,7 @@ class AddMeeting(forms.Form):
     )
     pearls = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.exclude(cong_function=""),
+        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
         widget=forms.Select,
         label="Perles",
         to_field_name="id",
@@ -109,14 +110,14 @@ class AddMeeting(forms.Form):
     )
     advisor2 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_function__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function="ELDER"),
         widget=forms.Select,
         label="Conseiller",
         to_field_name="id",
     )
     advisor3 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_function__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function="ELDER"),
         widget=forms.Select,
         label="Conseiller",
         to_field_name="id",
@@ -278,21 +279,21 @@ class AddMeeting(forms.Form):
     )
     vcm1 = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.exclude(cong_function=""),
+        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
         widget=forms.Select,
         label="Sujet VCM 1",
         to_field_name="id",
     )
     vcm2 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.exclude(cong_function=""),
+        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
         widget=forms.Select,
         label="Sujet VCM 2",
         to_field_name="id",
     )
     vcm3 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_function__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function="ELDER"),
         widget=forms.Select,
         label="Sujet VCM 3",
         to_field_name="id",
@@ -326,7 +327,7 @@ class AddMeeting(forms.Form):
     )
     eba = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.filter(cong_function__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function="ELDER"),
         widget=forms.Select,
         label="Etude biblique de l'assemblée",
         to_field_name="id",

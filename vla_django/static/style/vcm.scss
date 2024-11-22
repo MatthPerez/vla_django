@@ -26,7 +26,8 @@ main {
         gap: 2em;
 
         >a {
-            width: auto;
+            width: clamp(200px, 40%, 700px);
+            text-align: center;
             text-decoration: none;
             @include border;
             padding: 10px 30px;

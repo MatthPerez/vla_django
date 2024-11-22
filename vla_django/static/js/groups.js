@@ -1,10 +1,10 @@
 function group_main () {
-  const names = document
-    .getElementsByClassName('names')[0]
+  const group_names = document
+    .getElementById('group_names')
     .getElementsByTagName('li')
 
-  const group_names = document
-    .getElementsByClassName('groupNames')[0]
+  const names = document
+    .getElementsByClassName('names')[0]
     .getElementsByTagName('li')
 
   hide_names(names)

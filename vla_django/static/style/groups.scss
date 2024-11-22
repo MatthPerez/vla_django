@@ -14,7 +14,7 @@ main {
     background-color: var(--color-quaternary3);
     @include flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 3em;
     padding-bottom: 3em;
 
     >a {
@@ -22,7 +22,7 @@ main {
     }
 }
 
-.groupNames {
+#group_names {
     width: clamp(300px, 80%, 1000px);
     list-style: none;
     @include flex;
@@ -51,15 +51,6 @@ main {
             height: 2em;
         }
 
-        span {
-            width: auto;
-
-            &:nth-child(2) {
-                width: 50px;
-                white-space: nowrap;
-            }
-        }
-
         &:hover {
             transition: 150ms all ease;
             box-shadow: none;
@@ -74,12 +65,22 @@ main {
     min-height: 5em;
     list-style: none;
     @include flexcolumn;
-    gap: 10px;
 
     li {
         @include flex;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 5px;
+        padding: 5px;
+        transition: 300ms all ease;
+        
+        &:hover {
+            transition: 150ms all ease;
+            $padding: 2px;
+            $k:100;
+            transform: translateY(-$padding);
+            box-shadow: $padding $padding 5px rgb($k, $k, $k);
+            background-color: rgba(white, .2);
+        }
 
         span {
             width: auto;
@@ -99,3 +100,4 @@ main {
     color: rgb(155, 24, 24) !important;
     background-color: rgba(white, .7) !important;
 }
+
