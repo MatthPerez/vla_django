@@ -90,6 +90,23 @@ main {
   gap: 2em;
   padding-bottom: 3em;
 }
+main h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+main h1 span,
+main h1 a {
+  width: auto;
+}
+main h1 a {
+  text-decoration: none;
+}
+main h1 a img {
+  width: 50px;
+}
 main > a {
   width: auto;
   text-decoration: none;
@@ -108,14 +125,51 @@ main > a:hover {
   box-shadow: none;
   transform: translateY(4px);
 }
-main section {
+
+.meeting-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 1em;
+}
+.meeting-list > article {
+  width: clamp(200px, 40%, 700px);
+  padding: 0.7em;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: 300ms all ease;
+}
+.meeting-list > article:hover {
+  transition: 150ms all ease;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.meeting-list > article a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.meetings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.meeting {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1em;
   width: clamp(300px, 70%, 800px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em;
+  box-shadow: 6px 6px 10px rgb(50, 50, 50);
+  gap: 1em;
 }
-main section > a {
+.meeting > a {
   width: clamp(200px, 40%, 700px);
   text-align: center;
   text-decoration: none;
@@ -126,19 +180,9 @@ main section > a {
   background-color: rgba(255, 255, 255, 0.1);
   transition: 300ms all ease;
 }
-main section > a:hover {
+.meeting > a:hover {
   transition: 150ms all ease;
   background-color: rgba(255, 255, 255, 0.2);
-}
-main article {
-  background-color: var(--color-tertiary2);
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5em;
-  font-family: var(--poppins);
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .actions {
@@ -217,12 +261,9 @@ main article {
   letter-spacing: 3px;
 }
 
-.president a {
+.president span:first-child {
   font-weight: bold;
   font-size: 20px;
-  color: var(--color-primary2);
-  text-align: left;
-  text-decoration: none;
 }
 
 .prayer {
@@ -234,9 +275,6 @@ main article {
   margin: 1em 0;
 }
 
-.jewels {
-  margin-top: var(--space);
-}
 .jewels span:first-child {
   white-space: nowrap;
 }

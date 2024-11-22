@@ -16,41 +16,87 @@ main {
     gap: 2em;
     padding-bottom: 3em;
 
-    >a {
-        @include button;
-    }
+    h1 {
+        @include flex;
+        justify-content: center;
+        gap: 1em;
 
-    section {
-        width: clamp(300px, 70%, 800px);
-        @include flexcolumn;
-        gap: 2em;
+        span,
+        a {
+            width: auto;
+        }
 
-        >a {
-            width: clamp(200px, 40%, 700px);
-            text-align: center;
+        a {
             text-decoration: none;
-            @include border;
-            padding: 10px 30px;
-            color: black;
-            font-size: 20px;
-            background-color: rgba(white, .1);
-            transition: 300ms all ease;
-            
-            &:hover {
-                transition: 150ms all ease;
-                background-color: rgba(white, .2);
+
+            img {
+                width: 50px;
             }
         }
     }
 
+    >a {
+        @include button;
+    }
+}
 
-    article {
-        background-color: var(--color-tertiary2);
-        padding: 1em;
-        @include flexcolumn;
-        gap: .5em;
-        font-family: var(--poppins);
-        box-shadow: 4px 4px 5px rgba(black, .5);
+.meeting-list {
+    @include flexcolumn;
+    gap: 10px;
+    text-align: center;
+    padding: 1em;
+
+    >article {
+        width: clamp(200px, 40%, 700px);
+        padding: .7em;
+        @include border;
+        background-color: rgba(white, .1);
+        transition: 300ms all ease;
+
+        &:hover {
+            transition: 150ms all ease;
+            background-color: rgba(white, .3);
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+    }
+}
+
+.meetings {
+    @include flexcolumn;
+    gap: 10px;
+    width: 100%;
+}
+
+.meeting {
+    background-color: rgba(white, .3);
+    padding: 1em;
+    width: clamp(300px, 70%, 800px);
+    @include flexcolumn;
+    $k: 50;
+    $padding: 6px;
+    box-shadow: $padding $padding 10px rgb($k, $k, $k);
+    gap: 1em;
+
+    >a {
+        width: clamp(200px, 40%, 700px);
+        text-align: center;
+        text-decoration: none;
+        @include border;
+        padding: 10px 30px;
+        color: black;
+        font-size: 20px;
+        background-color: rgba(white, .1);
+        transition: 300ms all ease;
+
+        &:hover {
+            transition: 150ms all ease;
+            background-color: rgba(white, .2);
+        }
     }
 }
 
@@ -123,12 +169,11 @@ main {
 }
 
 .president {
-    a {
-        font-weight: bold;
-        font-size: 20px;
-        color: var(--color-primary2);
-        text-align: left;
-        text-decoration: none;
+    span {
+        &:first-child {
+            font-weight: bold;
+            font-size: 20px;
+        }
     }
 }
 
@@ -142,8 +187,6 @@ main {
 }
 
 .jewels {
-    margin-top: var(--space);
-
     span {
         &:first-child {
             white-space: nowrap;

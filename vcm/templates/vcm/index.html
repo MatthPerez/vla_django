@@ -7,10 +7,15 @@
   <h1>Vie chrétienne et Ministère</h1>
 
   <a href="{% url 'new_vcm_meeting' %}">Créer une nouvelle réunion</a>
-  {% for meeting in meetings %}
-  <section>
-    <a href="{% url 'vcm-detail' meeting.pk %}">Semaine du {{meeting.date}}</a>
+
+  <section class="meeting-list">
+    {% for meeting in meetings %}
+    <article>
+      <a href="{% url 'vcm-detail' meeting.pk %}"
+        >Semaine du {{meeting.date}}</a
+      >
+    </article>
+    {% endfor %}
   </section>
-  {% endfor %}
 </main>
 {% endblock %}
