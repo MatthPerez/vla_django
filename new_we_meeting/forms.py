@@ -1,6 +1,7 @@
 from django import forms
 from we.models import WeekendMeeting
 from persons.models import Person
+from django.db.models import Q
 
 
 class AddWeekendMeeting(forms.Form):
@@ -17,7 +18,7 @@ class AddWeekendMeeting(forms.Form):
     )
     president = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.filter(cong_function__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ELDER"),
         widget=forms.Select,
         label="Président",
         to_field_name="id",
@@ -49,11 +50,17 @@ class AddWeekendMeeting(forms.Form):
         label="Cantique final",
     )
     speaker = forms.ModelChoiceField(
-        required=True,
-        queryset=Person.objects.exclude(cong_function=""),
+        required=False,
+        queryset=Person.objects.filter(
+            Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")
+        ),
         widget=forms.Select,
         label="Allocuteur",
         to_field_name="id",
+    )
+    foreign_speaker = forms.CharField(
+        required=False,
+        label="Allocuteur extérieur",
     )
     speech_title = forms.CharField(
         required=False,
@@ -61,7 +68,7 @@ class AddWeekendMeeting(forms.Form):
     )
     watchtower = forms.ModelChoiceField(
         required=True,
-        queryset=Person.objects.filter(cong_function__icontains="ancien"),
+        queryset=Person.objects.filter(cong_function__icontains="ELDER"),
         widget=forms.Select,
         label="Tour de Garde",
         to_field_name="id",

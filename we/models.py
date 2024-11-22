@@ -27,8 +27,15 @@ class WeekendMeeting(models.Model):
     song3 = models.IntegerField()
     speaker = models.ForeignKey(
         Person,
+        blank=True,
+        null=True,
         on_delete=models.CASCADE,
         related_name="meetings_as_we_speaker",
+    )
+    foreign_speaker = models.TextField(
+        max_length=100,
+        blank=True,
+        null=True,
     )
     speech_title = models.TextField(
         max_length=150,
