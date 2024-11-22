@@ -272,9 +272,23 @@ class AddMeeting(forms.Form):
     )
     pupil_hall3 = forms.ModelChoiceField(
         required=False,
-        queryset=Person.objects.all(),
+        queryset=Person.objects.filter(gender="MALE"),
         widget=forms.Select,
         label="Discours",
+        to_field_name="id",
+    )
+    pupil0_hall3 = forms.ModelChoiceField(
+        required=False,
+        queryset=Person.objects.all(),
+        widget=forms.Select,
+        label="Elève",
+        to_field_name="id",
+    )
+    inter0_hall3 = forms.ModelChoiceField(
+        required=False,
+        queryset=Person.objects.all(),
+        widget=forms.Select,
+        label="Interlocuteur",
         to_field_name="id",
     )
     vcm1 = forms.ModelChoiceField(
@@ -397,6 +411,8 @@ class AddMeeting(forms.Form):
             "alloc3inter_hall2",
             "alloc4pupil_hall2",
             "alloc4inter_hall2",
+            "pupil0_hall3",
+            "inter0_hall3",
             "pupil_hall3",
             "vcm1",
             "vcm2",

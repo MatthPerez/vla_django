@@ -221,6 +221,20 @@ class Meeting(models.Model):
         blank=True,
         null=True,
     )
+    pupil0_hall3 = models.ForeignKey(
+        Person,
+        on_delete=models.CASCADE,
+        related_name="meetings_as_a0p_h3",
+        blank=True,
+        null=True,
+    )
+    inter0_hall3 = models.ForeignKey(
+        Person,
+        on_delete=models.CASCADE,
+        related_name="meetings_as_a0i_h3",
+        blank=True,
+        null=True,
+    )
     pupil_hall3 = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,

@@ -56,6 +56,8 @@ class NewVcmView(View):
                 alloc3inter_hall2=meeting_data.get("alloc3inter_hall2"),
                 alloc4pupil_hall2=meeting_data.get("alloc4pupil_hall2"),
                 alloc4inter_hall2=meeting_data.get("alloc4inter_hall2"),
+                pupil0_hall3=meeting_data.get("pupil0_hall3"),
+                interl0_hall3=meeting_data.get("interl0_hall3"),
                 pupil_hall3=meeting_data.get("pupil_hall3"),
                 vcm1=meeting_data["vcm1"],
                 vcm2=meeting_data.get("vcm2"),
