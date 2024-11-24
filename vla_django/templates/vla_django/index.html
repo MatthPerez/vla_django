@@ -4,10 +4,19 @@
 <script src="{% static 'js/homepage.js' %}"></script>
 {% endblock %} {% block title %}VLA | Accueil{% endblock %} {% block content %}
 <main>
+  <div class="billboard_title">
+    <span>Titre principal du site JW.org :</span>
+    <span>{{billboard_title}}</span>
+  </div>
+
   <h1>Assemblée de Villeneuve-lès-Avignon</h1>
 
-  <a id="visit" href="https://hub.jw.org/request-visit/fr/request" target="_blank">
-    <img src="{% static 'icons/bible_study.jpg' %}" alt="Demander une visite">
+  <a
+    id="visit"
+    href="https://hub.jw.org/request-visit/fr/request"
+    target="_blank"
+  >
+    <img src="{% static 'icons/bible_study.jpg' %}" alt="Demander une visite" />
   </a>
 
   <section class="datas">
@@ -76,9 +85,17 @@
   </section>
 
   <section id="communication">
-    <h2>Communications</h2>
+    <a href="{% url 'communication-view' %}">Communications</a>
 
     <div id="com-content">
+      <div class="titles">
+        <h4>Titres principaux sur JW.org</h4>
+
+        {% for title in h3_titles %}
+        <a href="https://www.jw.org/fr" target="_blank">{{title}}</a>
+        {% endfor %}
+      </div>
+
       <article>
         <h3>Communication 1</h3>
 

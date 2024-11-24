@@ -34,6 +34,28 @@ main {
     }
 }
 
+.billboard_title {
+    width: 100%;
+    height: 3em;
+    background-color: rgba(white, .3);
+    @include flex;
+    justify-content: center;
+    gap: 5px;
+    
+    span {
+        font-size: 20px;
+        width: auto;
+        
+        &:first-child {
+            font-weight: bold;
+        }
+
+        &:nth-child(2) {
+            color: var(--color-primary-gray);
+        }
+    }
+}
+
 #visit {
     position: fixed;
     z-index: 10;
@@ -173,7 +195,7 @@ main {
             text-decoration: none;
             color: var(--color-primary-gray);
             transition: 300ms all ease;
-            
+
             &:hover {
                 transition: 150ms all ease;
                 color: var(--hover);
@@ -195,8 +217,10 @@ main {
     gap: 2em;
     margin-top: 2em;
 
-    h2 {
+    >a {
         @include big-title;
+        text-decoration: none;
+        color: black;
     }
 }
 
@@ -214,6 +238,30 @@ main {
 
         h3 {
             font-size: 25px;
+        }
+    }
+}
+
+.titles {
+    @include flexcolumn;
+    gap: 2px;
+
+    h4 {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+        width: 100%;
+        padding: 5px;
+        background-color: rgba(white, .4);
+        transition: 300ms all ease;
+        
+        &:hover {
+            transition: 150ms all ease;
+            background-color: rgba(white, .7);
         }
     }
 }

@@ -1,0 +1,24 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+main {
+    @include flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-bottom: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary-gray);
+}
+
+main {
+    background-color: var(--color-quaternary-gray);
+    @include flexcolumn;
+    gap: 3em;
+
+    h1 {
+        @include white-neon;
+    }
+}

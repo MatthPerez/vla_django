@@ -15,6 +15,7 @@ from new_vcm_meeting.views import NewVcmView
 from we.views import WeMeetingView
 from new_we_meeting.views import NewWeView
 
+from communication.views import CommunicationView
 
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
@@ -31,4 +32,5 @@ urlpatterns = [
     path("personnes/", PersonsView.as_view(), name="persons"),
     path("personnes/ajouter/", NewPersonView.as_view(), name="new-person"),
     path("personnes/<pk>", PersonsDetail.as_view(), name="person-detail"),
+    path("communications/", CommunicationView.as_view(), name="communication-view"),
 ]

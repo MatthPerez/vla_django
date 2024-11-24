@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "persons",
     "new_person",
     "infos",
+    "communication",
 ]
 
 MIDDLEWARE = [
