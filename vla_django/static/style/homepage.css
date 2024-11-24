@@ -150,6 +150,7 @@ main section {
   width: 250px;
   aspect-ratio: 3/2;
   overflow: hidden;
+  animation: slideUp 800ms forwards;
 }
 .pic-link * {
   position: absolute;
