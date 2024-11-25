@@ -121,14 +121,32 @@ main section {
   justify-content: center;
   gap: 5px;
 }
+.billboard_title a {
+  width: auto;
+  padding: 0 0.5em;
+}
+.billboard_title a img {
+  height: 18px;
+  width: 18px;
+  transition: 300ms all ease;
+}
+.billboard_title a img:hover {
+  transition: 150ms all ease;
+  transform: rotate(180deg);
+}
 .billboard_title span {
   font-size: 20px;
   width: auto;
-}
-.billboard_title span:first-child {
-  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 .billboard_title span:nth-child(2) {
+  font-weight: bold;
+}
+.billboard_title span:nth-child(3) {
   color: var(--color-primary-gray);
 }
 
@@ -333,11 +351,12 @@ main section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 5px;
 }
 .titles h4 {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 0.5em;
 }
 .titles a {
   text-decoration: none;

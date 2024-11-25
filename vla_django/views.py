@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 class HomeView(View):
     def get(self, request):
         url = "https://www.jw.org/fr/"
-        billboard_title = None
         h3_titles = []
+        h3_data = []
 
         try:
             response = requests.get(url)
@@ -16,21 +16,22 @@ class HomeView(View):
 
             soup = BeautifulSoup(response.content, "html.parser")
 
-            billboard_element = soup.find("h3", class_="billboardTitle")
-            if billboard_element:
-                billboard_title = billboard_element.get_text(strip=True)
+            h3_titles = soup.find_all("h3", limit=4)
 
-            h3_elements = soup.find_all("h3", limit=4)
-            h3_titles = [element.get_text(strip=True) for element in h3_elements]
+            for h3 in h3_titles:
+                a_tag = h3.find("a")
+                if a_tag:
+                    h3_data.append((a_tag.get_text(strip=True), a_tag.get("href")))
 
         except requests.exceptions.RequestException as e:
             print(f"Erreur lors de la récupération de la page : {e}")
+
+        print("Données :", h3_data)
 
         return render(
             request,
             "vla_django/index.html",
             {
-                "billboard_title": billboard_title,
-                "h3_titles": h3_titles,
+                "h3_data": h3_data,
             },
         )
