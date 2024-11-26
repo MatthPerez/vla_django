@@ -6,12 +6,12 @@
 <main>
   <h1>Vie chrétienne et Ministère</h1>
 
-  <a href="{% url 'new_vcm_meeting' %}">Créer une nouvelle réunion</a>
+  <a href="{% url 'new_vcm' %}">Créer une nouvelle réunion</a>
 
   <section class="meeting-list">
     {% for meeting in meetings %}
     <article>
-      <a href="{% url 'vcm-detail' meeting.pk %}"
+      <a href="{% url 'vcm_detail' meeting.pk %}"
         >Semaine du {{meeting.date}}</a
       >
     </article>

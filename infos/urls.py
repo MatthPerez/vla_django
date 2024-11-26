@@ -2,5 +2,5 @@ from django.urls import path
 from .views import InfosView
 
 urlpatterns = [
-    path("", InfosView, name="infos-index"),
+    path("", InfosView.as_view(), name="infos-index"),
 ]

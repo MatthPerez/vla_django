@@ -7,8 +7,6 @@ from bs4 import BeautifulSoup
 class HomeView(View):
     def get(self, request):
         url = "https://www.jw.org/fr/"
-        h3_titles = []
-        h3_data = []
 
         try:
             response = requests.get(url)
@@ -16,22 +14,53 @@ class HomeView(View):
 
             soup = BeautifulSoup(response.content, "html.parser")
 
-            h3_titles = soup.find_all("h3", limit=4)
+            # Main title
+            main_title = soup.find("h3", class_="billboardTitle")
+            main_title_text = None
+            main_title_link = None
 
-            for h3 in h3_titles:
-                a_tag = h3.find("a")
+            if main_title:
+                a_tag = main_title.find("a")
+
                 if a_tag:
-                    h3_data.append((a_tag.get_text(strip=True), a_tag.get("href")))
+                    main_title_text = a_tag.get_text(strip=True)
+                    main_title_link = a_tag.get("href")
+                else:
+                    print("Aucune balise <a> trouvée dans main_title.")
+            else:
+                print("Aucune div avec la classe billboardTitle trouvée.")
+
+            # Synopses
+            synopses = soup.find_all("div", class_="synopsis", limit=3)
+            data = []
+
+            for synopsis in synopses:
+                syn_img_div = synopsis.find("div", class_="syn-img")
+                a_tag = syn_img_div.find("a") if syn_img_div else None
+                img_tag = a_tag.find("img") if a_tag else None
+
+                syn_body_div = synopsis.find("div", class_="syn-body")
+                h3_tag = syn_body_div.find("h3") if syn_body_div else None
+                h3_a_tag = h3_tag.find("a") if h3_tag else None
+
+                if h3_a_tag and img_tag and a_tag:
+                    title = h3_a_tag.get_text(strip=True)
+                    href = h3_a_tag.get("href")
+                    img_src = img_tag.get("src")
+                    data.append((title, href, img_src))
+
+            for title, href, img_src in data:
+                print(f"Titre: {title}\nLien: {href}\nImage URL: {img_src}\n")
 
         except requests.exceptions.RequestException as e:
             print(f"Erreur lors de la récupération de la page : {e}")
-
-        print("Données :", h3_data)
 
         return render(
             request,
             "vla_django/index.html",
             {
-                "h3_data": h3_data,
+                "main_title_text": main_title_text,
+                "main_title_link": main_title_link,
+                "data": data,
             },
         )

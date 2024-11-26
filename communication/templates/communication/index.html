@@ -4,6 +4,10 @@
 <script src="{% static 'js/communication.js' %}" defer></script>
 {% endblock %} {% block title %}VLA | Communications{% endblock %} {% block content %}
 
-<main></main>
+<main>
+    <h1>Communications</h1>
+
+    <a href="{% url 'new_communication' %}">Créer une nouvelle communication</a>
+</main>
 
 {% endblock %}

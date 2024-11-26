@@ -4,6 +4,11 @@
 <script src="{% static 'js/homepage.js' %}"></script>
 {% endblock %} {% block title %}VLA | Accueil{% endblock %} {% block content %}
 <main>
+  <div class="billboard_title">
+    <span>Titre principal du site JW.org :</span>
+    <a href="https://www.jw.org{{main_title_link}}" target="_blank">{{main_title_text}}</a>
+  </div>
+
   <h1>Assemblée de Villeneuve-lès-Avignon</h1>
 
   <a
@@ -80,15 +85,20 @@
   </section>
 
   <section id="communication">
-    <a href="{% url 'communication-view' %}">Communications</a>
+    <a href="{% url 'communication' %}">Communications</a>
 
     <div id="com-content">
       <div class="titles">
         <h4>Titres principaux sur JW.org</h4>
 
-        {% for title, link in h3_data %}
-        <a href="https://www.jw.org{{link}}" target="_blank">{{title}}</a>
-        {% endfor %}
+        <div class="articles">
+          {% for title, href, img_src in data %}
+          <a href="https://www.jw.org{{href}}" target="_blank">
+            <img src="{{img_src}}" alt="{{title}}" />
+            <span>{{title}}</span>
+          </a>
+          {% endfor %}
+        </div>
       </div>
 
       <article>

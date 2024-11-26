@@ -20,9 +20,21 @@ main {
 
     h1 {
         @include white-neon;
-    }
+        @include flex;
+        justify-content: center;
+        gap: 1em;
 
-    >a {
-        @include button;
+        a,
+        span {
+            width: auto;
+        }
+
+        a {
+            img {
+                $size: .7em;
+                height: $size;
+                width: $size;
+            }
+        }
     }
 }

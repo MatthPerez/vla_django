@@ -96,22 +96,17 @@ main {
 }
 main h1 {
   text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
 }
-main > a {
+main h1 a,
+main h1 span {
   width: auto;
-  text-decoration: none;
-  text-align: center;
-  border: 1px solid black;
-  padding: 0.5em 1.5em;
-  color: black;
-  font-size: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.8);
-  transition: 300ms all ease;
 }
-main > a:hover {
-  transition: 150ms all ease;
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: none;
-  transform: translateY(4px);
-}/*# sourceMappingURL=communication.css.map */
+main h1 a img {
+  height: 0.7em;
+  width: 0.7em;
+}/*# sourceMappingURL=new_communication.css.map */

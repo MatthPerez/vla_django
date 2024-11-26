@@ -6,7 +6,7 @@
 <main>
   <h1>{{count}} membre{% if count > 1 %}s{% endif %}</h1>
   
-  <a href="{% url 'new-person' %}">Créer un nouveau membre</a>
+  <a href="{% url 'new_person' %}">Créer un nouveau membre</a>
   
   <section>
     {% for person in persons %}

@@ -111,7 +111,7 @@ main > a:hover {
 }
 
 #group_names {
-  width: clamp(300px, 80%, 1000px);
+  width: clamp(300px, 90%, 1100px);
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -129,13 +129,12 @@ main > a:hover {
   width: clamp(150px, 25%, 200px);
   background-color: rgba(255, 255, 255, 0.3);
   padding: 10px 30px;
-  text-align: left;
   box-shadow: 4px 4px 5px rgb(100, 100, 100);
   transition: 300ms all ease;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 @media (width <= 830px) {
   #group_names li {

@@ -23,7 +23,7 @@ main {
 }
 
 #group_names {
-    width: clamp(300px, 80%, 1000px);
+    width: clamp(300px, 90%, 1100px);
     list-style: none;
     @include flex;
     justify-content: center;
@@ -38,13 +38,12 @@ main {
         width: clamp(150px, 25%, 200px);
         background-color: rgba(white, .3);
         padding: 10px 30px;
-        text-align: left;
         $k: 100;
         $padding: 4px;
         box-shadow: $padding $padding 5px rgb($k, $k, $k);
         transition: 300ms all ease;
         @include flex;
-        justify-content: space-between;
+        justify-content: center;
 
         @media (width<=830px) {
             width: 30vw;
