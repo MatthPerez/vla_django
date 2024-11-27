@@ -14,7 +14,7 @@ class WeMeetingView(ListView):
     def get_queryset(self):
         now = timezone.now()
 
-        return WeekendMeeting.objects.filter(date__gte=now)
+        return WeekendMeeting.objects.filter(date__gte=now).order_by("date")
 
 
 class NewWeView(View):
