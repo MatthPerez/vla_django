@@ -20,35 +20,44 @@ main {
     >a {
         @include button;
     }
-    
+
     section {
         width: 100%;
-        @include flexcolumn;
+        @include flex;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 10px;
 
-        >div {
-            width: clamp(300px, 50%, 600px);
-            @include flex;
-            justify-content: space-between;
-            text-align: left;
-            padding: 5px;
-            background-color: rgba(white, .2);
-            padding: 5px;
-            text-align: left;
-            $k: 100;
-            $padding: 2px;
+        div {
+            $size: 6em;
+            width: $size;
+            height: $size;
+            border-radius: 50%;
+            @include flexcolumn;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(white, .5);
+            $padding: 4px;
+            $k: 80;
             box-shadow: $padding $padding 5px rgb($k, $k, $k);
             transition: 300ms all ease;
 
             &:hover {
-                transition: 80ms all ease;
+                transition: 70ms all ease;
+                background-color: rgba(white, .9);
                 box-shadow: none;
                 transform: translateY($padding);
-                background-color: rgba(white, .6);
+
             }
 
             span {
                 width: auto;
+                text-align: center;
+                font-size: 14px;
+
+                &:nth-child(2) {
+                    display: none;
+                }
             }
         }
     }

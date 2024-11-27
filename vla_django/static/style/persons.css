@@ -112,30 +112,36 @@ main > a:hover {
 main section {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-main section > div {
-  width: clamp(300px, 50%, 600px);
-  display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  text-align: left;
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 5px;
-  text-align: left;
-  box-shadow: 2px 2px 5px rgb(100, 100, 100);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+main section div {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 5px rgb(80, 80, 80);
   transition: 300ms all ease;
 }
-main section > div:hover {
-  transition: 80ms all ease;
+main section div:hover {
+  transition: 70ms all ease;
+  background-color: rgba(255, 255, 255, 0.9);
   box-shadow: none;
-  transform: translateY(2px);
-  background-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(4px);
 }
-main section > div span {
+main section div span {
   width: auto;
+  text-align: center;
+  font-size: 14px;
+}
+main section div span:nth-child(2) {
+  display: none;
 }/*# sourceMappingURL=persons.css.map */

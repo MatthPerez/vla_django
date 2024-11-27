@@ -11,7 +11,7 @@
   <section>
     {% for person in persons %}
     <div>
-      <span class="{{person.cong_status}} {{person.cong_function}}">{{person.fullname}} ({{person.group}})</span>
+      <span title="{{person.get_cong_status_display}}" class="{{person.cong_status}} {{person.cong_function}}">{{person.fullname}} ({{person.group}})</span>
       <span>✏️ ❌</span>
     </div>
     {% empty %}

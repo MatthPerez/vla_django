@@ -60,29 +60,65 @@ main {
 }
 
 .names {
-    width: clamp(200px, 50%, 400px);
+    width: clamp(300px, 80%, 1000px);
     min-height: 5em;
     list-style: none;
-    @include flexcolumn;
+    @include flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+
+    // li {
+    //     @include flex;
+    //     justify-content: flex-start;
+    //     gap: 5px;
+    //     padding: 5px;
+    //     transition: 300ms all ease;
+
+    //     &:hover {
+    //         transition: 150ms all ease;
+    //         $padding: 2px;
+    //         $k:100;
+    //         transform: translateY(-$padding);
+    //         box-shadow: $padding $padding 5px rgb($k, $k, $k);
+    //         background-color: rgba(white, .2);
+    //     }
+
+    //     span {
+    //         width: auto;
+    //     }
+    // }
 
     li {
-        @include flex;
-        justify-content: flex-start;
-        gap: 5px;
-        padding: 5px;
+        $size: 6em;
+        width: $size;
+        height: $size;
+        border-radius: 50%;
+        @include flexcolumn;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(white, .5);
+        $padding: 4px;
+        $k: 80;
+        box-shadow: $padding $padding 5px rgb($k, $k, $k);
         transition: 300ms all ease;
-        
+
         &:hover {
-            transition: 150ms all ease;
-            $padding: 2px;
-            $k:100;
-            transform: translateY(-$padding);
-            box-shadow: $padding $padding 5px rgb($k, $k, $k);
-            background-color: rgba(white, .2);
+            transition: 70ms all ease;
+            background-color: rgba(white, .9);
+            box-shadow: none;
+            transform: translateY($padding);
+
         }
 
         span {
             width: auto;
+            text-align: center;
+            font-size: 14px;
+
+            &:nth-child(2) {
+                display: none;
+            }
         }
     }
 }
@@ -99,4 +135,3 @@ main {
     color: rgb(155, 24, 24) !important;
     background-color: rgba(white, .7) !important;
 }
-
