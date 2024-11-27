@@ -5,9 +5,27 @@
 {% endblock %} {% block title %}VLA | Communications{% endblock %} {% block content %}
 
 <main>
-    <h1>Communications</h1>
+  <h1>Communications</h1>
 
-    <a href="{% url 'new_communication' %}">Créer une nouvelle communication</a>
+  <a href="{% url 'new_communication' %}">Créer une nouvelle communication</a>
+
+  <section class="communications">
+    {% for comm in communications %}
+    <article>
+      <h3>
+        <span>{{comm.date}}</span>
+        <span>- {{comm.title}}</span>
+        <span>({{comm.category}})</span>
+    </h3>
+
+      <div>
+        <p>{{comm.content1}}</p>
+        <a href="{{comm.content2}}" target="_blank">{{comm.content2}}</a>
+        <p>{{comm.content3}}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
 </main>
 
 {% endblock %}

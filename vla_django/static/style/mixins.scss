@@ -151,22 +151,45 @@
 
 @mixin button {
     width: auto;
-        text-decoration: none;
-        text-align: center;
-        border: 1px solid black;
-        padding: .5em 1.5em;
-        color: black;
-        font-size: 20px;
-        background-color: rgba(white, .5);
-        $padding: 4px;
-        $k: 50;
-        box-shadow: $padding $padding 5px rgba($k, $k, $k, .8);
-        transition: 300ms all ease;
-    
-        &:hover {
-            transition: 150ms all ease;
-            background-color: rgba(white, .7);
-            box-shadow: none;
-            transform: translateY($padding);
-        }
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid black;
+    padding: .5em 1.5em;
+    color: black;
+    font-size: 20px;
+    background-color: rgba(white, .5);
+    $padding: 4px;
+    $k: 50;
+    box-shadow: $padding $padding 5px rgba($k, $k, $k, .8);
+    transition: 300ms all ease;
+
+    &:hover {
+        transition: 150ms all ease;
+        background-color: rgba(white, .7);
+        box-shadow: none;
+        transform: translateY($padding);
+    }
+}
+
+@mixin submit {
+    width: auto;
+    padding: 10px 40px;
+    font-size: 18px;
+    background-color: rgba(white, .5);
+    $padding: 4px;
+    $k: 120;
+    border: none;
+    box-shadow: $padding $padding 5px rgb($k, $k, $k);
+    transition: 300ms all ease;
+
+    &:hover {
+        transition: 150ms all ease;
+        box-shadow: none;
+        transform: translateY($padding);
+    }
+
+    &:focus {
+        transition: 50ms all ease;
+        background-color: rgba(136, 230, 136, .5);
+    }
 }

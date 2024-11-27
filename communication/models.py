@@ -21,5 +21,13 @@ class Communication(models.Model):
         choices=CATEGORIES,
     )
     content1 = models.TextField(max_length=255)
-    content2 = models.TextField(max_length=255)
-    content3 = models.TextField(max_length=255)
+    content2 = models.TextField(
+        max_length=255,
+        null=True,
+        blank=True,
+    )
+    content3 = models.TextField(
+        max_length=255,
+        null=True,
+        blank=True,
+    )

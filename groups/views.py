@@ -25,7 +25,12 @@ class GroupsView(View):
 class NewGroupView(View):
     def get(self, request):
         form = AddGroup()
-        return render(request, "groups/new.html", {"form": form})
+
+        return render(
+            request,
+            "groups/new.html",
+            {"form": form},
+        )
 
     def post(self, request):
         form = AddGroup(request.POST)

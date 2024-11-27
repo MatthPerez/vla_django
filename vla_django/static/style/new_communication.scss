@@ -38,3 +38,39 @@ main {
         }
     }
 }
+
+form {
+    width: clamp(300px, 70%, 800px);
+    @include flexcolumn;
+    gap: 1em;
+
+    div {
+        @include flex;
+        justify-content: space-between;
+        gap: 5px;
+        padding: 5px;
+
+        label {
+            text-indent: 1em;
+            width: auto;
+        }
+
+        input,
+        select {
+            width: 70%;
+            padding: 10px;
+            @include no-border;
+            background-color: rgba(white, .8);
+            transition: 300ms all ease;
+
+            &:focus {
+                transition: 150ms all ease;
+                background-color: white;
+            }
+        }
+    }
+
+    button {
+        @include submit;
+    }
+}

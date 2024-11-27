@@ -26,3 +26,49 @@ main {
         @include button;
     }
 }
+
+.communications {
+    width: clamp(300px, 80%, 800px);
+    @include flexcolumn;
+    gap: 1em;
+
+    article {
+        background-color: rgba(white, .4);
+        border-radius: 20px;
+        @include flexcolumn;
+        gap: 1em;
+        $k: 80;
+        box-shadow: 3px 3px 5px rgb($k, $k, $k);
+        padding: 1em;
+
+        h3 {
+            text-align: center;
+            @include flex;
+            justify-content: center;
+            gap: 5px;
+
+            span {
+                width: auto;
+
+                &:nth-child(2) {
+                    color: rgb(187, 22, 22);
+                }
+            }
+        }
+
+        div {
+            @include flexcolumn;
+            gap: 1em;
+
+            p,
+            a {
+                text-align: justify;
+                text-indent: 0;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}

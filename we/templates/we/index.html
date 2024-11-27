@@ -1,7 +1,7 @@
 {% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'style/we.css' %}" />
 {% endblock %} {% block script_js %}
-<script src="{% static 'js/we.js' %}"></script>
+<script src="{% static 'js/we.js' %}" defer></script>
 {% endblock %} {% block title %}VLA | Week-end{% endblock %} {% block content %}
 <main>
   <h1>Réunion de week-end</h1>
@@ -10,9 +10,9 @@
 
   {% for meeting in meetings %}
   <article class="meeting">
-    <section>
-      <h3>{{meeting.date}}</h3>
+    <h3>{{meeting.date}}</h3>
 
+    <section>
       <div>
         <span>Président :</span>
         <span>{{meeting.president.fullname}}</span>
@@ -22,15 +22,20 @@
     <section class="song">Cantique n°{{meeting.song1}}</section>
 
     <section>
+      {% if meeting.speaker %}
       <div>
-        {% if meeting.speaker %}
         <span>Allocuteur</span>
         <span>{{meeting.speaker.fullname}}</span>
         {% endif %}
       </div>
+
       {% if meeting.foreign_speaker %}
-      <div>Allocuteur extérieur : {{meeting.foreign_speaker.fullname}}</div>
+      <div>
+        <span>Allocuteur extérieur :</span>
+        <span>{{meeting.foreign_speaker}}</span>
+      </div>
       {% endif %}
+
       <div>
         <span>Discours :</span>
         <span class="f-orange">{{meeting.speech_title}}</span>
@@ -52,6 +57,16 @@
     </section>
 
     <section class="song">Cantique n°{{meeting.song3}}</section>
+
+    <div class="update-we-meeting" title="Modifier réunion du {{meeting.date}}">
+      ✏️
+    </div>
+    <div
+      class="delete-we-meeting"
+      title="Supprimer réunion du {{meeting.date}}}"
+    >
+      ❌
+    </div>
   </article>
   {% endfor %}
 </main>

@@ -110,8 +110,10 @@ main > a:hover {
 }
 
 .meeting {
-  min-height: 5em;
+  position: relative;
   width: clamp(300px, 75vw, 800px);
+  overflow: hidden;
+  height: 4em;
   background-color: var(--color-quaternary1);
   padding: 1em;
   display: flex;
@@ -126,6 +128,13 @@ main > a:hover {
     width: 80vw;
   }
 }
+.meeting h3 {
+  width: calc(100% - 1em);
+  font-size: 26px;
+  text-align: center;
+  padding: 0.5em;
+  background-color: rgba(255, 255, 255, 0.2);
+}
 .meeting section {
   width: 100%;
   display: flex;
@@ -134,15 +143,6 @@ main > a:hover {
   align-items: flex-start;
   gap: 10px;
   text-align: left;
-}
-.meeting section h3 {
-  width: calc(100% - 1em);
-  font-size: 26px;
-  text-align: center;
-  border: 1px solid black;
-  padding: 0.5em;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin-bottom: 1em;
 }
 .meeting section div {
   display: flex;
@@ -161,4 +161,28 @@ main > a:hover {
 .song {
   color: var(--color-primary1);
   text-indent: 2em;
+}
+
+.auto-height {
+  height: auto !important;
+}
+
+.active-title {
+  color: orange;
+}
+
+.update-we-meeting {
+  right: 4em;
+}
+
+.delete-we-meeting {
+  right: 2em;
+}
+
+.update-we-meeting,
+.delete-we-meeting {
+  position: absolute;
+  top: 2em;
+  width: 2em;
+  height: 2em;
 }/*# sourceMappingURL=we.css.map */

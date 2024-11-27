@@ -25,7 +25,11 @@ class PersonsDetail(DetailView):
 class NewPersonView(View):
     def get(self, request):
         form = AddPerson()
-        return render(request, "persons/new.html", {"form": form})
+        return render(
+            request,
+            "persons/new.html",
+            {"form": form},
+        )
 
     def post(self, request):
         form = AddPerson(request.POST)
@@ -48,7 +52,7 @@ class NewPersonView(View):
             return render(
                 request,
                 "persons/new.html",
-                {"form": form, "success": "Membre ajouté avec succès !"},
+                {"form": form, "success": "Membre ajouté avec succès."},
             )
 
         else:

@@ -2,10 +2,13 @@ from django.shortcuts import render
 from django.views import View
 import requests
 from bs4 import BeautifulSoup
+from communication.models import Communication
 
 
 class HomeView(View):
     def get(self, request):
+        communications = Communication.objects.all().order_by("date")
+        
         url = "https://www.jw.org/fr/"
 
         try:
@@ -26,9 +29,9 @@ class HomeView(View):
                     main_title_text = a_tag.get_text(strip=True)
                     main_title_link = a_tag.get("href")
                 else:
-                    print("Aucune balise <a> trouvée dans main_title.")
+                    print("Aucun lien trouvé.")
             else:
-                print("Aucune div avec la classe billboardTitle trouvée.")
+                print("Aucun titre principal trouvé.")
 
             # Synopses
             synopses = soup.find_all("div", class_="synopsis", limit=3)
@@ -62,5 +65,6 @@ class HomeView(View):
                 "main_title_text": main_title_text,
                 "main_title_link": main_title_link,
                 "data": data,
+                "communications": communications,
             },
         )

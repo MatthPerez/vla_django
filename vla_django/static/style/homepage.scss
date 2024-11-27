@@ -16,7 +16,7 @@ footer {
 main {
     background-color: var(--color-quaternary-gray);
     @include flexcolumn;
-    gap: 2em;
+    gap: 1em;
 
     h1 {
         @include white-neon;
@@ -32,6 +32,18 @@ main {
             flex-direction: column;
         }
     }
+}
+
+.title1 {
+    width: 100% !important;
+    text-decoration: none;
+    color: var(--color-primary-gray);
+    padding: .5em 0;
+    background-color: rgba(white, .4);
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 3em 0 .5em 0;
 }
 
 .billboard_title {
@@ -225,12 +237,24 @@ main {
 #communication {
     @include flexcolumn;
     gap: 2em;
-    margin-top: 2em;
 
-    >a {
-        @include big-title;
-        text-decoration: none;
-        color: black;
+    article {
+        @include flexcolumn;
+        gap: 1em;
+
+        h3 {
+            @include flex;
+            justify-content: flex-start;
+            gap: 5px;
+
+            span {
+                width: auto;
+            }
+        }
+
+        p {
+            text-indent: 1em;
+        }
     }
 }
 
@@ -245,21 +269,6 @@ main {
     article {
         @include flexcolumn;
         gap: .5em;
-
-        h3 {
-            font-size: 25px;
-        }
-    }
-}
-
-.titles {
-    @include flexcolumn;
-    gap: 1em;
-
-    h4 {
-        text-align: center;
-        font-size: 20px;
-        margin-bottom: .5em;
     }
 }
 

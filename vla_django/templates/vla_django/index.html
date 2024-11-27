@@ -6,7 +6,9 @@
 <main>
   <div class="billboard_title">
     <span>Titre principal du site JW.org :</span>
-    <a href="https://www.jw.org{{main_title_link}}" target="_blank">{{main_title_text}}</a>
+    <a href="https://www.jw.org{{main_title_link}}" target="_blank"
+      >{{main_title_text}}</a
+    >
   </div>
 
   <h1>Assemblée de Villeneuve-lès-Avignon</h1>
@@ -84,48 +86,38 @@
     </a>
   </section>
 
+  <h2 class="title1">Titres principaux sur JW.org</h2>
+
+  <section>
+    <div class="articles">
+      {% for title, href, img_src in data %}
+      <a href="https://www.jw.org{{href}}" target="_blank">
+        <img src="{{img_src}}" alt="{{title}}" />
+        <span>{{title}}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <a href="{% url 'communication' %}" class="title1">Communications</a>
+
   <section id="communication">
-    <a href="{% url 'communication' %}">Communications</a>
-
     <div id="com-content">
-      <div class="titles">
-        <h4>Titres principaux sur JW.org</h4>
-
-        <div class="articles">
-          {% for title, href, img_src in data %}
-          <a href="https://www.jw.org{{href}}" target="_blank">
-            <img src="{{img_src}}" alt="{{title}}" />
-            <span>{{title}}</span>
-          </a>
-          {% endfor %}
-        </div>
-      </div>
-
+      {% for comm in communications %}
       <article>
-        <h3>Communication 1</h3>
+        <h3>
+          <span>{{comm.date}}</span>
+          <span>-</span>
+          <span>{{comm.title}}</span>
+        </h3>
 
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores sint
-          ipsum, non necessitatibus soluta animi reiciendis ad qui, consequuntur
-          iste officia magnam minima provident quisquam velit voluptates
-          obcaecati esse dolorum doloremque fugit in totam labore? Id, fugit? A
-          fugiat nesciunt, quibusdam dolorem dicta rerum ipsam vitae vero atque
-          quidem perferendis.
-        </p>
+        <p>{{comm.content1}}</p>
+
+        {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank">{{comm.content2}}</a>{% endif %}
+
+        {% if comm.content3 %}<p>{{comm.content3}}</p>{% endif %}
       </article>
-
-      <article>
-        <h3>Communication 2</h3>
-
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores sint
-          ipsum, non necessitatibus soluta animi reiciendis ad qui, consequuntur
-          iste officia magnam minima provident quisquam velit voluptates
-          obcaecati esse dolorum doloremque fugit in totam labore? Id, fugit? A
-          fugiat nesciunt, quibusdam dolorem dicta rerum ipsam vitae vero atque
-          quidem perferendis.
-        </p>
-      </article>
+      {% endfor %}
     </div>
   </section>
 </main>

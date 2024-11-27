@@ -114,4 +114,50 @@ main > a:hover {
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: none;
   transform: translateY(4px);
+}
+
+.communications {
+  width: clamp(300px, 80%, 800px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.communications article {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  box-shadow: 3px 3px 5px rgb(80, 80, 80);
+  padding: 1em;
+}
+.communications article h3 {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.communications article h3 span {
+  width: auto;
+}
+.communications article h3 span:nth-child(2) {
+  color: rgb(187, 22, 22);
+}
+.communications article div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.communications article div p,
+.communications article div a {
+  text-align: justify;
+  text-indent: 0;
+}
+.communications article div a {
+  text-decoration: none;
 }/*# sourceMappingURL=communication.css.map */

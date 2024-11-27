@@ -115,7 +115,7 @@ main {
         }
 
         button {
-            @include btn_click;
+            @include submit;
         }
     }
 }

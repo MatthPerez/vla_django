@@ -31,27 +31,27 @@ class AddCommunication(forms.Form):
     )
     category = forms.ChoiceField(
         required=True,
-        label="Statut",
+        label="Catégorie",
         choices=CATEGORIES,
     )
     content1 = forms.CharField(
         required=True,
-        label="Contenu 1",
+        label="Contenu principal",
         max_length=255,
     )
     content2 = forms.CharField(
-        required=True,
-        label="Contenu 2",
+        required=False,
+        label="Lien Internet",
         max_length=255,
     )
     content3 = forms.CharField(
-        required=True,
-        label="Contenu 3",
+        required=False,
+        label="Post scriptum",
         max_length=255,
     )
 
 
-class WeekMeetingForm(forms.ModelForm):
+class CommunicationForm(forms.ModelForm):
 
     class Meta:
         model = Communication

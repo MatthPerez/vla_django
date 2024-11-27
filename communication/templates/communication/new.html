@@ -5,12 +5,24 @@
 {% endblock %} {% block title %}VLA | Nouvelle communication{% endblock %} {% block content %}
 
 <main>
-    <h1>
-        <a href="{% url 'communication' %}"><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"></a>
-        <span>Nouvelle communication</span>
-    </h1>
+  <h1>
+    <a href="{% url 'communication' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
+    /></a>
+    <span>Nouvelle communication</span>
+  </h1>
 
+  <form method="POST">
+    {% csrf_token %}
+    <div>{{ form.date.label_tag }} {{ form.date }}</div>
+    <div>{{ form.title.label_tag }} {{ form.title }}</div>
+    <div>{{ form.category.label_tag }} {{ form.category }}</div>
+    <div>{{ form.content1.label_tag }} {{ form.content1 }}</div>
+    <div>{{ form.content2.label_tag }} {{ form.content2 }}</div>
+    <div>{{ form.content3.label_tag }} {{ form.content3 }}</div>
 
+    <button type="submit">Ajouter la communication</button>
+  </form>
 </main>
 
 {% endblock %}

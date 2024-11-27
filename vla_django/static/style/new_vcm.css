@@ -192,15 +192,21 @@ form section select:focus {
 }
 form button {
   width: auto;
-  padding: 10px 30px;
+  padding: 10px 40px;
   font-size: 18px;
-  box-shadow: 4px 4px 5px grey;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  box-shadow: 4px 4px 5px rgb(120, 120, 120);
   transition: 300ms all ease;
 }
-form button:focus {
+form button:hover {
   transition: 150ms all ease;
   box-shadow: none;
   transform: translateY(4px);
+}
+form button:focus {
+  transition: 50ms all ease;
+  background-color: rgba(136, 230, 136, 0.5);
 }
 
 .ministry {

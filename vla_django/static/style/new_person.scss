@@ -100,7 +100,7 @@ form {
     }
 
     button {
-        @include btn_click;
+        @include submit;
     }
 }
 

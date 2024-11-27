@@ -22,17 +22,29 @@ main {
 }
 
 .meeting {
-    min-height: 5em;
+    position: relative;
     width: clamp(300px, 75vw, 800px);
+    overflow: hidden;
+    height: 4em;
     background-color: var(--color-quaternary1);
     padding: 1em;
     @include flexcolumn;
     gap: 1.5em;
     font-family: var(--poppins);
     box-shadow: 4px 4px 5px rgba(black, .5);
+    // transition: 300ms all ease;
 
     @media (width<=768px) {
         width: 80vw;
+    }
+
+    h3 {
+        $padding: .5em;
+        width: calc(100% - 2 * $padding);
+        font-size: 26px;
+        text-align: center;
+        padding: $padding;
+        background-color: rgba(white, .2);
     }
 
     section {
@@ -41,17 +53,6 @@ main {
         align-items: flex-start;
         gap: 10px;
         text-align: left;
-
-        h3 {
-            $padding: .5em;
-            width: calc(100% - 2 * $padding);
-            font-size: 26px;
-            text-align: center;
-            @include border;
-            padding: $padding;
-            background-color: rgba(white, .2);
-            margin-bottom: 1em;
-        }
 
         div {
             @include flex;
@@ -74,3 +75,27 @@ main {
     text-indent: 2em;
 }
 
+.auto-height {
+    height: auto !important;
+}
+
+.active-title {
+    color: orange;
+}
+
+.update-we-meeting {
+    right: 4em;
+}
+
+.delete-we-meeting {
+    right: 2em;
+}
+
+.update-we-meeting,
+.delete-we-meeting {
+    position: absolute;
+    $size: 2em;
+    top: $size;
+    width: $size;
+    height: $size;
+}
