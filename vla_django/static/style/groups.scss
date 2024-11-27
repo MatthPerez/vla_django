@@ -60,7 +60,7 @@ main {
 }
 
 .names {
-    width: clamp(300px, 80%, 1000px);
+    width: clamp(300px, 90%, 1000px);
     min-height: 5em;
     list-style: none;
     @include flex;
