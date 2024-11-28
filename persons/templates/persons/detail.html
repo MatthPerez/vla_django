@@ -12,47 +12,50 @@
   </h1>
 
   <section>
-    <div>
-      <span>Prénom :</span>
-      <span>{{person.firstname}}</span>
-      <span>
-        {% if person.gender == 'MALE' %}
-        <img src="{% static 'icons/male.png' %}" alt="male" />
-        {% elif person.gender == 'FEMALE' %}
-        <img src="{% static 'icons/female.png' %}" alt="female" />
-        {% endif %}
-      </span>
-    </div>
+    <article>
+      <div>
+        <span>Prénom :</span>
+        <span>{{person.firstname}}</span>
+      </div>
 
-    <div>
-      <span>Nom :</span>
-      <span>{{person.lastname|upper}}</span>
-    </div>
+      <div>
+        <span>Nom :</span>
+        <span>{{person.lastname|upper}}</span>
+      </div>
 
-    <div>
-      <span>Groupe :</span>
-      <span>{{person.group}}</span>
-    </div>
+      <div>
+        <span>Groupe :</span>
+        <span>{{person.group}}</span>
+      </div>
 
-    <div>
-      <span>Statut :</span>
-      <span>{{person.get_cong_status_display}}</span>
-    </div>
+      <div>
+        <span>Statut :</span>
+        <span>{{person.get_cong_status_display}}</span>
+      </div>
 
-    <div>
-      <span>Fonction :</span>
-      <span>{{person.get_cong_function_display}}</span>
-    </div>
+      <div>
+        <span>Fonction :</span>
+        <span>{{person.get_cong_function_display}}</span>
+      </div>
 
-    <div>
-      <span>Rôles :</span>
+      <div>
+        <span>Rôles :</span>
 
-      <ul>
-        {% for role in role_display_list %}
-        <li>{{ role }}</li>
-        {% endfor %}
-      </ul>
-    </div>
+        <ul>
+          {% for role in role_display_list %}
+          <li>{{ role }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </article>
+
+    <article>
+      {% if person.gender == 'MALE' %}
+      <img src="{% static 'icons/male_icon.png' %}" alt="male" />
+      {% elif person.gender == 'FEMALE' %}
+      <img src="{% static 'icons/female_icon.png' %}" alt="female" />
+      {% endif %}
+    </article>
   </section>
 </main>
 {% endblock %}

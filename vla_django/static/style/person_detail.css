@@ -112,33 +112,44 @@ main h1 a img {
 }
 main section {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+main section article {
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2em;
+  width: 50%;
 }
-main section div {
+main section article div {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 1.5em;
 }
-main section div span {
+main section article div span {
   width: auto;
   font-size: 20px;
 }
-main section div span:nth-child(2) {
+main section article div span:nth-child(2) {
   font-weight: bold;
 }
-main section div span img {
+main section article div span img {
   height: 1.5em;
   width: auto;
 }
-main section div ul {
+main section article div ul {
   list-style: inside decimal;
   width: 50%;
   font-weight: bold;
 }
-main section div ul li {
+main section article div ul li {
   font-size: 20px;
+}
+main section article img {
+  width: 15em;
+  aspect-ratio: 1;
 }/*# sourceMappingURL=person_detail.css.map */
