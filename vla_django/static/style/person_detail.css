@@ -135,7 +135,7 @@ main section div span img {
   width: auto;
 }
 main section div ul {
-  list-style: none;
+  list-style: inside decimal;
   width: 50%;
   font-weight: bold;
 }

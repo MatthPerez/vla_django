@@ -58,11 +58,11 @@ class Person(models.Model):
 
     STATUS = (
         ("NONE", ""),
-        ("UNBAPT_PUBLISHER", "PNB"),
-        ("PUBLISHER", "PROCL"),
-        ("TEMPORARY", "PA"),
-        ("PERMANENT", "PP"),
-        ("SPECIAL", "PS"),
+        ("UNBAPT_PUBLISHER", "Proclamateur non baptisé"),
+        ("PUBLISHER", "Proclamateur"),
+        ("TEMPORARY", "Pionnier auxiliaire"),
+        ("PERMANENT", "Pionnier permanent"),
+        ("SPECIAL", "Pionnier spécial"),
     )
 
     firstname = models.CharField(
