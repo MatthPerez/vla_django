@@ -28,7 +28,9 @@ main {
         flex-wrap: wrap;
         gap: 10px;
 
-        div {
+        a {
+            text-decoration: none;
+            color: black;
             $size: 6em;
             width: $size;
             height: $size;

@@ -1,0 +1,73 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+:root {
+    --space: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary2);
+}
+
+main {
+    background-color: var(--color-tertiary2);
+    @include flex;
+    flex-direction: column;
+    gap: 3em;
+    padding-bottom: 3em;
+
+    h1 {
+        @include flex;
+        justify-content: center;
+        gap: 10px;
+
+        a,
+        span {
+            width: auto;
+        }
+
+        a {
+            @include flexcolumn;
+
+            img {
+                width: .7em;
+            }
+        }
+    }
+
+    section {
+        @include flexcolumn;
+        gap: 2em;
+
+        div {
+            @include flex;
+            justify-content: flex-start;
+            gap: 1.5em;
+
+            span {
+                width: auto;
+                font-size: 20px;
+
+                &:nth-child(2) {
+                    font-weight: bold;
+                }
+
+                img {
+                    height: 1.5em;
+                    width: auto;
+                }
+            }
+
+            ul {
+                list-style: none;
+                width: 50%;
+                font-weight: bold;
+
+                li {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

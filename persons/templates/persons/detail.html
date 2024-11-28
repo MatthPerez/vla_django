@@ -1,222 +1,58 @@
-{% extends 'vla_django/base.html' %}
-
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/vcm_detail.css' %}" />
-{% endblock %}
-
-{% block script_js %}
-<script src="{% static 'js/vcm.js' %}"></script>
-{% endblock %}
-
-{% block title %}VLA | Personnes{% endblock %}
-
-{% block content %}
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/person_detail.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/person.js' %}"></script>
+{% endblock %} {% block title %}VLA | Détail du membre{% endblock %} {% block content %}
 <main>
   <h1>
-    <a href="{% url 'persons' %}"><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"></a>
-    <span>Vie chrétienne et Ministère<br>du {{meeting.date}}</span>
+    <a href="{% url 'persons' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
+    /></a>
+    <span>Détail du membre de l'assemblée</span>
   </h1>
 
-  <div class="actions">
-    <a href="#">Modifier</a>
-    <a href="#">Supprimer</a>
-  </div>
-
   <section>
-    <article class="meeting">
-      <div class="president">
-        <span>Semaine du {{meeting.date}}<br />{{meeting.portion}}</span>
-        <span>Président : {{meeting.president.fullname}}</span>
-      </div>
-
-      <div class="song">Cantique N°{{meeting.song1}}</div>
-
-      <div class="prayer">Prière initiale : {{meeting.prayer1.fullname}}</div>
-
-      <div class="jewels">
-        <span>Joyaux (10 min) : {{meeting.jewels_title}}</span>
-        <span>{{meeting.jewels.fullname}}</span>
-      </div>
-
-      <div class="pearls">
-        <span>Perles spirituelles (10 min)</span>
-        <span>{{meeting.pearls.fullname}}</span>
-      </div>
-
-      <h2>Ecole du Ministère Théocratique</h2>
-
-      <h3>Salle principale</h3>
-
-      <div class="allocution">
-        <span>Lecture (3 min)</span>
-        <span>{{meeting.reading1.fullname}}</span>
-      </div>
-
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc1_type_display }} ({{meeting.alloc1_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc1pupil_hall1.fullname}}{% if meeting.alloc1inter_hall1 %} | {{meeting.alloc1inter_hall1.fullname}}{% endif %}</span
-        >
-      </div>
-
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc2_type_display }} ({{meeting.alloc2_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc2pupil_hall1.fullname}}{% if meeting.alloc2inter_hall1 %} | {{meeting.alloc2inter_hall1.fullname}}{% endif %}</span
-        >
-      </div>
-
-      {% if meeting.alloc3_duration %}
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc3_type_display }} ({{meeting.alloc3_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc3pupil_hall1.fullname}}{% if meeting.alloc3inter_hall1 %} | {{meeting.alloc3inter_hall1.fullname}}{% endif %}</span
-        >
-      </div>
-      {% endif %} {% if meeting.alloc4_duration %}
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc4_type_display }} ({{meeting.alloc4_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc4pupil_hall1.fullname}}{% if meeting.alloc4inter_hall1 %} | {{meeting.alloc4inter_hall1.fullname}}{% endif %}</span
-        >
-      </div>
-      {% endif %} {% if meeting.reading2 %}
-      <h3>
-        <span>Salle complémentaire</span>
-        <span class="advisor2"
-          >(Conseiller : {{meeting.advisor2.fullname}})</span
-        >
-      </h3>
-
-      <div class="allocution">
-        <span>Lecture (3 min)</span>
-        <span>{{meeting.reading2.fullname}}</span>
-      </div>
-
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc1_type_display }} ({{meeting.alloc1_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc1pupil_hall2.fullname}}{% if meeting.alloc1inter_hall2 %} | {{meeting.alloc1inter_hall2.fullname}}{% endif %}</span
-        >
-      </div>
-
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc2_type_display }} ({{meeting.alloc2_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc2pupil_hall2.fullname}}{% if meeting.alloc2inter_hall2 %} | {{meeting.alloc2inter_hall2.fullname}}{% endif %}</span
-        >
-      </div>
-
-      {% if meeting.alloc3_duration %}
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc3_type_display }} ({{meeting.alloc3_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc3pupil_hall2.fullname}}{% if meeting.alloc3inter_hall2 %} | {{meeting.alloc3inter_hall2.fullname}}{% endif %}</span
-        >
-      </div>
-      {% endif %} {% if meeting.alloc4_duration %}
-      <div class="allocution">
-        <span
-          >{{meeting.get_alloc4_type_display }} ({{meeting.alloc4_duration}}
-          min)</span
-        >
-        <span
-          >{{meeting.alloc4pupil_hall2.fullname}}{% if meeting.alloc4inter_hall2 %} | {{meeting.alloc4inter_hall2.fullname}}{% endif %}</span
-        >
-      </div>
-      {% endif %} {% endif %} {% if meeting.reading3 %}
-      <h3>
-        <span>Salle C</span>
-        <span class="advisor2"
-          >(Conseiller : {{meeting.advisor3.fullname}})</span
-        >
-      </h3>
-
-      <div class="allocution">
-        <span>Lecture (3 min)</span>
-        <span>{{meeting.reading3.fullname}}</span>
-      </div>
-
-      <div class="allocution">
-        <span>Discours (5 min)</span>
-        <span>{{meeting.pupil_hall3.fullname}}</span>
-      </div>
-      {% endif %}
-
-      <div class="song">Cantique N°{{meeting.song2}}</div>
-
-      <h2 class="mb1em">Vie Chrétienne</h2>
-
-      <section class="vcm">
-        <div>
-          <span
-            >Sujet {% if meeting.vcm2 %}1 {% else %}unique {% endif %}({{meeting.vcm1_duration}} min) : {{meeting.vcm1.fullname}}</span
-          >
-          <span>{{meeting.vcm1_title}}</span>
-        </div>
-
-        {% if meeting.vcm2 %}
-        <div>
-          <span
-            >Sujet 2 ({{meeting.vcm2_duration}} min) :
-            {{meeting.vcm2.fullname}}</span
-          >
-          <span>{{meeting.vcm2_title}}</span>
-        </div>
-        {% endif %} {% if meeting.vcm3 %}
-        <div>
-          <span
-            >Sujet 3 ({{meeting.vcm3_duration}} min) :
-            {{meeting.vcm3.fullname}}</span
-          >
-          <span>{{meeting.vcm3_title}}</span>
-        </div>
+    <div>
+      <span>Prénom :</span>
+      <span>{{person.firstname}}</span>
+      <span>
+        {% if person.gender == 'MALE' %}
+        <img src="{% static 'icons/male.png' %}" alt="male" />
+        {% elif person.gender == 'FEMALE' %}
+        <img src="{% static 'icons/female.png' %}" alt="female" />
         {% endif %}
+      </span>
+    </div>
 
-        <div class="eba">
-          <span>Etude biblique de l'assemblée (30 min)</span>
-          <span>{{meeting.eba.fullname}}</span>
-        </div>
+    <div>
+      <span>Nom :</span>
+      <span>{{person.lastname|upper}}</span>
+    </div>
 
-        <div>
-          <span>Lecteur</span>
-          <span>{{meeting.eba_reader.fullname}}</span>
-        </div>
+    <div>
+      <span>Groupe :</span>
+      <span>{{person.group}}</span>
+    </div>
 
-        <div>
-          <span>Discours spécial</span>
-          <span>{{meeting.supervisor.fullname}}</span>
-          <span>{{meeting.special_speech.fullname}}</span>
-        </div>
-      </section>
+    <div>
+      <span>Statut :</span>
+      <span>{{person.get_cong_status_display}}</span>
+    </div>
 
-      <div class="song">Cantique N°{{meeting.song3}}</div>
+    <div>
+      <span>Fonction :</span>
+      <span>{{person.get_cong_function_display}}</span>
+    </div>
 
-      <div class="prayer">Prière finale : {{meeting.prayer2.fullname}}</div>
-    </article>
+    <div>
+      <span>Rôles :</span>
+
+      <ul>
+        {% for role in role_display_list %}
+        <li>{{ role }}</li>
+        {% endfor %}
+      </ul>
+    </div>
   </section>
 </main>
 {% endblock %}

@@ -15,11 +15,16 @@ class PersonsView(ListView):
         context["count"] = self.get_queryset().count()
         return context
 
-
-class PersonsDetail(DetailView):
+    
+class PersonDetail(DetailView):
     model = Person
-    context_object_name = "persons"
+    context_object_name = "person"
     template_name = "persons/detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["role_display_list"] = self.object.get_roles_display()
+        return context
 
 
 class NewPersonView(View):

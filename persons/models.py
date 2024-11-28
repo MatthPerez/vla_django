@@ -106,6 +106,12 @@ class Person(models.Model):
         null=True,
     )
 
+    def get_roles_display(self):
+        roles = self.cong_roles.split(",")
+        return [
+            dict(self.ROLES).get(role.strip(), role.strip()) for role in roles
+        ]
+
     def get_roles_as_list(self):
         return self.cong_roles.split(",") if self.cong_roles else []
 

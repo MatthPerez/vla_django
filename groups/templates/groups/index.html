@@ -9,18 +9,18 @@
 
   <a href="{% url 'new_group' %}">Créer un nouveau groupe</a>
 
-  <ul id="group_names">
+  <div id="group_names">
     {% for group in groups %}
     <li>{{ group.name }}</li>
     {% empty %}
     <li>Aucun groupe trouvé.</li>
     {% endfor %}
-  </ul>
+  </div>
 
   <ul class="names">
     {% for person in persons %}
     <li name="{{person.group}}" class="{% if person.cong_function != "NONE" %}{{person.cong_function}}{% endif %} {{person.cong_status}}">
-      <span>{{person.fullname}}</span>
+      <span>{{person.firstname}}<br>{{person.lastname|upper}}</span>
       {% comment %} <span
         >{% if person.cong_function != "NONE" %}({{person.get_cong_function_display}}){% endif %}
       </span> {% endcomment %}

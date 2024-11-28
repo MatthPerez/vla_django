@@ -3,7 +3,7 @@ from django.urls import path
 from .views import HomeView
 from infos.views import InfosView
 from groups.views import GroupsView, NewGroupView
-from persons.views import PersonsView, PersonsDetail, NewPersonView
+from persons.views import PersonsView, PersonDetail, NewPersonView
 from vcm.views import VcmMeetingView, VcmMeetingDetail, NewVcmView
 from we.views import WeMeetingView, NewWeView
 from communication.views import CommunicationView, NewCommunicationView
@@ -67,7 +67,7 @@ urlpatterns = [
     ),
     path(
         "personnes/<pk>",
-        PersonsDetail.as_view(),
+        PersonDetail.as_view(),
         name="person_detail",
     ),
     path(
