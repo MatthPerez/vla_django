@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import PersonsView, NewPersonView
+from .views import PersonsView, PersonCreate
 
 urlpatterns = [
     path("", PersonsView.as_view(), name="persons"),
-    path("ajouter/", NewPersonView.as_view(), name="new_person"),
+    path("ajouter/", PersonCreate.as_view(), name="new_person"),
 ]

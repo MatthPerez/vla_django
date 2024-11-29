@@ -2,16 +2,15 @@ from django import forms
 from persons.models import Person
 from groups.models import Group
 
-
 GENDER = (
-    ("MALE", "homme"),
-    ("FEMALE", "femme"),
+    ("MALE", "Homme"),
+    ("FEMALE", "Femme"),
 )
 
 FUNCTION = (
     ("NONE", ""),
-    ("ELDER", "ancien"),
-    ("ASSISTANT", "assistant"),
+    ("ELDER", "Ancien"),
+    ("ASSISTANT", "Assistant"),
 )
 
 ROLES = (
@@ -50,12 +49,11 @@ ROLES = (
 )
 
 STATUS = (
-    ("NONE", ""),
-    ("UNBAPT_PUBLISHER", "PNB"),
-    ("PUBLISHER", "PROCL"),
-    ("TEMPORARY", "PA"),
-    ("PERMANENT", "PP"),
-    ("SPECIAL", "PS"),
+    ("UNBAPT_PUBLISHER", "Proclamateur non baptisé"),
+    ("PUBLISHER", "Proclamateur"),
+    ("TEMPORARY", "Pionnier auxiliaire"),
+    ("PERMANENT", "Pionnier permanent"),
+    ("SPECIAL", "Pionnier spécial"),
 )
 
 
@@ -78,44 +76,38 @@ class AddPerson(forms.Form):
     gender = forms.ChoiceField(
         required=True,
         label="Genre",
-        choices=GENDER,
+        choices=Person.GENDER,
     )
     cong_function = forms.ChoiceField(
         required=True,
         label="Fonction",
-        choices=FUNCTION,
+        choices=Person.FUNCTION,
     )
     cong_roles = forms.MultipleChoiceField(
         required=False,
         label="Rôles",
-        choices=sorted(ROLES, key=lambda x: x[1]),
+        choices=sorted(Person.ROLES, key=lambda x: x[1]),
         widget=forms.CheckboxSelectMultiple,
     )
     cong_status = forms.ChoiceField(
         required=True,
         label="Statut",
-        choices=STATUS,
+        choices=Person.STATUS,
     )
     group = forms.ModelChoiceField(
         required=True,
         label="Groupe",
-        queryset=Group.objects.all()
+        queryset=Group.objects.all(),
     )
 
-
-class PersonForm(forms.ModelForm):
-
-    class Meta:
-        model = Person
-        fields = "__all__"
-
     def __init__(self, *args, **kwargs):
+        initial = kwargs.get("initial", {})
+        if "instance" in kwargs:
+            instance = kwargs.pop("instance")
+            initial["cong_roles"] = instance.get_roles_as_list()
+        kwargs["initial"] = initial
         super().__init__(*args, **kwargs)
-        optional_fields = [
-            "firstname",
-            "lastname",
-            "gender",
-        ]
-        for field in optional_fields:
-            self.fields[field].required = False
-            self.fields[field].widget.attrs.update({"required": False})
+
+    def clean_cong_roles(self):
+        roles = self.cleaned_data["cong_roles"]
+        return ",".join(roles)

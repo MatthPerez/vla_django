@@ -37,6 +37,7 @@ main {
     }
 
     section {
+        width: clamp(300px, 90%, 1200px);
         @include flex;
         justify-content: space-between;
 
@@ -79,6 +80,22 @@ main {
                 width: 15em;
                 aspect-ratio: 1;
             }
+        }
+    }
+}
+
+.actions {
+    @include flexcolumn;
+    align-items: flex-end;
+    gap: 1em;
+
+    a {
+        &:first-child {
+            @include update-button;
+        }
+
+        &:nth-child(2) {
+            @include delete-button;
         }
     }
 }

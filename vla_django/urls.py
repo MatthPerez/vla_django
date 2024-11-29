@@ -3,7 +3,7 @@ from django.urls import path
 from .views import HomeView
 from infos.views import InfosView
 from groups.views import GroupsView, NewGroupView
-from persons.views import PersonsView, PersonDetail, NewPersonView
+from persons.views import PersonsView, PersonDetail, PersonCreate, PersonUpdate
 from vcm.views import VcmMeetingView, VcmMeetingDetail, NewVcmView
 from we.views import WeMeetingView, NewWeView
 from communication.views import CommunicationView, NewCommunicationView
@@ -62,13 +62,18 @@ urlpatterns = [
     ),
     path(
         "personnes/ajouter/",
-        NewPersonView.as_view(),
+        PersonCreate.as_view(),
         name="new_person",
     ),
     path(
         "personnes/<pk>",
         PersonDetail.as_view(),
         name="person_detail",
+    ),
+    path(
+        "personnes/<pk>/modifier",
+        PersonUpdate.as_view(),
+        name="person_detail_edit",
     ),
     path(
         "communications/",

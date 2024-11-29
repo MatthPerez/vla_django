@@ -110,89 +110,74 @@ main h1 a {
 main h1 a img {
   width: 0.7em;
 }
-main section {
-  width: clamp(300px, 90%, 1200px);
+main form {
+  width: clamp(300px, 70%, 700px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+main form h2 {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+  font-size: 30px;
+}
+main form section {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+@media (width <= 768px) {
+  main form section {
+    width: 80vw;
+  }
+}
+main form section div {
+  width: clamp(300px, 90%, 800px);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-main section article {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2em;
-  width: 50%;
+main form section div:last-child {
+  align-items: flex-start;
 }
-main section article div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1.5em;
-}
-main section article div span {
-  width: auto;
-  font-size: 20px;
-}
-main section article div span:nth-child(2) {
-  font-weight: bold;
-}
-main section article div span img {
-  height: 1.5em;
+main form section label {
+  text-indent: 3em;
   width: auto;
 }
-main section article div ul {
-  list-style: inside decimal;
-  width: 50%;
-  font-weight: bold;
-}
-main section article div ul li {
-  font-size: 20px;
-}
-main section article img {
-  width: 15em;
-  aspect-ratio: 1;
-}
-
-.actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-items: flex-end;
-  gap: 1em;
-}
-.actions a:first-child {
-  width: clamp(150px, 10%, 400px);
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  font-size: 20px;
-  background-color: rgba(23, 201, 23, 0.2);
-  padding: 1em;
-  box-shadow: 4px 4px 5px rgb(90, 90, 90);
+main form section input,
+main form section select {
+  width: 65%;
+  padding: 10px;
+  outline: none;
+  border: none;
   transition: 300ms all ease;
 }
-.actions a:first-child:hover {
+main form section input:focus,
+main form section select:focus {
   transition: 150ms all ease;
-  background-color: rgba(23, 201, 23, 0.5);
+  box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
+}
+main form button {
+  width: auto;
+  padding: 10px 40px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  box-shadow: 4px 4px 5px rgb(120, 120, 120);
+  transition: 300ms all ease;
+}
+main form button:hover {
+  transition: 150ms all ease;
   box-shadow: none;
   transform: translateY(4px);
 }
-.actions a:nth-child(2) {
-  width: clamp(150px, 10%, 400px);
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  font-size: 20px;
-  background-color: rgba(230, 38, 38, 0.2);
-  padding: 1em;
-  box-shadow: 4px 4px 5px rgb(90, 90, 90);
-  transition: 300ms all ease;
-}
-.actions a:nth-child(2):hover {
-  transition: 150ms all ease;
-  background-color: rgba(230, 38, 38, 0.5);
-  box-shadow: none;
-  transform: translateY(4px);
-}/*# sourceMappingURL=person_detail.css.map */
+main form button:focus {
+  transition: 50ms all ease;
+  background-color: rgba(136, 230, 136, 0.5);
+}/*# sourceMappingURL=person_update.css.map */

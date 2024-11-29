@@ -56,6 +56,11 @@
       <img src="{% static 'icons/female_icon.png' %}" alt="female" />
       {% endif %}
     </article>
+
+    <article class="actions">
+      <a href="{% url 'person_detail_edit' person.pk %}">Modifier</a>
+      <a href="#">Supprimer</a>
+    </article>
   </section>
 </main>
 {% endblock %}
