@@ -1,6 +1,5 @@
-from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, UpdateView
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from persons.models import Person
 from persons.forms import AddPerson
@@ -10,10 +9,13 @@ class PersonsView(ListView):
     model = Person
     context_object_name = "persons"
     template_name = "persons/index.html"
+    empty_text = "Aucun membre trouvé."
+    ordering = ["lastname", "firstname"]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["count"] = self.get_queryset().count()
+        context["empty_text"] = self.empty_text
         return context
 
 
@@ -97,6 +99,7 @@ class PersonUpdate(View):
 
         if form.is_valid():
             form.save()
+
             return render(
                 request,
                 "persons/new.html",
@@ -116,3 +119,12 @@ class PersonUpdate(View):
                     "errors": form.errors,
                 },
             )
+
+
+class PersonDelete(View):
+    def post(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        person = get_object_or_404(Person, pk=pk)
+        person.delete()
+
+        return redirect("persons")
