@@ -79,7 +79,17 @@ class PersonCreate(View):
 class PersonUpdate(View):
     def get(self, request, pk):
         person = Person.objects.get(pk=pk)
-        form = AddPerson(instance=person)
+        form = AddPerson(
+            initial={
+                "firstname": person.firstname,
+                "lastname": person.lastname,
+                "gender": person.gender,
+                "cong_function": person.cong_function,
+                "cong_roles": person.cong_roles.split(","),
+                "cong_status": person.cong_status,
+                "group": person.group,
+            }
+        )
         submit_text = "Mettre à jour"
         title = f"Mise à jour de {person.firstname} {person.lastname}"
 
@@ -95,30 +105,28 @@ class PersonUpdate(View):
 
     def post(self, request, pk):
         person = Person.objects.get(pk=pk)
-        form = AddPerson(request.POST, instance=person)
+        form = AddPerson(request.POST)
 
         if form.is_valid():
-            form.save()
+            person.firstname = form.cleaned_data["firstname"]
+            person.lastname = form.cleaned_data["lastname"]
+            person.gender = form.cleaned_data["gender"]
+            person.cong_function = form.cleaned_data["cong_function"]
+            person.cong_roles = form.cleaned_data["cong_roles"]
+            person.cong_status = form.cleaned_data["cong_status"]
+            person.group = form.cleaned_data["group"]
+            person.save()
 
-            return render(
-                request,
-                "persons/new.html",
-                {
-                    "form": form,
-                    "success": "Membre mis à jour avec succès.",
-                },
-            )
+            return redirect("persons")
 
-        else:
-            print(form.errors)
-            return render(
-                request,
-                "persons/new.html",
-                {
-                    "form": form,
-                    "errors": form.errors,
-                },
-            )
+        return render(
+            request,
+            "persons/new.html",
+            {
+                "form": form,
+                "errors": form.errors,
+            },
+        )
 
 
 class PersonDelete(View):
