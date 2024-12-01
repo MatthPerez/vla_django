@@ -22,7 +22,7 @@ main {
     }
 
     section {
-        width: 100%;
+        width: 95%;
         @include flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -32,9 +32,10 @@ main {
             text-decoration: none;
             color: black;
             $size: 6em;
-            width: $size;
+            width: auto;
             height: $size;
-            border-radius: 50%;
+            // border-radius: 50%;
+            border-radius: 10px;
             @include flexcolumn;
             align-items: center;
             justify-content: center;
@@ -56,6 +57,7 @@ main {
                 width: auto;
                 text-align: center;
                 font-size: 14px;
+                padding: 0 20px;
 
                 &:nth-child(2) {
                     display: none;

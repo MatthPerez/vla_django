@@ -6417,11 +6417,21 @@ footer a {
 }
 
 .ASSISTANT {
-  color: blue;
+  background-color: rgba(50, 241, 108, 0.2);
+  transition: 300ms all ease;
+}
+.ASSISTANT:hover {
+  transition: 150ms all ease;
+  background-color: rgba(50, 245, 108, 0.1);
 }
 
 .ELDER {
-  color: red;
+  background-color: rgba(252, 45, 45, 0.2);
+  transition: 300ms all ease;
+}
+.ELDER:hover {
+  transition: 150ms all ease;
+  background-color: rgba(252, 45, 45, 0.1);
 }
 
 .PERMANENT {

@@ -10,10 +10,8 @@
 
   <section>
     {% for person in persons %}
-    <a href="{% url 'person_detail' person.pk %}">
-      <span
-        title="{{person.get_cong_status_display}}"
-        class="{{person.cong_status}} {{person.cong_function}}"
+    <a href="{% url 'person_detail' person.pk %}" class="{{person.cong_status}} {{person.cong_function}}">
+      <span title="{{person.get_cong_status_display}}"
         >{{person.firstname}}<br />{{person.lastname|upper}}<br />({{person.group}})</span
       >
     </a>

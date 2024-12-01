@@ -805,11 +805,31 @@ footer {
 // Specifi
 
 .ASSISTANT {
-    color: blue;
+    $dark: rgba(50, 241, 108, .2);
+    $light: rgba(50, 245, 108, .1);
+
+    background-color: $dark;
+    transition: 300ms all ease;
+
+    &:hover {
+        transition: 150ms all ease;
+        background-color: $light;
+
+    }
 }
 
 .ELDER {
-    color: red;
+    $dark: rgba(252, 45, 45, .2);
+    $light: rgba(252, 45, 45, .1);
+
+    background-color: $dark;
+    transition: 300ms all ease;
+
+    &:hover {
+        transition: 150ms all ease;
+        background-color: $light;
+
+    }
 }
 
 .PERMANENT {
