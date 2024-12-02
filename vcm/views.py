@@ -25,13 +25,17 @@ class VcmMeetingDetail(DetailView):
 class NewVcmView(View):
     def get(self, request):
         form = AddMeeting()
+        big_title = "Créer une nouvelle réunion VCM"
+        small_title = "Nouvelle réunion VCM"
         submit_text = "Créer nouvelle réunion"
-        
+
         return render(
             request,
             "vcm/new.html",
             {
                 "form": form,
+                "big_title": big_title,
+                "small_title": small_title,
                 "submit_text": submit_text,
             },
         )
@@ -122,6 +126,9 @@ class NewVcmView(View):
 class VcmUpdate(View):
     def get(self, request, pk):
         meeting = Meeting.objects.get(pk=pk)
+        big_title = f"Modifier réunion VCM du {meeting.date}"
+        small_title = f"Modifier réunion du {meeting.date}"
+        submit_text = "Mettre à jour la réunion"
 
         form = AddMeeting(
             initial={
@@ -183,15 +190,13 @@ class VcmUpdate(View):
             }
         )
 
-        submit_text = "Mettre à jour la réunion"
-        title = f"Mise à jour de la réunion du {meeting.date}"
-
         return render(
             request,
             "vcm/new.html",
             {
                 "form": form,
-                "title": title,
+                "big_title": big_title,
+                "small_title": small_title,
                 "submit_text": submit_text,
             },
         )
@@ -199,6 +204,8 @@ class VcmUpdate(View):
     def post(self, request, pk):
         meeting = Meeting.objects.get(pk=pk)
         form = AddMeeting(request.POST)
+        big_title = f"Modifier réunion VCM du {meeting.date}"
+        small_title = f"Modifier réunion du {meeting.date}"
 
         if form.is_valid():
             meeting.president = form.cleaned_data["president"]
@@ -252,6 +259,8 @@ class VcmUpdate(View):
             "vcm/new.html",
             {
                 "form": form,
+                "small_title": small_title,
+                "big_title": big_title,
                 "errors": form.errors,
             },
         )

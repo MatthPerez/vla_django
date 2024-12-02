@@ -12,8 +12,12 @@
   </h1>
 
   <div class="actions">
-    <a href="{% url 'vcm_update' meeting.pk %}">Modifier</a>
-    <a href="#">Supprimer</a>
+    <a href="{% url 'vcm_update' meeting.pk %}" class="update_btn">Modifier</a>
+    {% comment %} <a href="#">Supprimer</a> {% endcomment %}
+    <form action="{% url 'vcm_delete' meeting.pk %}" method="POST">
+      {% csrf_token %}
+      <button type="submit">Supprimer</button>
+    </form>
   </div>
 
   <section class="meetings">

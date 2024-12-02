@@ -40,6 +40,25 @@ main {
     }
 }
 
+.actions {
+    @include flex;
+    justify-content: center;
+    gap: 1em;
+
+    a {
+        @include update-button;
+    }
+
+    form {
+        @include form-btn;
+        height: 2em;
+
+        button {
+            padding: 0;
+        }
+    }
+}
+
 .meeting-list {
     @include flexcolumn;
     gap: 10px;
@@ -97,16 +116,6 @@ main {
             transition: 150ms all ease;
             background-color: rgba(white, .2);
         }
-    }
-}
-
-.actions {
-    @include flex;
-    justify-content: center;
-    gap: 1em;
-
-    a {
-        @include button;
     }
 }
 

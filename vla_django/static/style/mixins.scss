@@ -236,3 +236,26 @@ $color-red: #e62626;
         transform: translateY($padding);
     }
 }
+
+@mixin form-btn {
+    width: clamp(150px, 10%, 400px);
+    text-align: center;
+    background-color: rgba($color-red, .2);
+    padding: 1em;
+    box-shadow: $padding $padding 5px rgb($k, $k, $k);
+    transition: 300ms all ease;
+
+    &:hover {
+        transition: 150ms all ease;
+        background-color: rgba($color-red, .5);
+        box-shadow: none;
+        transform: translateY($padding);
+    }
+
+    button {
+        @include no-border;
+        background-color: transparent;
+        font-size: 20px;
+        color: black;
+    }
+}
