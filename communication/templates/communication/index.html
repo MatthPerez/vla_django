@@ -13,15 +13,30 @@
     {% for comm in communications %}
     <article>
       <h3>
-        <span>{{comm.date}}</span>
-        <span>- {{comm.title}}</span>
-        <span>({{comm.category}})</span>
-    </h3>
+        <div>
+          <span>{{comm.date}}</span>
+          <span>- {{comm.title}}</span>
+          <span>({{comm.get_category_display}})</span>
+        </div>
+
+        <div>
+          <a href="{% url 'communication_update' comm.pk %}">✏️</a>
+
+          <form
+            action="{% url 'communication_delete' comm.pk %}"
+            method="POST"
+            class="communication-delete"
+          >
+            {% csrf_token %}
+            <button type="submit">❌</button>
+          </form>
+        </div>
+      </h3>
 
       <div>
         <p>{{comm.content1}}</p>
-        <a href="{{comm.content2}}" target="_blank">{{comm.content2}}</a>
-        <p>{{comm.content3}}</p>
+        {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank">{{comm.content2}}</a>{% endif %}
+        {% if comm.content3 %}<p>{{comm.content3}}</p>{% endif %}
       </div>
     </article>
     {% endfor %}

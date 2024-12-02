@@ -2,14 +2,20 @@
 <link rel="stylesheet" href="{% static 'style/new_communication.css' %}" />
 {% endblock %} {% block script_js %}
 <script src="{% static 'js/new_communication.js' %}" defer></script>
-{% endblock %} {% block title %}VLA | Nouvelle communication{% endblock %} {% block content %}
+{% endblock %} {% block title %}VLA | {{title}}{% endblock %} {% block content %}
 
 <main>
   <h1>
     <a href="{% url 'communication' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
     /></a>
-    <span>Nouvelle communication</span>
+    <span>
+      {% if title %}
+      {{title}}
+      {% else %}
+      Créer une nouvelle communication
+      {% endif %}
+    </span>
   </h1>
 
   <form method="POST">
@@ -21,7 +27,13 @@
     <div>{{ form.content2.label_tag }} {{ form.content2 }}</div>
     <div>{{ form.content3.label_tag }} {{ form.content3 }}</div>
 
-    <button type="submit">Ajouter la communication</button>
+    <button type="submit">
+      {% if submit_text %}
+      {{submit_text}}
+      {% else %}
+      Enregistrer
+      {% endif %}
+    </button>
   </form>
 </main>
 

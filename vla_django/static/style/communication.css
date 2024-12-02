@@ -138,14 +138,48 @@ main > a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+.communications article h3 div {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 5px;
 }
-.communications article h3 span {
+.communications article h3 div span {
   width: auto;
 }
-.communications article h3 span:nth-child(2) {
-  color: rgb(187, 22, 22);
+.communications article h3 div:first-child {
+  justify-content: flex-start;
+}
+.communications article h3 div:first-child span {
+  width: auto;
+}
+.communications article h3 div:first-child span:nth-child(2) {
+  color: #bb1616;
+}
+.communications article h3 div:nth-child(2) {
+  justify-content: flex-end;
+}
+.communications article h3 div:nth-child(2) a,
+.communications article h3 div:nth-child(2) form {
+  width: 45px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  box-shadow: 3px 3px 5px rgb(100, 100, 100);
+  transition: 300ms all ease;
+}
+.communications article h3 div:nth-child(2) a:hover,
+.communications article h3 div:nth-child(2) form:hover {
+  transition: 150ms all ease;
+  box-shadow: none;
+  transform: translateY(3px);
 }
 .communications article div {
   display: flex;
@@ -160,4 +194,10 @@ main > a:hover {
 }
 .communications article div a {
   text-decoration: none;
+}
+
+.communication-delete button {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }/*# sourceMappingURL=communication.css.map */

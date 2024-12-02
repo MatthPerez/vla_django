@@ -269,6 +269,37 @@ main {
     article {
         @include flexcolumn;
         gap: .5em;
+
+        h3 {
+            font-weight: bold;
+            @include flex;
+            justify-content: flex-start;
+            gap: 5px;
+
+            span {
+                &:nth-child(3) {
+                    color: #bb1616;
+                }
+            }
+        }
+
+        div {
+            @include flexcolumn;
+            align-items: flex-start;
+            gap: 5px;
+
+            p,
+            a {
+                text-indent: 0;
+            }
+
+            a {
+                width: auto;
+                text-decoration: none;
+                padding: 5px 15px;
+                background-color: rgba(white, .5);
+            }
+        }
     }
 }
 

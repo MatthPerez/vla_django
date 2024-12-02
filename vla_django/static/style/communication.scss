@@ -44,14 +44,51 @@ main {
         h3 {
             text-align: center;
             @include flex;
-            justify-content: center;
-            gap: 5px;
+            justify-content: space-between;
 
-            span {
+            div {
                 width: auto;
+                @include flex;
+                gap: 5px;
+
+                span {
+                    width: auto;
+                }
+
+                &:first-child {
+                    justify-content: flex-start;
+
+                    span {
+                        width: auto;
+
+                        &:nth-child(2) {
+                            color: #bb1616;
+                        }
+                    }
+                }
 
                 &:nth-child(2) {
-                    color: rgb(187, 22, 22);
+                    justify-content: flex-end;
+
+                    a,
+                    form {
+                        width: 45px;
+                        @include flex;
+                        justify-content: center;
+                        aspect-ratio: 1;
+                        background-color: rgba(white, .5);
+                        border-radius: 50%;
+                        $padding: 3px;
+                        $k: 100;
+                        box-shadow: $padding $padding 5px rgb($k, $k, $k);
+                        transition: 300ms all ease;
+
+                        &:hover {
+                            transition: 150ms all ease;
+                            box-shadow: none;
+                            transform: translateY($padding);
+                        }
+                    }
                 }
             }
         }
@@ -70,5 +107,12 @@ main {
                 text-decoration: none;
             }
         }
+    }
+}
+
+.communication-delete {
+    button {
+        @include no-border;
+        background-color: transparent;
     }
 }
