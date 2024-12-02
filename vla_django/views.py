@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 import requests
@@ -8,7 +9,7 @@ from communication.models import Communication
 class HomeView(View):
     def get(self, request):
         communications = Communication.objects.all().order_by("date")
-        
+
         url = "https://www.jw.org/fr/"
 
         try:
@@ -68,3 +69,5 @@ class HomeView(View):
                 "communications": communications,
             },
         )
+
+

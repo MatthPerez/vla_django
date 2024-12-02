@@ -19,11 +19,24 @@
 
   <ul class="names">
     {% for person in persons %}
-    <li name="{{person.group}}" class="{% if person.cong_function != "NONE" %}{{person.cong_function}}{% endif %} {{person.cong_status}}">
-      <span>{{person.firstname}}<br>{{person.lastname|upper}}</span>
-      {% comment %} <span
-        >{% if person.cong_function != "NONE" %}({{person.get_cong_function_display}}){% endif %}
-      </span> {% endcomment %}
+    <li name="{{person.group}}" class="{% if person.cong_function != "NONE" %}{{person.cong_function}}{% endif %}">
+      <span>
+        {{person.firstname}}
+        <br />{{person.lastname|upper}}
+        {% if person.cong_status == "SPECIAL" %}
+        <br />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        {% elif person.cong_status == "PERMANENT" %}
+        <br />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        {% elif person.cong_status == "TEMPORARY" %}
+        <br />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        {% endif %}
+      </span>
       {% endfor %}
     </li>
   </ul>

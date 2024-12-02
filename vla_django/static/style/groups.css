@@ -83,7 +83,7 @@ footer {
 }
 
 main {
-  background-color: var(--color-quaternary3);
+  background-color: var(--color-quinary3);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -186,6 +186,9 @@ main > a:hover {
 }
 .names li span:nth-child(2) {
   display: none;
+}
+.names li span img {
+  width: 20px;
 }
 
 .responsable {

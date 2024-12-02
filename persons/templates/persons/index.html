@@ -10,10 +10,23 @@
 
   <section>
     {% for person in persons %}
-    <a href="{% url 'person_detail' person.pk %}" class="{{person.cong_status}} {{person.cong_function}}">
-      <span title="{{person.get_cong_status_display}}"
-        >{{person.firstname}}<br />{{person.lastname|upper}}<br />({{person.group}})</span
-      >
+    <a
+      href="{% url 'person_detail' person.pk %}"
+      class="{{person.cong_function}}"
+    >
+      <span title="{{person.get_cong_status_display}}">
+        {{person.firstname}} {% if person.cong_status == "SPECIAL" %}
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        {% elif person.cong_status == "PERMANENT" %}
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        {% elif person.cong_status == "TEMPORARY" %}
+        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        {% endif %}
+        <br />{{person.lastname|upper}}<br />({{person.group}})
+      </span>
     </a>
     {% empty %}
     <div>{{empty_text}}</div>

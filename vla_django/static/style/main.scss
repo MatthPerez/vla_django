@@ -808,12 +808,12 @@ footer {
     $dark: rgba(50, 241, 108, .2);
     $light: rgba(50, 245, 108, .1);
 
-    background-color: $dark;
+    background-color: $dark !important;
     transition: 300ms all ease;
 
     &:hover {
         transition: 150ms all ease;
-        background-color: $light;
+        background-color: $light !important;
 
     }
 }
@@ -822,12 +822,12 @@ footer {
     $dark: rgba(252, 45, 45, .2);
     $light: rgba(252, 45, 45, .1);
 
-    background-color: $dark;
+    background-color: $dark !important;
     transition: 300ms all ease;
 
     &:hover {
         transition: 150ms all ease;
-        background-color: $light;
+        background-color: $light !important;
 
     }
 }

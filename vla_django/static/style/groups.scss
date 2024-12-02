@@ -11,7 +11,7 @@ footer {
 }
 
 main {
-    background-color: var(--color-quaternary3);
+    background-color: var(--color-quinary3);
     @include flex;
     flex-direction: column;
     gap: 3em;
@@ -68,27 +68,6 @@ main {
     gap: 1em;
     flex-wrap: wrap;
 
-    // li {
-    //     @include flex;
-    //     justify-content: flex-start;
-    //     gap: 5px;
-    //     padding: 5px;
-    //     transition: 300ms all ease;
-
-    //     &:hover {
-    //         transition: 150ms all ease;
-    //         $padding: 2px;
-    //         $k:100;
-    //         transform: translateY(-$padding);
-    //         box-shadow: $padding $padding 5px rgb($k, $k, $k);
-    //         background-color: rgba(white, .2);
-    //     }
-
-    //     span {
-    //         width: auto;
-    //     }
-    // }
-
     li {
         $size: 6em;
         width: $size;
@@ -119,6 +98,10 @@ main {
             &:nth-child(2) {
                 display: none;
             }
+
+            img {
+                width: 20px;
+            }
         }
     }
 }
@@ -135,3 +118,4 @@ main {
     color: rgb(155, 24, 24) !important;
     background-color: rgba(white, .7) !important;
 }
+

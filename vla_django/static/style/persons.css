@@ -148,6 +148,9 @@ main section > a span {
 main section > a span:nth-child(2) {
   display: none;
 }
+main section > a span img {
+  width: 20px;
+}
 main section div {
   text-align: center;
   padding: 1em;
