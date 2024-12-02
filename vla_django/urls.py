@@ -1,8 +1,16 @@
 from django.contrib import admin
 from django.urls import path
 from .views import HomeView
+
 from infos.views import InfosView
-from groups.views import GroupsView, NewGroupView
+
+from groups.views import (
+    GroupsView,
+    NewGroupView,
+    # GroupUpdate,
+    # GroupDelete,
+)
+
 from persons.views import (
     PersonsView,
     PersonDetail,
@@ -10,8 +18,22 @@ from persons.views import (
     PersonUpdate,
     PersonDelete,
 )
-from vcm.views import VcmMeetingView, VcmMeetingDetail, NewVcmView
-from we.views import WeMeetingView, NewWeView
+
+from vcm.views import (
+    VcmMeetingView,
+    VcmMeetingDetail,
+    NewVcmView,
+    VcmUpdate,
+    VcmDelete,
+)
+
+from we.views import (
+    WeMeetingView,
+    NewWeView,
+    # WeUpdate,
+    # WeDeleet,
+)
+
 from communication.views import CommunicationView, NewCommunicationView
 
 urlpatterns = [
@@ -21,6 +43,8 @@ urlpatterns = [
     path("vcm/", VcmMeetingView.as_view(), name="vcm"),
     path("vcm/ajouter/", NewVcmView.as_view(), name="new_vcm"),
     path("vcm/<pk>/", VcmMeetingDetail.as_view(), name="vcm_detail"),
+    path("vcm/<pk>/modifier", VcmUpdate.as_view(), name="vcm_update"),
+    path("vcm/<pk>/suprimer", VcmDelete.as_view(), name="vcm_delete"),
     path("we/", WeMeetingView.as_view(), name="we"),
     path("we/ajouter/", NewWeView.as_view(), name="new_we"),
     path("groupes/", GroupsView.as_view(), name="groups"),

@@ -1,27 +1,19 @@
-{% extends 'vla_django/base.html' %}
-
-{% load static %}
-
-{% block extra_css %}
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
 <link rel="stylesheet" href="{% static 'style/vcm.css' %}" />
-{% endblock %}
-
-{% block script_js %}
+{% endblock %} {% block script_js %}
 <script src="{% static 'js/vcm.js' %}"></script>
-{% endblock %}
-
-{% block title %}VLA | VCM{% endblock %}
-
-{% block content %}
+{% endblock %} {% block title %}VLA | VCM{% endblock %} {% block content %}
 <main>
   <h1>
-    <a href="{% url 'vcm' %}"><img src="{% static 'icons/left_arrow.png' %}" alt="Retour VCM"></a>
-    <span>Vie chrétienne et Ministère<br>du {{meeting.date}}</span>
+    <a href="{% url 'vcm' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour VCM"
+    /></a>
+    <span>Vie chrétienne et Ministère<br />du {{meeting.date}}</span>
   </h1>
 
   <div class="actions">
-    <a href="#">Modifier</a>
-      <a href="#">Supprimer</a>
+    <a href="{% url 'vcm_update' meeting.pk %}">Modifier</a>
+    <a href="#">Supprimer</a>
   </div>
 
   <section class="meetings">
@@ -113,7 +105,8 @@
           min)</span
         >
         <span
-          >{{meeting.alloc1pupil_hall2.fullname}}{% if meeting.alloc1inter_hall2 %} | {{meeting.alloc1inter_hall2.fullname}}{% endif %}</span
+          >{{meeting.alloc1pupil_hall2.fullname}}{% if meeting.alloc1inter_hall2
+          %} | {{meeting.alloc1inter_hall2.fullname}}{% endif %}</span
         >
       </div>
 
@@ -137,7 +130,8 @@
           >{{meeting.alloc3pupil_hall2.fullname}}{% if meeting.alloc3inter_hall2 %} | {{meeting.alloc3inter_hall2.fullname}}{% endif %}</span
         >
       </div>
-      {% endif %} {% if meeting.alloc4_duration %}
+      {% endif %}
+      {% if meeting.alloc4_duration %}
       <div class="allocution">
         <span
           >{{meeting.get_alloc4_type_display }} ({{meeting.alloc4_duration}}
@@ -147,7 +141,8 @@
           >{{meeting.alloc4pupil_hall2.fullname}}{% if meeting.alloc4inter_hall2 %} | {{meeting.alloc4inter_hall2.fullname}}{% endif %}</span
         >
       </div>
-      {% endif %} {% endif %} {% if meeting.reading3 %}
+      {% endif %}
+      {% if meeting.reading3 %}
       <h3>
         <span>Salle C</span>
         <span class="advisor2"

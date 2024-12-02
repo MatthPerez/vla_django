@@ -79,6 +79,7 @@ class PersonCreate(View):
 class PersonUpdate(View):
     def get(self, request, pk):
         person = Person.objects.get(pk=pk)
+
         form = AddPerson(
             initial={
                 "firstname": person.firstname,
@@ -90,6 +91,7 @@ class PersonUpdate(View):
                 "group": person.group,
             }
         )
+
         submit_text = "Mettre à jour"
         title = f"Mise à jour de {person.firstname} {person.lastname}"
 

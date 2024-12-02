@@ -1,14 +1,19 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 from communication.models import Communication
 
 
 class HomeView(View):
     def get(self, request):
-        communications = Communication.objects.all().order_by("date")
+        today = datetime.today().date()
+        one_week_ago = today - timedelta(weeks=1)
+
+        communications = Communication.objects.filter(date__gte=one_week_ago).order_by(
+            "date"
+        )
 
         url = "https://www.jw.org/fr/"
 
@@ -69,5 +74,3 @@ class HomeView(View):
                 "communications": communications,
             },
         )
-
-

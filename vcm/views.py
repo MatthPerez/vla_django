@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from vcm.models import Meeting
 from vcm.forms import AddMeeting
 from datetime import datetime
@@ -25,7 +25,16 @@ class VcmMeetingDetail(DetailView):
 class NewVcmView(View):
     def get(self, request):
         form = AddMeeting()
-        return render(request, "vcm/new.html", {"form": form})
+        submit_text = "Créer nouvelle réunion"
+        
+        return render(
+            request,
+            "vcm/new.html",
+            {
+                "form": form,
+                "submit_text": submit_text,
+            },
+        )
 
     def post(self, request):
         form = AddMeeting(request.POST)
@@ -108,3 +117,150 @@ class NewVcmView(View):
                 "vcm/new.html",
                 {"form": form, "errors": form.errors},
             )
+
+
+class VcmUpdate(View):
+    def get(self, request, pk):
+        meeting = Meeting.objects.get(pk=pk)
+
+        form = AddMeeting(
+            initial={
+                "date": meeting.date,
+                "president": meeting.president,
+                "prayer1": meeting.prayer1,
+                "prayer2": meeting.prayer2,
+                "song1": meeting.song1,
+                "song2": meeting.song2,
+                "song3": meeting.song3,
+                "portion": meeting.portion,
+                "jewels": meeting.jewels,
+                "jewels_title": meeting.jewels_title,
+                "pearls": meeting.pearls,
+                "reading1": meeting.reading1,
+                "reading2": meeting.reading2,
+                "reading3": meeting.reading3,
+                "advisor2": meeting.advisor2,
+                "advisor3": meeting.advisor3,
+                "alloc1_type": meeting.alloc1_type,
+                "alloc2_type": meeting.alloc2_type,
+                "alloc3_type": meeting.alloc3_type,
+                "alloc4_type": meeting.alloc4_type,
+                "alloc1_duration": meeting.alloc1_duration,
+                "alloc2_duration": meeting.alloc2_duration,
+                "alloc4_duration": meeting.alloc4_duration,
+                "alloc1pupil_hall1": meeting.alloc1pupil_hall1,
+                "alloc1inter_hall1": meeting.alloc1inter_hall1,
+                "alloc2pupil_hall1": meeting.alloc2pupil_hall1,
+                "alloc2inter_hall1": meeting.alloc2inter_hall1,
+                "alloc3pupil_hall1": meeting.alloc3pupil_hall1,
+                "alloc3inter_hall1": meeting.alloc3inter_hall1,
+                "alloc4pupil_hall1": meeting.alloc4pupil_hall1,
+                "alloc4inter_hall1": meeting.alloc4inter_hall1,
+                "alloc1pupil_hall2": meeting.alloc1pupil_hall2,
+                "alloc1inter_hall2": meeting.alloc1inter_hall2,
+                "alloc2pupil_hall2": meeting.alloc2pupil_hall2,
+                "alloc2inter_hall2": meeting.alloc2inter_hall2,
+                "alloc3pupil_hall2": meeting.alloc3pupil_hall2,
+                "alloc3inter_hall2": meeting.alloc3inter_hall2,
+                "alloc4pupil_hall2": meeting.alloc4pupil_hall2,
+                "alloc4inter_hall2": meeting.alloc4inter_hall2,
+                "pupil0_hall3": meeting.pupil0_hall3,
+                "inter0_hall3": meeting.inter0_hall3,
+                "pupil_hall3": meeting.pupil_hall3,
+                "vcm1": meeting.vcm1,
+                "vcm2": meeting.vcm2,
+                "vcm3": meeting.vcm3,
+                "vcm1_duration": meeting.vcm1_duration,
+                "vcm2_duration": meeting.vcm2_duration,
+                "vcm3_duration": meeting.vcm3_duration,
+                "vcm1_title": meeting.vcm1_title,
+                "vcm2_title": meeting.vcm2_title,
+                "vcm3_title": meeting.vcm3_title,
+                "eba": meeting.eba,
+                "eba_reader": meeting.eba_reader,
+                "supervisor": meeting.supervisor,
+                "special_speech": meeting.special_speech,
+            }
+        )
+
+        submit_text = "Mettre à jour la réunion"
+        title = f"Mise à jour de la réunion du {meeting.date}"
+
+        return render(
+            request,
+            "vcm/new.html",
+            {
+                "form": form,
+                "title": title,
+                "submit_text": submit_text,
+            },
+        )
+
+    def post(self, request, pk):
+        meeting = Meeting.objects.get(pk=pk)
+        form = AddMeeting(request.POST)
+
+        if form.is_valid():
+            meeting.president = form.cleaned_data["president"]
+            meeting.jewels_title = form.cleaned_data["jewels_title"]
+            meeting.reading1 = form.cleaned_data["reading1"]
+            meeting.reading2 = form.cleaned_data["reading2"]
+            meeting.reading3 = form.cleaned_data["reading3"]
+            meeting.advisor2 = form.cleaned_data["advisor2"]
+            meeting.advisor3 = form.cleaned_data["advisor3"]
+            meeting.alloc1_type = form.cleaned_data["alloc1_type"]
+            meeting.alloc2_type = form.cleaned_data["alloc2_type"]
+            meeting.alloc3_type = form.cleaned_data["alloc3_type"]
+            meeting.alloc4_type = form.cleaned_data["alloc4_type"]
+            meeting.alloc1_duration = form.cleaned_data["alloc1_duration"]
+            meeting.alloc2_duration = form.cleaned_data["alloc2_duration"]
+            meeting.alloc4_duration = form.cleaned_data["alloc4_duration"]
+            meeting.alloc1pupil_hall1 = form.cleaned_data["alloc1pupil_hall1"]
+            meeting.alloc1inter_hall1 = form.cleaned_data["alloc1inter_hall1"]
+            meeting.alloc2pupil_hall1 = form.cleaned_data["alloc2pupil_hall1"]
+            meeting.alloc2inter_hall1 = form.cleaned_data["alloc2inter_hall1"]
+            meeting.alloc3pupil_hall1 = form.cleaned_data["alloc3pupil_hall1"]
+            meeting.alloc3inter_hall1 = form.cleaned_data["alloc3inter_hall1"]
+            meeting.alloc4pupil_hall1 = form.cleaned_data["alloc4pupil_hall1"]
+            meeting.alloc4inter_hall1 = form.cleaned_data["alloc4inter_hall1"]
+            meeting.alloc1pupil_hall2 = form.cleaned_data["alloc1pupil_hall2"]
+            meeting.alloc1inter_hall2 = form.cleaned_data["alloc1inter_hall2"]
+            meeting.alloc2pupil_hall2 = form.cleaned_data["alloc2pupil_hall2"]
+            meeting.alloc2inter_hall2 = form.cleaned_data["alloc2inter_hall2"]
+            meeting.alloc3pupil_hall2 = form.cleaned_data["alloc3pupil_hall2"]
+            meeting.alloc3inter_hall2 = form.cleaned_data["alloc3inter_hall2"]
+            meeting.alloc4pupil_hall2 = form.cleaned_data["alloc4pupil_hall2"]
+            meeting.alloc4inter_hall2 = form.cleaned_data["alloc4inter_hall2"]
+            meeting.pupil0_hall3 = form.cleaned_data["pupil0_hall3"]
+            meeting.inter0_hall3 = form.cleaned_data["inter0_hall3"]
+            meeting.pupil_hall3 = form.cleaned_data["pupil_hall3"]
+            meeting.vcm1_duration = form.cleaned_data["vcm1_duration"]
+            meeting.vcm2_duration = form.cleaned_data["vcm2_duration"]
+            meeting.vcm3_duration = form.cleaned_data["vcm3_duration"]
+            meeting.vcm1_title = form.cleaned_data["vcm1_title"]
+            meeting.vcm2_title = form.cleaned_data["vcm2_title"]
+            meeting.vcm3_title = form.cleaned_data["vcm3_title"]
+            meeting.eba_reader = form.cleaned_data["eba_reader"]
+            meeting.supervisor = form.cleaned_data["supervisor"]
+            meeting.special_speech = form.cleaned_data["special_speech"]
+            meeting.Save()
+
+            return redirect("vcm")
+
+        return render(
+            request,
+            "vcm/new.html",
+            {
+                "form": form,
+                "errors": form.errors,
+            },
+        )
+
+
+class VcmDelete(View):
+    def post(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        meeting = get_object_or_404(Meeting, pk=pk)
+        meeting.delete()
+
+        return redirect("vcm")
