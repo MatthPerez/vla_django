@@ -1,0 +1,21 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/predication.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/predication.js' %}"></script>
+{% endblock %} {% block title %}VLA | Prédication{% endblock %} {% block content %}
+<main>
+  <h1>Prédication</h1>
+
+  <div>
+    <p>
+      En général, la réunion pour la prédication a lieu à la salle du Royaume
+      des Angles :
+      <a
+        href="https://www.google.fr/maps/place/1 Impasse du Petit Nice, 30133 Les Angles"
+        target="_blank"
+        >voir l'adresse</a
+      >
+    </p>
+  </div>
+</main>
+{% endblock %}

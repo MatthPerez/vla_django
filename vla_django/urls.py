@@ -41,6 +41,8 @@ from communication.views import (
     CommunicationDelete,
 )
 
+from predication.views import PredicationView
+
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
     path("admin/", admin.site.urls),
@@ -60,11 +62,20 @@ urlpatterns = [
     path("personnes/<int:pk>/modifier", PersonUpdate.as_view(), name="person_update"),
     path("personnes/<int:pk>/supprimer", PersonDelete.as_view(), name="person_delete"),
     path("communications/", CommunicationView.as_view(), name="communication"),
-    path("communications/<int:pk>/modifier", CommunicationUpdate.as_view(), name="communication_update"),
-    path("communications/<int:pk>/supprimer", CommunicationDelete.as_view(), name="communication_delete"),
+    path(
+        "communications/<int:pk>/modifier",
+        CommunicationUpdate.as_view(),
+        name="communication_update",
+    ),
+    path(
+        "communications/<int:pk>/supprimer",
+        CommunicationDelete.as_view(),
+        name="communication_delete",
+    ),
     path(
         "communications/ajouter/",
         NewCommunicationView.as_view(),
         name="new_communication",
     ),
+    path("predication", PredicationView.as_view(), name="predication"),
 ]

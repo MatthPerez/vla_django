@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "persons",
     "communication",
     "infos",
+    "predication",
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,40 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+main {
+    @include flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-bottom: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary1);
+}
+
+main {
+    background-color: var(--color-tertiary);
+    @include flexcolumn;
+    gap: 1em;
+
+    div {
+        width: clamp(300px, 90%, 1200px);
+
+        p {
+            color: white;
+            font-size: 18px;
+
+            a {
+                text-decoration: none;
+                color: var(--color-quaternary1);
+                transition: 300ms all ease;
+                
+                &:hover {
+                    transition: 150ms all ease;
+                    color: var(--color-quinary1);
+                }
+            }
+        }
+    }
+}
