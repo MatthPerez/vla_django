@@ -31,7 +31,7 @@ from we.views import (
     WeMeetingView,
     NewWeView,
     # WeUpdate,
-    # WeDeleet,
+    # WeDelete,
 )
 
 from communication.views import (
@@ -41,7 +41,12 @@ from communication.views import (
     CommunicationDelete,
 )
 
-from predication.views import PredicationView
+from predication.views import (
+    PredicationView,
+    NewPredicationView,
+    PredicationMeetingUpdate,
+    PredicationDelete,
+)
 
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
@@ -78,4 +83,15 @@ urlpatterns = [
         name="new_communication",
     ),
     path("predication", PredicationView.as_view(), name="predication"),
+    path("predication/ajouter", NewPredicationView.as_view(), name="predication_new"),
+    path(
+        "predication/<int:pk>/modifier",
+        PredicationMeetingUpdate.as_view(),
+        name="predication_update",
+    ),
+    path(
+        "predication/<int:pk>/supprimer",
+        PredicationDelete.as_view(),
+        name="predication_delete",
+    ),
 ]

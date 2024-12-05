@@ -6436,4 +6436,9 @@ footer a {
 
 .PERMANENT {
   text-decoration: underline;
+}
+
+.sep {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
 }/*# sourceMappingURL=main.css.map */

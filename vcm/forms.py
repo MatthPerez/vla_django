@@ -71,7 +71,9 @@ class AddMeeting(forms.Form):
     )
     jewels = forms.ModelChoiceField(
         required=True,
-        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
+        queryset=Person.objects.filter(
+            Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")
+        ),
         widget=forms.Select,
         label="Joyaux (orateur)",
     )
@@ -82,7 +84,9 @@ class AddMeeting(forms.Form):
     )
     pearls = forms.ModelChoiceField(
         required=True,
-        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
+        queryset=Person.objects.filter(
+            Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")
+        ),
         widget=forms.Select,
         label="Perles",
         to_field_name="id",
@@ -293,14 +297,18 @@ class AddMeeting(forms.Form):
     )
     vcm1 = forms.ModelChoiceField(
         required=True,
-        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
+        queryset=Person.objects.filter(
+            Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")
+        ),
         widget=forms.Select,
         label="Sujet VCM 1",
         to_field_name="id",
     )
     vcm2 = forms.ModelChoiceField(
         required=False,
-        queryset = Person.objects.filter(Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")),
+        queryset=Person.objects.filter(
+            Q(cong_function="ELDER") | Q(cong_function="ASSISTANT")
+        ),
         widget=forms.Select,
         label="Sujet VCM 2",
         to_field_name="id",
@@ -433,7 +441,10 @@ class WeekMeetingForm(forms.ModelForm):
         fields = "__all__"
         widgets = {
             "date": forms.DateInput(
-                attrs={"type": "date", "placeholder": "AAAA-MM-JJ"}
+                attrs={
+                    "type": "date",
+                    "placeholder": "AAAA-MM-JJ",
+                }
             ),
         }
 

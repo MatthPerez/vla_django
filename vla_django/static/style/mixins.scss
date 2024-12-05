@@ -194,6 +194,18 @@
     }
 }
 
+@mixin no-submit {
+    box-shadow: none;
+    transition: 300ms all ease;
+    
+    &:hover {
+        transition: 50ms all ease;
+        box-shadow: none;
+        transform: none;
+
+    }
+}
+
 $padding: 4px;
 $k: 80;
 $color-green: #17c917;
@@ -257,5 +269,58 @@ $color-red: #e62626;
         background-color: transparent;
         font-size: 20px;
         color: black;
+    }
+}
+
+@mixin h1-form {
+    width: auto;
+    @include flex;
+    justify-content: center;
+    gap: 1em;
+
+    span {
+        &:nth-child(2) {
+            display: block;
+        }
+
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+
+    @media (width<=768px) {
+        width: minmax(250px, 500px);
+
+        a {
+            img {
+                height: .7em;
+                aspect-ratio: 1;
+            }
+        }
+
+        span {
+            font-size: 30px;
+
+            &:nth-child(2) {
+                display: none;
+            }
+
+            &:nth-child(3) {
+                display: block;
+            }
+        }
+    }
+
+    * {
+        width: auto;
+    }
+
+    a {
+        text-decoration: none;
+        width: auto;
+
+        img {
+            height: .7em;
+        }
     }
 }

@@ -110,7 +110,7 @@ main h1 span:nth-child(3) {
     width: minmax(250px, 500px);
   }
   main h1 a img {
-    width: 30px;
+    height: 0.7em;
     aspect-ratio: 1;
   }
   main h1 span {

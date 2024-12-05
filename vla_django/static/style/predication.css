@@ -88,25 +88,220 @@ footer {
 }
 
 main {
-  background-color: var(--color-tertiary);
+  background-color: var(--color-tertiary1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+main > a {
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid black;
+  padding: 0.5em 1.5em;
+  color: black;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.8);
+  transition: 300ms all ease;
+}
+main > a:hover {
+  transition: 150ms all ease;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+  transform: translateY(4px);
+}
+main > div {
+  width: clamp(300px, 90%, 1200px);
+  text-align: center;
+}
+main > div p {
+  color: white;
+  font-size: 18px;
+}
+main > div p a {
+  text-decoration: none;
+  color: var(--color-quinary1);
+  transition: 300ms all ease;
+}
+main > div p a:hover {
+  transition: 150ms all ease;
+  color: white;
+}
+main > h1 {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+main > h1 span:nth-child(2) {
+  display: block;
+}
+main > h1 span:nth-child(3) {
+  display: none;
+}
+@media (width <= 768px) {
+  main > h1 {
+    width: minmax(250px, 500px);
+  }
+  main > h1 a img {
+    height: 0.7em;
+    aspect-ratio: 1;
+  }
+  main > h1 span {
+    font-size: 30px;
+  }
+  main > h1 span:nth-child(2) {
+    display: none;
+  }
+  main > h1 span:nth-child(3) {
+    display: block;
+  }
+}
+main > h1 * {
+  width: auto;
+}
+main > h1 a {
+  text-decoration: none;
+  width: auto;
+}
+main > h1 a img {
+  height: 0.7em;
+}
+
+form {
+  width: clamp(300px, 70%, 700px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
-main div {
-  width: clamp(300px, 90%, 1200px);
+form h2 {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+  font-size: 30px;
 }
-main div p {
-  color: white;
-  font-size: 18px;
+form section {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.2);
 }
-main div p a {
-  text-decoration: none;
-  color: var(--color-quaternary1);
+@media (width <= 768px) {
+  form section {
+    width: 80vw;
+  }
+}
+form section div {
+  width: clamp(300px, 90%, 800px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+form section label {
+  width: auto;
+}
+form section input,
+form section select {
+  width: 60%;
+  text-align: center;
+  padding: 10px;
+  outline: none;
+  border: none;
   transition: 300ms all ease;
 }
-main div p a:hover {
+form section input:focus,
+form section select:focus {
   transition: 150ms all ease;
-  color: var(--color-quinary1);
+  box-shadow: 0 0 10px var(--color-primary1), 0 0 10px var(--color-primary3);
+}
+form button {
+  width: auto;
+  padding: 10px 40px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  box-shadow: 4px 4px 5px rgb(120, 120, 120);
+  transition: 300ms all ease;
+}
+form button:hover {
+  transition: 150ms all ease;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+form button:focus {
+  transition: 50ms all ease;
+  background-color: rgba(136, 230, 136, 0.5);
+}
+
+.pred_meeting {
+  width: clamp(200px, 60%, 700px);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.pred_meeting li {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: 300ms all ease;
+}
+.pred_meeting li:hover {
+  transition: 80ms all ease;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.pred_meeting li h4 {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.pred_meeting li h4 div {
+  width: auto;
+}
+.pred_meeting li h4 div a {
+  text-decoration: none;
+  width: auto;
+  padding: 5px;
+}
+.pred_meeting li h4 div form button {
+  width: auto;
+  padding: 0;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  transition: 300ms all ease;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+.pred_meeting li h4 div form button:hover {
+  transition: 50ms all ease;
+  box-shadow: none;
+  transform: none;
+}
+.pred_meeting li div {
+  width: clamp(100px, 80%, 800px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.pred_meeting li div span {
+  width: auto;
+  padding: 0 5px;
 }/*# sourceMappingURL=predication.css.map */

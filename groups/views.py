@@ -29,7 +29,9 @@ class NewGroupView(View):
         return render(
             request,
             "groups/new.html",
-            {"form": form},
+            {
+                "form": form,
+            },
         )
 
     def post(self, request):
@@ -47,7 +49,10 @@ class NewGroupView(View):
             return render(
                 request,
                 "groups/new.html",
-                {"form": form, "success": "Groupe ajouté avec succès !"},
+                {
+                    "form": form,
+                    "success": "Groupe ajouté avec succès !",
+                },
             )
 
         else:
@@ -56,5 +61,8 @@ class NewGroupView(View):
             return render(
                 request,
                 "groups/new.html",
-                {"form": form, "errors": form.errors},
+                {
+                    "form": form,
+                    "errors": form.errors,
+                },
             )

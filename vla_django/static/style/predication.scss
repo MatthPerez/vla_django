@@ -14,12 +14,17 @@ footer {
 }
 
 main {
-    background-color: var(--color-tertiary);
+    background-color: var(--color-tertiary1);
     @include flexcolumn;
-    gap: 1em;
+    gap: 2em;
 
-    div {
+    >a {
+        @include button;
+    }
+
+    >div {
         width: clamp(300px, 90%, 1200px);
+        text-align: center;
 
         p {
             color: white;
@@ -27,13 +32,129 @@ main {
 
             a {
                 text-decoration: none;
-                color: var(--color-quaternary1);
+                color: var(--color-quinary1);
                 transition: 300ms all ease;
-                
+
                 &:hover {
                     transition: 150ms all ease;
-                    color: var(--color-quinary1);
+                    color: white;
                 }
+            }
+        }
+    }
+
+    >h1 {
+        @include h1-form;
+    }
+}
+
+form {
+    width: clamp(300px, 70%, 700px);
+    @include flexcolumn;
+    gap: 1em;
+
+    h2 {
+        text-align: center;
+        margin: 1em 0 .5em 0;
+        font-size: 30px;
+    }
+
+    section {
+        @include border;
+        @include flexcolumn;
+        gap: 10px;
+        padding: 1em;
+        background-color: rgba(white, .2);
+
+        @media (width<=768px) {
+            width: 80vw;
+        }
+
+        div {
+            width: clamp(300px, 90%, 800px);
+            @include flex;
+            justify-content: space-between;
+        }
+
+        label {
+            width: auto;
+        }
+
+        input,
+        select {
+            width: 60%;
+            text-align: center;
+            padding: 10px;
+            @include no-border;
+            transition: 300ms all ease;
+
+            &:focus {
+                transition: 150ms all ease;
+                box-shadow: 0 0 10px var(--color-primary1), 0 0 10px var(--color-primary3);
+            }
+        }
+    }
+
+    button {
+        @include submit;
+    }
+}
+
+.pred_meeting {
+    width: clamp(200px, 60%, 700px);
+    list-style: none;
+    @include flexcolumn;
+    gap: 1em;
+
+    li {
+        padding: 5px;
+        @include flexcolumn;
+        gap: 1em;
+        padding: 10px;
+        background-color: rgba(white, .3);
+        transition: 300ms all ease;
+
+        &:hover {
+            transition: 80ms all ease;
+            background-color: rgba(white, .4);
+        }
+
+        h4 {
+            font-size: 20px;
+            @include flex;
+            justify-content: space-between;
+
+            div {
+                width: auto;
+
+                a {
+                    text-decoration: none;
+                    width: auto;
+                    padding: 5px;
+                }
+
+                form {
+                    button {
+                        width: auto;
+                        padding: 0;
+                        @include no-border;
+                        @include no-submit;
+                        background-color: transparent;
+                        font-size: 18px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        div {
+            width: clamp(100px, 80%, 800px);
+            @include flex;
+            justify-content: space-between;
+
+            span {
+                width: auto;
+                padding: 0 5px;
             }
         }
     }

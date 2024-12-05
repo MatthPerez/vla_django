@@ -1,0 +1,36 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/predication.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/predication.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Prédication{% endblock %} {% block content %}
+<main>
+  <h1>
+    <a href="{% url 'predication' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
+    /></a>
+    <span>Retour aux réunions pour la prédication</span>
+  </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <section>
+      <div>{{ form.date.label_tag }} {{ form.date }}</div>
+      <div>{{ form.manager1.label_tag }} {{ form.manager1 }}</div>
+      <div>{{ form.place1.label_tag }} {{ form.place1 }}</div>
+      <div class="sep">{{ form.time1.label_tag }} {{ form.time1 }}</div>
+      <div>{{ form.manager2.label_tag }} {{ form.manager2 }}</div>
+      <div>{{ form.place2.label_tag }} {{ form.place2 }}</div>
+      <div class="sep">{{ form.time2.label_tag }} {{ form.time2 }}</div>
+      <div>{{ form.manager3.label_tag }} {{ form.manager3 }}</div>
+      <div>{{ form.place3.label_tag }} {{ form.place3 }}</div>
+      <div>{{ form.time3.label_tag }} {{ form.time3 }}</div>
+    </section>
+
+    {% if form.non_field_errors %}
+    <div class="error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <button type="submit">{{ submit_text }}</button>
+  </form>
+</main>
+{% endblock %}

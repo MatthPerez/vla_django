@@ -6,16 +6,52 @@
 <main>
   <h1>Prédication</h1>
 
+  <a href="{% url 'predication_new' %}">Ajouter une réunion</a>
+
   <div>
     <p>
-      En général, la réunion pour la prédication a lieu à la salle du Royaume
-      des Angles :
+      La réunion pour la prédication a lieu à la salle du Royaume située au 1
+      impasse du Petit Nice aux Angles :
       <a
-        href="https://www.google.fr/maps/place/1 Impasse du Petit Nice, 30133 Les Angles"
+        href="https://www.google.fr/maps/place/1 impasse du Petit Nice, 30133 Les Angles"
         target="_blank"
-        >voir l'adresse</a
+        >lancer le GPS</a
       >
     </p>
   </div>
+
+  <ul class="pred_meeting">
+    {% for meeting in meetings %}
+    <li>
+      <h4>
+        {{meeting.day}} {{meeting.date}}
+        <div>
+          <a href="{% url 'predication_update' meeting.pk %}" title="Modifier réunion du {{meeting.date}}">✏️</a>
+          <form action="{% url 'predication_delete' meeting.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" title="Supprimer réunion du {{meeting.date}}">❌</button>
+          </form>
+        </div>
+      </h4>
+
+      <div>
+        <span>{{meeting.time1}} - {{meeting.manager1.fullname}}</span>
+        <span>{{meeting.place1}}</span>
+      </div>
+
+      {% if meeting.manager2 %}
+      <div>
+        <span>{{meeting.time2}} - {{meeting.manager2.fullname}}</span>
+        <span>{{meeting.place2}}</span>
+      </div>
+      {% endif %} {% if meeting.manager3 %}
+      <div>
+        <span>{{meeting.time3}} - {{meeting.manager3.fullname}}</span>
+        <span>{{meeting.place3}}</span>
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
 </main>
 {% endblock %}

@@ -18,56 +18,7 @@ main {
     padding-bottom: 3em;
 
     h1 {
-            width: auto;
-            @include flex;
-            justify-content: center;
-            gap: 1em;
-    
-            span {
-                &:nth-child(2) {
-                    display: block;
-                }
-    
-                &:nth-child(3) {
-                    display: none;
-                }
-            }
-    
-            @media (width<=768px) {
-                width: minmax(250px, 500px);
-    
-                a {
-                    img {
-                        width: 30px;
-                        aspect-ratio: 1;
-                    }
-                }
-    
-                span {
-                    font-size: 30px;
-    
-                    &:nth-child(2) {
-                        display: none;
-                    }
-    
-                    &:nth-child(3) {
-                        display: block;
-                    }
-                }
-            }
-    
-            * {
-                width: auto;
-            }
-    
-            a {
-                text-decoration: none;
-                width: auto;
-    
-                img {
-                    height: .7em;
-                }
-            }
+            @include h1-form;
         }
 
     * {
