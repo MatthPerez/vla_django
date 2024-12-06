@@ -25,20 +25,40 @@ main {
     >div {
         width: clamp(300px, 90%, 1200px);
         text-align: center;
+        @include flex;
+        justify-content: center;
+        gap: 10px;
 
-        p {
-            color: white;
-            font-size: 18px;
+        @media (width<=968px) {
+            flex-direction: column;
+        }
 
-            a {
-                text-decoration: none;
-                color: var(--color-quinary1);
-                transition: 300ms all ease;
+        @media (width<=768px) {
+            span {
+                font-size: 20px !important;
+            }
+        }
 
-                &:hover {
-                    transition: 150ms all ease;
-                    color: white;
-                }
+        span,
+        a {
+            width: auto;
+        }
+
+        span {
+            font-size: 24px;
+            font-weight: bold;
+            $k: 220;
+            $offset: 1px;
+            text-shadow: $offset $offset 4px rgb($k, $k, $k);
+
+            &:nth-child(2) {
+                color: var(--color-primary1);
+            }
+        }
+
+        >a {
+            img {
+                width: 40px;
             }
         }
     }
@@ -101,10 +121,14 @@ form {
 }
 
 .pred_meeting {
-    width: clamp(200px, 60%, 700px);
+    width: clamp(200px, 60%, 600px);
     list-style: none;
     @include flexcolumn;
     gap: 1em;
+
+    @media (width<=768px) {
+        width: clamp(200px, 90%, 600px);
+    }
 
     li {
         padding: 5px;
@@ -112,20 +136,36 @@ form {
         gap: 1em;
         padding: 10px;
         background-color: rgba(white, .3);
+        border-radius: 10px;
+        $offset: 3px;
+        $k: 50;
+        box-shadow: $offset $offset 4px rgb($k, $k, $k);
         transition: 300ms all ease;
 
         &:hover {
             transition: 80ms all ease;
             background-color: rgba(white, .4);
+            box-shadow: none;
+            transform: translateY($padding);
         }
 
         h4 {
-            font-size: 20px;
+            font-size: 18px;
             @include flex;
             justify-content: space-between;
+            background-color: rgba(white, .2);
+            border-radius: 5px;
 
             div {
                 width: auto;
+
+                &:first-child {
+                    width: 100%;
+                    padding: 5px;
+                    @include flex;
+                    justify-content: center;
+                    // background-color: rgba(white, .2);
+                }
 
                 a {
                     text-decoration: none;
@@ -148,14 +188,32 @@ form {
         }
 
         div {
-            width: clamp(100px, 80%, 800px);
             @include flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 1em;
 
             span {
                 width: auto;
-                padding: 0 5px;
+
+                &:first-child {
+                    font-weight: bold;
+                    width: 50px;
+                }
+
+                &:nth-child(2) {
+                    color: #bb1616;
+                    font-weight: bold;
+                }
             }
         }
     }
+}
+
+.actions {
+    width: auto;
+    padding-right: 5px;
+    @include flex;
+    justify-content: center;
+    gap: 5px !important;
+    // background-color: rgba(white, .2) !important;
 }

@@ -115,19 +115,36 @@ main > a:hover {
 main > div {
   width: clamp(300px, 90%, 1200px);
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
-main > div p {
-  color: white;
-  font-size: 18px;
+@media (width <= 968px) {
+  main > div {
+    flex-direction: column;
+  }
 }
-main > div p a {
-  text-decoration: none;
-  color: var(--color-quinary1);
-  transition: 300ms all ease;
+@media (width <= 768px) {
+  main > div span {
+    font-size: 20px !important;
+  }
 }
-main > div p a:hover {
-  transition: 150ms all ease;
-  color: white;
+main > div span,
+main > div a {
+  width: auto;
+}
+main > div span {
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgb(220, 220, 220);
+}
+main > div span:nth-child(2) {
+  color: var(--color-primary1);
+}
+main > div > a img {
+  width: 40px;
 }
 main > h1 {
   width: auto;
@@ -242,12 +259,17 @@ form button:focus {
 }
 
 .pred_meeting {
-  width: clamp(200px, 60%, 700px);
+  width: clamp(200px, 60%, 600px);
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
+}
+@media (width <= 768px) {
+  .pred_meeting {
+    width: clamp(200px, 90%, 600px);
+  }
 }
 .pred_meeting li {
   padding: 5px;
@@ -257,21 +279,35 @@ form button:focus {
   gap: 1em;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px rgb(50, 50, 50);
   transition: 300ms all ease;
 }
 .pred_meeting li:hover {
   transition: 80ms all ease;
   background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+  transform: translateY(4px);
 }
 .pred_meeting li h4 {
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
 .pred_meeting li h4 div {
   width: auto;
+}
+.pred_meeting li h4 div:first-child {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .pred_meeting li h4 div a {
   text-decoration: none;
@@ -295,13 +331,30 @@ form button:focus {
   transform: none;
 }
 .pred_meeting li div {
-  width: clamp(100px, 80%, 800px);
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1em;
 }
 .pred_meeting li div span {
   width: auto;
-  padding: 0 5px;
+}
+.pred_meeting li div span:first-child {
+  font-weight: bold;
+  width: 50px;
+}
+.pred_meeting li div span:nth-child(2) {
+  color: #bb1616;
+  font-weight: bold;
+}
+
+.actions {
+  width: auto;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px !important;
 }/*# sourceMappingURL=predication.css.map */
