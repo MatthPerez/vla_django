@@ -181,6 +181,7 @@
         </div>
         {% endif %}
 
+        {% if meeting.eba %}
         <div class="eba">
           <span>Etude biblique de l'assemblée (30 min)</span>
           <span>{{meeting.eba.fullname}}</span>
@@ -190,12 +191,15 @@
           <span>Lecteur</span>
           <span>{{meeting.eba_reader.fullname}}</span>
         </div>
+        {% endif %}
 
+        {% if meeting.special_speech %}
         <div>
           <span>Discours spécial</span>
           <span>{{meeting.supervisor.fullname}}</span>
-          <span>{{meeting.special_speech.fullname}}</span>
+          <span>{{meeting.special_speech}}</span>
         </div>
+        {% endif %}
       </section>
 
       <div class="song">Cantique N°{{meeting.song3}}</div>
