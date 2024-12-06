@@ -31,6 +31,7 @@ class NewPredicationView(View):
     def get(self, request):
         form = AddPredicationMeeting()
         submit_text = "Ajouter la réunion"
+        main_title = "Nouvelle réunion pour la prédication"
 
         return render(
             request,
@@ -38,6 +39,7 @@ class NewPredicationView(View):
             {
                 "form": form,
                 "submit_text": submit_text,
+                "main_title": main_title,
             },
         )
 
@@ -90,6 +92,7 @@ class PredicationMeetingUpdate(View):
     def get(self, request, pk):
         meeting = PredicationMeeting.objects.get(pk=pk)
         submit_text = "Mettre à jour la réunion"
+        main_title = f"Modifier la réunion du {meeting.date}"
 
         form = AddPredicationMeeting(
             initial={
@@ -112,6 +115,7 @@ class PredicationMeetingUpdate(View):
             {
                 "form": form,
                 "submit_text": submit_text,
+                "main_title": main_title,
             },
         )
 

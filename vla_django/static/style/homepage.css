@@ -319,6 +319,10 @@ main section {
   flex-direction: column;
   align-items: center;
   gap: 1em;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgb(100, 100, 100);
 }
 #communication article h3 {
   display: flex;
@@ -337,7 +341,6 @@ main section {
 #com-content {
   width: clamp(300px, 70vw, 900px);
   min-height: 10em;
-  background-color: rgba(255, 255, 255, 0.3);
   padding: 1em;
   display: flex;
   flex-direction: column;
@@ -406,4 +409,31 @@ main section {
 .articles a:hover {
   transition: 150ms all ease;
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+#predication {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: clamp(300px, 80%, 800px);
+}
+#predication article {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgb(100, 100, 100);
+}
+#predication article div {
+  font-size: 20px;
+}
+#predication article div span:first-child {
+  color: #bb1616;
+}
+#predication article div span:nth-child(3) {
+  font-weight: bold;
 }/*# sourceMappingURL=homepage.css.map */

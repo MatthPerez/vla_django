@@ -1,9 +1,11 @@
+from datetime import date
 from django.shortcuts import render
 from django.views import View
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 from communication.models import Communication
+from predication.models import PredicationMeeting
 
 
 class HomeView(View):
@@ -14,6 +16,9 @@ class HomeView(View):
         communications = Communication.objects.filter(date__gte=one_week_ago).order_by(
             "date"
         )
+
+        today = date.today()
+        predication = PredicationMeeting.objects.filter(date=today).first()
 
         url = "https://www.jw.org/fr/"
 
@@ -72,5 +77,6 @@ class HomeView(View):
                 "main_title_link": main_title_link,
                 "data": data,
                 "communications": communications,
+                "predication": predication,
             },
         )

@@ -241,6 +241,11 @@ main {
     article {
         @include flexcolumn;
         gap: 1em;
+        padding: 1em;
+        background-color: rgba(white, .3);
+        border-radius: 10px;
+        $k: 100;
+        box-shadow: 3px 3px 5px rgb($k, $k, $k);
 
         h3 {
             @include flex;
@@ -261,7 +266,6 @@ main {
 #com-content {
     width: clamp(300px, 70vw, 900px);
     min-height: 10em;
-    background-color: rgba(white, .3);
     padding: 1em;
     @include flexcolumn;
     gap: 2em;
@@ -327,6 +331,36 @@ main {
         &:hover {
             transition: 150ms all ease;
             background-color: rgba(white, .7);
+        }
+    }
+}
+
+#predication {
+    @include flex;
+    justify-content: space-evenly;
+    width: clamp(300px, 80%, 800px);
+
+    article {
+        width: auto;
+        @include flexcolumn;
+        background-color: rgba(white, .3);
+        padding: 1em;
+        border-radius: 10px;
+        $k: 100;
+        box-shadow: 3px 3px 5px rgb($k, $k, $k);
+
+        div {
+            font-size: 20px;
+
+            span {
+                &:first-child {
+                    color: #bb1616;
+                }
+
+                &:nth-child(3) {
+                    font-weight: bold;
+                }
+            }
         }
     }
 }

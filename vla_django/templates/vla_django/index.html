@@ -99,6 +99,41 @@
     </div>
   </section>
 
+  <a href="{% url 'predication' %}" class="title1">Prédication</a>
+
+  <section id="predication">
+    <article>
+      <div>
+        <span>{{predication.time1}}</span>
+        <span>-</span>
+        <span>{{predication.manager1.fullname}}</span>
+      </div>
+      <div>{{predication.place1}}</div>
+    </article>
+
+    {% if predication.manager2 %}
+    <article>
+      <div>
+        <span>{{predication.time2}}</span>
+        <span>-</span>
+        <span>{{predication.manager2.fullname}}</span>
+      </div>
+      <div>{{predication.place2}}</div>
+    </article>
+    {% endif %}
+
+    {% if predication.manager3 %}
+    <article>
+      <div>
+        <span>{{predication.time3}}</span>
+        <span>-</span>
+        <span>{{predication.manager3.fullname}}</span>
+      </div>
+      <div>{{predication.place3}}</div>
+    </article>
+    {% endif %}
+  </section>
+
   <a href="{% url 'communication' %}" class="title1">Communications</a>
 
   <section id="communication">
@@ -113,8 +148,11 @@
 
         <div>
           <p>{{comm.content1}}</p>
-          {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank">{{comm.content2}}</a>{% endif %}
-          {% if comm.content3 %}<p>{{comm.content3}}</p>{% endif %}
+          {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank"
+            >{{comm.content2}}</a
+          >{% endif %} {% if comm.content3 %}
+          <p>{{comm.content3}}</p>
+          {% endif %}
         </div>
       </article>
       {% endfor %}
