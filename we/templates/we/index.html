@@ -58,9 +58,9 @@
 
     <section class="song">Cantique n°{{meeting.song3}}</section>
 
-    <div class="update-we-meeting" title="Modifier réunion du {{meeting.date}}">
+    <a href="{% url 'we_update' meeting.pk %}" class="update-we-meeting" title="Modifier réunion du {{meeting.date}}">
       ✏️
-    </div>
+    </a>
     <div
       class="delete-we-meeting"
       title="Supprimer réunion du {{meeting.date}}}"

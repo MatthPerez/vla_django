@@ -30,8 +30,8 @@ from vcm.views import (
 from we.views import (
     WeMeetingView,
     NewWeView,
-    # WeUpdate,
-    # WeDelete,
+    WeUpdate,
+    WeDelete,
 )
 
 from communication.views import (
@@ -66,6 +66,8 @@ urlpatterns = [
     path("vcm/<int:pk>/suprimer", VcmDelete.as_view(), name="vcm_delete"),
     path("we/", WeMeetingView.as_view(), name="we"),
     path("we/ajouter/", NewWeView.as_view(), name="new_we"),
+    path("we/<int:pk>/modifier", WeUpdate.as_view(), name="we_update"),
+    path("we/<int:pk>/supprimer", WeDelete.as_view(), name="we_delete"),
     path("groupes/", GroupsView.as_view(), name="groups"),
     path("groupes/ajouter/", NewGroupView.as_view(), name="new_group"),
     path("personnes/", PersonsView.as_view(), name="persons"),

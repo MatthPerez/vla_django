@@ -8,8 +8,16 @@
     <a href="{% url 'we' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour réunion"
     /></a>
-    <span>Créer une nouvelle réunion de week-end</span>
-    <span>Nouvelle réunion de week-end</span>
+
+    <span>
+      {% if big_title %} {{big_title}} {% else %} Créer une nouvelle réunion de
+      week-end {% endif %}
+    </span>
+
+    <span>
+      {% if small_title %} {{small_title}} {% else %} Créer une nouvelle réunion
+      {% endif %}
+    </span>
   </h1>
 
   <form method="POST">
@@ -42,7 +50,13 @@
       <div>{{form.pearls.label_tag}} {{form.pearls}}</div>
     </section>
 
-    <button type="submit">Ajouter la réunion</button>
+    <button type="submit">
+      {% if submit_text %}
+      {{submit_text}}
+      {% else %}
+      Valider
+      {% endif %}
+    </button>
   </form>
 </main>
 {% endblock %}

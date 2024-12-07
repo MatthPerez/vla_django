@@ -181,6 +181,7 @@ main > a:hover {
 
 .update-we-meeting,
 .delete-we-meeting {
+  text-decoration: none;
   position: absolute;
   top: 2em;
   width: 2em;

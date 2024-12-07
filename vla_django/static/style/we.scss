@@ -93,6 +93,7 @@ main {
 
 .update-we-meeting,
 .delete-we-meeting {
+    text-decoration: none;
     position: absolute;
     $size: 2em;
     top: $size;
