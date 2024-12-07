@@ -9,7 +9,7 @@ from groups.models import Group
 
 class GroupsView(View):
     def get(self, request):
-        groups = Group.objects.all().order_by("name")
+        groups = Group.objects.order_by("name")
         persons = Person.objects.all()
 
         return render(

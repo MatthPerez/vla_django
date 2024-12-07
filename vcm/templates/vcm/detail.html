@@ -19,8 +19,7 @@
 
   <div class="actions">
     <a href="{% url 'vcm_update' meeting.pk %}" class="update_btn">Modifier</a>
-    {% comment %} <a href="#">Supprimer</a> {% endcomment %}
-    <form action="{% url 'vcm_delete' meeting.pk %}" method="POST">
+    <form action="{% url 'vcm_delete' meeting.pk %}" title="Supprimer réunion du {{meeting.date}}" method="POST">
       {% csrf_token %}
       <button type="submit">Supprimer</button>
     </form>

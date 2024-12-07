@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "communication",
     "infos",
     "predication",
+    "publications",
 ]
 
 MIDDLEWARE = [

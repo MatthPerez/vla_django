@@ -1,8 +1,8 @@
 from django import forms
-from groups.models import Group
+from publications.models import Publication
 
 
-class AddGroup(forms.Form):
+class AddPublication(forms.Form):
     name = forms.CharField(
         required=False,
         label="Nom",
@@ -15,8 +15,8 @@ class AddGroup(forms.Form):
     )
 
 
-class GroupForm(forms.ModelForm):
+class PublicationForm(forms.ModelForm):
 
     class Meta:
-        model = Group
+        model = Publication
         fields = "__all__"

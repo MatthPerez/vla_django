@@ -9,6 +9,7 @@
     <a href="{% url 'we' %}" class="{% if '/we/' in request.path %}active{% endif %}">Week-end</a>
     <a href="{% url 'predication' %}" class="{% if '/predication/' in request.path %}active{% endif %}">Prédication</a>
     <a href="{% url 'persons' %}" class="{% if '/personnes/' in request.path %}active{% endif %}">Membres</a>
+    <a href="{% url 'publications' %}" class="{% if '/publications/' in request.path %}active{% endif %}">Publications</a>
     <a href="{% url 'groups' %}" class="{% if '/groupes/' in request.path %}active{% endif %}">Groupes</a>
 </nav>
 
@@ -30,5 +31,6 @@
     <a href="{% url 'we' %}" class="{% if '/we/' in request.path %}smallActive{% endif %}">Week-end</a>
     <a href="{% url 'predication' %}" class="{% if '/predication/' in request.path %}smallActive{% endif %}">Prédication</a>
     <a href="{% url 'persons' %}" class="{% if '/personnes/' in request.path %}smallActive{% endif %}">Membres</a>
+    <a href="{% url 'publications' %}" class="{% if '/publications/' in request.path %}smallActive{% endif %}">Publications</a>
     <a href="{% url 'groups' %}" class="{% if '/groupes/' in request.path %}smallActive{% endif %}">Groupes</a>
 </div>

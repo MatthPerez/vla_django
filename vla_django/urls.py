@@ -48,6 +48,13 @@ from predication.views import (
     PredicationDelete,
 )
 
+from publications.views import (
+    PublicationView,
+    NewPublicationView,
+    PublicationUpdate,
+    PublicationDelete,
+)
+
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
     path("admin/", admin.site.urls),
@@ -93,5 +100,17 @@ urlpatterns = [
         "predication/<int:pk>/supprimer/",
         PredicationDelete.as_view(),
         name="predication_delete",
+    ),
+    path("publications/", PublicationView.as_view(), name="publications"),
+    path("publications/ajouter", NewPublicationView.as_view(), name="publication_new"),
+    path(
+        "publications/<int:pk>/modifier",
+        PublicationUpdate.as_view(),
+        name="publication_update",
+    ),
+    path(
+        "publications/<int:pk>/supprimer",
+        PublicationDelete.as_view(),
+        name="publication_delete",
     ),
 ]

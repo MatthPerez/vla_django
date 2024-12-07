@@ -1,0 +1,44 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/publications.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/publications.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Nouvelle réunion VCM{% endblock %} {% block content %}
+<main>
+  <h1>
+    <a href="{% url 'publications' %}"
+      ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
+    /></a>
+    <span>
+        {% if title %}
+        {{title}}
+        {% else %}
+        Nouvelle publication
+        {% endif %}
+    </span>
+    <span>
+        {% if title %}
+        {{title}}
+        {% else %}
+        Nouvelle publication
+        {% endif %}
+    </span>
+  </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div>{{ form.name.label_tag }} {{ form.name }}</div>
+
+    {% if form.non_field_errors %}
+    <div class="error">{{ form.non_field_errors }}</div>
+    {% endif %}
+
+    <button type="submit">
+        {% if submit_text %}
+        {{submit_text}}
+        {% else %}
+        Créer
+        {% endif %}
+    </button>
+  </form>
+</main>
+{% endblock %}

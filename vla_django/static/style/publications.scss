@@ -1,0 +1,119 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+:root {
+    --space: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary3);
+}
+
+main {
+    background-color: var(--color-quinary3);
+    @include flex;
+    flex-direction: column;
+    gap: 3em;
+    padding-bottom: 3em;
+
+    >a {
+        @include button;
+    }
+
+    h1 {
+        @include h1-form;
+    }
+
+    >form {
+        width: clamp(300px, 70%, 700px);
+        @include flexcolumn;
+        gap: 1em;
+
+        @media (width<=768px) {
+            width: clamp(300px, 90%, 700px);
+        }
+
+        div {
+            @include flex;
+            justify-content: space-between;
+
+            label {
+                width: auto;
+                text-align: left;
+            }
+
+            input,
+            select {
+                width: 75%;
+                padding: 10px;
+                @include no-border;
+                transition: 300ms all ease;
+
+                &:focus {
+                    transition: 150ms all ease;
+                    box-shadow: 0 0 10px var(--color-primary3), 0 0 10px var(--color-primary3);
+                }
+            }
+        }
+
+        button {
+            @include submit;
+        }
+    }
+
+    >section {
+        width: clamp(300px, 80%, 1000px);
+        @include flex;
+        justify-content: center;
+        gap: 1em;
+        flex-wrap: wrap;
+
+        article {
+            width: auto;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(white, .5);
+            $offset: 4px;
+            $k: 80;
+            box-shadow: $offset $offset 5px rgb($k, $k, $k);
+            @include flex;
+            justify-content: center;
+            gap: 1em;
+            transition: 300ms all ease;
+
+            &:hover {
+                transition: 80ms all ease;
+                box-shadow: none;
+                transform: translateY($offset);
+            }
+
+            div {
+                width: auto;
+                @include flex;
+                gap: 5px;
+
+                a {
+                    width: auto;
+                    text-decoration: none;
+                }
+
+                form {
+                    button {
+                        @include no-border;
+                        cursor: pointer;
+                    }
+                }
+
+                a,
+                form {
+                    @include flex;
+                    justify-content: center;
+                    width: 30px;
+                    aspect-ratio: 1;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
