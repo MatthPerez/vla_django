@@ -178,6 +178,11 @@ main > a:hover {
 .delete-we-meeting {
   right: 2em;
 }
+.delete-we-meeting button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
 
 .update-we-meeting,
 .delete-we-meeting {
@@ -186,4 +191,5 @@ main > a:hover {
   top: 2em;
   width: 2em;
   height: 2em;
+  cursor: pointer;
 }/*# sourceMappingURL=we.css.map */

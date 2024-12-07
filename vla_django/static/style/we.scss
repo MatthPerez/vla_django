@@ -89,6 +89,11 @@ main {
 
 .delete-we-meeting {
     right: 2em;
+
+    button {
+        @include no-border;
+        background-color: transparent;
+    }
 }
 
 .update-we-meeting,
@@ -99,4 +104,5 @@ main {
     top: $size;
     width: $size;
     height: $size;
+    cursor: pointer;
 }
