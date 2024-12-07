@@ -11,7 +11,7 @@ footer {
 }
 
 main {
-    background-color: var(--color-tertiary1);
+    background-color: var(--color-quaternary1);
     @include flexcolumn;
     gap: 2em;
     padding-bottom: 3em;
@@ -26,7 +26,7 @@ main {
     width: clamp(300px, 75vw, 800px);
     overflow: hidden;
     height: 4em;
-    background-color: var(--color-quaternary1);
+    background-color: rgba(white, .1);
     padding: 1em;
     @include flexcolumn;
     gap: 1.5em;
