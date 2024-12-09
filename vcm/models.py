@@ -7,7 +7,7 @@ class Meeting(models.Model):
     ALLOCATION_TYPES = [
         ("FIRST_CONTACT", "1er contact"),
         ("RETURN_VISIT", "Nouvelle visite"),
-        ("BIBLE_STUDY", "Cours biblique"),
+        ("STUDY", "Cours biblique"),
         ("TALK", "Discussion"),
         ("SPEECH", "Discours"),
         ("VIDEO", "Vidéo"),

@@ -11,7 +11,7 @@
   <section class="meeting-list">
     {% for meeting in meetings %}
     <article>
-      <a href="{% url 'vcm_detail' meeting.pk %}"
+      <a href="{% url 'vcm_detail' meeting.pk %}" target="_blank"
         >Semaine du {{meeting.date}}</a
       >
     </article>

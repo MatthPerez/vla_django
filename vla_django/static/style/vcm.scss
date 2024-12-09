@@ -72,6 +72,10 @@ main {
         background-color: rgba(white, .1);
         transition: 300ms all ease;
 
+        @media (width<=768px) {
+            width: clamp(300px, 90%, 700px);
+        }
+
         &:hover {
             transition: 150ms all ease;
             background-color: rgba(white, .3);
