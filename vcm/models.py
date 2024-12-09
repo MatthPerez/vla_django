@@ -8,7 +8,7 @@ class Meeting(models.Model):
         ("FIRST_CONTACT", "1er contact"),
         ("RETURN_VISIT", "Nouvelle visite"),
         ("STUDY", "Cours biblique"),
-        ("TALK", "Discussion"),
+        ("DISCUSS", "Discussion"),
         ("SPEECH", "Discours"),
         ("VIDEO", "Vidéo"),
     ]

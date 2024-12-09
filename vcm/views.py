@@ -250,7 +250,7 @@ class VcmUpdate(View):
             meeting.eba_reader = form.cleaned_data["eba_reader"]
             meeting.supervisor = form.cleaned_data["supervisor"]
             meeting.special_speech = form.cleaned_data["special_speech"]
-            meeting.Save()
+            meeting.save()
 
             return redirect("vcm")
 

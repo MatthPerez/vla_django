@@ -206,21 +206,14 @@ main > a:hover {
   font-size: 18px;
 }
 
-.meetings {
+.meeting {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  width: 100%;
-}
-
-.meeting {
   background-color: rgba(255, 255, 255, 0.3);
   padding: 1em;
   width: clamp(300px, 70%, 800px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   box-shadow: 6px 6px 10px rgb(50, 50, 50);
   gap: 1em;
 }
@@ -239,7 +232,6 @@ main > a:hover {
   transition: 150ms all ease;
   background-color: rgba(255, 255, 255, 0.2);
 }
-
 .meeting div {
   display: flex;
   flex-direction: row;
@@ -304,10 +296,6 @@ main > a:hover {
   margin: 1em 0;
 }
 
-.jewels span:first-child {
-  white-space: nowrap;
-}
-
 .jewels,
 .pearls {
   width: clamp(250px, 80%, 700px);
@@ -329,9 +317,4 @@ main > a:hover {
 .vcm div,
 .eba {
   width: clamp(250px, 80%, 700px);
-}
-.allocution span:last-child,
-.vcm div span:last-child,
-.eba span:last-child {
-  white-space: nowrap;
 }/*# sourceMappingURL=vcm.css.map */

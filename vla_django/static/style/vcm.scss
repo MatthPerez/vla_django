@@ -89,17 +89,12 @@ main {
     }
 }
 
-.meetings {
+.meeting {
     @include flexcolumn;
     gap: 10px;
-    width: 100%;
-}
-
-.meeting {
     background-color: rgba(white, .3);
     padding: 1em;
     width: clamp(300px, 70%, 800px);
-    @include flexcolumn;
     $k: 50;
     $padding: 6px;
     box-shadow: $padding $padding 10px rgb($k, $k, $k);
@@ -121,9 +116,7 @@ main {
             background-color: rgba(white, .2);
         }
     }
-}
 
-.meeting {
     div {
         @include flex;
         justify-content: space-between;
@@ -199,13 +192,13 @@ main {
     margin: 1em 0;
 }
 
-.jewels {
-    span {
-        &:first-child {
-            white-space: nowrap;
-        }
-    }
-}
+// .jewels {
+//     span {
+//         &:first-child {
+//             white-space: nowrap;
+//         }
+//     }
+// }
 
 .jewels,
 .pearls {
@@ -227,9 +220,9 @@ main {
 .eba {
     width: clamp(250px, 80%, 700px);
 
-    span {
-        &:last-child {
-            white-space: nowrap;
-        }
-    }
+    // span {
+    //     &:last-child {
+    //         white-space: nowrap;
+    //     }
+    // }
 }
