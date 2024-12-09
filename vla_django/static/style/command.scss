@@ -26,7 +26,7 @@ main {
     }
 }
 
-form {
+>form {
     width: clamp(300px, 70%, 700px);
     @include flexcolumn;
     gap: 1em;
@@ -98,7 +98,7 @@ form {
         $k: 80;
         box-shadow: $depth $depth 5px rgb($k, $k, $k);
         transition: 200ms all ease;
-        
+
         &:hover {
             transition: 80ms all ease;
             background-color: white;
@@ -112,7 +112,7 @@ form {
         //     box-shadow: none;
         //     transform: translateY($depth) scale(1.2);
         // }
-        
+
         span {
             width: 46%;
 
@@ -122,10 +122,24 @@ form {
                 justify-content: center;
                 gap: 10px;
 
-                a {
+                a,
+                form {
                     text-decoration: none;
                     width: 30px;
+                }
+
+                a,
+                form button {
                     font-size: 18px;
+                }
+
+                form {
+                    button {
+                        width: auto;
+                        padding: 0;
+                        @include no-border;
+                        background-color: transparent;
+                    }
                 }
             }
         }

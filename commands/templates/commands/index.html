@@ -15,7 +15,10 @@
       <span>{{command.publication.name}}</span>
       <span>
         <a href="{% url 'command_update' command.pk %}">✏️</a>
-        <a href="#">❌</a>
+        <form action="{% url 'command_delete' command.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit">❌</button>
+        </form>
       </span>
     </div>
     {% endfor %}
