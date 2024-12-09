@@ -88,26 +88,8 @@ main {
   flex-direction: row;
   align-items: center;
   flex-direction: column;
-  gap: 3em;
+  gap: 2em;
   padding-bottom: 3em;
-}
-main > a {
-  width: auto;
-  text-decoration: none;
-  text-align: center;
-  border: 1px solid black;
-  padding: 0.5em 1.5em;
-  color: black;
-  font-size: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.8);
-  transition: 300ms all ease;
-}
-main > a:hover {
-  transition: 150ms all ease;
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: none;
-  transform: translateY(4px);
 }
 main h1 {
   width: auto;
@@ -205,7 +187,33 @@ main > form button:focus {
   background-color: rgba(136, 230, 136, 0.5);
 }
 main > section {
-  width: clamp(300px, 80%, 1000px);
+  width: clamp(300px, 90%, 1200px);
+  background-color: var(--color-quaternary3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  padding: 2em 0;
+}
+main > section > a {
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid black;
+  padding: 0.5em 1.5em;
+  color: black;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.8);
+  transition: 300ms all ease;
+}
+main > section > a:hover {
+  transition: 150ms all ease;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+  transform: translateY(4px);
+}
+main > section section {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -213,7 +221,7 @@ main > section {
   gap: 1em;
   flex-wrap: wrap;
 }
-main > section article {
+main > section section article {
   width: auto;
   padding: 10px;
   border-radius: 10px;
@@ -226,29 +234,36 @@ main > section article {
   gap: 1em;
   transition: 300ms all ease;
 }
-main > section article:hover {
+@media (width <= 768px) {
+  main > section section article {
+    padding: 5px;
+    gap: 0.5em;
+  }
+}
+main > section section article:hover {
   transition: 80ms all ease;
   box-shadow: none;
   transform: translateY(4px);
 }
-main > section article div {
+main > section section article div {
   width: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 5px;
 }
-main > section article div a {
+main > section section article div a {
   width: auto;
   text-decoration: none;
 }
-main > section article div form button {
+main > section section article div form button {
   outline: none;
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
-main > section article div a,
-main > section article div form {
+main > section section article div a,
+main > section section article div form {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -256,4 +271,43 @@ main > section article div form {
   width: 30px;
   aspect-ratio: 1;
   text-align: center;
+}
+main > section:nth-child(3) section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: clamp(300px, 70%, 800px);
+}
+@media (width <= 768px) {
+  main > section:nth-child(3) section {
+    width: clamp(300px, 90%, 700px);
+  }
+}
+main > section:nth-child(3) section div {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: 200ms all ease;
+}
+main > section:nth-child(3) section div:last-child {
+  border-bottom: 1px solid black;
+}
+main > section:nth-child(3) section div:hover {
+  transition: 80ms all ease;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+main > section:nth-child(3) section div span {
+  width: 25%;
+}
+main > section:nth-child(3) section div span:first-child {
+  font-weight: bold;
+}
+main > section:nth-child(3) section div span:last-child {
+  width: auto;
 }/*# sourceMappingURL=publications.css.map */

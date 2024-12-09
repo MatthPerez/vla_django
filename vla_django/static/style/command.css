@@ -79,15 +79,16 @@
 
 nav,
 footer {
-  background-color: var(--color-primary1);
+  background-color: var(--color-primary3);
 }
 
 main {
-  background-color: var(--color-quaternary1);
+  background-color: var(--color-quinary3);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 2em;
+  flex-direction: column;
+  gap: 1em;
   padding-bottom: 3em;
 }
 main h1 {
@@ -109,7 +110,7 @@ main h1 span:nth-child(3) {
     width: minmax(250px, 500px);
   }
   main h1 a img {
-    width: 30px;
+    height: 0.7em;
     aspect-ratio: 1;
   }
   main h1 span {
@@ -132,53 +133,64 @@ main h1 a {
 main h1 a img {
   height: 0.7em;
 }
-main form {
+
+form {
   width: clamp(300px, 70%, 700px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
-main form section {
+form h2 {
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+  font-size: 30px;
+}
+form section {
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   padding: 1em;
   background-color: rgba(255, 255, 255, 0.2);
 }
-main form section div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
+@media (width <= 768px) {
+  form section {
+    width: 80vw;
+  }
 }
-main form section div label {
+form section h3 {
   width: auto;
+  padding: 0.5em 2em;
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 22px;
+  border: 1px solid white;
 }
-main form section div input,
-main form section div select {
+form section div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+form section label {
+  text-indent: 3em;
+}
+form section input,
+form section select {
+  width: calc(90% - 20px);
   padding: 10px;
   outline: none;
   border: none;
   transition: 300ms all ease;
 }
-main form section div input:focus,
-main form section div select:focus {
+form section input:focus,
+form section select:focus {
   transition: 150ms all ease;
   box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
 }
-main form section h4 {
-  width: auto;
-  padding: 0.5em 2em;
-  text-align: center;
-  margin-bottom: 0.5em;
-  font-size: 20px;
-}
-@media (width <= 768px) {
-  main form section {
-    width: 80vw;
-  }
-}
-main form button {
+form button {
   width: auto;
   padding: 10px 40px;
   font-size: 18px;
@@ -187,42 +199,12 @@ main form button {
   box-shadow: 4px 4px 5px rgb(120, 120, 120);
   transition: 300ms all ease;
 }
-main form button:hover {
+form button:hover {
   transition: 150ms all ease;
   box-shadow: none;
   transform: translateY(4px);
 }
-main form button:focus {
+form button:focus {
   transition: 50ms all ease;
   background-color: rgba(136, 230, 136, 0.5);
-}
-
-.song div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-.song div span {
-  width: auto;
-}
-.song div span input {
-  width: auto;
-  text-align: center;
-}
-
-.generals,
-.parts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.generals input,
-.generals select,
-.parts input,
-.parts select {
-  width: 75%;
-}/*# sourceMappingURL=weekend.css.map */
+}/*# sourceMappingURL=command.css.map */

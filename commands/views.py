@@ -2,38 +2,35 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.shortcuts import render
 from django.views import View
-from publications.forms import AddPublication
+from commands.forms import AddCommand
 from publications.models import Publication
 from persons.models import Person
-from groups.models import Group
 
 
-class PublicationView(View):
+class CommandsView(View):
     def get(self, request):
         publications = Publication.objects.order_by("name")
         persons = Person.objects.order_by("group", "lastname", "firstname")
-        groups = Group.objects.order_by("name")
 
         return render(
             request,
-            "publications/index.html",
+            "commands/index.html",
             {
                 "publications": publications,
                 "persons": persons,
-                "groups": groups,
             },
         )
 
 
-class NewPublicationView(View):
+class NewCommandView(View):
     def get(self, request):
-        form = AddPublication()
-        title = "Créer une nouvelle publication"
-        submit_text = "Créer"
+        form = AddCommand()
+        title = "Créer une nouvelle commande"
+        submit_text = "Créer la commande"
 
         return render(
             request,
-            "publications/new.html",
+            "commands/new.html",
             {
                 "form": form,
                 "title": title,
@@ -42,23 +39,24 @@ class NewPublicationView(View):
         )
 
     def post(self, request):
-        form = AddPublication(request.POST)
+        form = AddCommand(request.POST)
 
         if form.is_valid():
             group_data = form.cleaned_data
 
             group = Publication(
-                name=group_data["name"],
+                publication=group_data["publication"],
+                person=group_data["person"],
             )
 
             group.save()
 
             return render(
                 request,
-                "publications/new.html",
+                "commands/new.html",
                 {
                     "form": form,
-                    "success": "Publication ajoutée avec succès !",
+                    "success": "Commande ajoutée avec succès !",
                 },
             )
 
@@ -67,7 +65,7 @@ class NewPublicationView(View):
 
             return render(
                 request,
-                "publications/new.html",
+                "commands/new.html",
                 {
                     "form": form,
                     "errors": form.errors,
@@ -75,13 +73,13 @@ class NewPublicationView(View):
             )
 
 
-class PublicationUpdate(View):
+class CommandUpdate(View):
     def get(self, request, pk):
         publication = Publication.objects.get(pk=pk)
-        title = "Modifier la publication"
+        title = "Modifier la commande"
         submit_text = "Enregistrer"
 
-        form = AddPublication(
+        form = AddCommand(
             initial={
                 "name": publication.name,
             }
@@ -89,7 +87,7 @@ class PublicationUpdate(View):
 
         return render(
             request,
-            "publications/new.html",
+            "commands/new.html",
             {
                 "form": form,
                 "title": title,
@@ -99,19 +97,19 @@ class PublicationUpdate(View):
 
     def post(self, request, pk):
         publication = Publication.objects.get(pk=pk)
-        form = AddPublication(request.POST)
+        form = AddCommand(request.POST)
 
         if form.is_valid():
             publication.name = form.cleaned_data["name"]
             publication.save()
 
-        return redirect("publications")
+        return redirect("commands")
 
 
-class PublicationDelete(View):
+class CommandDelete(View):
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         publication = get_object_or_404(Publication, pk=pk)
         publication.delete()
 
-        return redirect("publications")
+        return redirect("commands")

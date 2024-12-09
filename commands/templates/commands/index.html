@@ -1,0 +1,13 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/command.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/command.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Commande{% endblock %} {% block content %}
+<main>
+  <h1>Réunion de week-end</h1>
+
+  <a href="{% url 'command_new' %}">Créer une nouvelle commande</a>
+
+  
+</main>
+{% endblock %}

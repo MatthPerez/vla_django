@@ -7,21 +7,45 @@
 <main>
   <h1>Publications</h1>
 
-  <a href="{% url 'publication_new' %}">Créer une nouvelle publication</a>
+  <section>
+    <a href="{% url 'publication_new' %}">Créer une nouvelle publication</a>
+
+    <section>
+      {% for pub in publications %}
+      <article>
+        <div>{{pub.name}}</div>
+        <div>
+          <a
+            href="{% url 'publication_update' pub.pk %}"
+            title="Modifier {{pub.name}}"
+            >✏️</a
+          >
+          <form
+            action="{% url 'publication_delete' pub.pk %}"
+            title="Supprimer {{pub.name}}"
+            method="POST"
+          >
+            {% csrf_token %}
+            <button type="submit">❌</button>
+          </form>
+        </div>
+      </article>
+      {% endfor %}
+    </section>
+  </section>
 
   <section>
-    {% for pub in publications %}
-    <article>
-      <div>{{pub.name}}</div>
+    <a href="{% url 'command_new' %}">Créer une nouvelle commande</a>
+
+    <section>
+      {% for person in persons %}
       <div>
-        <a href="{% url 'publication_update' pub.pk %}" title="Modifier {{pub.name}}">✏️</a>
-        <form action="{% url 'publication_delete' pub.pk %}" title="Supprimer {{pub.name}}" method="POST">
-          {% csrf_token %}
-          <button type="submit">❌</button>
-        </form>
+        <span>{{person.fullname}}</span>
+        <span>{{person.group}}</span>
+        <span>Publications...</span>
       </div>
-    </article>
-    {% endfor %}
+      {% endfor %}
+    </section>
   </section>
 </main>
 {% endblock %}

@@ -55,6 +55,13 @@ from publications.views import (
     PublicationDelete,
 )
 
+from commands.views import (
+    CommandsView,
+    NewCommandView,
+    # CommandUpdate,
+    # CommandDelete,
+)
+
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
     path("admin/", admin.site.urls),
@@ -114,5 +121,15 @@ urlpatterns = [
         "publications/<int:pk>/supprimer",
         PublicationDelete.as_view(),
         name="publication_delete",
+    ),
+    path(
+        "commandes/",
+        CommandsView.as_view(),
+        name="commands",
+    ),
+    path(
+        "commandes/ajouter/",
+        NewCommandView.as_view(),
+        name="command_new",
     ),
 ]

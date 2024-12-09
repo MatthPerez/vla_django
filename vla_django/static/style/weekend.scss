@@ -123,7 +123,9 @@ main {
 .song {
     div {
         @include flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 1em;
+        flex-wrap: wrap;
 
         span {
             width: auto;

@@ -14,12 +14,8 @@ main {
     background-color: var(--color-quinary3);
     @include flex;
     flex-direction: column;
-    gap: 3em;
+    gap: 2em;
     padding-bottom: 3em;
-
-    >a {
-        @include button;
-    }
 
     h1 {
         @include h1-form;
@@ -63,55 +59,116 @@ main {
     }
 
     >section {
-        width: clamp(300px, 80%, 1000px);
-        @include flex;
-        justify-content: center;
-        gap: 1em;
-        flex-wrap: wrap;
+        // width: 100vw;
+        width: clamp(300px, 90%, 1200px);
+        background-color: var(--color-quaternary3);
+        @include flexcolumn;
+        gap: 2em;
+        padding: 2em 0;
 
-        article {
-            width: auto;
-            padding: 10px;
-            border-radius: 10px;
-            background-color: rgba(white, .5);
-            $offset: 4px;
-            $k: 80;
-            box-shadow: $offset $offset 5px rgb($k, $k, $k);
+        >a {
+            @include button;
+        }
+
+        section {
             @include flex;
             justify-content: center;
             gap: 1em;
-            transition: 300ms all ease;
+            flex-wrap: wrap;
 
-            &:hover {
-                transition: 80ms all ease;
-                box-shadow: none;
-                transform: translateY($offset);
-            }
-
-            div {
+            article {
                 width: auto;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: rgba(white, .5);
+                $offset: 4px;
+                $k: 80;
+                box-shadow: $offset $offset 5px rgb($k, $k, $k);
                 @include flex;
-                gap: 5px;
+                justify-content: center;
+                gap: 1em;
+                transition: 300ms all ease;
 
-                a {
-                    width: auto;
-                    text-decoration: none;
+                @media (width<=768px) {
+                    padding: 5px;
+                    gap: .5em;
                 }
 
-                form {
-                    button {
-                        @include no-border;
-                        cursor: pointer;
+                &:hover {
+                    transition: 80ms all ease;
+                    box-shadow: none;
+                    transform: translateY($offset);
+                }
+
+                div {
+                    width: auto;
+                    @include flex;
+                    gap: 5px;
+
+                    a {
+                        width: auto;
+                        text-decoration: none;
+                    }
+
+                    form {
+                        button {
+                            @include no-border;
+                            cursor: pointer;
+                            background-color: transparent;
+                        }
+                    }
+
+                    a,
+                    form {
+                        @include flex;
+                        justify-content: center;
+                        width: 30px;
+                        aspect-ratio: 1;
+                        text-align: center;
                     }
                 }
+            }
+        }
 
-                a,
-                form {
+        &:nth-child(3) {
+            section {
+                @include flexcolumn;
+                gap: 0;
+                width: clamp(300px, 70%, 800px);
+                
+                @media (width<=768px) {
+                    width: clamp(300px, 90%, 700px);
+                }
+
+                div {
+                    border-left: 1px solid black;
+                    border-right: 1px solid black;
+                    border-top: 1px solid black;
+                    background-color: rgba(white, .4);
+                    padding: 5px;
                     @include flex;
-                    justify-content: center;
-                    width: 30px;
-                    aspect-ratio: 1;
-                    text-align: center;
+                    transition: 200ms all ease;
+
+                    &:last-child {
+                        border-bottom: 1px solid black;
+                    }
+
+                    &:hover {
+                        transition: 80ms all ease;
+                        background-color: rgba(white, .9);
+                    }
+
+                    span {
+                        width: 25%;
+
+                        &:first-child {
+                            font-weight: bold;
+                        }
+
+                        &:last-child {
+                            width: auto;
+                        }
+                    }
                 }
             }
         }
