@@ -26,7 +26,7 @@ main {
     }
 }
 
->form {
+form {
     width: clamp(300px, 70%, 700px);
     @include flexcolumn;
     gap: 1em;
@@ -94,14 +94,14 @@ main {
         background-color: rgba(white, .4);
         @include flex;
         justify-content: center;
-        $depth: 4px;
+        $depth: 2px;
         $k: 80;
         box-shadow: $depth $depth 5px rgb($k, $k, $k);
         transition: 200ms all ease;
 
         &:hover {
             transition: 80ms all ease;
-            background-color: white;
+            background-color: rgba(white, .8);
             box-shadow: none;
             transform: translateY($depth);
         }
@@ -139,6 +139,10 @@ main {
                         padding: 0;
                         @include no-border;
                         background-color: transparent;
+                        box-shadow: none;
+                        transition: none;
+                        transform: none;
+                        cursor: pointer;
                     }
                 }
             }

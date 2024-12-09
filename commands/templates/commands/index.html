@@ -14,10 +14,10 @@
       <span>{{forloop.counter}} - {{command.person.fullname}}</span>
       <span>{{command.publication.name}}</span>
       <span>
-        <a href="{% url 'command_update' command.pk %}">✏️</a>
+        <a href="{% url 'command_update' command.pk %}" title="{{command.person.firstname}} veut autre chose que {{command.publication.name}}">✏️</a>
         <form action="{% url 'command_delete' command.pk %}" method="POST">
           {% csrf_token %}
-          <button type="submit">❌</button>
+          <button type="submit" title="{{command.person.firstname}} ne veut plus de {{command.publication.name}}">❌</button>
         </form>
       </span>
     </div>

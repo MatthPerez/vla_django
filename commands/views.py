@@ -127,7 +127,7 @@ class CommandUpdate(View):
 class CommandDelete(View):
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
-        publication = get_object_or_404(Publication, pk=pk)
-        publication.delete()
+        command = get_object_or_404(Command, pk=pk)
+        command.delete()
 
         return redirect("commands")

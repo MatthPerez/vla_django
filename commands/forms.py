@@ -8,7 +8,12 @@ class AddCommand(forms.Form):
     person = forms.ModelChoiceField(
         required=True,
         queryset=Person.objects.all(),
-        widget=forms.Select(attrs={"class": "form-control"}),
+        widget=forms.Select(
+            attrs={
+                "class": "form-control",
+                "autofocus": "autofocus",
+            }
+        ),
         label="Destinataire",
     )
     publication = forms.ModelChoiceField(
