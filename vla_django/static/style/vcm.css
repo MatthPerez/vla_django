@@ -130,50 +130,28 @@ main > a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end !important;
   gap: 1em;
 }
 .actions a {
-  width: clamp(150px, 10%, 400px);
-  text-align: center;
   text-decoration: none;
-  color: black;
-  font-size: 20px;
-  background-color: rgba(23, 201, 23, 0.2);
-  padding: 1em;
-  box-shadow: 4px 4px 5px rgb(90, 90, 90);
-  transition: 300ms all ease;
-}
-.actions a:hover {
-  transition: 150ms all ease;
-  background-color: rgba(23, 201, 23, 0.5);
-  box-shadow: none;
-  transform: translateY(4px);
 }
 .actions form {
-  width: clamp(150px, 10%, 400px);
-  text-align: center;
-  background-color: rgba(230, 38, 38, 0.2);
-  padding: 1em;
-  box-shadow: 4px 4px 5px rgb(90, 90, 90);
-  transition: 300ms all ease;
-  height: 2em;
-}
-.actions form:hover {
-  transition: 150ms all ease;
-  background-color: rgba(230, 38, 38, 0.5);
-  box-shadow: none;
-  transform: translateY(4px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 .actions form button {
   outline: none;
   border: none;
   background-color: transparent;
-  font-size: 20px;
-  color: black;
+  font-size: 25px;
+  cursor: pointer;
 }
-.actions form button {
-  padding: 0;
+.actions a,
+.actions form {
+  width: auto;
+  font-size: 25px;
 }
 
 .meeting-list {

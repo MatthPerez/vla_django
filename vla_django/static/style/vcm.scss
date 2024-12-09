@@ -42,20 +42,30 @@ main {
 
 .actions {
     @include flex;
-    justify-content: center;
+    justify-content: flex-end !important;
     gap: 1em;
 
     a {
-        @include update-button;
+        text-decoration: none;
     }
 
+    $size: 25px;
+
     form {
-        @include form-btn;
-        height: 2em;
+        @include flex;
 
         button {
-            padding: 0;
+            @include no-border;
+            background-color: transparent;
+            font-size: $size;
+            cursor: pointer;
         }
+    }
+
+    a,
+    form {
+        width: auto;
+        font-size: $size;
     }
 }
 

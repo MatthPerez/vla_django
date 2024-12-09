@@ -363,4 +363,22 @@ form button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.errors {
+  width: clamp(300px, 70%, 700px);
+  border: 1px solid black;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2em;
+}
+.errors h4 {
+  text-align: center;
+  font-size: 20px;
+}
+.errors ul {
+  list-style: none;
 }/*# sourceMappingURL=new_vcm.css.map */

@@ -16,10 +16,12 @@ class AddCommunication(forms.Form):
     date = forms.DateField(
         required=True,
         label="Date",
-        input_formats=["%Y-%m-%d"],
+        input_formats=["%d/%m/%Y"],
         widget=forms.DateInput(
+            format="%d/%m/%Y",
             attrs={
-                "type": "date",
+                "type": "text",
+                "placeholder": "jj/mm/aaaa",
                 "autofocus": "autofocus",
             },
         ),

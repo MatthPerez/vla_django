@@ -157,11 +157,11 @@
 
       <div class="school">
         <div>
-          {{form.alloc2pupil_hall2.label_tag}} {{form.alloc2pupil_hall2}}
+          {{form.alloc3pupil_hall2.label_tag}} {{form.alloc3pupil_hall2}}
         </div>
 
         <div>
-          {{form.alloc2inter_hall2.label_tag}} {{form.alloc2inter_hall2}}
+          {{form.alloc3inter_hall2.label_tag}} {{form.alloc3inter_hall2}}
         </div>
       </div>
 
@@ -240,5 +240,13 @@
 
     <button type="submit">{{submit_text}}</button>
   </form>
+
+  <div class="errors">
+    <h4>Erreurs</h4>
+    
+    <ul>
+      {% for error in errors %}
+      <li>{{error}}</li>{% endfor %}
+    </ul>
 </main>
 {% endblock %}

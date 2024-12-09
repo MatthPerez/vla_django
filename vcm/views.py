@@ -110,7 +110,10 @@ class NewVcmView(View):
             return render(
                 request,
                 "vcm/new.html",
-                {"form": form, "success": "Réunion ajoutée avec succès !"},
+                {
+                    "form": form,
+                    "success": "Réunion ajoutée avec succès !",
+                },
             )
 
         else:
@@ -119,7 +122,10 @@ class NewVcmView(View):
             return render(
                 request,
                 "vcm/new.html",
-                {"form": form, "errors": form.errors},
+                {
+                    "form": form,
+                    "errors": form.errors,
+                },
             )
 
 
@@ -132,7 +138,7 @@ class VcmUpdate(View):
 
         form = AddMeeting(
             initial={
-                "date": meeting.date,
+                "date": meeting.date.strftime("%d/%m/%Y"),
                 "president": meeting.president,
                 "prayer1": meeting.prayer1,
                 "prayer2": meeting.prayer2,
@@ -208,6 +214,7 @@ class VcmUpdate(View):
         small_title = f"Modifier réunion du {meeting.date}"
 
         if form.is_valid():
+            meeting.date = form.cleaned_data["date"]
             meeting.president = form.cleaned_data["president"]
             meeting.jewels_title = form.cleaned_data["jewels_title"]
             meeting.reading1 = form.cleaned_data["reading1"]
@@ -250,9 +257,12 @@ class VcmUpdate(View):
             meeting.eba_reader = form.cleaned_data["eba_reader"]
             meeting.supervisor = form.cleaned_data["supervisor"]
             meeting.special_speech = form.cleaned_data["special_speech"]
+            print(form)
             meeting.save()
 
             return redirect("vcm")
+        else:
+            print(form.errors)
 
         return render(
             request,

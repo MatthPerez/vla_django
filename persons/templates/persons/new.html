@@ -8,7 +8,13 @@
     <a href="{% url 'persons' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
     /></a>
-    <span>{{title}}</span>
+    <span>
+      {% if title %}
+      {{title}}
+      {% else %}
+      Nouveau membre
+      {% endif %}
+    </span>
   </h1>
 
   <form method="POST">
@@ -27,7 +33,13 @@
     <div class="error">{{ form.non_field_errors }}</div>
     {% endif %}
 
-    <button type="submit">{{submit_text}}</button>
+    <button type="submit">
+      {% if submit_text %}
+      {{submit_text}}
+      {% else %}
+      Valider
+      {% endif %}
+    </button>
   </form>
 </main>
 {% endblock %}

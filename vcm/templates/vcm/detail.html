@@ -17,15 +17,15 @@
     <span>Vie chrétienne et Ministère<br />du {{meeting.date}}</span>
   </h1>
 
-  <div class="actions">
-    <a href="{% url 'vcm_update' meeting.pk %}" class="update_btn">Modifier</a>
-    <form action="{% url 'vcm_delete' meeting.pk %}" title="Supprimer réunion du {{meeting.date}}" method="POST">
-      {% csrf_token %}
-      <button type="submit">Supprimer</button>
-    </form>
-  </div>
-
   <section class="meeting">
+    <div class="actions">
+      <a href="{% url 'vcm_update' meeting.pk %}" title="Modifier réunion du {{meeting.date}}" class="update_btn">✏️</a>
+      <form action="{% url 'vcm_delete' meeting.pk %}" title="Supprimer réunion du {{meeting.date}}" method="POST">
+      {% csrf_token %}
+      <button type="submit" title="Supprimer réunion du {{meeting.date}}">❌</button>
+    </form>
+    </div>
+
     <div class="president">
       <span>Semaine du {{meeting.date}}<br />{{meeting.portion}}</span>
       <span>Président : {{meeting.president.fullname}}</span>
@@ -91,68 +91,77 @@
     {% endif %}
 
     {% if meeting.reading2 %}
-    <h3>
-      <span>Salle complémentaire</span>
-      <span class="advisor2">(Conseiller : {{meeting.advisor2.fullname}})</span>
-    </h3>
+      <h3>
+        <span>Salle complémentaire</span>
+        <span class="advisor2">(Conseiller : {{meeting.advisor2.fullname}})</span>
+      </h3>
 
-    <div class="allocution">
-      <span>Lecture (3 min)</span>
-      <span>{{meeting.reading2.fullname}}</span>
-    </div>
+      <div class="allocution">
+        <span>Lecture (3 min)</span>
+        <span>{{meeting.reading2.fullname}}</span>
+      </div>
 
-    <div class="allocution">
-      <span>{{meeting.get_alloc1_type_display }} ({{meeting.alloc1_duration}} min)</span>
-      <span>
-        {{meeting.alloc1pupil_hall2.fullname}}
-        {% if meeting.alloc1inter_hall2  %} | {{meeting.alloc1inter_hall2.fullname}}{% endif %}
-    </span>
-    </div>
-
-    <div class="allocution">
-      <span>{{meeting.get_alloc2_type_display }} ({{meeting.alloc2_duration}} min)</span>
-      <span>
-        {{meeting.alloc2pupil_hall2.fullname}}
-        {% if meeting.alloc2inter_hall2 %} | {{meeting.alloc2inter_hall2.fullname}}{% endif %}
+      <div class="allocution">
+        <span>{{meeting.get_alloc1_type_display }} ({{meeting.alloc1_duration}} min)</span>
+        <span>
+          {{meeting.alloc1pupil_hall2.fullname}}
+          {% if meeting.alloc1inter_hall2  %} | {{meeting.alloc1inter_hall2.fullname}}{% endif %}
       </span>
-    </div>
-    {% endif %}
+      </div>
 
-    {% if meeting.alloc3_duration %}
-    <div class="allocution">
-      <span>{{meeting.get_alloc3_type_display }} ({{meeting.alloc3_duration}} min)</span>
-      <span>
-        {{meeting.alloc3pupil_hall2.fullname}}
-        {% if meeting.alloc3inter_hall2 %} | {{meeting.alloc3inter_hall2.fullname}}{% endif %}
-      </span>
-    </div>
-    {% endif %}
+      <div class="allocution">
+        <span>{{meeting.get_alloc2_type_display }} ({{meeting.alloc2_duration}} min)</span>
+        <span>
+          {{meeting.alloc2pupil_hall2.fullname}}
+          {% if meeting.alloc2inter_hall2 %} | {{meeting.alloc2inter_hall2.fullname}}{% endif %}
+        </span>
+      </div>
 
-    {% if meeting.alloc4_duration %}
-    <div class="allocution">
-      <span>{{meeting.get_alloc4_type_display }} ({{meeting.alloc4_duration}} min)</span>
-      <span>
-        {{meeting.alloc4pupil_hall2.fullname}}
-        {% if meeting.alloc4inter_hall2 %} | {{meeting.alloc4inter_hall2.fullname}}{% endif %}
-      </span>
-    </div>
+      {% if meeting.alloc3_duration %}
+      <div class="allocution">
+        <span>{{meeting.get_alloc3_type_display }} ({{meeting.alloc3_duration}} min)</span>
+        <span>
+          {{meeting.alloc3pupil_hall2.fullname}}
+          {% if meeting.alloc3inter_hall2 %} | {{meeting.alloc3inter_hall2.fullname}}{% endif %}
+        </span>
+      </div>
+      {% endif %}
+
+      {% if meeting.alloc4_duration %}
+      <div class="allocution">
+        <span>{{meeting.get_alloc4_type_display }} ({{meeting.alloc4_duration}} min)</span>
+        <span>
+          {{meeting.alloc4pupil_hall2.fullname}}
+          {% if meeting.alloc4inter_hall2 %} | {{meeting.alloc4inter_hall2.fullname}}{% endif %}
+        </span>
+      </div>
+      {% endif %}
     {% endif %}
 
     {% if meeting.reading3 %}
-    <h3>
-      <span>Salle C</span>
-      <span class="advisor2">(Conseiller : {{meeting.advisor3.fullname}})</span>
-    </h3>
+      <h3>
+        <span>Salle C</span>
+        <span class="advisor2">(Conseiller : {{meeting.advisor3.fullname}})</span>
+      </h3>
 
-    <div class="allocution">
-      <span>Lecture (3 min)</span>
-      <span>{{meeting.reading3.fullname}}</span>
-    </div>
+      <div class="allocution">
+        <span>Lecture (3 min)</span>
+        <span>{{meeting.reading3.fullname}}</span>
+      </div>
 
-    <div class="allocution">
-      <span>Discours (5 min)</span>
-      <span>{{meeting.pupil_hall3.fullname}}</span>
-    </div>
+      {% if meeting.pupil_hall3 %}
+      <div class="allocution">
+        <span>Discours (5 min)</span>
+        <span>{{meeting.pupil_hall3.fullname}}</span>
+      </div>
+      {% endif %}
+
+      {% if meeting.pupil0_hall3 %}
+        <div class="allocution">
+          <span>Discussion (5 min)</span>
+          <span>{{meeting.pupil0_hall3.fullname}} | {{meeting.inter0_hall3.fullname}}</span>
+        </div>
+        {% endif %}
     {% endif %}
 
     <div class="song">Cantique N°{{meeting.song2}}</div>
@@ -162,20 +171,20 @@
     <section class="vcm">
       <div>
         <span>Sujet {% if meeting.vcm2 %}1 {% else %}unique {% endif %}({{meeting.vcm1_duration}} min) : {{meeting.vcm1.fullname}}</span>
-        <span>{{meeting.vcm1_title}}</span>
+        <span class="bold">{{meeting.vcm1_title}}</span>
       </div>
 
       {% if meeting.vcm2 %}
       <div>
         <span>Sujet 2 ({{meeting.vcm2_duration}} min) : {{meeting.vcm2.fullname}}</span>
-        <span>{{meeting.vcm2_title}}</span>
+        <span class="bold">{{meeting.vcm2_title}}</span>
       </div>
       {% endif %}
       
       {% if meeting.vcm3 %}
       <div>
         <span>Sujet 3 ({{meeting.vcm3_duration}} min) : {{meeting.vcm3.fullname}}</span>
-        <span>{{meeting.vcm3_title}}</span>
+        <span class="bold">{{meeting.vcm3_title}}</span>
       </div>
       {% endif %}
 
