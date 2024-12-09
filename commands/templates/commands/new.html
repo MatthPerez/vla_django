@@ -8,15 +8,23 @@
     <a href="{% url 'commands' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
     /></a>
+
+    {% if big_title %}
+    <span>{{ big_title }}</span>
+    {% else %}
     <span>Créer une nouvelle commande</span>
+    {% endif %} {% if small_title %}
+    <span>{{ small_title }}</span>
+    {% else %}
     <span>Nouvelle commande</span>
+    {% endif %}
   </h1>
 
   <form method="POST">
     {% csrf_token %}
     <section>
-      <div>{{ form.publication.label_tag }} {{ form.publication }}</div>
       <div>{{ form.person.label_tag }} {{ form.person }}</div>
+      <div>{{ form.publication.label_tag }} {{ form.publication }}</div>
     </section>
 
     {% if form.non_field_errors %}
@@ -24,11 +32,7 @@
     {% endif %}
 
     <button type="submit">
-      {% if submit_text %}
-      {{submit_text}}
-      {% else %}
-      Ajouter
-      {% endif %}
+      {% if submit_text %} {{submit_text}} {% else %} Ajouter {% endif %}
     </button>
   </form>
 </main>

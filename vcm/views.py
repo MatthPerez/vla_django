@@ -132,6 +132,7 @@ class NewVcmView(View):
 class VcmUpdate(View):
     def get(self, request, pk):
         meeting = Meeting.objects.get(pk=pk)
+        
         big_title = f"Modifier réunion VCM du {meeting.date}"
         small_title = f"Modifier réunion du {meeting.date}"
         submit_text = "Mettre à jour la réunion"

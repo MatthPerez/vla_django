@@ -2,12 +2,23 @@
 <link rel="stylesheet" href="{% static 'style/command.css' %}" />
 {% endblock %} {% block script_js %}
 <script src="{% static 'js/command.js' %}" defer></script>
-{% endblock %} {% block title %}VLA | Commande{% endblock %} {% block content %}
+{% endblock %} {% block title %}VLA | Commandes{% endblock %} {% block content %}
 <main>
-  <h1>Réunion de week-end</h1>
+  <h1>Commandes de publications</h1>
 
   <a href="{% url 'command_new' %}">Créer une nouvelle commande</a>
 
-  
+  <section class="commands">
+    {% for command in commands %}
+    <div>
+      <span>{{forloop.counter}} - {{command.person.fullname}}</span>
+      <span>{{command.publication.name}}</span>
+      <span>
+        <a href="{% url 'command_update' command.pk %}">✏️</a>
+        <a href="#">❌</a>
+      </span>
+    </div>
+    {% endfor %}
+  </section>
 </main>
 {% endblock %}

@@ -88,7 +88,7 @@ main {
   flex-direction: row;
   align-items: center;
   flex-direction: column;
-  gap: 1em;
+  gap: 3em;
   padding-bottom: 3em;
 }
 main h1 {
@@ -132,6 +132,24 @@ main h1 a {
 }
 main h1 a img {
   height: 0.7em;
+}
+main > a {
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid black;
+  padding: 0.5em 1.5em;
+  color: black;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.8);
+  transition: 300ms all ease;
+}
+main > a:hover {
+  transition: 150ms all ease;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: none;
+  transform: translateY(4px);
 }
 
 form {
@@ -207,4 +225,43 @@ form button:hover {
 form button:focus {
   transition: 50ms all ease;
   background-color: rgba(136, 230, 136, 0.5);
+}
+
+.commands {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.commands div {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 5px rgb(80, 80, 80);
+  transition: 200ms all ease;
+}
+.commands div:hover {
+  transition: 80ms all ease;
+  background-color: white;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+.commands div span {
+  width: 46%;
+}
+.commands div span:last-child {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.commands div span:last-child a {
+  text-decoration: none;
+  width: 30px;
+  font-size: 18px;
 }/*# sourceMappingURL=command.css.map */

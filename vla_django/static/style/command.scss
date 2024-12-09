@@ -14,11 +14,15 @@ main {
     background-color: var(--color-quinary3);
     @include flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 3em;
     padding-bottom: 3em;
 
     h1 {
         @include h1-form;
+    }
+
+    >a {
+        @include button;
     }
 }
 
@@ -78,5 +82,52 @@ form {
 
     button {
         @include submit;
+    }
+}
+
+.commands {
+    @include flexcolumn;
+    gap: 5px;
+
+    div {
+        padding: 5px;
+        background-color: rgba(white, .4);
+        @include flex;
+        justify-content: center;
+        $depth: 4px;
+        $k: 80;
+        box-shadow: $depth $depth 5px rgb($k, $k, $k);
+        transition: 200ms all ease;
+        
+        &:hover {
+            transition: 80ms all ease;
+            background-color: white;
+            box-shadow: none;
+            transform: translateY($depth);
+        }
+
+        // &:active {
+        //     transition: 150ms all ease;
+        //     background-color: rgb(141, 231, 141);
+        //     box-shadow: none;
+        //     transform: translateY($depth) scale(1.2);
+        // }
+        
+        span {
+            width: 46%;
+
+            &:last-child {
+                width: auto;
+                @include flex;
+                justify-content: center;
+                gap: 10px;
+
+                a {
+                    text-decoration: none;
+                    width: 30px;
+                    font-size: 18px;
+                }
+            }
+        }
     }
 }

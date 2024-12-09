@@ -58,8 +58,8 @@ from publications.views import (
 from commands.views import (
     CommandsView,
     NewCommandView,
-    # CommandUpdate,
-    # CommandDelete,
+    CommandUpdate,
+    CommandDelete,
 )
 
 urlpatterns = [
@@ -131,5 +131,15 @@ urlpatterns = [
         "commandes/ajouter/",
         NewCommandView.as_view(),
         name="command_new",
+    ),
+    path(
+        "commandes/<int:pk>/modifier/",
+        CommandUpdate.as_view(),
+        name="command_update",
+    ),
+    path(
+        "commandes/<int:pk>/supprimer/",
+        CommandDelete.as_view(),
+        name="command_delete",
     ),
 ]
