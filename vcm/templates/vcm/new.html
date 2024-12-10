@@ -241,12 +241,16 @@
     <button type="submit">{{submit_text}}</button>
   </form>
 
+  {% comment %}
   <div class="errors">
     <h4>Erreurs</h4>
     
     <ul>
       {% for error in errors %}
-      <li>{{error}}</li>{% endfor %}
+      <li>{{error}}</li>
+      {% endfor %}
     </ul>
+  </div>
+  {% endcomment %}
 </main>
 {% endblock %}

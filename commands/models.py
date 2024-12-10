@@ -15,3 +15,6 @@ class Command(models.Model):
         on_delete=models.CASCADE,
         related_name="publication",
     )
+    quantity = models.IntegerField(
+        max_length=20,
+    )
