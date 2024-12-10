@@ -16,5 +16,5 @@ class Command(models.Model):
         related_name="publication",
     )
     quantity = models.IntegerField(
-        max_length=20,
+        default=1,
     )

@@ -22,12 +22,17 @@ class AddCommand(forms.Form):
         widget=forms.Select(attrs={"class": "form-control"}),
         label="Publication",
     )
+    quantity = forms.IntegerField(
+        required=False,
+        label="Quantité",
+    )
 
     def __init__(self, *args, **kwargs):
         super(AddCommand, self).__init__(*args, **kwargs)
 
         self.fields["person"].label_from_instance = lambda obj: obj.fullname
         self.fields["publication"].label_from_instance = lambda obj: obj.name
+        self.fields["quantity"].initial = 1
 
 
 class CommandForm(forms.ModelForm):
@@ -37,4 +42,5 @@ class CommandForm(forms.ModelForm):
         widgets = {
             "person": forms.Select(attrs={"class": "form-control"}),
             "publication": forms.Select(attrs={"class": "form-control"}),
+            "quantity": forms.Select(attrs={"class": "form-control"}),
         }

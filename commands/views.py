@@ -28,15 +28,17 @@ class CommandsView(View):
 class NewCommandView(View):
     def get(self, request):
         form = AddCommand()
-        title = "Créer une nouvelle commande"
-        submit_text = "Créer la commande"
+        big_title = "Créer une nouvelle commande"
+        small_title = "Nouvelle commande"
+        submit_text = "Créer nouvelle commande"
 
         return render(
             request,
             "commands/new.html",
             {
                 "form": form,
-                "title": title,
+                "big_title": big_title,
+                "small_title": small_title,
                 "submit_text": submit_text,
             },
         )
@@ -49,12 +51,11 @@ class NewCommandView(View):
         if form.is_valid():
             command_data = form.cleaned_data
 
-            command = Command.objects.create(
+            Command.objects.create(
                 person=command_data["person"],
                 publication=command_data["publication"],
+                quantity=command_data["quantity"],
             )
-
-            command.save()
 
             return render(
                 request,
@@ -79,23 +80,10 @@ class NewCommandView(View):
             )
 
 
-from django.shortcuts import get_object_or_404, render
-from django.views import View
-from commands.models import Command
-
-
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
-from .models import Command
-from .forms import AddCommand  # Si c'est AddCommand que vous utilisez
-
-
 class CommandUpdate(View):
     def get(self, request, pk):
-        # Récupérer la commande par son identifiant
         command = get_object_or_404(Command, pk=pk)
 
-        # Extraire les données liées à la personne et à la publication
         my_person = command.person.fullname if command.person else "Personne inconnue"
         my_publication = (
             command.publication.name if command.publication else "Publication inconnue"
@@ -109,6 +97,7 @@ class CommandUpdate(View):
             initial={
                 "person": command.person,
                 "publication": command.publication,
+                "quantity": command.quantity,
             }
         )
 
@@ -122,6 +111,44 @@ class CommandUpdate(View):
                 "form": form,
             },
         )
+
+    def post(self, request, pk):
+        command = get_object_or_404(Command, pk=pk)
+        form = AddCommand(request.POST)
+
+        if form.is_valid():
+            command.person = form.cleaned_data["person"]
+            command.publication = form.cleaned_data["publication"]
+            command.quantity = form.cleaned_data["quantity"]
+            command.save()
+
+            success_message = "La commande a été mise à jour avec succès."
+            
+            return redirect("commands")
+
+            # return render(
+            #     request,
+            #     "commands/new.html",
+            #     {
+            #         "form": form,
+            #         "big_title": f"Modifier la commande de {command.person.fullname}",
+            #         "small_title": f"Publication actuelle : {command.publication.name}",
+            #         "submit_text": "Enregistrer",
+            #         "success": success_message,
+            #     },
+            # )
+        else:
+            return render(
+                request,
+                "commands/new.html",
+                {
+                    "form": form,
+                    "big_title": f"Modifier la commande de {command.person.fullname}",
+                    "small_title": f"Publication actuelle : {command.publication.name}",
+                    "submit_text": "Enregistrer",
+                    "errors": form.errors,
+                },
+            )
 
 
 class CommandDelete(View):
