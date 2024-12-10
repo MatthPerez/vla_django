@@ -19,13 +19,18 @@ main {
     >a {
         @include button;
     }
+
+    section {
+        @include flexcolumn;
+        gap: 1em;
+    }
 }
 
 .meeting {
     position: relative;
     width: clamp(300px, 75vw, 800px);
     overflow: hidden;
-    height: 4em;
+    height: 3em;
     background-color: rgba(white, .1);
     padding: 1em;
     @include flexcolumn;
@@ -41,7 +46,7 @@ main {
     h3 {
         $padding: .5em;
         width: calc(100% - 2 * $padding);
-        font-size: 26px;
+        font-size: 22px;
         text-align: center;
         padding: $padding;
         background-color: rgba(white, .2);

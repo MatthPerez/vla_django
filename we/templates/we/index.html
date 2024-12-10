@@ -8,64 +8,66 @@
 
   <a href="{% url 'new_we' %}">Créer une nouvelle réunion</a>
 
-  {% for meeting in meetings %}
-  <article class="meeting">
-    <h3>{{meeting.date}}</h3>
-
-    <section>
-      <div>
-        <span>Président :</span>
-        <span>{{meeting.president.fullname}}</span>
-      </div>
-    </section>
-
-    <section class="song">Cantique n°{{meeting.song1}}</section>
-
-    <section>
-      {% if meeting.speaker %}
-      <div>
-        <span>Allocuteur</span>
-        <span>{{meeting.speaker.fullname}}</span>
+  <section>
+    {% for meeting in meetings %}
+    <article class="meeting">
+      <h3>{{meeting.date}}</h3>
+  
+      <section>
+        <div>
+          <span>Président :</span>
+          <span>{{meeting.president.fullname}}</span>
+        </div>
+      </section>
+  
+      <section class="song">Cantique n°{{meeting.song1}}</section>
+  
+      <section>
+        {% if meeting.speaker %}
+        <div>
+          <span>Allocuteur</span>
+          <span>{{meeting.speaker.fullname}}</span>
+          {% endif %}
+        </div>
+  
+        {% if meeting.foreign_speaker %}
+        <div>
+          <span>Allocuteur extérieur :</span>
+          <span>{{meeting.foreign_speaker}}</span>
+        </div>
         {% endif %}
-      </div>
-
-      {% if meeting.foreign_speaker %}
-      <div>
-        <span>Allocuteur extérieur :</span>
-        <span>{{meeting.foreign_speaker}}</span>
-      </div>
-      {% endif %}
-
-      <div>
-        <span>Discours :</span>
-        <span class="f-orange">{{meeting.speech_title}}</span>
-      </div>
-    </section>
-
-    <section class="song">Cantique n°{{meeting.song2}}</section>
-
-    <section>
-      <div>
-        <span>Tour de Garde :</span>
-        <span>{{meeting.watchtower.fullname}}</span>
-      </div>
-
-      <div>
-        <span>Lecteur :</span>
-        <span>{{meeting.watchtower_reader.fullname}}</span>
-      </div>
-    </section>
-
-    <section class="song">Cantique n°{{meeting.song3}}</section>
-
-    <a href="{% url 'we_update' meeting.pk %}" class="update-we-meeting" title="Modifier réunion du {{meeting.date}}">
-      ✏️
-    </a>
-    <form action="{% url 'we_delete' meeting.pk %}" method="POST" class="delete-we-meeting" title="Supprimer réunion du {{meeting.date}}">
-      {% csrf_token %}
-      <button type="wubmit">❌</button>
-    </form>
-  </article>
-  {% endfor %}
+  
+        <div>
+          <span>Discours :</span>
+          <span class="f-orange">{{meeting.speech_title}}</span>
+        </div>
+      </section>
+  
+      <section class="song">Cantique n°{{meeting.song2}}</section>
+  
+      <section>
+        <div>
+          <span>Tour de Garde :</span>
+          <span>{{meeting.watchtower.fullname}}</span>
+        </div>
+  
+        <div>
+          <span>Lecteur :</span>
+          <span>{{meeting.watchtower_reader.fullname}}</span>
+        </div>
+      </section>
+  
+      <section class="song">Cantique n°{{meeting.song3}}</section>
+  
+      <a href="{% url 'we_update' meeting.pk %}" class="update-we-meeting" title="Modifier réunion du {{meeting.date}}">
+        ✏️
+      </a>
+      <form action="{% url 'we_delete' meeting.pk %}" method="POST" class="delete-we-meeting" title="Supprimer réunion du {{meeting.date}}">
+        {% csrf_token %}
+        <button type="wubmit">❌</button>
+      </form>
+    </article>
+    {% endfor %}
+  </section>
 </main>
 {% endblock %}
