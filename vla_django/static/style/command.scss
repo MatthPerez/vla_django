@@ -149,3 +149,48 @@ form {
         }
     }
 }
+
+.actions {
+    @include flex;
+    justify-content: center;
+    gap: 2em;
+
+    div {
+        @include border;
+        @include flex;
+        justify-content: center;
+        text-align: center;
+        width: clamp(300px, 30%, 400px);
+        height: 3em;
+        background-color: rgba(white, .4);
+        overflow: hidden;
+        transition: 200ms all ease;
+        
+        span {
+            font-size: 18px;
+            transition: 200ms all ease;
+        }
+
+        &:hover {
+            transition: 80ms all ease;
+            $depth: 2px;
+            $k: 80;
+            box-shadow: inset $depth $depth 5px rgb($k, $k, $k);
+            
+            span {
+                transition: 80ms all ease;
+                transform: translateY(-$depth);
+            }
+        }
+        
+        &:active {
+            background-color: rgb(159, 231, 159);
+        }
+    }
+
+}
+
+.com-active {
+    color: red;
+    background-color: white !important;
+}

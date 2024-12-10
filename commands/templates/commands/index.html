@@ -8,8 +8,29 @@
 
   <a href="{% url 'command_new' %}">Créer une nouvelle commande</a>
 
+  <section class="actions">
+    <div id="persons"><span>Trier par nom de personnes</span></div>
+    <div id="publications"><span>Trier par nom de publications</span></div>
+  </section>
+
   <section class="commands">
-    {% for command in commands %}
+    {% for command in commands_by_persons %}
+    <div>
+      <span>{{forloop.counter}} - {{command.person.fullname}}</span>
+      <span>{{command.quantity}} x {{command.publication.name}}</span>
+      <span>
+        <a href="{% url 'command_update' command.pk %}" title="{{command.person.firstname}} veut autre chose que {{command.publication.name}}">✏️</a>
+        <form action="{% url 'command_delete' command.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" title="{{command.person.firstname}} ne veut plus de {{command.publication.name}}">❌</button>
+        </form>
+      </span>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="commands">
+    {% for command in commands_by_publications %}
     <div>
       <span>{{forloop.counter}} - {{command.person.fullname}}</span>
       <span>{{command.quantity}} x {{command.publication.name}}</span>

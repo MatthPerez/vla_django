@@ -279,4 +279,45 @@ form button:focus {
   transition: none;
   transform: none;
   cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+.actions div {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: clamp(300px, 30%, 400px);
+  height: 3em;
+  background-color: rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  transition: 200ms all ease;
+}
+.actions div span {
+  font-size: 18px;
+  transition: 200ms all ease;
+}
+.actions div:hover {
+  transition: 80ms all ease;
+  box-shadow: inset 2px 2px 5px rgb(80, 80, 80);
+}
+.actions div:hover span {
+  transition: 80ms all ease;
+  transform: translateY(-2px);
+}
+.actions div:active {
+  background-color: rgb(159, 231, 159);
+}
+
+.com-active {
+  color: red;
+  background-color: white !important;
 }/*# sourceMappingURL=command.css.map */

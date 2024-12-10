@@ -12,7 +12,8 @@ class CommandsView(View):
     def get(self, request):
         publications = Publication.objects.order_by("name")
         persons = Person.objects.order_by("group", "lastname", "firstname")
-        commands = Command.objects.order_by("person_id")
+        commands_by_persons = Command.objects.order_by("person_id")
+        commands_by_publications = Command.objects.order_by("publication_id")
 
         return render(
             request,
@@ -20,7 +21,8 @@ class CommandsView(View):
             {
                 "publications": publications,
                 "persons": persons,
-                "commands": commands,
+                "commands_by_persons": commands_by_persons,
+                "commands_by_publications": commands_by_publications,
             },
         )
 
