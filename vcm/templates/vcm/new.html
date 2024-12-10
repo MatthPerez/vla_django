@@ -8,8 +8,22 @@
     <a href="{% url 'vcm' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour VCM"
     /></a>
-    <span>{{big_title}}</span>
-    <span>{{small_title}}</span>
+    
+    <span>
+      {% if big_title %}
+      {{big_title}}
+      {% else %}
+      Créer une nouvelle réunion
+      {% endif %}
+    </span>
+
+    <span>
+      {% if small_title %}
+      {{small_title}}
+      {% else %}
+      Nouvelle réunion
+      {% endif %}
+    </span>
   </h1>
 
   <form method="POST">

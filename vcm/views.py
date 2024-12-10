@@ -3,17 +3,23 @@ from django.views import View
 from django.shortcuts import get_object_or_404, redirect, render
 from vcm.models import Meeting
 from vcm.forms import AddMeeting
-from datetime import datetime
+from datetime import timedelta
+from django.utils.timezone import now
 
 
 class VcmMeetingView(ListView):
-    model = Meeting
+    model = Meeting.objects
     template_name = "vcm/index.html"
     context_object_name = "meetings"
 
     def get_queryset(self):
-        today = datetime.today().date()
-        return Meeting.objects.filter(date__gte=today).order_by("date")
+        three_days_ago = now().date() - timedelta(days=3)
+        # in_two_month = now().date() + timedelta(days=60)
+
+        return Meeting.objects.filter(
+            date__gte=three_days_ago,
+            # date__lte=in_two_month,
+        ).order_by("date")
 
 
 class VcmMeetingDetail(DetailView):
@@ -132,14 +138,14 @@ class NewVcmView(View):
 class VcmUpdate(View):
     def get(self, request, pk):
         meeting = Meeting.objects.get(pk=pk)
-        
+
         big_title = f"Modifier réunion VCM du {meeting.date}"
         small_title = f"Modifier réunion du {meeting.date}"
         submit_text = "Mettre à jour la réunion"
 
         form = AddMeeting(
             initial={
-                "date": meeting.date.strftime("%d/%m/%Y"),
+                "date": meeting.date.strftime("%Y-%m-%d"),
                 "president": meeting.president,
                 "prayer1": meeting.prayer1,
                 "prayer2": meeting.prayer2,
@@ -258,7 +264,7 @@ class VcmUpdate(View):
             meeting.eba_reader = form.cleaned_data["eba_reader"]
             meeting.supervisor = form.cleaned_data["supervisor"]
             meeting.special_speech = form.cleaned_data["special_speech"]
-            print(form)
+            print("Formulaire valide, données :", form.cleaned_data)
             meeting.save()
 
             return redirect("vcm")

@@ -148,11 +148,8 @@
 
         <div>
           <p>{{comm.content1}}</p>
-          {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank"
-            >{{comm.content2}}</a
-          >{% endif %} {% if comm.content3 %}
-          <p>{{comm.content3}}</p>
-          {% endif %}
+          {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank">{{comm.content2}}</a>{% endif %}
+          {% if comm.content3 %}<p>{{comm.content3}}</p>{% endif %}
         </div>
       </article>
       {% endfor %}

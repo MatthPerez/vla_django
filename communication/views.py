@@ -52,14 +52,7 @@ class NewCommunicationView(View):
 
             comm.save()
 
-            return render(
-                request,
-                "communication/new.html",
-                {
-                    "form": form,
-                    "success": "Communication ajoutée avec succès.",
-                },
-            )
+            return redirect("communications")
 
         else:
             print(form.errors)
@@ -82,7 +75,7 @@ class CommunicationUpdate(View):
 
         form = AddCommunication(
             initial={
-                "date": communication.date,
+                "date": communication.date.strftime("%Y-%m-%d"),
                 "title": communication.title,
                 "category": communication.category,
                 "content1": communication.content1,
@@ -116,14 +109,10 @@ class CommunicationUpdate(View):
 
             return redirect("communication")
 
-        return render(
-            request,
-            "communication/new.html",
-            {
-                "form": form,
-                "errors": form.errors,
-            },
-        )
+        else:
+            print(form.errors)
+
+            return redirect("communication")
 
 
 class CommunicationDelete(View):
