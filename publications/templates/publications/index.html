@@ -10,7 +10,7 @@
   <section>
     <a href="{% url 'publication_new' %}">Créer une nouvelle publication</a>
 
-    <section>
+    <div class="publications">
       {% for pub in publications %}
       <article>
         <div>{{pub.name}}</div>
@@ -31,12 +31,13 @@
         </div>
       </article>
       {% endfor %}
-    </section>
+    </div>
   </section>
 
   <section>
     <a href="{% url 'command_new' %}">Créer une nouvelle commande</a>
 
+    {% comment %}
     <section>
       {% for person in persons %}
       <div>
@@ -46,6 +47,28 @@
       </div>
       {% endfor %}
     </section>
+    {% endcomment %}
+
+    <div class="commands">
+      <a href="{% url 'commands' %}">Liste des commandes</a>
+    
+      {% for data in persons %}
+        {% if data.commands %}
+        <article>
+          <div>
+            <span class="bold">{{ data.person.fullname }}</span>
+            <span>({{ data.person.group.name }})</span>
+          </div>
+    
+          <div>
+            {% for command in data.commands %}
+            <span>{{ command.quantity }} x {{ command.publication.name }}</span>
+            {% endfor %}
+          </div>
+        </article>
+        {% endif %}
+      {% endfor %}
+    </div>
   </section>
 </main>
 {% endblock %}

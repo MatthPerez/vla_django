@@ -60,8 +60,8 @@ main {
 
     >section {
         // width: 100vw;
-        width: clamp(300px, 90%, 1200px);
-        background-color: var(--color-quaternary3);
+        width: clamp(300px, 90%, 1500px);
+        // background-color: var(--color-quaternary3);
         @include flexcolumn;
         gap: 2em;
         padding: 2em 0;
@@ -70,72 +70,12 @@ main {
             @include button;
         }
 
-        section {
-            @include flex;
-            justify-content: center;
-            gap: 1em;
-            flex-wrap: wrap;
-
-            article {
-                width: auto;
-                padding: 10px;
-                border-radius: 10px;
-                background-color: rgba(white, .5);
-                $offset: 4px;
-                $k: 80;
-                box-shadow: $offset $offset 5px rgb($k, $k, $k);
-                @include flex;
-                justify-content: center;
-                gap: 1em;
-                transition: 300ms all ease;
-
-                @media (width<=768px) {
-                    padding: 5px;
-                    gap: .5em;
-                }
-
-                &:hover {
-                    transition: 80ms all ease;
-                    box-shadow: none;
-                    transform: translateY($offset);
-                }
-
-                div {
-                    width: auto;
-                    @include flex;
-                    gap: 5px;
-
-                    a {
-                        width: auto;
-                        text-decoration: none;
-                    }
-
-                    form {
-                        button {
-                            @include no-border;
-                            cursor: pointer;
-                            background-color: transparent;
-                        }
-                    }
-
-                    a,
-                    form {
-                        @include flex;
-                        justify-content: center;
-                        width: 30px;
-                        aspect-ratio: 1;
-                        text-align: center;
-                    }
-                }
-            }
-        }
-
         &:nth-child(3) {
             section {
                 @include flexcolumn;
                 gap: 0;
                 width: clamp(300px, 70%, 800px);
-                
+
                 @media (width<=768px) {
                     width: clamp(300px, 90%, 700px);
                 }
@@ -171,6 +111,101 @@ main {
                     }
                 }
             }
+        }
+    }
+}
+
+.publications {
+    width: clamp(250px, 80%, 1000px);
+    @include flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+
+    >article {
+        width: auto;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(white, .5);
+        $offset: 4px;
+        $k: 80;
+        box-shadow: $offset $offset 5px rgb($k, $k, $k);
+        @include flex;
+        justify-content: center;
+        gap: 1em;
+        transition: 300ms all ease;
+
+        @media (width<=768px) {
+            padding: 5px;
+            gap: .5em;
+        }
+
+        &:hover {
+            transition: 80ms all ease;
+            box-shadow: none;
+            transform: translateY($offset);
+        }
+
+        div {
+            width: auto;
+            @include flex;
+            gap: 5px;
+
+            a {
+                width: auto;
+                text-decoration: none;
+            }
+
+            form {
+                button {
+                    @include no-border;
+                    cursor: pointer;
+                    background-color: transparent;
+                }
+            }
+
+            a,
+            form {
+                @include flex;
+                justify-content: center;
+                width: 30px;
+                aspect-ratio: 1;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.commands {
+    width: clamp(300px, 60%, 800px);
+    @include flexcolumn;
+    gap: 10px;
+    margin: 2em 0;
+
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 26px;
+        font-weight: bold;
+        text-align: center;
+        background-color: rgba(white, .4);
+        padding: .5em;
+        margin-bottom: 1em;
+    }
+
+    article {
+        @include flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: auto;
+        background-color: var(--color-quaternary3);
+        
+        div {
+            @include flexcolumn;
+            width: 50%;
+            align-items: flex-start;
+            font-size: 16px;
+            padding: 5px;
         }
     }
 }

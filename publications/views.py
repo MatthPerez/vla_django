@@ -5,22 +5,46 @@ from django.views import View
 from publications.forms import AddPublication
 from publications.models import Publication
 from persons.models import Person
-from groups.models import Group
+from commands.models import Command
+
+
+# class PublicationView(View):
+#     def get(self, request):
+#         publications = Publication.objects.order_by("name")
+#         persons = Person.objects.order_by("group", "lastname", "firstname")
+#         groups = Group.objects.order_by("name")
+
+#         return render(
+#             request,
+#             "publications/index.html",
+#             {
+#                 "publications": publications,
+#                 "persons": persons,
+#                 "groups": groups,
+#             },
+#         )
 
 
 class PublicationView(View):
     def get(self, request):
         publications = Publication.objects.order_by("name")
         persons = Person.objects.order_by("group", "lastname", "firstname")
-        groups = Group.objects.order_by("name")
+
+        person_publications = []
+        for person in persons:
+            commands = Command.objects.filter(person=person).select_related("publication")
+            person_data = {
+                "person": person,
+                "commands": commands,
+            }
+            person_publications.append(person_data)
 
         return render(
             request,
             "publications/index.html",
             {
                 "publications": publications,
-                "persons": persons,
-                "groups": groups,
+                "persons": person_publications,
             },
         )
 

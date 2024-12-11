@@ -187,8 +187,7 @@ main > form button:focus {
   background-color: rgba(136, 230, 136, 0.5);
 }
 main > section {
-  width: clamp(300px, 90%, 1200px);
-  background-color: var(--color-quaternary3);
+  width: clamp(300px, 90%, 1500px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -212,65 +211,6 @@ main > section > a:hover {
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: none;
   transform: translateY(4px);
-}
-main > section section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-main > section section article {
-  width: auto;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 4px 4px 5px rgb(80, 80, 80);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  transition: 300ms all ease;
-}
-@media (width <= 768px) {
-  main > section section article {
-    padding: 5px;
-    gap: 0.5em;
-  }
-}
-main > section section article:hover {
-  transition: 80ms all ease;
-  box-shadow: none;
-  transform: translateY(4px);
-}
-main > section section article div {
-  width: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-}
-main > section section article div a {
-  width: auto;
-  text-decoration: none;
-}
-main > section section article div form button {
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-}
-main > section section article div a,
-main > section section article div form {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  aspect-ratio: 1;
-  text-align: center;
 }
 main > section:nth-child(3) section {
   display: flex;
@@ -310,4 +250,102 @@ main > section:nth-child(3) section div span:first-child {
 }
 main > section:nth-child(3) section div span:last-child {
   width: auto;
+}
+
+.publications {
+  width: clamp(250px, 80%, 1000px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.publications > article {
+  width: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 5px rgb(80, 80, 80);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  transition: 300ms all ease;
+}
+@media (width <= 768px) {
+  .publications > article {
+    padding: 5px;
+    gap: 0.5em;
+  }
+}
+.publications > article:hover {
+  transition: 80ms all ease;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+.publications > article div {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.publications > article div a {
+  width: auto;
+  text-decoration: none;
+}
+.publications > article div form button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.publications > article div a,
+.publications > article div form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  aspect-ratio: 1;
+  text-align: center;
+}
+
+.commands {
+  width: clamp(300px, 60%, 800px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 2em 0;
+}
+.commands a {
+  text-decoration: none;
+  color: black;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+.commands article {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: auto;
+  background-color: var(--color-quaternary3);
+}
+.commands article div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  align-items: flex-start;
+  font-size: 16px;
+  padding: 5px;
 }/*# sourceMappingURL=publications.css.map */
