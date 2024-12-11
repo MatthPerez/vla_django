@@ -52,7 +52,7 @@ class NewCommunicationView(View):
 
             comm.save()
 
-            return redirect("communications")
+            return redirect("communication")
 
         else:
             print(form.errors)

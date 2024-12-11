@@ -339,6 +339,11 @@ main > section:nth-child(3) section div span:last-child {
   align-items: flex-start;
   height: auto;
   background-color: var(--color-quaternary3);
+  transition: 200ms all ease;
+}
+.commands article:hover {
+  transition: 80ms all ease;
+  background-color: var(--color-tertiary3);
 }
 .commands article div {
   display: flex;
