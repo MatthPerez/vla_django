@@ -15,7 +15,7 @@
 
 <div id="logo">
     <div>
-        <a href="/">Assemblée de VLA</a>
+        <a href="/">Accueil</a>
         <img src="{% static 'icons/favicon.ico' %}" alt="logo">
     </div>
     <div>
@@ -33,4 +33,5 @@
     <a href="{% url 'persons' %}" class="{% if '/personnes/' in request.path %}smallActive{% endif %}">Membres</a>
     <a href="{% url 'publications' %}" class="{% if '/publications/' in request.path %}smallActive{% endif %}">Publications</a>
     <a href="{% url 'groups' %}" class="{% if '/groupes/' in request.path %}smallActive{% endif %}">Groupes</a>
+    <a href="{% url 'infos' %}" class="{% if '/infos/' in request.path %}smallActive{% endif %}">Mentions légales</a>
 </div>
