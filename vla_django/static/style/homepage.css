@@ -282,6 +282,7 @@ main section {
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
+  flex-wrap: wrap;
 }
 #details li * {
   width: auto;
@@ -293,12 +294,20 @@ main section {
 #details li a {
   text-decoration: none;
   color: var(--color-primary-gray);
+  white-space: nowrap;
   transition: 300ms all ease;
 }
 #details li a:hover {
   transition: 150ms all ease;
   color: var(--hover);
   color: var(--color-secondary-gray);
+}
+@media (width <= 768px) {
+  #details li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
 }
 
 @media (width <= 768px) {
@@ -381,6 +390,22 @@ main section {
   padding: 5px 15px;
   background-color: rgba(255, 255, 255, 0.5);
 }
+@media (width <= 768px) {
+  #com-content article h3 {
+    flex-direction: column;
+  }
+  #com-content article h3 span {
+    text-align: center;
+  }
+  #com-content article h3 span:nth-child(2) {
+    display: none;
+  }
+  #com-content article div a {
+    max-width: 30ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
 .articles {
   display: flex;
@@ -405,10 +430,14 @@ main section {
 }
 .articles a span {
   text-align: center;
-  white-space: nowrap;
   overflow: hidden;
   max-width: 60ch;
-  text-overflow: ellipsis;
+}
+@media (width <= 1000px) {
+  .articles a span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 .articles a:hover {
   transition: 150ms all ease;
@@ -420,6 +449,7 @@ main section {
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  gap: 1em;
   width: clamp(300px, 80%, 800px);
 }
 #predication article {

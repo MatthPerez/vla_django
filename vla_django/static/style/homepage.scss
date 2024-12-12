@@ -203,6 +203,7 @@ main {
         @include flex;
         justify-content: flex-start;
         gap: 10px;
+        flex-wrap: wrap;
 
         * {
             width: auto;
@@ -216,6 +217,7 @@ main {
         a {
             text-decoration: none;
             color: var(--color-primary-gray);
+            white-space: nowrap;
             transition: 300ms all ease;
 
             &:hover {
@@ -223,6 +225,12 @@ main {
                 color: var(--hover);
                 color: var(--color-secondary-gray);
             }
+        }
+
+        @media (width<=768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
         }
     }
 }
@@ -280,6 +288,7 @@ main {
             justify-content: flex-start;
             gap: 5px;
 
+
             span {
                 &:nth-child(3) {
                     color: #bb1616;
@@ -304,6 +313,28 @@ main {
                 background-color: rgba(white, .5);
             }
         }
+
+        @media (width<=768px) {
+            h3 {
+                flex-direction: column;
+
+                span {
+                    text-align: center;
+
+                    &:nth-child(2) {
+                        display: none;
+                    }
+                }
+            }
+
+            div {
+                a {
+                    max-width: 30ch;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
     }
 }
 
@@ -326,10 +357,13 @@ main {
 
         span {
             text-align: center;
-            white-space: nowrap;
             overflow: hidden;
             max-width: 60ch;
-            text-overflow: ellipsis;
+
+            @media (width<=1000px) {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
         }
 
         &:hover {
@@ -342,6 +376,7 @@ main {
 #predication {
     @include flex;
     justify-content: space-evenly;
+    gap: 1em;
     width: clamp(300px, 80%, 800px);
 
     article {
