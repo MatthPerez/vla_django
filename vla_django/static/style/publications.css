@@ -314,7 +314,7 @@ main > section:nth-child(3) section div span:last-child {
 }
 
 .commands {
-  width: clamp(300px, 60%, 800px);
+  width: clamp(300px, 90%, 400px);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -175,7 +175,6 @@ main > a:hover {
   }
 }
 .meeting-list > article:hover {
-  transition: 150ms all ease;
   background-color: rgba(255, 255, 255, 0.3);
 }
 .meeting-list > article a {

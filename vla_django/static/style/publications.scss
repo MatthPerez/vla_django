@@ -177,7 +177,7 @@ main {
 }
 
 .commands {
-    width: clamp(300px, 60%, 800px);
+    width: clamp(300px, 90%, 400px);
     @include flexcolumn;
     gap: 10px;
     margin: 2em 0;
@@ -200,12 +200,12 @@ main {
         height: auto;
         background-color: var(--color-quaternary3);
         transition: 200ms all ease;
-        
+
         &:hover {
             transition: 80ms all ease;
             background-color: var(--color-tertiary3);
         }
-        
+
         div {
             @include flexcolumn;
             width: 50%;
