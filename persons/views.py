@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from persons.models import Person
 from persons.forms import AddPerson
+# from django.contrib.auth.decorators import login_required
 
 
 class PersonsView(ListView):
@@ -30,6 +31,7 @@ class PersonDetail(DetailView):
         return context
 
 
+# @login_required
 class PersonCreate(View):
     def get(self, request):
         form = AddPerson()
@@ -76,6 +78,7 @@ class PersonCreate(View):
             )
 
 
+# @login_required
 class PersonUpdate(View):
     def get(self, request, pk):
         person = Person.objects.get(pk=pk)
@@ -130,6 +133,7 @@ class PersonUpdate(View):
         )
 
 
+# @login_required
 class PersonDelete(View):
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")

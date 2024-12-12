@@ -326,6 +326,10 @@ main {
 
         span {
             text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            max-width: 60ch;
+            text-overflow: ellipsis;
         }
 
         &:hover {

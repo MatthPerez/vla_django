@@ -405,6 +405,10 @@ main section {
 }
 .articles a span {
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 60ch;
+  text-overflow: ellipsis;
 }
 .articles a:hover {
   transition: 150ms all ease;

@@ -62,9 +62,12 @@ from commands.views import (
     CommandDelete,
 )
 
+from accounts.views import Register
+
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
     path("admin/", admin.site.urls),
+    path("accounts/", Register.as_view(), name="register"),
     path("infos/", InfosView.as_view(), name="infos"),
     path("vcm/", VcmMeetingView.as_view(), name="vcm"),
     path("vcm/ajouter/", NewVcmView.as_view(), name="new_vcm"),
