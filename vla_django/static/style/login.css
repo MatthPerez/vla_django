@@ -135,9 +135,6 @@ form section div {
   align-items: center;
   justify-content: space-between;
 }
-form section label {
-  text-indent: 3em;
-}
 form section input,
 form section select {
   width: calc(70% - 20px);
