@@ -123,6 +123,22 @@ nav {
             position: fixed;
             top: $side;
             left: $side;
+
+            &:last-child {
+                width: 30px;
+                aspect-ratio: 1;
+                position: static;
+                border-radius: 10px;
+                background-color: rgba(white, .5);
+                padding: 5px;
+                transition: 300ms all ease;
+                
+                &:hover {
+                    transition: 150ms all ease;
+                    background-color: rgba(white, .7);
+                    transform: scale(1.05);
+                }
+            }
         }
 
         &:hover {

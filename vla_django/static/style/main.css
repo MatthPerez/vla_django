@@ -200,6 +200,20 @@ nav a img {
   top: 2em;
   left: 2em;
 }
+nav a img:last-child {
+  width: 30px;
+  aspect-ratio: 1;
+  position: static;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+  transition: 300ms all ease;
+}
+nav a img:last-child:hover {
+  transition: 150ms all ease;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(1.05);
+}
 nav a:hover {
   transition: 150ms all ease;
   color: var(--hover);

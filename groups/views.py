@@ -1,10 +1,8 @@
 from django.shortcuts import render
 from django.views import View
-from django.shortcuts import render
-from django.views import View
 from persons.models import Person
-from groups.forms import AddGroup
 from groups.models import Group
+from groups.forms import AddGroup
 
 
 class GroupsView(View):

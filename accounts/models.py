@@ -57,8 +57,8 @@ class Profile(models.Model):
     )
 
 
-def post_save_receiver(sender, isntance, created, **kwargs):
+def post_save_receiver(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=isntance)
+        Profile.objects.create(user=instance)
         
 post_save.connect(post_save_receiver, sender=settings.AUTH_USER_MODEL)

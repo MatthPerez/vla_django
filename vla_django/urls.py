@@ -62,6 +62,8 @@ from commands.views import (
     CommandDelete,
 )
 
+from accounts.views import Signup
+
 
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
@@ -142,5 +144,10 @@ urlpatterns = [
         "commandes/<int:pk>/supprimer/",
         CommandDelete.as_view(),
         name="command_delete",
+    ),
+    path(
+        "inscription",
+        Signup.as_view(),
+        name="signup",
     ),
 ]

@@ -3,6 +3,7 @@
 {% endblock %} {% block script_js %}
 <script src="{% static 'js/homepage.js' %}"></script>
 {% endblock %} {% block title %}VLA | Accueil{% endblock %} {% block content %}
+{% comment %} <div class="top"></div> {% endcomment %}
 <main>
   <div class="billboard_title">
     <span>Titre principal du site JW.org :</span>
@@ -120,9 +121,7 @@
       </div>
       <div>{{predication.place2}}</div>
     </article>
-    {% endif %}
-
-    {% if predication.manager3 %}
+    {% endif %} {% if predication.manager3 %}
     <article>
       <div>
         <span>{{predication.time3}}</span>
@@ -148,8 +147,11 @@
 
         <div>
           <p>{{comm.content1}}</p>
-          {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank">{{comm.content2}}</a>{% endif %}
-          {% if comm.content3 %}<p>{{comm.content3}}</p>{% endif %}
+          {% if comm.content2 %}<a href="{{comm.content2}}" target="_blank"
+            >{{comm.content2}}</a
+          >{% endif %} {% if comm.content3 %}
+          <p>{{comm.content3}}</p>
+          {% endif %}
         </div>
       </article>
       {% endfor %}
