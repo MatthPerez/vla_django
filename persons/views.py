@@ -38,7 +38,8 @@ class PersonDetail(DetailView):
 
 
 class PersonCreate(UserPassesTestMixin, View):
-    test_func = is_admin
+    def test_func(self):
+        return is_admin(self.request.user)
 
     def handle_no_permission(self):
         return redirect("persons")
@@ -86,6 +87,9 @@ class PersonCreate(UserPassesTestMixin, View):
                 "persons/new.html",
                 {"form": form, "errors": form.errors},
             )
+
+    def handle_no_permission(self):
+        return redirect("persons")
 
 
 class PersonUpdate(UserPassesTestMixin, View):
@@ -152,7 +156,9 @@ class PersonUpdate(UserPassesTestMixin, View):
 
 
 class PersonDelete(UserPassesTestMixin, View):
-    test_func = is_admin
+
+    def test_func(self):
+        return is_admin(self.request.user)
 
     def handle_no_permission(self):
         return redirect("persons")

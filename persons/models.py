@@ -57,6 +57,7 @@ class Person(models.Model):
     )
 
     STATUS = (
+        ("STUDENT", "Etudiant"),
         ("UNBAPT_PUBLISHER", "Proclamateur non baptisé"),
         ("PUBLISHER", "Proclamateur"),
         ("TEMPORARY", "Pionnier auxiliaire"),

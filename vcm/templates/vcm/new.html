@@ -252,7 +252,13 @@
     <div class="error">{{ form.non_field_errors }}</div>
     {% endif %}
 
-    <button type="submit">{{submit_text}}</button>
+    <button type="submit">
+      {% if submit_text %}
+      {{submit_text}}
+      {% else %}
+      Enregistrer
+      {% endif %}
+    </button>
   </form>
 
   {% comment %}
