@@ -2,18 +2,15 @@
 <link rel="stylesheet" href="{% static 'style/login.css' %}" />
 {% endblock %} {% block script_js %}
 <script src="{% static 'js/login.js' %}" defer></script>
-{% endblock %} {% block title %}VLA | S'inscrire{% endblock %} {% block content %}
+{% endblock %} {% block title %}VLA | Connexion{% endblock %} {% block content %}
 <main>
-  <h1>{% if title %} {{ title }} {% else %} S'inscrire {% endif %}</h1>
+  <h1>{% if title %} {{ title }} {% else %} Connexion {% endif %}</h1>
 
   <form method="POST">
     {% csrf_token %}
     <section>
       <div>{{ form.email.label_tag }} {{ form.email }}</div>
       <div>{{ form.password.label_tag }} {{ form.password }}</div>
-      <div>{{ form.first_name.label_tag }} {{ form.first_name }}</div>
-      <div>{{ form.last_name.label_tag }} {{ form.last_name }}</div>
-      <div>{{ form.city.label_tag }} {{ form.city }}</div>
     </section>
 
     {% if form.non_field_errors %}
@@ -21,8 +18,10 @@
     {% endif %}
 
     <button type="submit">
-      {% if submit_text %}{{ submit_text }}{% else %}S'inscrire{% endif %}
+      {% if submit_text %}{{ submit_text }}{% else %}Se connecter{% endif %}
     </button>
   </form>
+
+  <a href="{% url 'signup' %}">Pas de compte ? S'inscrire</a>
 </main>
 {% endblock %}

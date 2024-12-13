@@ -1,9 +1,15 @@
 from django.views import View
 from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404, redirect, render
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.views import View
+from django.shortcuts import redirect
 from .models import Person
 from .forms import AddPerson
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 class PersonsView(ListView):
@@ -31,8 +37,12 @@ class PersonDetail(DetailView):
         return context
 
 
-# @login_required
-class PersonCreate(View):
+class PersonCreate(UserPassesTestMixin, View):
+    test_func = is_admin
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     def get(self, request):
         form = AddPerson()
         submit_text = "Créer"
@@ -78,8 +88,16 @@ class PersonCreate(View):
             )
 
 
-# @login_required
-class PersonUpdate(View):
+class PersonUpdate(UserPassesTestMixin, View):
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     def get(self, request, pk):
         person = Person.objects.get(pk=pk)
         submit_text = "Mettre à jour"
@@ -133,8 +151,12 @@ class PersonUpdate(View):
         )
 
 
-# @login_required
-class PersonDelete(View):
+class PersonDelete(UserPassesTestMixin, View):
+    test_func = is_admin
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         person = get_object_or_404(Person, pk=pk)

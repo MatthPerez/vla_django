@@ -12,16 +12,12 @@ from .models import CustomUser
 
 class Signup(View):
     def get(self, request):
-        title = "Inscription"
-        submit_text = "S'inscrire"
         form = AddCustomUser()
 
         return render(
             request,
-            "accounts/register.html",
+            "accounts/signup.html",
             {
-                "title": title,
-                "submit_text": submit_text,
                 "form": form,
             },
         )
@@ -57,15 +53,11 @@ class Signup(View):
 
 
 class Signin(LoginView):
-    template_name = "accounts/signup.html"
+    template_name = "accounts/signin.html"
     success_url = reverse_lazy("index")
 
     def get_success_url(self):
         return self.success_url
-
-
-# class Logout(LogoutView):
-#     next_page = reverse_lazy("index")
 
 
 class Logout(LogoutView):
