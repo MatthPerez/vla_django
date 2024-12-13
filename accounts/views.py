@@ -1,7 +1,13 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.views import View
-from accounts.models import CustomUser
-from accounts.forms import AddCustomUser
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.backends import ModelBackend
+from django.contrib.auth import login, authenticate
+from django.views.generic import FormView
+from django.urls import reverse_lazy
+from .forms import AddCustomUser, SigninForm
+from .models import CustomUser
 
 
 class Signup(View):
@@ -12,7 +18,7 @@ class Signup(View):
 
         return render(
             request,
-            "accounts/login.html",
+            "accounts/register.html",
             {
                 "title": title,
                 "submit_text": submit_text,
@@ -42,9 +48,74 @@ class Signup(View):
 
             return render(
                 request,
-                "accounts/login.html",
+                "accounts/signup.html",
                 {
                     "form": form,
                     "errors": form.errors,
                 },
             )
+
+
+class Signin(LoginView):
+    template_name = "accounts/signup.html"
+    success_url = reverse_lazy("index")
+
+    def get_success_url(self):
+        return self.success_url
+
+
+# class Logout(LogoutView):
+#     next_page = reverse_lazy("index")
+
+
+class Logout(LogoutView):
+    next_page = reverse_lazy("index")
+
+    def get(self, request, *args, **kwargs):
+        user = request.user
+
+        response = super().get(request, *args, **kwargs)
+
+        if "next" in request.session:
+            return HttpResponseRedirect(request.session.pop("next"))
+
+        return response
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return HttpResponseRedirect(reverse_lazy("index"))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class EmailAuthBackend(ModelBackend):
+    def authenticate(self, request, username=None, password=None, **kwargs):
+        try:
+            user = CustomUser.objects.get(email=username)
+            if user.check_password(password):
+                return user
+        except CustomUser.DoesNotExist:
+            return None
+
+    def get_user(self, user_id):
+        try:
+            return CustomUser.objects.get(pk=user_id)
+        except CustomUser.DoesNotExist:
+            return None
+
+
+class Signin(FormView):
+    form_class = SigninForm
+    template_name = "accounts/signin.html"
+    success_url = "/"
+
+    def form_valid(self, form):
+        email = form.cleaned_data["email"]
+        password = form.cleaned_data["password"]
+        user = authenticate(self.request, username=email, password=password)
+
+        if user is not None:
+            login(self.request, user)
+            return super().form_valid(form)
+        else:
+            form.add_error(None, "Email ou mot de passe incorrect.")
+            return self.form_invalid(form)

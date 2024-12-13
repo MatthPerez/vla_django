@@ -62,7 +62,7 @@ from commands.views import (
     CommandDelete,
 )
 
-from accounts.views import Signup
+from accounts.views import Signup, Signin, Logout
 
 
 urlpatterns = [
@@ -146,8 +146,18 @@ urlpatterns = [
         name="command_delete",
     ),
     path(
-        "inscription",
+        "inscription/",
         Signup.as_view(),
         name="signup",
+    ),
+    path(
+        "connexion/",
+        Signin.as_view(),
+        name="signin",
+    ),
+    path(
+        "deconnexion/",
+        Logout.as_view(),
+        name="logout",
     ),
 ]

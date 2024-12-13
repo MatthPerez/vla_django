@@ -1,5 +1,6 @@
 from django import forms
-from accounts.models import CustomUser
+from django.contrib.auth import authenticate
+from .models import CustomUser
 
 
 class AddCustomUser(forms.Form):
@@ -38,3 +39,20 @@ class CustomUserForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         fields = "__all__"
+
+
+class SigninForm(forms.Form):
+    email = forms.EmailField(label="Email")
+    password = forms.CharField(
+        widget=forms.PasswordInput,
+        label="Mot de passe",
+    )
+
+    def clean(self):
+        email = self.cleaned_data.get("email")
+        password = self.cleaned_data.get("password")
+        if email and password:
+            user = authenticate(email=email, password=password)
+            if user is None:
+                raise forms.ValidationError("Email ou mot de passe incorrect.")
+        return self.cleaned_data

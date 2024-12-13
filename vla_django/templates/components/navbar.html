@@ -11,7 +11,12 @@
     <a href="{% url 'persons' %}" class="{% if '/personnes/' in request.path %}active{% endif %}">Membres</a>
     <a href="{% url 'publications' %}" class="{% if '/publications/' in request.path %}active{% endif %}">Publications</a>
     <a href="{% url 'groups' %}" class="{% if '/groupes/' in request.path %}active{% endif %}">Groupes</a>
-    <a href="{% url 'signup' %}" class="{% if '/signup/' in request.path %}active{% endif %}"><img src="{% static 'icons/locked.png' %}" title="Connexion" alt="Non connecté"></a>
+
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'logout' %}"><img src="{% static 'icons/unlocked.png' %}" title="Déconnexion de {{user.first_name}}" alt="Déconnexion"></a>
+    {% else %}
+    <a href="{% url 'signin' %}"><img src="{% static 'icons/locked.png' %}" title="Connexion" alt="Connexion"></a>
+    {% endif %}
 </nav>
 
 <div id="logo">
@@ -35,5 +40,5 @@
     <a href="{% url 'publications' %}" class="{% if '/publications/' in request.path %}smallActive{% endif %}">Publications</a>
     <a href="{% url 'groups' %}" class="{% if '/groupes/' in request.path %}smallActive{% endif %}">Groupes</a>
     <a href="{% url 'infos' %}" class="{% if '/infos/' in request.path %}smallActive{% endif %}">Mentions légales</a>
-    <a href="{% url 'signup' %}" class="{% if '/signup/' in request.path %}smallActive{% endif %}">Connexion</a>
+    <a href="{% url 'signin' %}" class="{% if '/signin/' in request.path %}smallActive{% endif %}">Connexion</a>
 </div>

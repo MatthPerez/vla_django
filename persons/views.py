@@ -1,9 +1,9 @@
+from django.views import View
 from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404, redirect, render
-from django.views import View
-from persons.models import Person
-from persons.forms import AddPerson
 # from django.contrib.auth.decorators import login_required
+from .models import Person
+from .forms import AddPerson
 
 
 class PersonsView(ListView):

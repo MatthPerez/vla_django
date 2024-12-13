@@ -1,0 +1,11 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/login.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/login.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Connexion{% endblock %} {% block content %}
+<main>
+  <h1>Se connecter</h1>
+
+  <a href="{% url 'signup' %}">Pas de compte ? S'inscrire</a>
+</main>
+{% endblock %}
