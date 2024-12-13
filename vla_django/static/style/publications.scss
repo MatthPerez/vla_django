@@ -177,9 +177,11 @@ main {
 }
 
 .commands {
-    width: clamp(300px, 90%, 400px);
-    @include flexcolumn;
-    gap: 10px;
+    width: clamp(300px, 90%, 1200px);
+    @include flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
     margin: 2em 0;
 
     a {
@@ -194,22 +196,27 @@ main {
     }
 
     article {
+        width: clamp(300px, 30%, 450px);
+        height: auto;
+        min-height: 4em;
         @include flex;
         justify-content: space-between;
-        align-items: flex-start;
-        height: auto;
         background-color: var(--color-quaternary3);
+        $depth: 3px;
+        $k: 80;
+        box-shadow: $depth $depth 5px rgb($k, $k, $k);
         transition: 200ms all ease;
 
         &:hover {
             transition: 80ms all ease;
             background-color: var(--color-tertiary3);
+            box-shadow: none;
+            transform: translateY($depth);
         }
 
         div {
             @include flexcolumn;
             width: 50%;
-            align-items: flex-start;
             font-size: 16px;
             padding: 5px;
         }

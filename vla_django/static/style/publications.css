@@ -314,11 +314,13 @@ main > section:nth-child(3) section div span:last-child {
 }
 
 .commands {
-  width: clamp(300px, 90%, 400px);
+  width: clamp(300px, 90%, 1200px);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
   margin: 2em 0;
 }
 .commands a {
@@ -332,25 +334,28 @@ main > section:nth-child(3) section div span:last-child {
   margin-bottom: 1em;
 }
 .commands article {
+  width: clamp(300px, 30%, 450px);
+  height: auto;
+  min-height: 4em;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-  height: auto;
   background-color: var(--color-quaternary3);
+  box-shadow: 3px 3px 5px rgb(80, 80, 80);
   transition: 200ms all ease;
 }
 .commands article:hover {
   transition: 80ms all ease;
   background-color: var(--color-tertiary3);
+  box-shadow: none;
+  transform: translateY(3px);
 }
 .commands article div {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
-  align-items: flex-start;
   font-size: 16px;
   padding: 5px;
 }/*# sourceMappingURL=publications.css.map */
