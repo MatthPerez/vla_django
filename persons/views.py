@@ -23,6 +23,7 @@ class PersonsView(ListView):
         context = super().get_context_data(**kwargs)
         context["count"] = self.get_queryset().count()
         context["empty_text"] = self.empty_text
+        
         return context
 
 

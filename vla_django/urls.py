@@ -64,6 +64,8 @@ from commands.views import (
 
 from accounts.views import Signup, Signin, Logout
 
+from private.views import PrivateView
+
 
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
@@ -159,5 +161,10 @@ urlpatterns = [
         "deconnexion/",
         Logout.as_view(),
         name="logout",
+    ),
+    path(
+        "ma_page/",
+        PrivateView.as_view(),
+        name="private",
     ),
 ]

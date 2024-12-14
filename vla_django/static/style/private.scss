@@ -1,0 +1,74 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+main {
+    @include flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-bottom: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary2);
+}
+
+main {
+    background-color: var(--color-quaternary2);
+    @include flexcolumn;
+    gap: 2em;
+
+    >a {
+        @include button;
+    }
+
+    >h1 {
+        @include h1-form;
+    }
+}
+
+.private-datas {
+    width: clamp(300px, 60%, 1000px);
+    list-style: none;
+    @include flexcolumn;
+    gap: 10px;
+
+    li {
+        @include flex;
+        justify-content: flex-start;
+
+        span {
+            font-size: 20px;
+
+            img {
+                width: 15px;
+            }
+
+            &:first-child {
+                width: 30%;
+            }
+
+            &:nth-child(2) {
+                width: auto;
+                font-weight: bold;
+            }
+        }
+
+        @media (width<=768px) {
+            flex-direction: column;
+            align-items: flex-start;
+
+            span {
+                &:first-child {
+                    width: auto;
+                }
+
+                &:nth-child(2) {
+                    width: auto;
+                    min-width: 500px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/private.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/private.js' %}"></script>
+{% endblock %} {% block title %}VLA | Page perso{% endblock %} {% block content %}
+<main>
+  <h1>Page perso</h1>
+
+  <ul class="private-datas">
+    <li>
+      <span>Prénom</span>
+      <span>
+        {{user.first_name}}
+        {% for person in persons %}
+            {% if person.firstname == user.first_name %}
+                {% if person.gender == 'MALE' %}
+                <img src="{% static 'icons/male.png' %}" alt="homme">
+                {% else %}
+                <img src="{% static 'icons/female.png' %}" alt="femme">
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+      </span>
+    </li>
+    <li>
+      <span>Nom</span>
+      <span>{{user.last_name|upper}}</span>
+    </li>
+    <li>
+      <span>Ville</span>
+      <span>{{user.city}}</span>
+    </li>
+    <li>
+      <span>Courriel</span>
+      <span>{{user.email}}</span>
+    </li>
+    <li>
+      <span>Dernière connexion</span>
+      <span>{{user.last_login}}</span>
+    </li>
+
+    {% for person in persons %} {% if person.firstname == user.first_name %}
+    <li>
+      <span>Statut</span>
+      <span>{{person.get_cong_status_display}}</span>
+    </li>
+    <li>
+      <span>Fonction</span>
+      <span>{{person.get_cong_function_display}}</span>
+    </li>
+    {% endif %} {% endfor %}
+  </ul>
+</main>
+{% endblock %}

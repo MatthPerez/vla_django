@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "publications",
     "commands",
     "accounts",
+    "private",
 ]
 
 MIDDLEWARE = [
