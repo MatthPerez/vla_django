@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.views import View
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LogoutView
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import login, authenticate
 from django.views.generic import FormView
@@ -30,15 +30,24 @@ class Signup(View):
 
             custom_user = CustomUser(
                 email=custom_user_data["email"],
-                password=custom_user_data["password"],
                 first_name=custom_user_data["first_name"],
                 last_name=custom_user_data["last_name"],
                 city=custom_user_data["city"],
             )
 
+            custom_user.set_password(custom_user_data["password"])
             custom_user.save()
 
-            return redirect("private")
+            authenticated_user = authenticate(
+                request, email=custom_user.email, password=custom_user_data["password"]
+            )
+
+            if authenticated_user is not None:
+                login(request, authenticated_user)
+
+                return redirect("private")
+            else:
+                return redirect("signup")
         else:
             print(form.errors)
 
