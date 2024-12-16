@@ -38,7 +38,7 @@ class Signup(View):
 
             custom_user.save()
 
-            return redirect("index")
+            return redirect("private")
         else:
             print(form.errors)
 
@@ -52,16 +52,26 @@ class Signup(View):
             )
 
 
-class Signin(LoginView):
+class Signin(FormView):
+    form_class = SigninForm
     template_name = "accounts/signin.html"
-    success_url = reverse_lazy("index")
+    success_url = "../ma_page/"
 
-    def get_success_url(self):
-        return self.success_url
+    def form_valid(self, form):
+        email = form.cleaned_data["email"]
+        password = form.cleaned_data["password"]
+        user = authenticate(self.request, username=email, password=password)
+
+        if user is not None:
+            login(self.request, user)
+            return super().form_valid(form)
+        else:
+            form.add_error(None, "Email ou mot de passe incorrect.")
+            return self.form_invalid(form)
 
 
 class Logout(LogoutView):
-    next_page = reverse_lazy("index")
+    next_page = reverse_lazy("signin")
 
     def get(self, request, *args, **kwargs):
         user = request.user
@@ -93,21 +103,3 @@ class EmailAuthBackend(ModelBackend):
             return CustomUser.objects.get(pk=user_id)
         except CustomUser.DoesNotExist:
             return None
-
-
-class Signin(FormView):
-    form_class = SigninForm
-    template_name = "accounts/signin.html"
-    success_url = "/"
-
-    def form_valid(self, form):
-        email = form.cleaned_data["email"]
-        password = form.cleaned_data["password"]
-        user = authenticate(self.request, username=email, password=password)
-
-        if user is not None:
-            login(self.request, user)
-            return super().form_valid(form)
-        else:
-            form.add_error(None, "Email ou mot de passe incorrect.")
-            return self.form_invalid(form)
