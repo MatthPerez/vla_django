@@ -117,7 +117,14 @@ main section {
   align-items: center;
   justify-content: space-between;
 }
+@media (width <= 768px) {
+  main section {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
 main section article {
+  width: clamp(300px, 90%, 1500px) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,6 +132,7 @@ main section article {
   width: 50%;
 }
 main section article div {
+  width: clamp(300px, 80%, 1000px);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -162,6 +170,11 @@ main section article img {
   align-items: flex-end;
   gap: 1em;
 }
+@media (width <= 768px) {
+  .actions {
+    align-items: center;
+  }
+}
 .actions a {
   width: clamp(150px, 10%, 400px);
   text-align: center;
@@ -181,6 +194,9 @@ main section article img {
 }
 .actions form {
   width: clamp(150px, 10%, 400px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   text-align: center;
   background-color: rgba(230, 38, 38, 0.2);
   padding: 1em;
@@ -199,4 +215,12 @@ main section article img {
   background-color: transparent;
   font-size: 20px;
   color: black;
+}
+.actions form button {
+  padding: 0;
+}
+.actions a,
+.actions form {
+  width: clamp(300px, 30%, 400px);
+  padding: 15px;
 }/*# sourceMappingURL=person_detail.css.map */

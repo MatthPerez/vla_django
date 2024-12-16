@@ -251,6 +251,7 @@ $color-red: #e62626;
 
 @mixin form-btn {
     width: clamp(150px, 10%, 400px);
+    @include flex;
     text-align: center;
     background-color: rgba($color-red, .2);
     padding: 1em;
@@ -274,6 +275,7 @@ $color-red: #e62626;
 
 @mixin h1-form {
     width: auto;
+    font-size: clamp(20px, 3rem, 35px);
     @include flex;
     justify-content: center;
     gap: 1em;

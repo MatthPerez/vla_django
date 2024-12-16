@@ -93,6 +93,7 @@ main {
 }
 main h1 {
   width: auto;
+  font-size: clamp(20px, 3rem, 35px);
   display: flex;
   flex-direction: row;
   align-items: center;
