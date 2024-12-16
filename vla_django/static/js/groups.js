@@ -5,7 +5,7 @@ function group_main () {
 
   const names = document
     .getElementsByClassName('names')[0]
-    .getElementsByTagName('li')
+    .getElementsByTagName('a')
 
   hide_names(names)
 

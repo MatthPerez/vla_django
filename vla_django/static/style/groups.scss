@@ -62,13 +62,14 @@ main {
 .names {
     width: clamp(300px, 90%, 1000px);
     min-height: 5em;
-    list-style: none;
     @include flex;
     justify-content: center;
     gap: 1em;
     flex-wrap: wrap;
 
-    li {
+    a {
+        text-decoration: none;
+        color: inherit;
         $size: 6em;
         width: $size;
         height: $size;
@@ -94,10 +95,6 @@ main {
             width: auto;
             text-align: center;
             font-size: 14px;
-
-            &:nth-child(2) {
-                display: none;
-            }
 
             img {
                 width: 20px;

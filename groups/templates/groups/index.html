@@ -17,28 +17,27 @@
     {% endfor %}
   </div>
 
-  <ul class="names">
+  <div class="names">
     {% for person in persons %}
-    <li name="{{person.group}}" class="{% if person.cong_function != "NONE" %}{{person.cong_function}}{% endif %}">
-      <span>
-        {{person.firstname}}
-        <br />{{person.lastname|upper}}
+      <a href="{% url 'person_detail' person.pk %}" name="{{person.group}}" class="{% if person.cong_function != "NONE" %}{{person.cong_function}}{% endif %}">
+        <span>{{person.firstname}}</span>
+        <span>{{person.lastname|upper}}</span>
         {% if person.cong_status == "SPECIAL" %}
-        <br />
-        <img src="{% static 'icons/star.png' %}" alt="étoile" />
-        <img src="{% static 'icons/star.png' %}" alt="étoile" />
-        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <span>
+          <img src="{% static 'icons/star.png' %}" alt="étoile" />
+          <img src="{% static 'icons/star.png' %}" alt="étoile" />
+          <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        </span>
         {% elif person.cong_status == "PERMANENT" %}
-        <br />
-        <img src="{% static 'icons/star.png' %}" alt="étoile" />
-        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <span>
+          <img src="{% static 'icons/star.png' %}" alt="étoile" />
+          <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        </span>
         {% elif person.cong_status == "TEMPORARY" %}
-        <br />
-        <img src="{% static 'icons/star.png' %}" alt="étoile" />
+        <span><img src="{% static 'icons/star.png' %}" alt="étoile" /></span>
         {% endif %}
-      </span>
-      {% endfor %}
-    </li>
-  </ul>
+      </a>
+    {% endfor %}
+  </div>
 </main>
 {% endblock %}

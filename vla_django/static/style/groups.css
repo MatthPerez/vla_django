@@ -152,7 +152,6 @@ main > a:hover {
 .names {
   width: clamp(300px, 90%, 1000px);
   min-height: 5em;
-  list-style: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -160,7 +159,9 @@ main > a:hover {
   gap: 1em;
   flex-wrap: wrap;
 }
-.names li {
+.names a {
+  text-decoration: none;
+  color: inherit;
   width: 6em;
   height: 6em;
   border-radius: 50%;
@@ -173,21 +174,18 @@ main > a:hover {
   box-shadow: 4px 4px 5px rgb(80, 80, 80);
   transition: 300ms all ease;
 }
-.names li:hover {
+.names a:hover {
   transition: 70ms all ease;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: none;
   transform: translateY(4px);
 }
-.names li span {
+.names a span {
   width: auto;
   text-align: center;
   font-size: 14px;
 }
-.names li span:nth-child(2) {
-  display: none;
-}
-.names li span img {
+.names a span img {
   width: 20px;
 }
 
