@@ -1,8 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import View
 from persons.models import Person
 from groups.models import Group
 from groups.forms import AddGroup
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 class GroupsView(View):
@@ -20,7 +25,14 @@ class GroupsView(View):
         )
 
 
-class NewGroupView(View):
+class NewGroupView(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("groups")
+
     def get(self, request):
         form = AddGroup()
 

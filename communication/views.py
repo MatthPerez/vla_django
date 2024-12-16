@@ -2,6 +2,11 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from communication.models import Communication
 from communication.forms import AddCommunication
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 class CommunicationView(View):
@@ -67,7 +72,14 @@ class NewCommunicationView(View):
             )
 
 
-class CommunicationUpdate(View):
+class CommunicationUpdate(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("communication")
+
     def get(self, request, pk):
         communication = Communication.objects.get(pk=pk)
         submit_text = "Mettre à jour"
@@ -115,7 +127,14 @@ class CommunicationUpdate(View):
             return redirect("communication")
 
 
-class CommunicationDelete(View):
+class CommunicationDelete(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("communication")
+
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         communication = get_object_or_404(Communication, pk=pk)

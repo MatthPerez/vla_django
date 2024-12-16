@@ -6,6 +6,11 @@ from publications.forms import AddPublication
 from publications.models import Publication
 from persons.models import Person
 from commands.models import Command
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 # class PublicationView(View):
@@ -99,7 +104,14 @@ class NewPublicationView(View):
             )
 
 
-class PublicationUpdate(View):
+class PublicationUpdate(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("publications")
+
     def get(self, request, pk):
         publication = Publication.objects.get(pk=pk)
         title = "Modifier la publication"
@@ -132,7 +144,14 @@ class PublicationUpdate(View):
         return redirect("publications")
 
 
-class PublicationDelete(View):
+class PublicationDelete(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("publications")
+
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         publication = get_object_or_404(Publication, pk=pk)

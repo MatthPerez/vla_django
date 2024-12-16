@@ -6,6 +6,11 @@ from commands.forms import AddCommand
 from publications.models import Publication
 from persons.models import Person
 from commands.models import Command
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 class CommandsView(View):
@@ -82,7 +87,14 @@ class NewCommandView(View):
             )
 
 
-class CommandUpdate(View):
+class CommandUpdate(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("commands")
+
     def get(self, request, pk):
         command = get_object_or_404(Command, pk=pk)
 
@@ -125,7 +137,7 @@ class CommandUpdate(View):
             command.save()
 
             success_message = "La commande a été mise à jour avec succès."
-            
+
             return redirect("commands")
 
             # return render(
@@ -153,7 +165,14 @@ class CommandUpdate(View):
             )
 
 
-class CommandDelete(View):
+class CommandDelete(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("commands")
+
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         command = get_object_or_404(Command, pk=pk)

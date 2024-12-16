@@ -5,6 +5,11 @@ from vcm.models import Meeting
 from vcm.forms import AddMeeting
 from datetime import timedelta
 from django.utils.timezone import now
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 class VcmMeetingView(ListView):
@@ -28,7 +33,13 @@ class VcmMeetingDetail(DetailView):
     context_object_name = "meeting"
 
 
-class NewVcmView(View):
+class NewVcmView(UserPassesTestMixin, View):
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("vcm")
+    
     def get(self, request):
         form = AddMeeting()
         big_title = "Créer une nouvelle réunion VCM"
@@ -135,7 +146,14 @@ class NewVcmView(View):
             )
 
 
-class VcmUpdate(View):
+class VcmUpdate(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     def get(self, request, pk):
         meeting = Meeting.objects.get(pk=pk)
 
@@ -283,7 +301,14 @@ class VcmUpdate(View):
         )
 
 
-class VcmDelete(View):
+class VcmDelete(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         meeting = get_object_or_404(Meeting, pk=pk)

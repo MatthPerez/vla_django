@@ -4,6 +4,11 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from we.models import WeekendMeeting
 from we.forms import AddWeekendMeeting
+from django.contrib.auth.mixins import UserPassesTestMixin
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 class WeMeetingView(ListView):
@@ -17,7 +22,14 @@ class WeMeetingView(ListView):
         return WeekendMeeting.objects.filter(date__gte=now).order_by("date")
 
 
-class NewWeView(View):
+class NewWeView(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("we")
+
     def get(self, request):
         form = AddWeekendMeeting()
         return render(request, "we/new.html", {"form": form})
@@ -72,7 +84,14 @@ class NewWeView(View):
             )
 
 
-class WeUpdate(View):
+class WeUpdate(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("we")
+
     def get(self, request, pk):
         meeting = WeekendMeeting.objects.get(pk=pk)
         big_title = f"Modification de la réunion du {meeting.date}"
@@ -142,7 +161,14 @@ class WeUpdate(View):
         )
 
 
-class WeDelete(View):
+class WeDelete(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("we")
+
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         meeting = get_object_or_404(WeekendMeeting, pk=pk)

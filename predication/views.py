@@ -4,8 +4,13 @@ from predication.models import PredicationMeeting
 from predication.forms import AddPredicationMeeting
 from datetime import datetime
 import locale
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")
+
+
+def is_admin(user):
+    return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
 class PredicationView(ListView):
@@ -27,7 +32,14 @@ class PredicationView(ListView):
         return context
 
 
-class NewPredicationView(View):
+class NewPredicationView(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("predication")
+
     def get(self, request):
         form = AddPredicationMeeting()
         submit_text = "Ajouter la réunion"
@@ -88,7 +100,14 @@ class NewPredicationView(View):
             )
 
 
-class PredicationMeetingUpdate(View):
+class PredicationMeetingUpdate(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     def get(self, request, pk):
         meeting = PredicationMeeting.objects.get(pk=pk)
         submit_text = "Mettre à jour la réunion"
@@ -148,7 +167,14 @@ class PredicationMeetingUpdate(View):
         )
 
 
-class PredicationDelete(View):
+class PredicationDelete(UserPassesTestMixin, View):
+
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")
         meeting = get_object_or_404(PredicationMeeting, pk=pk)
