@@ -106,7 +106,7 @@ class PredicationMeetingUpdate(UserPassesTestMixin, View):
         return is_admin(self.request.user)
 
     def handle_no_permission(self):
-        return redirect("persons")
+        return redirect("predication")
 
     def get(self, request, pk):
         meeting = PredicationMeeting.objects.get(pk=pk)
