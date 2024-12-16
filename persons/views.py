@@ -12,6 +12,14 @@ def is_admin(user):
     return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
+def is_nominated(user):
+    return (
+        user.is_authenticated
+        and hasattr(user, "cong_function")
+        and user.cong_function is not None
+    )
+
+
 class PersonsView(ListView):
     model = Person
     context_object_name = "persons"
@@ -23,11 +31,17 @@ class PersonsView(ListView):
         context = super().get_context_data(**kwargs)
         context["count"] = self.get_queryset().count()
         context["empty_text"] = self.empty_text
-        
+
         return context
 
 
-class PersonDetail(DetailView):
+class PersonDetail(UserPassesTestMixin, DetailView):
+    def test_func(self):
+        return is_admin(self.request.user)
+
+    def handle_no_permission(self):
+        return redirect("persons")
+
     model = Person
     context_object_name = "person"
     template_name = "persons/detail.html"
@@ -100,9 +114,6 @@ class PersonUpdate(UserPassesTestMixin, View):
     def handle_no_permission(self):
         return redirect("persons")
 
-    def handle_no_permission(self):
-        return redirect("persons")
-
     def get(self, request, pk):
         person = Person.objects.get(pk=pk)
         submit_text = "Mettre à jour"
@@ -157,7 +168,6 @@ class PersonUpdate(UserPassesTestMixin, View):
 
 
 class PersonDelete(UserPassesTestMixin, View):
-
     def test_func(self):
         return is_admin(self.request.user)
 
