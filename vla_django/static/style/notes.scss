@@ -1,0 +1,39 @@
+@import 'mixins.scss';
+@import 'constants.scss';
+
+:root {
+    --space: 3em;
+}
+
+nav,
+footer {
+    background-color: var(--color-primary2);
+}
+
+main {
+    background-color: var(--color-quinary2);
+    @include flex;
+    flex-direction: column;
+    gap: 3em;
+    padding-bottom: 3em;
+
+    >a {
+        @include button;
+    }
+
+    >section {
+        width: clamp(300px, 80%, 900px);
+        @include flexcolumn;
+        gap: 1em;
+
+        div {
+            @include flexcolumn;
+            gap: 1em;
+
+            a {
+                text-decoration: none;
+                color: var(--color-primary2);
+            }
+        }
+    }
+}

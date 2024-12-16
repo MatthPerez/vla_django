@@ -17,6 +17,7 @@ main {
     background-color: var(--color-quaternary2);
     @include flexcolumn;
     gap: 2em;
+    padding-bottom: 5em;
 
     >a {
         @include button;
@@ -24,6 +25,50 @@ main {
 
     >h1 {
         @include h1-form;
+    }
+
+    h2 {
+        text-align: center;
+        background-color: rgba(white, .5);
+        padding: .5em 0;
+    }
+
+    form {
+        width: clamp(300px, 70%, 700px);
+        @include flexcolumn;
+        gap: 1em;
+
+        h2 {
+            text-align: center;
+            margin: 1em 0 .5em 0;
+            font-size: 30px;
+        }
+
+        div {
+            width: clamp(300px, 90%, 800px);
+            @include flex;
+            justify-content: space-between;
+        }
+
+        label {
+            width: 30%;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            @include no-border;
+            transition: 300ms all ease;
+
+            &:focus {
+                transition: 150ms all ease;
+                box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
+            }
+        }
+
+        button {
+            @include submit;
+        }
     }
 }
 
@@ -69,6 +114,60 @@ main {
                     font-weight: bold;
                 }
             }
+        }
+    }
+}
+
+.notes {
+    width: clamp(300px, 90%, 1500px);
+    @include flexcolumn;
+    gap: 1em;
+
+    >a {
+        @include submit;
+        text-decoration: none;
+        color: black;
+    }
+
+    div {
+        position: relative;
+        width: clamp(300px, 80%, 1000px);
+        background-color: rgba(white, .3);
+        padding: 1em;
+        @include flexcolumn;
+        align-items: flex-start;
+        gap: 1em;
+
+        >a {
+            text-decoration: none;
+            padding: 5px;
+            background-color: rgba(white, .5);
+        }
+
+        span {
+            &:first-child {
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+
+    }
+}
+
+.actions {
+    &:last-child {
+        width: auto;
+        position: absolute;
+        $side: .5em;
+        right: $side;
+        top: $side;
+        @include flex;
+        justify-content: flex-end;
+        gap: 1em;
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
         }
     }
 }

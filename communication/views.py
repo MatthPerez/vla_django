@@ -73,7 +73,6 @@ class NewCommunicationView(View):
 
 
 class CommunicationUpdate(UserPassesTestMixin, View):
-
     def test_func(self):
         return is_admin(self.request.user)
 
@@ -128,7 +127,6 @@ class CommunicationUpdate(UserPassesTestMixin, View):
 
 
 class CommunicationDelete(UserPassesTestMixin, View):
-
     def test_func(self):
         return is_admin(self.request.user)
 

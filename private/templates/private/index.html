@@ -12,13 +12,13 @@
       <span>
         {{user.first_name}}
         {% for person in persons %}
-            {% if person.firstname == user.first_name %}
-                {% if person.gender == 'MALE' %}
-                <img src="{% static 'icons/male.png' %}" alt="homme">
-                {% else %}
-                <img src="{% static 'icons/female.png' %}" alt="femme">
-                {% endif %}
-            {% endif %}
+          {% if person.firstname == user.first_name %}
+          {% if person.gender == 'MALE' %}
+          <img src="{% static 'icons/male.png' %}" alt="homme" />
+          {% else %}
+          <img src="{% static 'icons/female.png' %}" alt="femme" />
+          {% endif %}
+          {% endif %}
         {% endfor %}
       </span>
     </li>
@@ -41,6 +41,10 @@
 
     {% for person in persons %} {% if person.firstname == user.first_name %}
     <li>
+      <span>Groupe</span>
+      <span>{{person.group}}</span>
+    </li>
+    <li>
       <span>Statut</span>
       <span>{{person.get_cong_status_display}}</span>
     </li>
@@ -48,7 +52,28 @@
       <span>Fonction</span>
       <span>{{person.get_cong_function_display}}</span>
     </li>
-    {% endif %} {% endfor %}
+    {% endif %}
+    {% endfor %}
   </ul>
+
+  <h2>Mes notes</h2>
+
+  <section class="notes">
+    <a href="{% url 'note_new' %}">Créer une note</a>
+
+    {% for note in notes %}
+    <div>
+      <span>{{note.title}}</span>
+      <span>{{note.content}}</span>
+      {% if note.link %}<a href="{{note.link}}" target="_blank">{{note.link}}</a>{% endif %}
+      <span class="actions">
+        <a href="{% url 'note_update' note.pk %}" title="Modifier cette note">✏️</a>
+        <a href="#" title="Supprimer cette note">❌</a>
+      </span>
+    </div>
+    {% empty %}
+    <div>Pas de note pour le moment.</div>
+    {% endfor %}
+  </section>
 </main>
 {% endblock %}

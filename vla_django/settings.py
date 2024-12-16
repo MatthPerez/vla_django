@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "commands",
     "accounts",
     "private",
+    "notes",
 ]
 
 MIDDLEWARE = [

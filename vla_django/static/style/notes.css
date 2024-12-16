@@ -73,13 +73,8 @@
   --sacramento: "Sacramento", cursive;
 }
 
-main {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-direction: column;
-  gap: 2em;
-  padding-bottom: 3em;
+:root {
+  --space: 3em;
 }
 
 nav,
@@ -88,12 +83,13 @@ footer {
 }
 
 main {
-  background-color: var(--color-quaternary2);
+  background-color: var(--color-quinary2);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 2em;
-  padding-bottom: 5em;
+  flex-direction: column;
+  gap: 3em;
+  padding-bottom: 3em;
 }
 main > a {
   width: auto;
@@ -113,208 +109,20 @@ main > a:hover {
   box-shadow: none;
   transform: translateY(4px);
 }
-main > h1 {
-  width: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-}
-main > h1 span:nth-child(2) {
-  display: block;
-}
-main > h1 span:nth-child(3) {
-  display: none;
-}
-@media (width <= 768px) {
-  main > h1 {
-    width: minmax(250px, 500px);
-  }
-  main > h1 a img {
-    height: 0.7em;
-    aspect-ratio: 1;
-  }
-  main > h1 span {
-    font-size: 30px;
-  }
-  main > h1 span:nth-child(2) {
-    display: none;
-  }
-  main > h1 span:nth-child(3) {
-    display: block;
-  }
-}
-main > h1 * {
-  width: auto;
-}
-main > h1 a {
-  text-decoration: none;
-  width: auto;
-}
-main > h1 a img {
-  height: 0.7em;
-}
-main h2 {
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 0.5em 0;
-}
-main form {
-  width: clamp(300px, 70%, 700px);
+main > section {
+  width: clamp(300px, 80%, 900px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
-main form h2 {
-  text-align: center;
-  margin: 1em 0 0.5em 0;
-  font-size: 30px;
-}
-main form div {
-  width: clamp(300px, 90%, 800px);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-main form label {
-  width: 30%;
-}
-main form input,
-main form select {
-  padding: 10px;
-  outline: none;
-  border: none;
-  transition: 300ms all ease;
-}
-main form input:focus,
-main form select:focus {
-  transition: 150ms all ease;
-  box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
-}
-main form button {
-  width: auto;
-  padding: 10px 40px;
-  font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  box-shadow: 4px 4px 5px rgb(120, 120, 120);
-  transition: 300ms all ease;
-}
-main form button:hover {
-  transition: 150ms all ease;
-  box-shadow: none;
-  transform: translateY(4px);
-}
-main form button:focus {
-  transition: 50ms all ease;
-  background-color: rgba(136, 230, 136, 0.5);
-}
-
-.private-datas {
-  width: clamp(300px, 60%, 1000px);
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.private-datas li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
-.private-datas li span {
-  font-size: 20px;
-}
-.private-datas li span img {
-  width: 15px;
-}
-.private-datas li span:first-child {
-  width: 30%;
-}
-.private-datas li span:nth-child(2) {
-  width: auto;
-  font-weight: bold;
-}
-@media (width <= 768px) {
-  .private-datas li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .private-datas li span:first-child {
-    width: auto;
-  }
-  .private-datas li span:nth-child(2) {
-    width: auto;
-    min-width: 500px;
-    font-weight: bold;
-  }
-}
-
-.notes {
-  width: clamp(300px, 90%, 1500px);
+main > section div {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
-.notes > a {
-  width: auto;
-  padding: 10px 40px;
-  font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  box-shadow: 4px 4px 5px rgb(120, 120, 120);
-  transition: 300ms all ease;
+main > section div a {
   text-decoration: none;
-  color: black;
-}
-.notes > a:hover {
-  transition: 150ms all ease;
-  box-shadow: none;
-  transform: translateY(4px);
-}
-.notes > a:focus {
-  transition: 50ms all ease;
-  background-color: rgba(136, 230, 136, 0.5);
-}
-.notes div {
-  position: relative;
-  width: clamp(300px, 80%, 1000px);
-  background-color: rgba(255, 255, 255, 0.3);
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-items: flex-start;
-  gap: 1em;
-}
-.notes div > a {
-  text-decoration: none;
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-.notes div span:first-child {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.actions:last-child {
-  width: auto;
-  position: absolute;
-  right: 0.5em;
-  top: 0.5em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1em;
-}
-.actions:last-child a {
-  text-decoration: none;
-  font-size: 18px;
-}/*# sourceMappingURL=private.css.map */
+  color: var(--color-primary2);
+}/*# sourceMappingURL=notes.css.map */

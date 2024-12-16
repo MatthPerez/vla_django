@@ -66,6 +66,12 @@ from accounts.views import Signup, Signin, Logout
 
 from private.views import PrivateView
 
+from notes.views import (
+    NewNote,
+    NoteUpdate,
+    NoteDelete,
+)
+
 
 urlpatterns = [
     path("", HomeView.as_view(), name="index"),
@@ -166,5 +172,20 @@ urlpatterns = [
         "ma_page/",
         PrivateView.as_view(),
         name="private",
+    ),
+    path(
+        "ma_page/note/",
+        NewNote.as_view(),
+        name="note_new",
+    ),
+    path(
+        "ma_page/note/<int:pk>/modifier",
+        NoteUpdate.as_view(),
+        name="note_update",
+    ),
+    path(
+        "ma_page/note/<int:pk>/supprimer",
+        NoteDelete.as_view(),
+        name="note_delete",
     ),
 ]

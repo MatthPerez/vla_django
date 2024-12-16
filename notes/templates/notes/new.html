@@ -1,0 +1,28 @@
+{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/private.css' %}" />
+{% endblock %} {% block script_js %}
+<script src="{% static 'js/private.js' %}" defer></script>
+{% endblock %} {% block title %}VLA | Notes{% endblock %} {% block content %}
+
+<main>
+  <h1>
+    <a href="{% url 'private' %}"><img src="{% static 'icons/left_arrow.png' %}" alt=""></a>
+    {% if title %} {{title}} {% else %} Nouvelle note {% endif %}
+  </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div>{{form.title.label_tag}} {{form.title}}</div>
+    <div>{{form.content.label_tag}} {{form.content}}</div>
+    <div>{{form.link.label_tag}} {{form.link}}</div>
+
+    <button type="submit">
+      {% if submit_text %}
+      {{submit_text}}
+      {% else %}
+      Enregistrer
+      {% endif %}
+    </button>
+  </form>
+</main>
+{% endblock %}
