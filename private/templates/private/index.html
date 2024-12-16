@@ -68,7 +68,10 @@
       {% if note.link %}<a href="{{note.link}}" target="_blank">{{note.link}}</a>{% endif %}
       <span class="actions">
         <a href="{% url 'note_update' note.pk %}" title="Modifier cette note">✏️</a>
-        <a href="#" title="Supprimer cette note">❌</a>
+        <form action="{% url 'note_delete' note.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" title="Supprimer cette note">❌</button>
+        </form>
       </span>
     </div>
     {% empty %}

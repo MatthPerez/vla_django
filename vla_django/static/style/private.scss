@@ -33,7 +33,7 @@ main {
         padding: .5em 0;
     }
 
-    form {
+    >form {
         width: clamp(300px, 70%, 700px);
         @include flexcolumn;
         gap: 1em;
@@ -165,9 +165,20 @@ main {
         justify-content: flex-end;
         gap: 1em;
 
-        a {
+        a,
+        form {
             text-decoration: none;
             font-size: 18px;
+        }
+
+        form {
+            button {
+                @include no-border;
+                font-size: 18px;
+                box-shadow: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
         }
     }
 }

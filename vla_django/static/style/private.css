@@ -160,41 +160,41 @@ main h2 {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 0.5em 0;
 }
-main form {
+main > form {
   width: clamp(300px, 70%, 700px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1em;
 }
-main form h2 {
+main > form h2 {
   text-align: center;
   margin: 1em 0 0.5em 0;
   font-size: 30px;
 }
-main form div {
+main > form div {
   width: clamp(300px, 90%, 800px);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
-main form label {
+main > form label {
   width: 30%;
 }
-main form input,
-main form select {
+main > form input,
+main > form select {
   padding: 10px;
   outline: none;
   border: none;
   transition: 300ms all ease;
 }
-main form input:focus,
-main form select:focus {
+main > form input:focus,
+main > form select:focus {
   transition: 150ms all ease;
   box-shadow: 0 0 10px var(--color-primary2), 0 0 10px var(--color-primary2);
 }
-main form button {
+main > form button {
   width: auto;
   padding: 10px 40px;
   font-size: 18px;
@@ -203,12 +203,12 @@ main form button {
   box-shadow: 4px 4px 5px rgb(120, 120, 120);
   transition: 300ms all ease;
 }
-main form button:hover {
+main > form button:hover {
   transition: 150ms all ease;
   box-shadow: none;
   transform: translateY(4px);
 }
-main form button:focus {
+main > form button:focus {
   transition: 50ms all ease;
   background-color: rgba(136, 230, 136, 0.5);
 }
@@ -314,7 +314,16 @@ main form button:focus {
   justify-content: flex-end;
   gap: 1em;
 }
-.actions:last-child a {
+.actions:last-child a,
+.actions:last-child form {
   text-decoration: none;
   font-size: 18px;
+}
+.actions:last-child form button {
+  outline: none;
+  border: none;
+  font-size: 18px;
+  box-shadow: none;
+  background-color: transparent;
+  cursor: pointer;
 }/*# sourceMappingURL=private.css.map */
