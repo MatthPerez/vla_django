@@ -100,14 +100,24 @@ main h1 {
 main h1 span,
 main h1 a {
   width: auto;
-}
-main h1 a {
+  font-size: clamp(20px, 3rem, 35px);
   text-decoration: none;
 }
-main h1 a img {
-  width: 50px;
+@media (width <= 768px) {
+  main h1 span,
+  main h1 a {
+    font-size: 25px;
+  }
+  main h1 span img,
+  main h1 a img {
+    width: 25px;
+  }
 }
-main > a {
+main h1 > a img {
+  width: 30px;
+}
+
+.create {
   width: auto;
   text-decoration: none;
   text-align: center;
@@ -119,7 +129,7 @@ main > a {
   box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.8);
   transition: 300ms all ease;
 }
-main > a:hover {
+.create:hover {
   transition: 150ms all ease;
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: none;
@@ -152,6 +162,12 @@ main > a:hover {
 .actions form {
   width: auto;
   font-size: 25px;
+}
+@media (width <= 768px) {
+  .actions {
+    flex-direction: row !important;
+    justify-content: center;
+  }
 }
 
 .meeting-list {
@@ -257,6 +273,34 @@ main > a:hover {
 .meeting h2,
 .meeting h3 {
   letter-spacing: 3px;
+}
+@media (width <= 768px) {
+  .meeting {
+    width: clamp(300px, 85%, 700px);
+  }
+  .meeting h2 {
+    font-size: 20px;
+    padding: 10px 0;
+  }
+  .meeting h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  .meeting div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: flex-start;
+  }
+  .meeting div span {
+    text-align: left !important;
+  }
+  .meeting div span:first-child {
+    font-weight: 550;
+  }
 }
 
 .president span:first-child {

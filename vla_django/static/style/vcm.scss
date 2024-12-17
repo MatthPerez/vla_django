@@ -24,20 +24,28 @@ main {
         span,
         a {
             width: auto;
-        }
-
-        a {
+            font-size: clamp(20px, 3rem, 35px);
             text-decoration: none;
 
+            @media (width<=768px) {
+                font-size: 25px;
+
+                img {
+                    width: 25px;
+                }
+            }
+        }
+
+        >a {
             img {
-                width: 50px;
+                width: 30px;
             }
         }
     }
+}
 
-    >a {
-        @include button;
-    }
+.create {
+    @include button;
 }
 
 .actions {
@@ -66,6 +74,11 @@ main {
     form {
         width: auto;
         font-size: $size;
+    }
+
+    @media (width<=768px) {
+        flex-direction: row !important;
+        justify-content: center;
     }
 }
 
@@ -180,6 +193,34 @@ main {
     h2,
     h3 {
         letter-spacing: 3px;
+    }
+
+    @media (width<=768px) {
+        width: clamp(300px, 85%, 700px);
+
+        h2 {
+            font-size: 20px;
+            padding: 10px 0;
+        }
+
+        h3 {
+            @include flexcolumn;
+            gap: 5px;
+        }
+
+        div {
+            width: 100%;
+            @include flexcolumn;
+            align-items: flex-start;
+
+            span {
+                text-align: left !important;
+
+                &:first-child {
+                    font-weight: 550;
+                }
+            }
+        }
     }
 }
 
