@@ -14,7 +14,9 @@ function group_main () {
       deactivate_group_names(group_names)
       group_name.classList.add('active-group')
       hide_names(names)
-      show_names(names, group_name.textContent)
+
+      const final_group_name = group_name.getElementsByTagName('div')[0]
+      show_names(names, final_group_name.textContent)
     })
   })
 }

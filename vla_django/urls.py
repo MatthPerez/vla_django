@@ -7,8 +7,8 @@ from infos.views import InfosView
 from groups.views import (
     GroupsView,
     NewGroupView,
-    # GroupUpdate,
-    # GroupDelete,
+    GroupUpdate,
+    GroupDelete,
 )
 
 from persons.views import (
@@ -88,6 +88,8 @@ urlpatterns = [
     path("we/<int:pk>/supprimer", WeDelete.as_view(), name="we_delete"),
     path("groupes/", GroupsView.as_view(), name="groups"),
     path("groupes/ajouter/", NewGroupView.as_view(), name="new_group"),
+    path("groupes/<int:pk>/modifier/", GroupUpdate.as_view(), name="group_update"),
+    path("groupes/<int:pk>/supprimer/", GroupDelete.as_view(), name="group_delete"),
     path("personnes/", PersonsView.as_view(), name="persons"),
     path("personnes/ajouter/", PersonCreate.as_view(), name="person_add"),
     path("personnes/<int:pk>", PersonDetail.as_view(), name="person_detail"),

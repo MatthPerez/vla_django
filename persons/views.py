@@ -116,8 +116,8 @@ class PersonUpdate(UserPassesTestMixin, View):
 
     def get(self, request, pk):
         person = Person.objects.get(pk=pk)
-        submit_text = "Mettre à jour"
         title = f"Mise à jour de {person.firstname} {person.lastname}"
+        submit_text = "Mettre à jour"
 
         form = AddPerson(
             initial={

@@ -134,12 +134,12 @@ main > a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 @media (width <= 830px) {
   #group_names li {
-    width: 30vw;
-    height: 2em;
+    width: clamp(250px, 30vw, 700px);
+    height: 3em;
   }
 }
 #group_names li:hover {
@@ -147,6 +147,27 @@ main > a:hover {
   box-shadow: none;
   transform: translateY(4px);
   background-color: rgba(255, 255, 255, 0.4);
+}
+#group_names li div:first-child {
+  width: 90%;
+}
+#group_names li div:nth-child(2) {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+#group_names li div:nth-child(2) a {
+  text-decoration: none;
+  font-size: 16px;
+}
+#group_names li div:nth-child(2) form button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .names {

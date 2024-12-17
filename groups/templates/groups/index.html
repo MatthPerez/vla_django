@@ -11,7 +11,16 @@
 
   <div id="group_names">
     {% for group in groups %}
-    <li>{{ group.name }}</li>
+    <li>
+      <div class="group_name">{{ group.name }}</div>
+      <div>
+        <a href="{% url 'group_update' group.pk %}" title="Modifier groupe {{group.name}}">✏️</a>
+        <form action="{% url 'group_delete' group.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" title="Supprimer le groupe {{group.name}}">❌</button>
+        </form>
+      </div>
+    </li>
     {% empty %}
     <li>Aucun groupe trouvé.</li>
     {% endfor %}
@@ -22,6 +31,7 @@
       <a href="{% url 'person_detail' person.pk %}" name="{{person.group}}" class="{% if person.cong_function != "NONE" %}{{person.cong_function}}{% endif %}">
         <span>{{person.firstname}}</span>
         <span>{{person.lastname|upper}}</span>
+
         {% if person.cong_status == "SPECIAL" %}
         <span>
           <img src="{% static 'icons/star.png' %}" alt="étoile" />

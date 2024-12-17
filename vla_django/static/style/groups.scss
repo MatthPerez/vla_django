@@ -43,11 +43,11 @@ main {
         box-shadow: $padding $padding 5px rgb($k, $k, $k);
         transition: 300ms all ease;
         @include flex;
-        justify-content: center;
+        justify-content: space-between;
 
         @media (width<=830px) {
-            width: 30vw;
-            height: 2em;
+            width: clamp(250px, 30vw, 700px);
+            height: 3em;
         }
 
         &:hover {
@@ -55,6 +55,32 @@ main {
             box-shadow: none;
             transform: translateY($padding);
             background-color: rgba(white, .4);
+        }
+
+        div {
+            &:first-child {
+                width: 90%;
+            }
+
+            &:nth-child(2) {
+                width: auto;
+                @include flex;
+                gap: 10px;
+
+                a {
+                    text-decoration: none;
+                    font-size: 16px;
+                }
+                
+                form {
+                    button {
+                        @include no-border;
+                        background-color: transparent;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
 }

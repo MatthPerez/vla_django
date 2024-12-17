@@ -8,8 +8,21 @@
     <a href="{% url 'groups' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
     /></a>
-    <span>Créer un nouveau groupe</span>
-    <span>Nouveau groupe</span>
+    <span>
+      {% if big_title %}
+      {{big_title}}
+      {% else %}
+      Créer un nouveau groupe
+      {% endif %}
+    </span>
+
+    <span>
+      {% if small_title %}
+      {{small_title}}
+      {% else %}
+      Nouveau groupe
+      {% endif %}
+    </span>
   </h1>
 
   <form method="POST">
@@ -22,7 +35,13 @@
     <div class="error">{{ form.non_field_errors }}</div>
     {% endif %}
 
-    <button type="submit">Ajouter la réunion</button>
+    <button type="submit">
+      {% if submit_text %}
+      {{submit_text}}
+      {% else %}
+      Créer le groupe
+      {% endif %}
+    </button>
   </form>
 </main>
 {% endblock %}
