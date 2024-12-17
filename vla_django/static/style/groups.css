@@ -140,6 +140,7 @@ main > a:hover {
   #group_names li {
     width: clamp(250px, 30vw, 700px);
     height: 3em;
+    padding: 0 10px !important;
   }
 }
 #group_names li:hover {

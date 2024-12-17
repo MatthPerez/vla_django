@@ -48,6 +48,7 @@ main {
         @media (width<=830px) {
             width: clamp(250px, 30vw, 700px);
             height: 3em;
+            padding: 0 10px !important;
         }
 
         &:hover {
