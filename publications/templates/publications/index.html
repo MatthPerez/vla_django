@@ -13,7 +13,7 @@
     <div class="publications">
       {% for pub in publications %}
       <article>
-        <div>{{pub.name}}</div>
+        <div>{{pub.name}} ({{pub.total_quantity|default:0}})</div>
         <div>
           <a
             href="{% url 'publication_update' pub.pk %}"

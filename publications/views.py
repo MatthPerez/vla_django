@@ -7,50 +7,45 @@ from publications.models import Publication
 from persons.models import Person
 from commands.models import Command
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.db.models import Sum
 
 
 def is_admin(user):
     return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
-# class PublicationView(View):
-#     def get(self, request):
-#         publications = Publication.objects.order_by("name")
-#         persons = Person.objects.order_by("group", "lastname", "firstname")
-#         groups = Group.objects.order_by("name")
-
-#         return render(
-#             request,
-#             "publications/index.html",
-#             {
-#                 "publications": publications,
-#                 "persons": persons,
-#                 "groups": groups,
-#             },
-#         )
-
-
 class PublicationView(View):
     def get(self, request):
-        publications = Publication.objects.order_by("name")
-        persons = Person.objects.order_by("group", "lastname", "firstname")
+        publications = Publication.objects.order_by("name").annotate(
+            total_quantity=Sum("publication__quantity")
+        )
+
+        persons = Person.objects.order_by(
+            "group",
+            "lastname",
+            "firstname",
+        )
 
         person_publications = []
         for person in persons:
-            commands = Command.objects.filter(person=person).select_related("publication")
+            commands = Command.objects.filter(person=person).select_related(
+                "publication"
+            )
             person_data = {
                 "person": person,
                 "commands": commands,
             }
             person_publications.append(person_data)
 
+        context = {
+            "publications": publications,
+            "persons": person_publications,
+        }
+
         return render(
             request,
             "publications/index.html",
-            {
-                "publications": publications,
-                "persons": person_publications,
-            },
+            context,
         )
 
 

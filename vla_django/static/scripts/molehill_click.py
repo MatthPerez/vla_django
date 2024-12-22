@@ -1,11 +1,10 @@
 import pyautogui
+from screeninfo import get_monitors
 
 # a, b = pyautogui.position()
 
 
 def molehill_1(x, y):
-    pyautogui.click(x, y)
-
     for column in range(12):
         for line in range(17):
             x_coord = x + 50 * line
@@ -14,8 +13,6 @@ def molehill_1(x, y):
 
 
 def half_molehill_1(x, y):
-    pyautogui.click(x, y)
-
     for column in range(6):
         for line in range(17):
             x_coord = x + 50 * line
@@ -24,8 +21,6 @@ def half_molehill_1(x, y):
 
 
 def molehill_2(x, y):
-    pyautogui.click(x, y)
-
     for column in range(12):
         for line in range(9):
             x_coord = x + 100 * line
@@ -34,8 +29,6 @@ def molehill_2(x, y):
 
 
 def molehill_4(x, y):
-    pyautogui.click(x, y)
-
     for column in range(6):
         for line in range(8):
             x_coord = x + 100 * line
@@ -57,3 +50,18 @@ def molehill_4(x, y):
 # molehill_4(3190, 590)
 
 # 3983 606
+
+
+def screens():
+    # screen_width, screen_height = pyautogui.size()
+    # print(f"Taille d'écran : {screen_width} x {screen_height}")
+    
+    print(len(get_monitors()))
+    
+    for m in get_monitors():
+        print(f"Écran {m.name}:")
+        print(f"  Largeur : {m.width}")
+        print(f"  Hauteur : {m.height}")
+
+
+screens()
