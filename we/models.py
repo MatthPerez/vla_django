@@ -4,9 +4,7 @@ from django.utils.timezone import now
 
 
 class WeekendMeeting(models.Model):
-    date = models.DateField(
-        default=now,
-    )
+    date = models.DateField(default=now)
     president = models.ForeignKey(
         Person,
         on_delete=models.CASCADE,

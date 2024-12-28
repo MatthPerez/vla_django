@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views import View
 from persons.models import Person
-from groups.models import Group
-from groups.forms import AddGroup
+from .models import Group
+from .forms import AddGroup
 from django.contrib.auth.mixins import UserPassesTestMixin
 
 
@@ -26,7 +26,6 @@ class GroupsView(View):
 
 
 class NewGroupView(UserPassesTestMixin, View):
-
     def test_func(self):
         return is_admin(self.request.user)
 
@@ -40,10 +39,10 @@ class NewGroupView(UserPassesTestMixin, View):
         submit_text = "Créer le groupe"
 
         context = {
+            "form": form,
             "big_title": big_title,
             "small_title": small_title,
             "submit_text": submit_text,
-            "form": form,
         }
 
         return render(
@@ -123,7 +122,7 @@ class GroupUpdate(UserPassesTestMixin, View):
         form = AddGroup(request.POST)
 
         if form.is_valid():
-            group.name = (form.cleaned_data["name"],)
+            group.name = form.cleaned_data["name"]
             group.save()
 
             return redirect("groups")

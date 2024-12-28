@@ -1,7 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
-from django.shortcuts import render
-from django.views import View
 from publications.forms import AddPublication
 from publications.models import Publication
 from persons.models import Person

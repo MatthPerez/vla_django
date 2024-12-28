@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+
 from .views import HomeView
 
 from infos.views import InfosView
@@ -74,25 +75,25 @@ from notes.views import (
 
 
 urlpatterns = [
-    path("", HomeView.as_view(), name="index"),
     path("admin/", admin.site.urls),
+    path("", HomeView.as_view(), name="index"),
     path("infos/", InfosView.as_view(), name="infos"),
     path("vcm/", VcmMeetingView.as_view(), name="vcm"),
     path("vcm/ajouter/", NewVcmView.as_view(), name="new_vcm"),
     path("vcm/<int:pk>/", VcmMeetingDetail.as_view(), name="vcm_detail"),
-    path("vcm/<int:pk>/modifier", VcmUpdate.as_view(), name="vcm_update"),
-    path("vcm/<int:pk>/suprimer", VcmDelete.as_view(), name="vcm_delete"),
+    path("vcm/<int:pk>/modifier/", VcmUpdate.as_view(), name="vcm_update"),
+    path("vcm/<int:pk>/suprimer/", VcmDelete.as_view(), name="vcm_delete"),
     path("we/", WeMeetingView.as_view(), name="we"),
     path("we/ajouter/", NewWeView.as_view(), name="new_we"),
-    path("we/<int:pk>/modifier", WeUpdate.as_view(), name="we_update"),
-    path("we/<int:pk>/supprimer", WeDelete.as_view(), name="we_delete"),
+    path("we/<int:pk>/modifier/", WeUpdate.as_view(), name="we_update"),
+    path("we/<int:pk>/supprimer/", WeDelete.as_view(), name="we_delete"),
     path("groupes/", GroupsView.as_view(), name="groups"),
     path("groupes/ajouter/", NewGroupView.as_view(), name="new_group"),
     path("groupes/<int:pk>/modifier/", GroupUpdate.as_view(), name="group_update"),
     path("groupes/<int:pk>/supprimer/", GroupDelete.as_view(), name="group_delete"),
     path("personnes/", PersonsView.as_view(), name="persons"),
     path("personnes/ajouter/", PersonCreate.as_view(), name="person_add"),
-    path("personnes/<int:pk>", PersonDetail.as_view(), name="person_detail"),
+    path("personnes/<int:pk>/", PersonDetail.as_view(), name="person_detail"),
     path("personnes/<int:pk>/modifier/", PersonUpdate.as_view(), name="person_update"),
     path("personnes/<int:pk>/supprimer/", PersonDelete.as_view(), name="person_delete"),
     path("communications/", CommunicationView.as_view(), name="communication"),
