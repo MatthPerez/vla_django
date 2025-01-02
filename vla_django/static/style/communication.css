@@ -143,8 +143,9 @@ main > a:hover {
 .communications article h3 div {
   width: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  align-items: flex-start;
   gap: 5px;
 }
 .communications article h3 div span {

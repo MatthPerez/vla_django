@@ -58,7 +58,7 @@
 
   <h2>Mes notes</h2>
 
-  <section class="notes">
+  {% comment %} <section class="notes">
     <a href="{% url 'note_new' %}">Créer une note</a>
 
     {% for note in notes %}
@@ -77,6 +77,6 @@
     {% empty %}
     <div>Pas de note pour le moment.</div>
     {% endfor %}
-  </section>
+  </section> {% endcomment %}
 </main>
 {% endblock %}

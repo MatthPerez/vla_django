@@ -48,7 +48,8 @@ main {
 
             div {
                 width: auto;
-                @include flex;
+                @include flexcolumn;
+                align-items: flex-start;
                 gap: 5px;
 
                 span {
