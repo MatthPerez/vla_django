@@ -18,7 +18,7 @@ class AddPredicationMeeting(forms.Form):
         ),
     )
     manager1 = forms.ModelChoiceField(
-        required=True,
+        required=False,
         queryset=Person.objects.filter(gender="MALE"),
         widget=forms.Select,
         label="Responsable",

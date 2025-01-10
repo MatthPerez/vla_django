@@ -96,15 +96,9 @@ class AddWeekendMeeting(forms.Form):
 
 
 class WeekMeetingForm(forms.ModelForm):
-
     class Meta:
         model = WeekendMeeting
         fields = "__all__"
-        widgets = {
-            "date": forms.DateInput(
-                attrs={"type": "date", "placeholder": "AAAA-MM-JJ"}
-            ),
-        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

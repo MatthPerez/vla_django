@@ -15,6 +15,8 @@ class PredicationMeeting(models.Model):
         Person,
         on_delete=models.CASCADE,
         related_name="manager1",
+        null=True,
+        blank=True,
     )
     place1 = models.TextField(
         max_length=255,

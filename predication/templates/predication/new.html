@@ -8,7 +8,13 @@
     <a href="{% url 'predication' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
     /></a>
-    <span>{{main_title}}</span>
+    <span>
+      {% if main_title %}
+      {{main_title}}
+      {% else %}
+      Nouvelle réunion pour la prédication
+      {% endif %}
+    </span>
   </h1>
 
   <form method="POST">

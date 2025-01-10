@@ -29,11 +29,13 @@
         </div>
       </h4>
 
+      {% if meeting.manager1 %}
       <div>
         <span>{{meeting.time1}}</span>
         <span>{{meeting.manager1.fullname}}</span>
         <span>{{meeting.place1}}</span>
       </div>
+      {% endif %}
 
       {% if meeting.manager2 %}
       <div>
