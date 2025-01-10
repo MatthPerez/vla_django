@@ -17,71 +17,31 @@ class AddPredicationMeeting(forms.Form):
             },
         ),
     )
-    manager1 = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Responsable",
-        to_field_name="id",
-    )
-    place1 = forms.CharField(
-        required=True,
-        initial="Salle du Royaume",
-        max_length=100,
-        label="Lieu",
-    )
-    time1 = forms.CharField(
+    time = forms.CharField(
         required=True,
         max_length=10,
         label="Heure",
         initial="9h15",
     )
-    manager2 = forms.ModelChoiceField(
+    manager = forms.ModelChoiceField(
         required=False,
         queryset=Person.objects.filter(gender="MALE"),
         widget=forms.Select,
         label="Responsable",
         to_field_name="id",
     )
-    place2 = forms.CharField(
-        required=False,
+    place = forms.CharField(
+        required=True,
         initial="Salle du Royaume",
         max_length=100,
         label="Lieu",
-    )
-    time2 = forms.CharField(
-        required=False,
-        max_length=10,
-        label="Heure",
-        initial="14h15",
-    )
-    manager3 = forms.ModelChoiceField(
-        required=False,
-        queryset=Person.objects.filter(gender="MALE"),
-        widget=forms.Select,
-        label="Responsable",
-        to_field_name="id",
-    )
-    place3 = forms.CharField(
-        required=False,
-        initial="Salle du Royaume",
-        max_length=100,
-        label="Lieu",
-    )
-    time3 = forms.CharField(
-        required=False,
-        max_length=10,
-        label="Heure",
-        initial="17h30",
     )
 
     def __init__(self, *args, **kwargs):
         super(AddPredicationMeeting, self).__init__(*args, **kwargs)
 
         fields_with_fullname = [
-            "manager1",
-            "manager2",
-            "manager3",
+            "manager",
         ]
 
         for field in fields_with_fullname:

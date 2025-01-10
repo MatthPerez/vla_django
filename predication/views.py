@@ -1,10 +1,11 @@
-from django.shortcuts import get_object_or_404, redirect, render
-from django.views.generic import View, ListView
-from predication.models import PredicationMeeting
-from predication.forms import AddPredicationMeeting
-from datetime import datetime
-import locale
+from collections import defaultdict
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
+from django.views.generic import View, ListView
+from predication.forms import AddPredicationMeeting
+from predication.models import PredicationMeeting
+import locale
 
 locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")
 
@@ -13,20 +14,31 @@ def is_admin(user):
     return user.is_authenticated and hasattr(user, "is_admin") and user.is_admin
 
 
+from django.views.generic import ListView
+from django.utils import timezone
+from predication.models import PredicationMeeting
+from collections import defaultdict
+
+
 class PredicationView(ListView):
     model = PredicationMeeting
-    context_object_name = "meetings"
+    context_object_name = "groups"
     template_name = "predication/index.html"
     empty_text = "Aucune réunion trouvée."
 
     def get_queryset(self):
-        today = datetime.today().date()
+        today = timezone.now().date()
         return PredicationMeeting.objects.filter(date__gte=today).order_by("date")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         queryset = self.get_queryset()
 
+        grouped_meetings = defaultdict(list)
+        for meeting in queryset:
+            grouped_meetings[meeting.date].append(meeting)
+
+        context["groups"] = grouped_meetings.items()
         context["count"] = queryset.count()
         context["empty_text"] = self.empty_text
         return context
@@ -64,15 +76,9 @@ class NewPredicationView(UserPassesTestMixin, View):
 
             predication_meeting = PredicationMeeting(
                 date=predication_data["date"],
-                manager1=predication_data["manager1"],
-                place1=predication_data["place1"],
-                time1=predication_data["time1"],
-                manager2=predication_data["manager2"],
-                place2=predication_data["place2"],
-                time2=predication_data["time2"],
-                manager3=predication_data["manager3"],
-                place3=predication_data["place3"],
-                time3=predication_data["time3"],
+                manager=predication_data["manager"],
+                place=predication_data["place"],
+                time=predication_data["time"],
             )
 
             predication_meeting.save()
@@ -116,15 +122,9 @@ class PredicationMeetingUpdate(UserPassesTestMixin, View):
         form = AddPredicationMeeting(
             initial={
                 "date": meeting.date,
-                "manager1": meeting.manager1,
-                "manager2": meeting.manager2,
-                "manager3": meeting.manager3,
-                "place1": meeting.place1,
-                "place2": meeting.place2,
-                "place3": meeting.place3,
-                "time1": meeting.time1,
-                "time2": meeting.time2,
-                "time3": meeting.time3,
+                "manager": meeting.manager,
+                "place": meeting.place,
+                "time": meeting.time,
             }
         )
 
@@ -144,15 +144,9 @@ class PredicationMeetingUpdate(UserPassesTestMixin, View):
 
         if form.is_valid():
             meeting.date = form.cleaned_data["date"]
-            meeting.manager1 = form.cleaned_data["manager1"]
-            meeting.manager2 = form.cleaned_data["manager2"]
-            meeting.manager3 = form.cleaned_data["manager3"]
-            meeting.place1 = form.cleaned_data["place1"]
-            meeting.place2 = form.cleaned_data["place2"]
-            meeting.place3 = form.cleaned_data["place3"]
-            meeting.time1 = form.cleaned_data["time1"]
-            meeting.time2 = form.cleaned_data["time2"]
-            meeting.time3 = form.cleaned_data["time3"]
+            meeting.manager = form.cleaned_data["manager"]
+            meeting.place = form.cleaned_data["place"]
+            meeting.time = form.cleaned_data["time"]
             meeting.save()
 
             return redirect("predication")
@@ -173,7 +167,7 @@ class PredicationDelete(UserPassesTestMixin, View):
         return is_admin(self.request.user)
 
     def handle_no_permission(self):
-        return redirect("persons")
+        return redirect("predication")
 
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")

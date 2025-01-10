@@ -1,8 +1,9 @@
-{% extends 'vla_django/base.html' %} {% load static %} {% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/predication.css' %}" />
-{% endblock %} {% block script_js %}
-<script src="{% static 'js/predication.js' %}"></script>
-{% endblock %} {% block title %}VLA | Prédication{% endblock %} {% block content %}
+{% extends 'vla_django/base.html' %} 
+{% load static %} 
+{% block extra_css %}<link rel="stylesheet" href="{% static 'style/predication.css' %}" />{% endblock %} 
+{% block script_js %}<script src="{% static 'js/predication.js' %}" defer></script>{% endblock %} 
+{% block title %}VLA | Prédication{% endblock %} 
+{% block content %}
 <main>
   <h1>Prédication</h1>
 
@@ -11,49 +12,52 @@
   <div>
     <span>Adresse de la salle du Royaume :</span>
     <span>1 impasse du Petit Nice aux Angles</span>
-    <a href="https://www.google.fr/maps/place/1 impasse du Petit Nice, 30133 Les Angles" target="_blank"><img src="{% static 'icons/gps.png' %}" title="Lancer le GPS" alt="GPS"></a>
+    <a
+      href="https://www.google.fr/maps/place/1 impasse du Petit Nice, 30133 Les Angles"
+      target="_blank"
+      ><img src="{% static 'icons/gps.png' %}" title="Lancer le GPS" alt="GPS"
+    /></a>
   </div>
 
-  <ul class="pred_meeting">
-    {% for meeting in meetings %}
-    <li>
-      <h4>
-        <div>{{meeting.day}} {{meeting.date}}</div>
+  <section id="pred-list">
+    {% if groups %} {% for date, meetings in groups %}
+    <article>
+      <h2>{{ date|date:"l j F Y" }}</h2>
+      <ul class="pred_meeting">
+        {% for meeting in meetings %}
+        <li>
+          <div>
+            <div>
+              <span>{{ meeting.time }}</span>
+              <span>{{ meeting.manager.fullname }}</span>
+              <span>{{ meeting.place }}</span>
+            </div>
 
-        <div class="actions">
-          <a href="{% url 'predication_update' meeting.pk %}" title="Modifier réunion du {{meeting.date}}">✏️</a>
-          <form action="{% url 'predication_delete' meeting.pk %}" method="POST">
-            {% csrf_token %}
-            <button type="submit" title="Supprimer réunion du {{meeting.date}}">❌</button>
-          </form>
-        </div>
-      </h4>
-
-      {% if meeting.manager1 %}
-      <div>
-        <span>{{meeting.time1}}</span>
-        <span>{{meeting.manager1.fullname}}</span>
-        <span>{{meeting.place1}}</span>
-      </div>
-      {% endif %}
-
-      {% if meeting.manager2 %}
-      <div>
-        <span>{{meeting.time2}}</span>
-        <span>{{meeting.manager2.fullname}}</span>
-        <span>{{meeting.place2}}</span>
-      </div>
-      {% endif %}
-      
-      {% if meeting.manager3 %}
-      <div>
-        <span>{{meeting.time3}}</span>
-        <span>{{meeting.manager3.fullname}}</span>
-        <span>{{meeting.place3}}</span>
-      </div>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
+            <div class="actions">
+              <a
+                href="{% url 'predication_update' meeting.pk %}"
+                title="Modifier réunion du {{meeting.date}} à {{meeting.time}}"
+                >✏️</a
+              >
+              <form
+                action="{% url 'predication_delete' meeting.pk %}"
+                method="POST"
+              >
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  title="Supprimer réunion du {{meeting.date}} à {{meeting.time}}"
+                >
+                  ❌
+                </button>
+              </form>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </article>
+    {% endfor %} {% else %} Pas de réunion pour la prédication. {% endif %}
+  </section>
 </main>
 {% endblock %}

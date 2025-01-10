@@ -17,19 +17,13 @@
     </span>
   </h1>
 
-  <form method="POST">
+  <form method="POST" class="new-meeting">
     {% csrf_token %}
     <section>
       <div>{{ form.date.label_tag }} {{ form.date }}</div>
-      <div>{{ form.manager1.label_tag }} {{ form.manager1 }}</div>
-      <div>{{ form.place1.label_tag }} {{ form.place1 }}</div>
-      <div class="sep">{{ form.time1.label_tag }} {{ form.time1 }}</div>
-      <div>{{ form.manager2.label_tag }} {{ form.manager2 }}</div>
-      <div>{{ form.place2.label_tag }} {{ form.place2 }}</div>
-      <div class="sep">{{ form.time2.label_tag }} {{ form.time2 }}</div>
-      <div>{{ form.manager3.label_tag }} {{ form.manager3 }}</div>
-      <div>{{ form.place3.label_tag }} {{ form.place3 }}</div>
-      <div>{{ form.time3.label_tag }} {{ form.time3 }}</div>
+      <div>{{ form.time.label_tag }} {{ form.time }}</div>
+      <div>{{ form.manager.label_tag }} {{ form.manager }}</div>
+      <div>{{ form.place.label_tag }} {{ form.place }}</div>
     </section>
 
     {% if form.non_field_errors %}

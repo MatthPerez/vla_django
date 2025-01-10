@@ -68,7 +68,7 @@ main {
     }
 }
 
-form {
+.new-meeting {
     width: clamp(300px, 70%, 700px);
     @include flexcolumn;
     gap: 1em;
@@ -121,7 +121,7 @@ form {
 }
 
 .pred_meeting {
-    width: clamp(200px, 60%, 600px);
+    width: clamp(200px, 75%, 900px);
     list-style: none;
     @include flexcolumn;
     gap: 1em;
@@ -216,4 +216,33 @@ form {
     justify-content: center;
     gap: 5px !important;
     // background-color: rgba(white, .2) !important;
+
+    a,
+    form {
+        width: auto;
+        text-decoration: none;
+    }
+
+    a,
+    form button {
+        @include no-border;
+        font-size: 18px;
+        background-color: transparent;
+    }
+}
+
+#pred-list {
+    @include flexcolumn;
+    gap: 2em;
+
+    article {
+        @include flexcolumn;
+        gap: .5em;
+
+        h2 {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+    }
 }

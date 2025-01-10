@@ -105,32 +105,12 @@
   <section id="predication">
     <article>
       <div>
-        <span>{{predication.time1}}</span>
+        <span>{{predication.time}}</span>
         <span>-</span>
-        <span>{{predication.manager1.fullname}}</span>
+        <span>{{predication.manager.fullname}}</span>
       </div>
-      <div>{{predication.place1}}</div>
+      <div>{{predication.place}}</div>
     </article>
-
-    {% if predication.manager2 %}
-    <article>
-      <div>
-        <span>{{predication.time2}}</span>
-        <span>-</span>
-        <span>{{predication.manager2.fullname}}</span>
-      </div>
-      <div>{{predication.place2}}</div>
-    </article>
-    {% endif %} {% if predication.manager3 %}
-    <article>
-      <div>
-        <span>{{predication.time3}}</span>
-        <span>-</span>
-        <span>{{predication.manager3.fullname}}</span>
-      </div>
-      <div>{{predication.place3}}</div>
-    </article>
-    {% endif %}
   </section>
 
   <a href="{% url 'communication' %}" class="title1">Communications</a>
