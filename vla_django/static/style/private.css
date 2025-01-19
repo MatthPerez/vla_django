@@ -94,6 +94,7 @@ main {
   align-items: center;
   gap: 2em;
   padding-bottom: 5em;
+  overflow: hidden;
 }
 main > a {
   width: auto;

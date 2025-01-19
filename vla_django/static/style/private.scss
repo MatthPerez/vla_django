@@ -18,6 +18,7 @@ main {
     @include flexcolumn;
     gap: 2em;
     padding-bottom: 5em;
+    overflow: hidden;
 
     >a {
         @include button;
