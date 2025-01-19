@@ -8,7 +8,7 @@ SECRET_KEY = "r5dasur(2%umuo3=!^wy^9s8!gozb=4-g&_81%vy7=@a9p@$hz"
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "material",

@@ -7,7 +7,6 @@ locale.setlocale(locale.LC_TIME, "fr_FR.UTF-8")
 
 
 class PredicationMeeting(models.Model):
-
     date = models.DateField(
         default=now,
     )
