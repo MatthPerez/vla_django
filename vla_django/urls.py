@@ -21,5 +21,6 @@ urlpatterns = [
     path("we/", include("we.urls")),
     path("inscription/", Signup.as_view(), name="signup"),
     path("connexion/", Signin.as_view(), name="signin"),
-    path("deconnexion/", Logout.as_view(), name="logout"),    
+    path("deconnexion/", Logout.as_view(), name="logout"),
+    path("notes/", include("notes.urls")),
 ]

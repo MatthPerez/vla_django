@@ -23,10 +23,12 @@ class PrivateView(View):
             )
             persons = Person.objects.all()
             notes = Note.objects.filter(writer_id=person.id)
+            roles = person.roles_display_with_commas
 
             context = {
                 "persons": persons,
                 "notes": notes,
+                "roles": roles,
             }
 
             return render(

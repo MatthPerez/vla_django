@@ -109,9 +109,6 @@ class Person(models.Model):
     def get_roles_display(self):
         roles = self.cong_roles.split(",")
         return [dict(self.ROLES).get(role.strip(), role.strip()) for role in roles]
-    
-    def get_roles_as_list(self):
-        return self.cong_roles.split(",") if self.cong_roles else []
 
     def get_roles_as_list(self):
         return self.cong_roles.split(",") if self.cong_roles else []
@@ -119,3 +116,8 @@ class Person(models.Model):
     @property
     def fullname(self):
         return f"{self.firstname} {self.lastname.upper()}"
+
+    @property
+    def roles_display_with_commas(self):
+        roles_list = self.get_roles_display()
+        return ", ".join(roles_list)

@@ -52,13 +52,17 @@
       <span>Fonction</span>
       <span>{{person.get_cong_function_display}}</span>
     </li>
+    <li>
+      <span>Responsabilités</span>
+      <span>{{roles}}</span>
+    </li>
     {% endif %}
     {% endfor %}
   </ul>
 
   <h2>Mes notes</h2>
 
-  {% comment %} <section class="notes">
+  <section class="notes">
     <a href="{% url 'note_new' %}">Créer une note</a>
 
     {% for note in notes %}
@@ -77,6 +81,6 @@
     {% empty %}
     <div>Pas de note pour le moment.</div>
     {% endfor %}
-  </section> {% endcomment %}
+  </section>
 </main>
 {% endblock %}
