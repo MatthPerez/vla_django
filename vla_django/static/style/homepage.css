@@ -207,7 +207,7 @@ main section {
 @media (width <= 768px) {
   #visit {
     bottom: 2em;
-    width: 80px;
+    width: 60px;
   }
 }
 #visit img {
