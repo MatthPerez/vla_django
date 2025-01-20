@@ -134,11 +134,11 @@ main > h1 span:nth-child(3) {
     width: minmax(250px, 500px);
   }
   main > h1 a img {
-    height: 0.7em;
+    height: 0.5em;
     aspect-ratio: 1;
   }
   main > h1 span {
-    font-size: 30px;
+    font-size: 20px;
   }
   main > h1 span:nth-child(2) {
     display: none;

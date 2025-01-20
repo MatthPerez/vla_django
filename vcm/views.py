@@ -152,7 +152,7 @@ class VcmUpdate(UserPassesTestMixin, View):
         return is_admin(self.request.user)
 
     def handle_no_permission(self):
-        return redirect("persons")
+        return redirect("vcm")
 
     def get(self, request, pk):
         meeting = Meeting.objects.get(pk=pk)
@@ -307,7 +307,7 @@ class VcmDelete(UserPassesTestMixin, View):
         return is_admin(self.request.user)
 
     def handle_no_permission(self):
-        return redirect("persons")
+        return redirect("vcm")
 
     def post(self, request, *args, **kwargs):
         pk = kwargs.get("pk")

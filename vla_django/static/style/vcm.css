@@ -106,11 +106,11 @@ main h1 a {
 @media (width <= 768px) {
   main h1 span,
   main h1 a {
-    font-size: 25px;
+    font-size: 20px;
   }
   main h1 span img,
   main h1 a img {
-    width: 25px;
+    width: 20px;
   }
 }
 main h1 > a img {
@@ -210,6 +210,11 @@ main h1 > a img {
   box-shadow: 6px 6px 10px rgb(50, 50, 50);
   gap: 1em;
 }
+@media (width <= 768px) {
+  .meeting {
+    box-shadow: none;
+  }
+}
 .meeting > a {
   width: clamp(200px, 40%, 700px);
   text-align: center;
@@ -282,6 +287,13 @@ main h1 > a img {
     font-size: 20px;
     padding: 10px 0;
   }
+}
+@media (width <= 768px) and (width <= 768px) {
+  .meeting h2 {
+    font-size: 16px;
+  }
+}
+@media (width <= 768px) {
   .meeting h3 {
     display: flex;
     flex-direction: column;
@@ -298,6 +310,13 @@ main h1 > a img {
   .meeting div span {
     text-align: left !important;
   }
+}
+@media (width <= 768px) and (width <= 768px) {
+  .meeting div span {
+    font-size: 16px !important;
+  }
+}
+@media (width <= 768px) {
   .meeting div span:first-child {
     font-weight: 550;
   }
@@ -306,6 +325,11 @@ main h1 > a img {
 .president span:first-child {
   font-weight: bold;
   font-size: 20px;
+}
+@media (width <= 768px) {
+  .president span:first-child {
+    font-size: 16px;
+  }
 }
 
 .prayer {

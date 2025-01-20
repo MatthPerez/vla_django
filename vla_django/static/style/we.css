@@ -190,12 +190,35 @@ main section {
   background-color: transparent;
 }
 
-.update-we-meeting,
-.delete-we-meeting {
-  text-decoration: none;
+.actions {
+  width: auto;
   position: absolute;
-  top: 2em;
-  width: 2em;
-  height: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  top: 0.5em;
+  right: 1em;
+}
+.actions a,
+.actions form {
+  width: 1em;
+  height: 1em;
+  text-decoration: none;
   cursor: pointer;
+}
+@media (width <= 768px) {
+  .actions a,
+  .actions form {
+    top: 0.5em;
+    right: 0.5em;
+  }
+}
+.actions a,
+.actions form button {
+  font-size: 18px;
+  outline: none;
+  border: none;
+  background-color: transparent;
 }/*# sourceMappingURL=we.css.map */

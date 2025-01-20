@@ -101,13 +101,34 @@ main {
     }
 }
 
-.update-we-meeting,
-.delete-we-meeting {
-    text-decoration: none;
+.actions {
+    width: auto;
     position: absolute;
-    $size: 2em;
-    top: $size;
-    width: $size;
-    height: $size;
-    cursor: pointer;
+    @include flex;
+    justify-content: center;
+    gap: 10px;
+    $size: 1em;
+    top: calc($size / 2);
+    right: $size;
+
+    a,
+    form {
+        width: $size;
+        height: $size;
+        text-decoration: none;
+        cursor: pointer;
+
+        @media (width<=768px) {
+            $size: .5em;
+            top: $size;
+            right: $size;
+        }
+    }
+
+    a,
+    form button {
+        font-size: 18px;
+        @include no-border;
+        background-color: transparent;
+    }
 }

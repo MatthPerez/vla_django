@@ -59,13 +59,15 @@
   
       <section class="song">Cantique n°{{meeting.song3}}</section>
   
-      <a href="{% url 'we_update' meeting.pk %}" class="update-we-meeting" title="Modifier réunion du {{meeting.date}}">
-        ✏️
-      </a>
-      <form action="{% url 'we_delete' meeting.pk %}" method="POST" class="delete-we-meeting" title="Supprimer réunion du {{meeting.date}}">
-        {% csrf_token %}
-        <button type="wubmit">❌</button>
-      </form>
+      <div class="actions">
+        <a href="{% url 'we_update' meeting.pk %}" title="Modifier réunion du {{meeting.date}}">
+          ✏️
+        </a>
+        <form action="{% url 'we_delete' meeting.pk %}" method="POST" title="Supprimer réunion du {{meeting.date}}">
+          {% csrf_token %}
+          <button type="wubmit">❌</button>
+        </form>
+      </div>
     </article>
     {% endfor %}
   </section>

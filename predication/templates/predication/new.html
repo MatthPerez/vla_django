@@ -8,6 +8,15 @@
     <a href="{% url 'predication' %}"
       ><img src="{% static 'icons/left_arrow.png' %}" alt="Retour"
     /></a>
+    
+    <span>
+      {% if main_title %}
+      {{main_title}}
+      {% else %}
+      Nouvelle réunion pour la prédication
+      {% endif %}
+    </span>
+    
     <span>
       {% if main_title %}
       {{main_title}}

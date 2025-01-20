@@ -229,8 +229,8 @@ nav {
             flex-direction: column;
             justify-content: center;
             align-items: flex-end;
-            $width: 35px;
-            gap: calc($width / 6);
+            $width: 30px;
+            gap: calc($width / 4.5);
             cursor: pointer;
 
             img {
@@ -245,14 +245,14 @@ nav {
 #menu {
     @include flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
     justify-content: flex-start;
     height: 0;
     position: fixed;
     top: 0;
     overflow: hidden;
     z-index: 10;
-    background-color: rgba(white, .7);
+    background-color: white;
     backdrop-filter: blur(10px);
     $k: 50;
     box-shadow: inset 0 0 20px 5px rgba($k, $k, $k);

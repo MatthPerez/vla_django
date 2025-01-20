@@ -26,17 +26,28 @@ main {
     background-color: var(--color-quaternary-gray);
     @include flexcolumn;
     gap: 1em;
+    padding-bottom: 7em;
+
+    @media (width<=768px) {
+        gap: .5em;
+    }
 
     h1 {
         @include red-neon;
         color: white;
         font-weight: 400;
+        font-size: clamp(20px, 2.5rem, 35px);
+
+        @media (width<=768px) {
+            font-size: 25px;
+        }
     }
 
     section {
         width: clamp(300px, 90%, 1000px) !important;
         @include flex;
         justify-content: space-evenly;
+        gap: 1em;
         flex-wrap: wrap;
 
         @media (width<=768px) {
@@ -55,6 +66,11 @@ main {
     font-size: 25px;
     font-weight: bold;
     margin: 3em 0 .5em 0;
+
+    @media (width<=768px) {
+        font-size: 20px;
+        margin: 1em 0 .2em 0;
+    }
 }
 
 .billboard_title {
@@ -89,6 +105,10 @@ main {
         text-decoration: none;
         padding: 0 .5em;
         text-align: center;
+    }
+
+    @media (width<=768px) {
+        font-size: 18px;
     }
 }
 
@@ -159,6 +179,14 @@ main {
             background-color: white;
         }
     }
+
+    @media (width<=768px) {
+        width: clamp(200px, 40%, 200px);
+
+        span {
+            font-size: 18px;
+        }
+    }
 }
 
 .datas {
@@ -178,7 +206,7 @@ main {
 }
 
 #schedules {
-    width: 40%;
+    width: clamp(300px, 40%, 800px);
     @include flexcolumn;
 
     * {
@@ -203,10 +231,28 @@ main {
             font-size: 1.1rem;
         }
     }
+
+    @media (width<=768px) {
+        width: 90%;
+        margin-left: 5%;
+
+        h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            gap: 2px;
+
+            li {
+                font-size: 15px;
+            }
+        }
+    }
 }
 
 #details {
-    width: 50%;
+    width: clamp(300px, 50%, 800px);
     list-style: none;
     @include flexcolumn;
     align-items: flex-start;
@@ -221,7 +267,7 @@ main {
 
         * {
             width: auto;
-            font-size: 1.1rem;
+            font-size: clamp(15px, 1.1rem, 16px);
         }
 
         span {
@@ -249,12 +295,12 @@ main {
     }
 }
 
-#schedules,
-#details {
-    @media (width<=768px) {
-        width: 80%;
-    }
-}
+// #schedules,
+// #details {
+//     @media (width<=768px) {
+//         width: 80%;
+//     }
+// }
 
 #communication {
     @include flexcolumn;
@@ -318,6 +364,13 @@ main {
             p,
             a {
                 text-indent: 0;
+                font-size: 16px;
+                text-align: left;
+
+                @media (width<=768px) {
+                    font-size: 14px;
+
+                }
             }
 
             a {
@@ -343,12 +396,17 @@ main {
 
             div {
                 a {
-                    max-width: 30ch;
+                    width: clamp(150px, 90%, 40ch);
                     overflow: hidden;
                     text-overflow: ellipsis;
                 }
             }
         }
+    }
+
+    @media (width<=768px) {
+        width: 90%;
+        gap: .5em;
     }
 }
 
@@ -356,6 +414,7 @@ main {
     @include flex;
     justify-content: center;
     gap: 1em;
+    flex-wrap: wrap;
 
     a {
         text-decoration: none;
@@ -383,6 +442,15 @@ main {
         &:hover {
             transition: 150ms all ease;
             background-color: rgba(white, .7);
+        }
+    }
+
+    @media (width<=768px) {
+        gap: .5em;
+
+        a {
+            width: clamp(150px, 45%, 300px);
+            aspect-ratio: 6/5;
         }
     }
 }

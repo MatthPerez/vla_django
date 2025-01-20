@@ -28,10 +28,10 @@ main {
             text-decoration: none;
 
             @media (width<=768px) {
-                font-size: 25px;
+                font-size: 20px;
 
                 img {
-                    width: 25px;
+                    width: 20px;
                 }
             }
         }
@@ -122,6 +122,10 @@ main {
     box-shadow: $padding $padding 10px rgb($k, $k, $k);
     gap: 1em;
 
+    @media (width<=768px) {
+        box-shadow: none;
+    }
+
     >a {
         width: clamp(200px, 40%, 700px);
         text-align: center;
@@ -201,6 +205,10 @@ main {
         h2 {
             font-size: 20px;
             padding: 10px 0;
+
+            @media (width<=768px) {
+                font-size: 16px;
+            }
         }
 
         h3 {
@@ -216,6 +224,10 @@ main {
             span {
                 text-align: left !important;
 
+                @media (width<=768px) {
+                    font-size: 16px !important;
+                }
+
                 &:first-child {
                     font-weight: 550;
                 }
@@ -229,6 +241,10 @@ main {
         &:first-child {
             font-weight: bold;
             font-size: 20px;
+
+            @media (width<=768px) {
+                font-size: 16px;
+            }
         }
     }
 }
